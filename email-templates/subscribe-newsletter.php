@@ -1,174 +1,207 @@
 <?php
-if( ! empty( $_POST['email'] ) ) {
+// hostinger-email-sender.php - Optimized for Hostinger hosting
+header('Content-Type: application/json; charset=utf-8');
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: POST');
+header('Access-Control-Allow-Headers: Content-Type');
 
-	// Enable / Disable Mailchimp
-	$enable_mailchimp = 'no'; // yes OR no
+$mail->Host = 'smtp.hostinger.com';
+$mail->Username = 'info@dikera.com';  // Your actual email
+$mail->Password = 'Vn21022025!';  // Your email password
 
-	// Enable / Disable SMTP
-	$enable_smtp = 'no'; // yes OR no
-
-	// Email Receiver Address
-	$receiver_email = 'info@yourdomain.com';
-
-	// Email Receiver Name for SMTP Email
-	$receiver_name 	= 'Your Name';
-
-	// Email Subject
-	$subject 	= 'Subscribe Newsletter form details';
-
-	$email 	= $_POST['email'];
-
-	if( $enable_mailchimp == 'no' ) { // Simple / SMTP Email
-
-		$name 	= isset( $_POST['name'] ) ? $_POST['name'] : '';
-
-		$message = '
-		<html>
-		<head>
-		<title>HTML email</title>
-		</head>
-		<body>
-		<table width="50%" border="0" align="center" cellpadding="0" cellspacing="0">
-		<tr>
-		<td colspan="2" align="center" valign="top"><img style=" margin-top: 15px; " src="http://www.yourdomain.com/images/logo-email.png" ></td>
-		</tr>
-		<tr>
-		<td width="50%" align="right">&nbsp;</td>
-		<td align="left">&nbsp;</td>
-		</tr>';
-		if( ! empty( $name ) ) {
-			$message .= '<tr>
-			<td align="right" valign="top" style="border-top:1px solid #dfdfdf; font-family:Arial, Helvetica, sans-serif; font-size:13px; color:#000; padding:7px 5px 7px 0;">Name:</td>
-			<td align="left" valign="top" style="border-top:1px solid #dfdfdf; font-family:Arial, Helvetica, sans-serif; font-size:13px; color:#000; padding:7px 0 7px 5px;">' . $name . '</td>
-			</tr>';
-		}
-		$message .= '<tr>
-		<td align="right" valign="top" style="border-top:1px solid #dfdfdf; font-family:Arial, Helvetica, sans-serif; font-size:13px; color:#000; padding:7px 5px 7px 0;">Email:</td>
-		<td align="left" valign="top" style="border-top:1px solid #dfdfdf; font-family:Arial, Helvetica, sans-serif; font-size:13px; color:#000; padding:7px 0 7px 5px;">' . $email . '</td>
-		</tr>
-		</table>
-		</body>
-		</html>
-		';
-
-		if( $enable_smtp == 'no' ) { // Simple Email
-
-			// Always set content-type when sending HTML email
-			$headers = "MIME-Version: 1.0" . "\r\n";
-			$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-			// More headers
-			$headers .= 'From: <' . $email . '>' . "\r\n";
-			if( mail( $receiver_email, $subject, $message, $headers ) ) {
-				
-				// Redirect to success page
-				$redirect_page_url = ! empty( $_POST['redirect'] ) ? $_POST['redirect'] : '';
-				if( ! empty( $redirect_page_url ) ) {
-					header( "Location: " . $redirect_page_url );
-					exit();
-				}
-
-			   	//Success Message
-			  	echo '{ "alert": "alert-success", "message": "Your message has been sent successfully subscribed to our email list!" }';
-			} else {
-				//Fail Message
-			  	echo '{ "alert": "alert-danger", "message": "Your message could not been sent!" }';
-			}
-
-		} else { // SMTP
-
-			// Email Receiver Addresses
-			$toemailaddresses = array();
-			$toemailaddresses[] = array(
-				'email' => $receiver_email, // Your Email Address
-				'name' 	=> $receiver_name // Your Name
-			);
-
-			require 'phpmailer/Exception.php';
-			require 'phpmailer/PHPMailer.php';
-			require 'phpmailer/SMTP.php';
-
-			$mail = new PHPMailer\PHPMailer\PHPMailer();
-
-			$mail->isSMTP();
-			$mail->Host     = 'YOUR_SMTP_HOST'; // Your SMTP Host
-			$mail->SMTPAuth = true;
-			$mail->Username = 'YOUR_SMTP_USERNAME'; // Your Username
-			$mail->Password = 'YOUR_SMTP_PASSWORD'; // Your Password
-			$mail->SMTPSecure = 'ssl'; // Your Secure Connection
-			$mail->Port     = 465; // Your Port
-			$mail->setFrom( $from, $name );
-			
-			foreach( $toemailaddresses as $toemailaddress ) {
-				$mail->AddAddress( $toemailaddress['email'], $toemailaddress['name'] );
-			}
-
-			$mail->Subject = $subject;
-			$mail->isHTML( true );
-
-			$mail->Body = $message;
-
-			if( $mail->send() ) {
-				
-				// Redirect to success page
-				$redirect_page_url = ! empty( $_POST['redirect'] ) ? $_POST['redirect'] : '';
-				if( ! empty( $redirect_page_url ) ) {
-					header( "Location: " . $redirect_page_url );
-					exit();
-				}
-
-			   	//Success Message
-			  	echo '{ "alert": "alert-success", "message": "Your message has been sent successfully subscribed to our email list!" }';
-			} else {
-				//Fail Message
-			  	echo '{ "alert": "alert-danger", "message": "Your message could not been sent!" }';
-			}
-		}
-
-	} else { // Mailchimp
-
-		$api_key 	= 'YOUR_MAILCHIMP_API_KEY'; // Your MailChimp API Key
-		$list_id 	= 'YOUR_MAILCHIMP_LIST_ID'; // Your MailChimp List ID
-		$status 	= 'subscribed';
-		$f_name		= ! empty( $_POST['name'] ) ? $_POST['name'] : substr( $email, 0, strpos( $email,'@' ) );
-
-		$data = array(
-			'apikey'        => $api_key,
-	    	'email_address' => $email,
-			'status'        => $status,
-			'merge_fields'  => array( 'FNAME' => $f_name )
-		);
-		$mch_api = curl_init(); // initialize cURL connection
-	 
-		curl_setopt( $mch_api, CURLOPT_URL, 'https://' . substr( $api_key, strpos( $api_key, '-' ) + 1 ) . '.api.mailchimp.com/3.0/lists/' . $list_id . '/members/' . md5( strtolower( $data['email_address'] ) ) );
-		curl_setopt( $mch_api, CURLOPT_HTTPHEADER, array( 'Content-Type: application/json', 'Authorization: Basic '.base64_encode( 'user:' . $api_key ) ) );
-		curl_setopt( $mch_api, CURLOPT_USERAGENT, 'PHP-MCAPI/2.0' );
-		curl_setopt( $mch_api, CURLOPT_RETURNTRANSFER, true ); // return the API response
-		curl_setopt( $mch_api, CURLOPT_CUSTOMREQUEST, 'PUT' ); // method PUT
-		curl_setopt( $mch_api, CURLOPT_TIMEOUT, 10 );
-		curl_setopt( $mch_api, CURLOPT_POST, true );
-		curl_setopt( $mch_api, CURLOPT_SSL_VERIFYPEER, false );
-		curl_setopt( $mch_api, CURLOPT_POSTFIELDS, json_encode( $data ) ); // send data in json
-	 
-		$result	= curl_exec( $mch_api );
-		$result = ! empty( $result ) ? json_decode( $result ) : '';
-
-		if ( ! empty( $result->status ) AND $result->status == 'subscribed' ) {
-			
-			// Redirect to success page
-			$redirect_page_url = ! empty( $_POST['redirect'] ) ? $_POST['redirect'] : '';
-			if( ! empty( $redirect_page_url ) ) {
-				header( "Location: " . $redirect_page_url );
-				exit();
-			}
-
-		   	//Success Message
-			echo '{ "alert": "alert-success", "message": "Your message has been sent successfully subscribed to our email list!" }';
-		} else {
-			//Fail Message
-			echo '{ "alert": "alert-danger", "message": "Your message could not been sent!" }';
-		}
-	}
-} else {
-	//Empty Email Message
-	echo '{ "alert": "alert-danger", "message": "Please add an email address!" }';
+// Security check
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    http_response_code(405);
+    echo json_encode(['alert' => 'alert-danger', 'message' => 'Method not allowed']);
+    exit;
 }
+
+// Validate email input
+if (empty($_POST['email'])) {
+    echo json_encode(['alert' => 'alert-danger', 'message' => 'Lütfen e-posta adresinizi girin!']);
+    exit;
+}
+
+$email = filter_var(trim($_POST['email']), FILTER_VALIDATE_EMAIL);
+if (!$email) {
+    echo json_encode(['alert' => 'alert-danger', 'message' => 'Lütfen geçerli bir e-posta adresi girin!']);
+    exit;
+}
+
+// Configuration
+$to_email = 'info@dikera.com';
+$subject = 'Yeni Demo Talebi - DikEra AI';
+$timestamp = date('d.m.Y H:i:s');
+$request_id = 'DEM-' . date('Ymd') . '-' . substr(md5($email . time()), 0, 6);
+
+// Get user info
+$user_ip = $_SERVER['REMOTE_ADDR'] ?? 'Unknown';
+$user_agent = $_SERVER['HTTP_USER_AGENT'] ?? 'Unknown';
+
+// Email content
+$html_message = "
+<!DOCTYPE html>
+<html lang='tr'>
+<head>
+    <meta charset='UTF-8'>
+    <title>Demo Talebi</title>
+</head>
+<body style='font-family: Arial, sans-serif; margin: 0; padding: 20px; background: #f4f4f4;'>
+    <div style='max-width: 600px; margin: 0 auto; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1);'>
+        <div style='background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px; text-align: center;'>
+            <h1 style='color: white; margin: 0; font-size: 24px;'>🚀 Yeni Demo Talebi</h1>
+            <p style='color: rgba(255,255,255,0.9); margin: 10px 0 0 0;'>DikEra AI Platformu</p>
+        </div>
+        
+        <div style='padding: 30px;'>
+            <div style='background: #e8f4fd; border-left: 4px solid #667eea; padding: 20px; margin-bottom: 25px; border-radius: 5px;'>
+                <h2 style='color: #333; margin: 0 0 10px 0;'>📧 Demo Talep Detayları</h2>
+                <p style='color: #666; margin: 0; font-size: 14px;'>Talep ID: <strong>$request_id</strong></p>
+            </div>
+            
+            <table style='width: 100%; border-collapse: collapse;'>
+                <tr style='background: #f8f9fa;'>
+                    <td style='padding: 15px; border: 1px solid #dee2e6; font-weight: bold; color: #495057;'>E-posta Adresi</td>
+                    <td style='padding: 15px; border: 1px solid #dee2e6; color: #212529;'><a href='mailto:$email' style='color: #667eea;'>$email</a></td>
+                </tr>
+                <tr>
+                    <td style='padding: 15px; border: 1px solid #dee2e6; font-weight: bold; color: #495057;'>Tarih & Saat</td>
+                    <td style='padding: 15px; border: 1px solid #dee2e6; color: #212529;'>$timestamp</td>
+                </tr>
+                <tr style='background: #f8f9fa;'>
+                    <td style='padding: 15px; border: 1px solid #dee2e6; font-weight: bold; color: #495057;'>IP Adresi</td>
+                    <td style='padding: 15px; border: 1px solid #dee2e6; color: #212529;'>$user_ip</td>
+                </tr>
+            </table>
+            
+            <div style='background: #fff3cd; border-radius: 5px; padding: 20px; margin: 25px 0;'>
+                <h3 style='color: #856404; margin: 0 0 10px 0;'>⚡ Aksiyon Gerekli</h3>
+                <p style='color: #856404; margin: 0;'>Bu kullanıcı DikEra AI platformu için demo talebinde bulunmuştur. Lütfen 24 saat içinde kendisiyle iletişime geçin.</p>
+            </div>
+            
+            <div style='text-align: center;'>
+                <a href='mailto:$email?subject=DikEra%20AI%20Demo%20Hakkında&body=Merhaba,%0A%0ADikEra%20AI%20demo%20talebiniz%20için%20teşekkür%20ederiz.' 
+                   style='background: #667eea; color: white; padding: 12px 25px; text-decoration: none; border-radius: 25px; font-weight: bold; display: inline-block;'>
+                    📧 Cevap Gönder
+                </a>
+            </div>
+        </div>
+        
+        <div style='background: #f8f9fa; padding: 20px; text-align: center; border-top: 1px solid #dee2e6;'>
+            <p style='color: #6c757d; margin: 0; font-size: 14px;'>Bu e-posta DikEra AI demo sistemi tarafından otomatik gönderildi.</p>
+        </div>
+    </div>
+</body>
+</html>";
+
+// Method 1: Try Hostinger SMTP with PHPMailer (RECOMMENDED)
+$email_sent = false;
+$error_message = '';
+
+// Check if PHPMailer is available
+if (file_exists('phpmailer/PHPMailer.php')) {
+    require_once 'phpmailer/Exception.php';
+    require_once 'phpmailer/PHPMailer.php';
+    require_once 'phpmailer/SMTP.php';
+
+    try {
+        $mail = new PHPMailer\PHPMailer\PHPMailer();
+        $mail->isSMTP();
+        $mail->CharSet = 'UTF-8';
+        
+        // Hostinger SMTP settings
+        $mail->Host = 'smtp.hostinger.com';  // Hostinger SMTP server
+        $mail->SMTPAuth = true;
+        $mail->Username = 'info@dikera.com';  // Your Hostinger email
+        $mail->Password = 'your-email-password';  // Your email password
+        $mail->SMTPSecure = 'tls';  // TLS encryption
+        $mail->Port = 587;  // TLS port
+
+        // Email settings
+        $mail->setFrom('info@dikera.com', 'DikEra AI Demo Sistemi');
+        $mail->addAddress($to_email, 'DikEra AI Demo Talepleri');
+        $mail->addReplyTo($email);
+        
+        $mail->isHTML(true);
+        $mail->Subject = $subject;
+        $mail->Body = $html_message;
+
+        if ($mail->send()) {
+            $email_sent = true;
+        } else {
+            $error_message = "SMTP Error: " . $mail->ErrorInfo;
+        }
+    } catch (Exception $e) {
+        $error_message = "Exception: " . $e->getMessage();
+    }
+}
+
+// Method 2: Fallback to PHP mail() with proper headers for Hostinger
+if (!$email_sent) {
+    // Hostinger-optimized headers
+    $headers = array();
+    $headers[] = 'MIME-Version: 1.0';
+    $headers[] = 'Content-Type: text/html; charset=UTF-8';
+    $headers[] = 'From: DikEra AI <info@dikera.com>';
+    $headers[] = 'Reply-To: ' . $email;
+    $headers[] = 'Return-Path: info@dikera.com';
+    $headers[] = 'X-Mailer: DikEra AI v1.0';
+    $headers[] = 'X-Priority: 2';
+    
+    // Use \r\n for Hostinger (important for deliverability)
+    $header_string = implode("\r\n", $headers);
+    
+    if (mail($to_email, $subject, $html_message, $header_string)) {
+        $email_sent = true;
+    } else {
+        $last_error = error_get_last();
+        $error_message .= "PHP mail() failed. Error: " . ($last_error['message'] ?? 'Unknown error');
+    }
+}
+
+// Log the request
+$log_data = [
+    'timestamp' => $timestamp,
+    'request_id' => $request_id,
+    'email' => $email,
+    'ip' => $user_ip,
+    'email_sent' => $email_sent,
+    'method' => $email_sent ? (file_exists('phpmailer/PHPMailer.php') ? 'SMTP' : 'PHP_MAIL') : 'FAILED',
+    'error' => $error_message
+];
+
+@file_put_contents('demo_requests.log', json_encode($log_data) . "\n", FILE_APPEND | LOCK_EX);
+
+// Response
+if ($email_sent) {
+    // Send confirmation to user
+    $user_subject = "Demo Talebiniz Alındı - DikEra AI";
+    $user_message = "
+    <div style='font-family: Arial, sans-serif; max-width: 500px; margin: 0 auto; padding: 20px; background: white; border-radius: 10px;'>
+        <h1 style='color: #667eea; text-align: center;'>✅ Demo Talebiniz Alındı!</h1>
+        <p>Merhaba,</p>
+        <p>DikEra AI platformu için demo talebiniz başarıyla alınmıştır.</p>
+        <div style='background: #f8f9fa; padding: 15px; border-radius: 5px; margin: 20px 0;'>
+            <p style='margin: 0; color: #666;'><strong>Talep ID:</strong> $request_id<br><strong>Tarih:</strong> $timestamp</p>
+        </div>
+        <p>Ekibimiz en kısa sürede sizinle iletişime geçecektir.</p>
+        <p>Teşekkürler,<br><strong>DikEra AI Ekibi</strong></p>
+    </div>";
+    
+    $user_headers = "From: DikEra AI <info@dikera.com>\r\nContent-Type: text/html; charset=UTF-8\r\n";
+    @mail($email, $user_subject, $user_message, $user_headers);
+    
+    echo json_encode([
+        'alert' => 'alert-success',
+        'message' => 'Demo talebiniz başarıyla gönderildi! En kısa sürede size dönüş yapacağız.',
+        'request_id' => $request_id
+    ]);
+} else {
+    echo json_encode([
+        'alert' => 'alert-danger',
+        'message' => 'E-posta gönderilirken hata oluştu. Lütfen doğrudan info@dikera.com adresine yazın.',
+        'request_id' => $request_id,
+        'error' => $error_message
+    ]);
+}
+?>
