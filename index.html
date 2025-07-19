@@ -4,9 +4,9 @@
         <title>DikEra AI</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="author" content="ThemeZaa">
+        <meta name="author" content="DikEra">
         <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-        <meta name="description" content="Elevate your online presence with Crafto - a modern, versatile, multipurpose Bootstrap 5 responsive HTML5, SCSS template using highly creative 52+ ready demos.">
+        <meta name="description" content="Your AI Assistant for Legal Documents">
         <!-- favicon icon -->
         <link rel="shortcut icon" href="images/favicon.ico">
         <link rel="apple-touch-icon" href="images/apple-touch-icon-57x57.png">
@@ -21,6 +21,8 @@
         <link rel="stylesheet" href="css/style.css"/>
         <link rel="stylesheet" href="css/responsive.css"/>
         <link rel="stylesheet" href="css/dikera.css" />
+        <link rel="stylesheet" href="css/chatbot.css" />
+        <script src="js/chatbot.js"></script>
     </head>
     <body data-mobile-nav-style="classic">  
         <!-- start header -->
@@ -54,7 +56,7 @@
                     <div class="col-auto col-xxl-3 col-lg-2 text-end d-none d-sm-flex">
                         <div class="header-icon">
                             <div class="header-button">
-                                <a href="http://www.dikera.com:5000" class="btn btn-medium btn-rounded btn-gradient-purple-pink d-table d-lg-inline-block lg-mb-15px md-mx-auto">Giriş</a>
+                                <a href="mailto:info@dikera.com" class="btn btn-medium btn-rounded btn-gradient-purple-pink d-table d-lg-inline-block lg-mb-15px md-mx-auto">Demo Talebi</a>
                             </div>
                         </div>  
                     </div>                    
@@ -594,33 +596,33 @@
         </section>
 
         <!-- Demo Talebi - start section -->
-<section class="bg-very-light-gray position-relative">
-    <div id="particles-style-01" class="h-100 position-absolute left-0px top-0 w-100" data-particle="true"></div> 
-    <div class="container"> 
-        <div class="row justify-content-center">
-            <div class="col-12 col-xl-8 col-md-10 text-center">
-                <h2 class="text-dark-gray alt-font fw-700 ls-minus-1px mb-6">Demo Talebinde Bulun</h2>
-                <div class="d-inline-block w-100 newsletter-style-03 position-relative">
-                    <form id="demoRequestForm" class="position-relative w-100">
-                        <div class="position-relative">
-                            <input class="input-large bg-white border-color-transparent w-100 border-radius-100px box-shadow-extra-large form-control required" 
-                                   type="email" 
-                                   id="demoEmail" 
-                                   placeholder="e-posta adresinizi girin" 
-                                   required />
-                            <button type="submit" class="btn btn-extra-large text-dark-gray ls-0px left-icon text-uppercase-inherit fw-600" aria-label="submit">
-                                <i class="icon feather icon-feather-mail icon-small text-dark-gray"></i>
-                                <span id="submitText">Gönder</span>
-                                <span id="submitLoading" style="display: none;">Gönderiliyor...</span>
-                            </button>
+        <section class="bg-very-light-gray position-relative">
+            <div id="particles-style-01" class="h-100 position-absolute left-0px top-0 w-100" data-particle="true"></div> 
+            <div class="container"> 
+                <div class="row justify-content-center">
+                    <div class="col-12 col-xl-8 col-md-10 text-center">
+                        <h2 class="text-dark-gray alt-font fw-700 ls-minus-1px mb-6">Demo Talebinde Bulun</h2>
+                        <div class="d-inline-block w-100 newsletter-style-03 position-relative">
+                            <form id="demoRequestForm" class="position-relative w-100">
+                                <div class="position-relative">
+                                    <input class="input-large bg-white border-color-transparent w-100 border-radius-100px box-shadow-extra-large form-control required" 
+                                        type="email" 
+                                        id="demoEmail" 
+                                        placeholder="e-posta adresinizi girin" 
+                                        required />
+                                    <button type="submit" class="btn btn-extra-large text-dark-gray ls-0px left-icon text-uppercase-inherit fw-600" aria-label="submit">
+                                        <i class="icon feather icon-feather-mail icon-small text-dark-gray"></i>
+                                        <span id="submitText">Gönder</span>
+                                        <span id="submitLoading" style="display: none;">Gönderiliyor...</span>
+                                    </button>
+                                </div>
+                                <div id="formResults" class="form-results border-radius-100px mt-15px p-15px fs-15 w-100 text-center d-none"></div>
+                            </form>
                         </div>
-                        <div id="formResults" class="form-results border-radius-100px mt-15px p-15px fs-15 w-100 text-center d-none"></div>
-                    </form>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
+        </section>
         <!-- Demo Talebi - end section -->
 
         <!-- start footer --> 
@@ -695,6 +697,66 @@
         <script type="text/javascript" src="js/jquery.js"></script>
         <script type="text/javascript" src="js/vendors.min.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
+
+        <!-- DikEra AI Chatbot -->
+        <div class="dikera-chatbot">
+            <!-- Chatbot Toggle Button -->
+            <button class="chatbot-toggle" id="chatbotToggle">
+                <svg id="chatIcon" viewBox="0 0 24 24">
+                    <path d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h4l4 4 4-4h4c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
+                </svg>
+                <svg id="closeIcon" style="display: none;" viewBox="0 0 24 24">
+                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                </svg>
+            </button>
+
+            <!-- Chatbot Window -->
+            <div class="chatbot-window" id="chatbotWindow">
+                <!-- Header -->
+                <div class="chatbot-header">
+                    <h3>DikEra AI Asistan</h3>
+                    <p>Size nasıl yardımcı olabilirim?</p>
+                    <div class="chatbot-status">
+                        <div class="status-dot"></div>
+                        <span style="font-size: 12px;">Çevrimiçi</span>
+                    </div>
+                </div>
+
+                <!-- Messages Area -->
+                <div class="chatbot-messages" id="chatMessages">
+                    <div class="message bot">
+                        <div class="message-bubble">
+                            Merhaba! Ben DikEra AI asistanınızım. Platform hakkında sorularınızı yanıtlayabilirim.
+                        </div>
+                        <div class="quick-replies">
+                            <div class="quick-reply" onclick="sendQuickReply('Platform nasıl çalışır?')">Platform nasıl çalışır?</div>
+                            <div class="quick-reply" onclick="sendQuickReply('Fiyatlandırma nedir?')">Fiyatlandırma</div>
+                            <div class="quick-reply" onclick="sendQuickReply('Demo talep etmek istiyorum')">Demo İsteği</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Input Area -->
+                <div class="chatbot-input">
+                    <div class="input-group">
+                                            <input 
+                        type="text" 
+                        class="message-input" 
+                        id="messageInput" 
+                        placeholder="Mesajınızı yazın..."
+                        onkeydown="handleKeyPress(event)"
+                        autocomplete="off"
+                        maxlength="500"
+                    >
+                        <button class="send-button" onclick="sendMessage()" type="button">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 <script>
 // Add this JavaScript to your HTML page, right before the closing </body> tag
