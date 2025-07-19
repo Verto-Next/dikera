@@ -1,0 +1,93 @@
+.demo-form-container .form-group {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.demo-form-container .form-control {
+    padding-left: 50px;
+    padding-right: 20px;
+    height: 50px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.demo-form-container .form-control:focus {
+    border-color: var(--base-color);
+    box-shadow: 0 0 0 0.2rem rgba(41, 70, 243, 0.25);
+    transform: translateY(-1px);
+}
+
+.demo-form-container .form-group .form-icon {
+    position: absolute;
+    top: 50%;
+    left: 18px;
+    transform: translateY(-50%);
+    z-index: 2;
+    font-size: 18px;
+}
+
+.demo-form-container .form-group.form-textarea .form-icon {
+    top: 18px;
+    transform: translateY(0);
+}
+
+.demo-form-container textarea.form-control {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    height: auto;
+    resize: vertical;
+    min-height: 100px;
+}
+
+.demo-form-container select.form-control {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 16px 12px;
+    padding-right: 40px;
+}
+
+.form-results {
+    border-radius: 8px !important;
+    font-weight: 500;
+}
+
+.form-results.alert-success {
+    background-color: rgba(40, 167, 69, 0.1);
+    color: #28a745;
+    border: 1px solid rgba(40, 167, 69, 0.2);
+}
+
+.form-results.alert-danger {
+    background-color: rgba(220, 53, 69, 0.1);
+    color: #dc3545;
+    border: 1px solid rgba(220, 53, 69, 0.2);
+}
+
+.form-results.alert-info {
+    background-color: rgba(23, 162, 184, 0.1);
+    color: #17a2b8;
+    border: 1px solid rgba(23, 162, 184, 0.2);
+}
+
+.btn-loading i {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 767px) {
+    .demo-form-container .form-control {
+        height: 45px;
+        font-size: 14px;
+    }
+    
+    .demo-form-container .form-group .form-icon {
+        left: 15px;
+        font-size: 16px;
+    }
+}
