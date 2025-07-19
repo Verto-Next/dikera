@@ -122,7 +122,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 replyButton.onclick = () => {
                     if (reply === 'Demo formu doldur') {
                         // Scroll to demo section
-                        const demoSection = document.querySelector('#demo-talebi');
+                        const demoSection = document.querySelector('#demo-section');
                         if (demoSection) {
                             demoSection.scrollIntoView({ behavior: 'smooth' });
                         }
@@ -177,7 +177,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const lowerMessage = message.toLowerCase();
         
         // More comprehensive keyword matching
-        if (lowerMessage.includes('platform') || lowerMessage.includes('nasıl') || lowerMessage.includes('çalış') || 
+        if (lowerMessage.includes('platform') || lowerMessage.includes('nasıl') || lowerMessage.includes('çalış') || lowerMessage.includes('aylık') || 
             lowerMessage.includes('nedir') || lowerMessage.includes('ne işe yarar')) {
             return responses['platform nasıl çalışır'];
         } else if (lowerMessage.includes('fiyat') || lowerMessage.includes('ücret') || lowerMessage.includes('plan') || 
