@@ -1614,16 +1614,16 @@ input:focus, select:focus, textarea:focus, .form-control:focus {
   opacity: 1;
 }
 /* Swiper pagination style 02 */
-.swiper-pagination-style-2 .swiper-pagination-bullet {
+.swiper-pagination-style-02 .swiper-pagination-bullet {
   width: 8px;
   height: 8px;
   margin: 0 6px !important;
 }
-.swiper-pagination-style-2 .swiper-pagination-bullet:before {
+.swiper-pagination-style-02 .swiper-pagination-bullet:before {
   display: none;
 }
 /* Swiper pagination style 03 */
-.swiper-pagination-style-3 .swiper-pagination-bullet {
+.swiper-pagination-style-03 .swiper-pagination-bullet {
   width: 14px;
   height: 14px;
   background: transparent;
@@ -1631,23 +1631,23 @@ input:focus, select:focus, textarea:focus, .form-control:focus {
   margin: 0 7px !important;
   border: 2px solid var(--white);
 }
-.swiper-pagination-style-3 .swiper-pagination-bullet:hover, .swiper-pagination-style-3 .swiper-pagination-bullet.swiper-pagination-bullet-active {
+.swiper-pagination-style-03 .swiper-pagination-bullet:hover, .swiper-pagination-style-03 .swiper-pagination-bullet.swiper-pagination-bullet-active {
   background-color: var(--white);
   opacity: 1;
   -webkit-transform: scale(1.3);
   transform: scale(1.3);
 }
-.swiper-pagination-style-3 .swiper-pagination-bullet:before {
+.swiper-pagination-style-03 .swiper-pagination-bullet:before {
   display: none;
 }
-.swiper-pagination-style-3.dark .swiper-pagination-bullet {
+.swiper-pagination-style-03.dark .swiper-pagination-bullet {
   border: 2px solid var(--dark-gray);
 }
-.swiper-pagination-style-3.dark .swiper-pagination-bullet.swiper-pagination-bullet-active {
+.swiper-pagination-style-03.dark .swiper-pagination-bullet.swiper-pagination-bullet-active {
   background-color: var(--dark-gray);
 }
 /* Swiper pagination style 04 */
-.swiper-pagination-style-4 .swiper-pagination-bullet {
+.swiper-pagination-style-04 .swiper-pagination-bullet {
   width: 8px;
   height: 8px;
   background: var(--white);
@@ -1656,15 +1656,15 @@ input:focus, select:focus, textarea:focus, .form-control:focus {
   margin: 0 25px !important;
   border: 0;
 }
-.swiper-pagination-style-4 .swiper-pagination-bullet:hover, .swiper-pagination-style-4 .swiper-pagination-bullet.swiper-pagination-bullet-active {
+.swiper-pagination-style-04 .swiper-pagination-bullet:hover, .swiper-pagination-style-04 .swiper-pagination-bullet.swiper-pagination-bullet-active {
   background-color: var(--base-color);
   opacity: 1;
   border: 0;
 }
-.swiper-pagination-style-4.dark .swiper-pagination-bullet {
+.swiper-pagination-style-04.dark .swiper-pagination-bullet {
   background: var(--dark-gray);
 }
-.swiper-pagination-style-4.dark .swiper-pagination-bullet:hover, .swiper-pagination-style-4.dark .swiper-pagination-bullet.swiper-pagination-bullet-active {
+.swiper-pagination-style-04.dark .swiper-pagination-bullet:hover, .swiper-pagination-style-04.dark .swiper-pagination-bullet.swiper-pagination-bullet-active {
   background-color: var(--base-color);
 }
 /* Custom image pagination */
@@ -7555,6 +7555,12 @@ header.sticky .navbar.disable-fixed {
 .submenu-light .menu-item-list .sub-menu a {
   color: var(--dark-gray);
   opacity: 0.6;
+}
+.submenu-light .menu-item-list .sub-menu a:hover {
+  color: var(--dark-gray);
+}
+.submenu-light .menu-item-list .sub-menu .active > a {
+  color: var(--dark-gray);
 }
 .submenu-light .menu-item-list .menu-item .toggle {
   color: var(--dark-gray);
@@ -14930,9 +14936,6 @@ canvas {
 .social-icon-style-03 ul li a.stumbleupon {
   background-color: #eb4924;
 }
-.social-icon-style-03 ul li a.telegram {
-  background-color: #0088cc;
-}
 .social-icon-style-03 ul li a.trello {
   background-color: #0079bf;
 }
@@ -15166,10 +15169,6 @@ canvas {
 .social-icon-style-04 ul li a.youtube span {
   background-color: #ff0000;
 }
-.social-icon-style-04 ul li a.youtube-play span {
-  background-color: #ff0000;
-}
-/* Social icon style 05 */
 .social-icon-style-05 ul li a:hover {
   color: var(--white) !important;
 }
@@ -15966,6 +15965,450 @@ canvas {
 .social-icon-style-10 .default-color a.deviantart {
   color: #05cc47;
 }
+.social-icon-style-10 .default-color a.digg {
+  color: #262626;
+}
+.social-icon-style-10 .default-color a.dribbble {
+  color: #ea4c89;
+}
+.social-icon-style-10 .default-color a.delicious {
+  color: #205cc0;
+}
+.social-icon-style-10 .default-color a.email {
+  color: #7d7d7d;
+}
+.social-icon-style-10 .default-color a.facebook {
+  color: #3b5998;
+}
+.social-icon-style-10 .default-color a.facebook-square {
+  color: #3b5998;
+}
+.social-icon-style-10 .default-color a.flickr {
+  color: #ff0084;
+}
+.social-icon-style-10 .default-color a.flipboard {
+  color: #e12828;
+}
+.social-icon-style-10 .default-color a.github {
+  color: #4078c0;
+}
+.social-icon-style-10 .default-color a.google {
+  color: #dc4a38;
+}
+.social-icon-style-10 .default-color a.google-plus {
+  color: #dd4b39;
+}
+.social-icon-style-10 .default-color a.instagram {
+  color: #FE1F49;
+}
+.social-icon-style-10 .default-color a.jsfiddle {
+  color: #0084FF;
+}
+.social-icon-style-10 .default-color a.linkedin {
+  color: #0077b5;
+}
+.social-icon-style-10 .default-color a.livejournal {
+  color: #00b0ea;
+}
+.social-icon-style-10 .default-color a.medium {
+  color: #00ab6c;
+}
+.social-icon-style-10 .default-color a.meneame {
+  color: #ff6400;
+}
+.social-icon-style-10 .default-color a.mailru {
+  color: #168de2;
+}
+.social-icon-style-10 .default-color a.odnoklassniki {
+  color: #d7772d;
+}
+.social-icon-style-10 .default-color a.paypal {
+  color: #003087;
+}
+.social-icon-style-10 .default-color a.pinterest {
+  color: #CB2027;
+}
+.social-icon-style-10 .default-color a.pinterest-p {
+  color: #CB2027;
+}
+.social-icon-style-10 .default-color a.print {
+  color: #222222;
+}
+.social-icon-style-10 .default-color a.reddit {
+  color: #ff4500;
+}
+.social-icon-style-10 .default-color a.reddit-square {
+  color: #ff4500;
+}
+.social-icon-style-10 .default-color a.rss {
+  color: #f2890a;
+}
+.social-icon-style-10 .default-color a.skype {
+  color: #00aff0;
+}
+.social-icon-style-10 .default-color a.slack {
+  color: #6ecadc;
+}
+.social-icon-style-10 .default-color a.snapchat {
+  color: #fffc00;
+}
+.social-icon-style-10 .default-color a.soundcloud {
+  color: #ff8800;
+}
+.social-icon-style-10 .default-color a.spotify {
+  color: #1db954;
+}
+.social-icon-style-10 .default-color a.sms {
+  color: #ffbd00;
+}
+.social-icon-style-10 .default-color a.sharethis {
+  color: #95D03A;
+}
+.social-icon-style-10 .default-color a.stack-overflow {
+  color: #f48024;
+}
+.social-icon-style-10 .default-color a.stumbleupon {
+  color: #eb4924;
+}
+.social-icon-style-10 .default-color a.telegram {
+  color: #0088cc;
+}
+.social-icon-style-10 .default-color a.trello {
+  color: #0079bf;
+}
+.social-icon-style-10 .default-color a.tumblr {
+  color: #32506d;
+}
+.social-icon-style-10 .default-color a.twitch {
+  color: #6441a5;
+}
+.social-icon-style-10 .default-color a.twitter {
+  color: #00aced;
+}
+.social-icon-style-10 .default-color a.twitter-square {
+  color: #00aced;
+}
+.social-icon-style-10 .default-color a.vimeo {
+  color: #1ab7ea;
+}
+.social-icon-style-10 .default-color a.vine {
+  color: #00bf8f;
+}
+.social-icon-style-10 .default-color a.vk {
+  color: #4c6c91;
+}
+.social-icon-style-10 .default-color a.wordpress {
+  color: #21759b;
+}
+.social-icon-style-10 .default-color a.weibo {
+  color: #ff9933;
+}
+.social-icon-style-10 .default-color a.whatsapp {
+  color: #25d366;
+}
+.social-icon-style-10 .default-color a.xing {
+  color: #1a7576;
+}
+.social-icon-style-10 .default-color a.youtube {
+  color: #ff0000;
+}
+.social-icon-style-10 .default-color a.youtube-play {
+  color: #ff0000;
+}
+
+/* ========================================
+   SWIPER CONTAINER FIXES
+   ======================================== */
+
+/* 1. Core Swiper Container Fix */
+.swiper {
+    width: 100%;
+    height: 100%;
+    overflow: hidden; /* Ensures slides don't break out of container */
+    position: relative;
+}
+
+/* 2. Full Screen Container Fix */
+.full-screen.swiper,
+section.full-screen .swiper {
+    height: 100vh;
+    min-height: 100vh;
+}
+
+/* 3. Main Banner Specific Fix */
+#main-banner .swiper,
+.main-banner .swiper {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 4. Swiper Wrapper Fix */
+.swiper .swiper-wrapper {
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    transition-property: transform;
+    box-sizing: content-box;
+}
+
+/* 5. Swiper Slide Fix */
+.swiper .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+/* 6. Navigation Buttons Fix */
+.swiper-button-next,
+.swiper-button-prev {
+    position: absolute;
+    top: 50%;
+    width: 27px;
+    height: 44px;
+    margin-top: -22px;
+    z-index: 10;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--dark-gray, #333);
+    transition: all 0.3s ease;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+    font-family: swiper-icons;
+    font-size: 44px;
+    text-transform: none !important;
+    letter-spacing: 0;
+    font-variant: initial;
+    line-height: 1;
+}
+
+.swiper-button-prev {
+    left: 10px;
+    right: auto;
+}
+
+.swiper-button-next {
+    right: 10px;
+    left: auto;
+}
+
+/* 7. Pagination Fix */
+.swiper-pagination {
+    position: absolute;
+    text-align: center;
+    transition: 300ms opacity;
+    transform: translate3d(0, 0, 0);
+    z-index: 10;
+}
+
+.swiper-pagination-bullet {
+    width: 8px;
+    height: 8px;
+    display: inline-block;
+    border-radius: 50%;
+    background: #000;
+    opacity: 0.2;
+    transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet-active {
+    opacity: 1;
+    background: var(--base-color, #007aff);
+}
+
+/* 8. Parallax Fix */
+.swiper [data-swiper-parallax] {
+    transform: translate3d(0, 0, 0);
+    will-change: transform;
+}
+
+/* 9. Text Slider Styles Fix */
+.text-slider-style-02 .swiper-slide {
+    opacity: 0.2;
+    transition: 0.4s ease;
+}
+
+.text-slider-style-02 .swiper-slide.swiper-slide-active {
+    opacity: 1;
+}
+
+.text-slider-style-03 .swiper-slide > img {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.text-slider-style-05 .swiper-slide {
+    filter: grayscale(100%);
+    opacity: 0.3;
+    transition: 0.4s ease;
+}
+
+.text-slider-style-05 .swiper-slide.swiper-slide-next {
+    filter: grayscale(0);
+    opacity: 1;
+}
+
+/* 10. Container Responsive Fix */
+@media (max-width: 1199px) {
+    .swiper-button-prev {
+        left: -30px;
+    }
+    .swiper-button-next {
+        right: -30px;
+    }
+}
+
+@media (max-width: 991px) {
+    .swiper-button-prev {
+        left: -15px;
+    }
+    .swiper-button-next {
+        right: -15px;
+    }
+}
+
+@media (max-width: 767px) {
+    .swiper-button-prev {
+        left: 0;
+    }
+    .swiper-button-next {
+        right: 0;
+    }
+    
+    .full-screen.swiper,
+    section.full-screen .swiper {
+        height: 100vh;
+        min-height: 500px; /* Ensure minimum height on mobile */
+    }
+}
+
+/* 11. Animation and Performance Fix */
+.swiper-slide [data-anime] {
+    opacity: 0;
+    transition: 0.3s ease-in-out;
+}
+
+.swiper-slide.swiper-slide-active [data-anime] {
+    opacity: 1;
+}
+
+.swiper-slide [data-fancy-text] {
+    opacity: 0;
+}
+
+.swiper-slide.swiper-slide-active [data-fancy-text] {
+    opacity: 1;
+}
+
+/* 12. Z-index Management Fix */
+.swiper-wrapper {
+    z-index: 1;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    z-index: 10;
+}
+
+.swiper-pagination {
+    z-index: 10;
+}
+
+/* 13. Background and Overlay Fix */
+.swiper-slide .cover-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* 14. Container Modifier Classes Fix */
+.swiper-horizontal > .swiper-wrapper {
+    flex-direction: row;
+}
+
+.swiper-vertical > .swiper-wrapper {
+    flex-direction: column;
+}
+
+/* 15. Overflow and Clipping Fix */
+.swiper-overflow-hidden {
+    overflow: hidden !important;
+}
+
+.swiper-container-fade .swiper-slide {
+    pointer-events: none;
+    transition-property: opacity;
+}
+
+.swiper-container-fade .swiper-slide-active {
+    pointer-events: auto;
+}
+
+/* 16. Additional Safety Fixes */
+.swiper:not(.swiper-initialized) .swiper-slide {
+    flex-shrink: 0;
+}
+
+.swiper-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    transition-property: transform;
+    transition-timing-function: ease;
+    box-sizing: content-box;
+}
+
+/* 17. Debug Helper (Remove in production) */
+.swiper-debug {
+    border: 2px solid red !important;
+}
+
+.swiper-debug .swiper-wrapper {
+    border: 2px solid blue !important;
+}
+
+.swiper-debug .swiper-slide {
+    border: 1px solid green !important;
+}
+
+/* Prevents horizontal overflow */
+html, body {
+    overflow-x: hidden !important;
+}
+
+/* Standardizes container padding */
+header .container-fluid {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+}
+
+/* Fixes Bootstrap grid conflicts */
+.row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
 .social-icon-style-10 .default-color a.digg {
   color: #262626;
 }
@@ -18164,11 +18607,6 @@ canvas {
 .portfolio-box:hover .move-bottom-top, .gallery-box:hover .move-bottom-top {
   -webkit-transform: translateY(0);
   transform: translateY(0);
-  opacity: 1;
-}
-.portfolio-box:hover .move-left-right, .gallery-box:hover .move-left-right {
-  -webkit-transform: translateX(0);
-  transform: translateX(0);
   opacity: 1;
 }
 .portfolio-box:hover .move-right-left, .gallery-box:hover .move-right-left {

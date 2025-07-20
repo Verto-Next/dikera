@@ -19674,8 +19674,8 @@
     border: 0 !important;
   }
   header .navbar-expand-lg {
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 10px;
+    padding-right: 0px;
   }
   header .center-logo {
     padding-top: 0;
