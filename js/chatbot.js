@@ -12,29 +12,29 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Knowledge base for responses
     const responses = {
-        'platform nasıl çalışır': {
-            text: 'DikEra AI platformu şu şekilde çalışır:\n\n1. 📄 Belgelerinizi yükleyin\n2. 🤖 Agent oluşturun\n3. ❓ Sorularınızı sorun\n4. 💡 Anında cevaplar alın\n\nPlatform, gelişmiş yapay zeka teknolojileri kullanarak hukuki metinleri analiz eder ve size özel çözümler sunar.',
+        'Platform Nasıl Çalışır': {
+            text: 'DikEra AI platformu şu şekilde çalışır:\n\n1. 🤖 Agent oluşturun\n2. 📄 Belgelerinizi yükleyin \n3. ❓ Sorularınızı sorun ve aradığınız cevaplara ulaşın.\n\nPlatform, gelişmiş yapay zeka teknolojileri kullanarak hukuki metinleri analiz eder ve size özel çözümler sunar.',
             quickReplies: ['Güvenlik özellikleri', 'Desteklenen dosya türleri', 'Demo talep et']
         },
-        'fiyatlandırma': {
-            text: 'Fiyatlandırma paketlerimiz:\n\n🥉 **Temel Plan**: 500₺/ay\n• 1 kullanıcı\n• 10 GB depolama\n• Temel destek\n\n🥈 **Profesyonel Plan**: 1.200₺/ay\n• 5 kullanıcı\n• 50 GB depolama\n• Öncelikli destek\n\n🥇 **Kurumsal Plan**: Özel fiyat\n• Sınırsız kullanıcı\n• Özel çözümler\n• 7/24 destek',
-            quickReplies: ['Demo talep et', 'Özellik karşılaştırması', 'İletişim']
+        'Ücretlendirme': {
+            text: 'Abonelik paketlerimiz:\n\n🥉 **Silver Üyelik**: 60.000₺/ay\n• 1 kullanıcı\n• 10 GB depolama\n• Temel destek\n\n🥈 **Gold Üyelik**: 90.000₺/ay\n• 5 kullanıcı\n• 50 GB depolama\n• Öncelikli destek\n\n🥇 **Premium Üyelik**: 120.000₺/ay\n• Sınırsız kullanıcı\n• Özel çözümler\n• 7/24 destek',
+            quickReplies: ['Demo Talep Et', 'Özellik Karşılaştırması', 'İletişim']
         },
-        'demo': {
+        'Demo': {
             text: 'Demo talebiniz için teşekkürler! 🎉\n\nDemo sürecimiz:\n\n1. ✅ Talep formunu doldurur\n2. 📞 Ekibimiz 24 saat içinde arar\n3. 💻 Kişiselleştirilmiş demo sunar\n4. 🚀 Hemen kullanmaya başlarsınız\n\nDemo talebinde bulunmak için aşağıdaki butona tıklayın.',
-            quickReplies: ['Demo formu doldur', 'İletişim bilgileri', 'Geri dön']
+            quickReplies: ['Demo Formunu Doldur', 'İletişim Bilgileri', 'Geri dön']
         },
-        'güvenlik': {
-            text: 'Güvenlik önlemlerimiz:\n\n🔐 **Şifreleme**: End-to-end şifreleme\n🏢 **İzolasyon**: Her müvekkil için ayrı güvenli alan\n🛡️ **Uyumluluk**: KVKK ve GDPR uyumlu\n📊 **Denetim**: Detaylı aktivite logları\n🔒 **Erişim**: Çok faktörlü kimlik doğrulama\n\nVerileriniz tamamen güvende!',
+        'Güvenlik': {
+            text: 'Güvenlik önlemlerimiz:\n\n🔐 **Şifreleme**: End-to-end şifreleme\n🏢 **İzolasyon**: Her firma için ayrı güvenli alan\n Dosyalarınız size özel alanda saklanmaktadır.\n Başka firmalar sizin dosyalarınıza erişemez.\n🛡️ **Uyumluluk**: KVKK ve GDPR uyumlu\n\n Verileriniz tamamen güvende!',
             quickReplies: ['Teknik detaylar', 'Sertifikalar', 'Demo talep et']
         },
-        'dosya türleri': {
-            text: 'Desteklenen dosya türleri:\n\n📄 **Metin**: PDF, DOC, DOCX, TXT\n📊 **Tablolar**: XLS, XLSX, CSV\n📧 **E-postalar**: MSG, EML\n🖼️ **Görseller**: JPG, PNG (OCR ile)\n📋 **Diğer**: RTF, ODT, HTML\n\nTüm dosyalar güvenli bir şekilde işlenir ve analiz edilir.',
+        'Dosya': {
+            text: 'Desteklenen Dosya Türleri:\n\n📄 **Metin**: PDF, DOC, DOCX, TXT\n🖼️ **Görseller**: JPG, PNG (OCR ile)\nTek seferde 10 tane dosya yükleyebilirsiniz.\nTek seferde yükleyeceğiniz dosya boyutu 16MB tan büyük olmamalı\nTüm dosyalar güvenli bir şekilde işlenir ve analiz edilir.',
             quickReplies: ['OCR özellikleri', 'Dosya boyutu limiti', 'Demo talep et']
         },
         'default': {
             text: 'Bu konuda detaylı bilgi veremiyorum, ancak size yardımcı olmak için elimden geleni yaparım! 😊\n\nAşağıdaki konular hakkında size bilgi verebilirim:',
-            quickReplies: ['Platform özellikleri', 'Fiyatlandırma', 'Demo talep et', 'Güvenlik']
+            quickReplies: ['Platform özellikleri', 'Ücretlendirme', 'Demo talep et', 'Güvenlik']
         }
     };
 
@@ -177,25 +177,25 @@ document.addEventListener('DOMContentLoaded', function() {
         const lowerMessage = message.toLowerCase();
         
         // More comprehensive keyword matching
-        if (lowerMessage.includes('platform') || lowerMessage.includes('nasıl') || lowerMessage.includes('çalış') || lowerMessage.includes('aylık') || 
+        if (lowerMessage.includes('platform') || lowerMessage.includes('nasıl') || lowerMessage.includes('çalış') || 
             lowerMessage.includes('nedir') || lowerMessage.includes('ne işe yarar')) {
-            return responses['platform nasıl çalışır'];
-        } else if (lowerMessage.includes('fiyat') || lowerMessage.includes('ücret') || lowerMessage.includes('plan') || 
-                    lowerMessage.includes('maliyet') || lowerMessage.includes('kaç para')) {
-            return responses['fiyatlandırma'];
+            return responses['Platform Nasıl Çalışır'];
+        } else if (lowerMessage.includes('fiyat') || lowerMessage.includes('ücret') || lowerMessage.includes('ücreti') || lowerMessage.includes('abonelik') || lowerMessage.includes('aylık') || 
+                    lowerMessage.includes('maliyet') || lowerMessage.includes('Ücretlendirme') ||lowerMessage.includes('kaç para')) {
+            return responses['Ücretlendirme'];
         } else if (lowerMessage.includes('demo') || lowerMessage.includes('deneme') || lowerMessage.includes('test') || 
                     lowerMessage.includes('dene') || lowerMessage.includes('göster')) {
-            return responses['demo'];
+            return responses['Demo'];
         } else if (lowerMessage.includes('güvenlik') || lowerMessage.includes('güvenli') || lowerMessage.includes('şifre') || 
                     lowerMessage.includes('koruma') || lowerMessage.includes('veri')) {
-            return responses['güvenlik'];
-        } else if (lowerMessage.includes('dosya') || lowerMessage.includes('belge') || lowerMessage.includes('format') || 
+            return responses['Güvenlik'];
+        } else if (lowerMessage.includes('dosya') || lowerMessage.includes('belge') || lowerMessage.includes('format') || lowerMessage.includes('boyut') ||
                     lowerMessage.includes('yükle') || lowerMessage.includes('pdf')) {
-            return responses['dosya türleri'];
+            return responses['Dosya'];
         } else if (lowerMessage.includes('merhaba') || lowerMessage.includes('selam') || lowerMessage.includes('hey')) {
             return {
                 text: 'Merhaba! 👋 DikEra AI platformuna hoş geldiniz! Size nasıl yardımcı olabilirim?',
-                quickReplies: ['Platform özellikleri', 'Fiyatlandırma', 'Demo talep et']
+                quickReplies: ['Platform özellikleri', 'Ücretlendirme', 'Demo talep et']
             };
         } else if (lowerMessage.includes('teşekkür') || lowerMessage.includes('sağol') || lowerMessage.includes('thanks')) {
             return {
@@ -205,7 +205,7 @@ document.addEventListener('DOMContentLoaded', function() {
         } else if (lowerMessage.includes('iletişim') || lowerMessage.includes('telefon') || lowerMessage.includes('mail') || 
                     lowerMessage.includes('contact')) {
             return {
-                text: 'İletişim bilgilerimiz:\n\n📧 **E-posta**: info@dikera.com\n📞 **Telefon**: Yakında eklenecek\n🌐 **Web**: www.dikera.com\n\n📍 **Adres**: İstanbul, Türkiye\n\nDemo talep etmek için formumuzu da kullanabilirsiniz!',
+                text: 'İletişim bilgilerimiz:\n\n📧 **E-posta**: info@dikera.com\n🌐 **Web**: www.dikera.com\n📍 **Adres**: İstanbul, Türkiye\n\nDemo talep etmek için formumuzu da kullanabilirsiniz!',
                 quickReplies: ['Demo talep et', 'Geri dön', 'Sosyal medya']
             };
         } else {
