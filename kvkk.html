@@ -1,0 +1,1130 @@
+<!doctype html>
+<html class="no-js" lang="tr">
+    <head>
+        <title>KVKK Aydınlatma Metni - DikEra AI</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="author" content="DikEra">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+        <meta name="description" content="DikEra AI KVKK Aydınlatma Metni - Kişisel verilerin işlenmesi hakkında bilgilendirme">
+        <!-- favicon icon -->
+        <link rel="shortcut icon" href="images/favicon.ico">
+        <!-- google fonts preconnect -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css" rel="stylesheet">
+        <style>
+            :root {
+                --base-color: #2946f3;
+                --dark-slate-blue: #232946;
+                --white: #ffffff;
+                --dark-gray: #333333;
+                --medium-gray: #666666;
+                --light-gray: #f8f9fa;
+                --majorelle-blue: #6366f1;
+                --kvkk-purple: #8b5cf6;
+                --kvkk-light-purple: #f3f4f6;
+            }
+
+            body {
+                font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+                line-height: 1.7;
+                color: var(--dark-gray);
+                background: var(--white);
+            }
+
+            .bg-dark-slate-blue { background-color: var(--dark-slate-blue) !important; }
+            .bg-base-color { background-color: var(--base-color) !important; }
+            .bg-kvkk-purple { background-color: var(--kvkk-purple) !important; }
+            .text-base-color { color: var(--base-color) !important; }
+            .text-kvkk-purple { color: var(--kvkk-purple) !important; }
+            .text-dark-gray { color: var(--dark-gray) !important; }
+            
+            .gradient-bg {
+                background: linear-gradient(135deg, var(--kvkk-purple) 0%, var(--base-color) 100%);
+            }
+
+            .header-section {
+                padding: 120px 0 80px 0;
+                background: linear-gradient(135deg, var(--dark-slate-blue) 0%, var(--kvkk-purple) 100%);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .header-section::before {
+                content: '';
+                position: absolute;
+                top: -50%;
+                right: -10%;
+                width: 600px;
+                height: 600px;
+                background: radial-gradient(circle, rgba(139, 92, 246, 0.3) 0%, transparent 70%);
+                border-radius: 50%;
+                animation: pulse 4s ease-in-out infinite;
+            }
+
+            .header-section::after {
+                content: '';
+                position: absolute;
+                bottom: -30%;
+                left: -10%;
+                width: 400px;
+                height: 400px;
+                background: radial-gradient(circle, rgba(41, 70, 243, 0.2) 0%, transparent 70%);
+                border-radius: 50%;
+                animation: pulse 4s ease-in-out infinite reverse;
+            }
+
+            @keyframes pulse {
+                0%, 100% { transform: scale(1); opacity: 0.3; }
+                50% { transform: scale(1.1); opacity: 0.1; }
+            }
+
+            .content-section {
+                padding: 80px 0;
+                background: linear-gradient(180deg, var(--kvkk-light-purple) 0%, var(--white) 20%);
+            }
+
+            .sidebar-nav {
+                position: sticky;
+                top: 100px;
+                background: var(--white);
+                border-radius: 16px;
+                padding: 30px;
+                box-shadow: 0 8px 30px rgba(139, 92, 246, 0.1);
+                border: 1px solid rgba(139, 92, 246, 0.1);
+            }
+
+            .sidebar-nav .nav-link {
+                color: var(--medium-gray);
+                font-weight: 500;
+                padding: 15px 20px;
+                border-radius: 12px;
+                transition: all 0.3s ease;
+                border-left: 4px solid transparent;
+                display: flex;
+                align-items: center;
+                margin-bottom: 8px;
+            }
+
+            .sidebar-nav .nav-link:hover,
+            .sidebar-nav .nav-link.active {
+                background: linear-gradient(135deg, var(--kvkk-purple) 0%, var(--base-color) 100%);
+                color: white;
+                border-left-color: transparent;
+                transform: translateX(8px);
+                box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+            }
+
+            .sidebar-nav .nav-link i {
+                margin-right: 12px;
+                font-size: 18px;
+                width: 24px;
+            }
+
+            .content-card {
+                background: var(--white);
+                border-radius: 20px;
+                padding: 45px;
+                box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+                margin-bottom: 30px;
+                transition: all 0.4s ease;
+                border: 1px solid rgba(139, 92, 246, 0.05);
+            }
+
+            .content-card:hover {
+                box-shadow: 0 12px 40px rgba(139, 92, 246, 0.15);
+                transform: translateY(-4px);
+            }
+
+            .section-title {
+                color: var(--dark-slate-blue);
+                font-weight: 700;
+                font-size: 2rem;
+                margin-bottom: 30px;
+                padding-bottom: 20px;
+                border-bottom: 3px solid var(--kvkk-purple);
+                position: relative;
+                display: flex;
+                align-items: center;
+            }
+
+            .section-title i {
+                margin-right: 20px;
+                color: var(--kvkk-purple);
+                font-size: 2rem;
+                background: linear-gradient(135deg, var(--kvkk-purple), var(--base-color));
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+            }
+
+            .section-title::after {
+                content: '';
+                position: absolute;
+                bottom: -3px;
+                left: 0;
+                width: 80px;
+                height: 3px;
+                background: linear-gradient(90deg, var(--base-color), var(--majorelle-blue));
+                border-radius: 2px;
+            }
+
+            .kvkk-highlight {
+                background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+                border: 2px solid var(--kvkk-purple);
+                border-radius: 16px;
+                padding: 30px;
+                margin: 30px 0;
+                position: relative;
+            }
+
+            .kvkk-highlight::before {
+                content: '';
+                position: absolute;
+                top: -2px;
+                left: -2px;
+                right: -2px;
+                bottom: -2px;
+                background: linear-gradient(135deg, var(--kvkk-purple), var(--base-color));
+                border-radius: 16px;
+                z-index: -1;
+            }
+
+            .rights-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 25px;
+                margin: 30px 0;
+            }
+
+            .right-card {
+                background: var(--white);
+                border: 2px solid rgba(139, 92, 246, 0.1);
+                border-radius: 16px;
+                padding: 30px;
+                transition: all 0.3s ease;
+                text-align: center;
+            }
+
+            .right-card:hover {
+                border-color: var(--kvkk-purple);
+                box-shadow: 0 8px 25px rgba(139, 92, 246, 0.15);
+                transform: translateY(-5px);
+            }
+
+            .right-card .icon {
+                width: 70px;
+                height: 70px;
+                background: linear-gradient(135deg, var(--kvkk-purple), var(--base-color));
+                color: white;
+                border-radius: 20px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0 auto 20px;
+                font-size: 32px;
+                box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+            }
+
+            .data-table {
+                background: var(--white);
+                border-radius: 16px;
+                overflow: hidden;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+                margin: 30px 0;
+                border: 1px solid rgba(139, 92, 246, 0.1);
+            }
+
+            .data-table th {
+                background: linear-gradient(135deg, var(--kvkk-purple), var(--base-color));
+                color: white;
+                font-weight: 600;
+                padding: 25px;
+                border: none;
+                font-size: 16px;
+            }
+
+            .data-table td {
+                padding: 25px;
+                border-bottom: 1px solid rgba(139, 92, 246, 0.1);
+                vertical-align: middle;
+                font-size: 15px;
+            }
+
+            .data-table tbody tr:hover {
+                background: linear-gradient(135deg, rgba(139, 92, 246, 0.02), rgba(41, 70, 243, 0.02));
+            }
+
+            .data-table tbody tr:last-child td {
+                border-bottom: none;
+            }
+
+            .process-steps {
+                counter-reset: step-counter;
+            }
+
+            .process-step {
+                background: var(--white);
+                border: 2px solid rgba(139, 92, 246, 0.1);
+                border-radius: 16px;
+                padding: 30px;
+                margin-bottom: 25px;
+                position: relative;
+                counter-increment: step-counter;
+                transition: all 0.3s ease;
+            }
+
+            .process-step:hover {
+                border-color: var(--kvkk-purple);
+                box-shadow: 0 8px 25px rgba(139, 92, 246, 0.1);
+                transform: translateX(10px);
+            }
+
+            .process-step::before {
+                content: counter(step-counter);
+                position: absolute;
+                left: -20px;
+                top: 30px;
+                width: 40px;
+                height: 40px;
+                background: linear-gradient(135deg, var(--kvkk-purple), var(--base-color));
+                color: white;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: bold;
+                font-size: 18px;
+                box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+            }
+
+            .last-updated {
+                background: linear-gradient(135deg, var(--kvkk-purple), var(--base-color));
+                color: white;
+                padding: 20px 30px;
+                border-radius: 16px;
+                text-align: center;
+                margin-bottom: 40px;
+                font-weight: 500;
+                box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
+            }
+
+            .contact-section {
+                background: linear-gradient(135deg, var(--dark-slate-blue) 0%, var(--kvkk-purple) 100%);
+                color: white;
+                padding: 50px;
+                border-radius: 20px;
+                text-align: center;
+                margin: 50px 0;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .contact-section::before {
+                content: '';
+                position: absolute;
+                top: -50%;
+                right: -20%;
+                width: 300px;
+                height: 300px;
+                background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+                border-radius: 50%;
+                animation: float 6s ease-in-out infinite;
+            }
+
+            @keyframes float {
+                0%, 100% { transform: translateY(0px); }
+                50% { transform: translateY(-20px); }
+            }
+
+            .contact-section h4 {
+                margin-bottom: 25px;
+                font-weight: 700;
+            }
+
+            .contact-section .btn {
+                background: rgba(255,255,255,0.2);
+                border: 2px solid white;
+                color: white;
+                padding: 15px 35px;
+                border-radius: 50px;
+                font-weight: 600;
+                transition: all 0.3s ease;
+                margin: 10px;
+                backdrop-filter: blur(10px);
+            }
+
+            .contact-section .btn:hover {
+                background: white;
+                color: var(--kvkk-purple);
+                transform: translateY(-2px);
+                box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3);
+            }
+
+            .law-reference {
+                background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+                border-left: 5px solid #f59e0b;
+                padding: 25px;
+                border-radius: 12px;
+                margin: 25px 0;
+                font-style: italic;
+            }
+
+            @media (max-width: 768px) {
+                .header-section {
+                    padding: 80px 0 50px 0;
+                }
+                
+                .content-section {
+                    padding: 50px 0;
+                }
+                
+                .content-card {
+                    padding: 25px;
+                }
+                
+                .sidebar-nav {
+                    position: relative;
+                    top: 0;
+                    margin-bottom: 30px;
+                }
+
+                .section-title {
+                    font-size: 1.6rem;
+                }
+
+                .section-title i {
+                    font-size: 1.6rem;
+                    margin-right: 15px;
+                }
+
+                .rights-grid {
+                    grid-template-columns: 1fr;
+                }
+
+                .process-step::before {
+                    position: relative;
+                    left: 0;
+                    top: 0;
+                    margin-bottom: 15px;
+                }
+
+                .contact-section {
+                    padding: 30px 20px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Header Section -->
+        <section class="header-section">
+            <div class="container position-relative">
+                <div class="row justify-content-center text-center">
+                    <div class="col-lg-8">
+                        <a href="index.html" class="d-inline-block mb-4">
+                            <img src="images/DikEra_logo_nobg_2.png" alt="DikEra AI" style="height: 50px;">
+                        </a>
+                        <h1 class="text-white fw-bold mb-4">KVKK Aydınlatma Metni</h1>
+                        <p class="text-white opacity-85 fs-18 mb-0">
+                            6698 sayılı Kişisel Verilerin Korunması Kanunu kapsamında kişisel verilerinizin işlenmesi hakkında detaylı bilgilendirme
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <section class="content-section">
+            <div class="container">
+                <div class="last-updated">
+                    <i class="bi bi-shield-check me-2"></i>
+                    KVKK Uyum Tarihi: 1 Ocak 2023 | Son Güncellenme: 21 Temmuz 2025
+                </div>
+
+                <div class="row">
+                    <!-- Sidebar Navigation -->
+                    <div class="col-lg-3">
+                        <nav class="sidebar-nav">
+                            <h5 class="text-kvkk-purple fw-bold mb-4">
+                                <i class="bi bi-list-ul me-2"></i>
+                                İçindekiler
+                            </h5>
+                            <ul class="nav nav-pills flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#isleme-amaci">
+                                        <i class="bi bi-target"></i>
+                                        İşleme Amacı
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#yasal-dayanak">
+                                        <i class="bi bi-file-earmark-text"></i>
+                                        Yasal Dayanak
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#paylasilma-durumu">
+                                        <i class="bi bi-share"></i>
+                                        Paylaşılma Durumu
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#saklama-suresi">
+                                        <i class="bi bi-clock-history"></i>
+                                        Saklama Süresi
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#veri-sahibi-haklari">
+                                        <i class="bi bi-person-check"></i>
+                                        Veri Sahibi Hakları
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#basvuru-yolları">
+                                        <i class="bi bi-mailbox"></i>
+                                        Başvuru Yolları
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                    <!-- Content -->
+                    <div class="col-lg-9">
+                        <!-- Veri Sorumlusu -->
+                        <div id="veri-sorumlusu" class="content-card">
+                            <h2 class="section-title">
+                                <i class="bi bi-building"></i>
+                                Veri Sorumlusu Bilgileri
+                            </h2>
+                            <p class="mb-4">
+                                6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK") uyarınca, kişisel verilerinizin işlenmesinden sorumlu olan veri sorumlusu aşağıdaki gibidir:
+                            </p>
+
+                            <div class="kvkk-highlight">
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <strong class="text-kvkk-purple">
+                                            <i class="bi bi-building me-2"></i>
+                                            Şirket Unvanı:
+                                        </strong><br>
+                                        DikEra AI Teknoloji A.Ş.
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <strong class="text-kvkk-purple">
+                                            <i class="bi bi-geo-alt me-2"></i>
+                                            Adres:
+                                        </strong><br>
+                                        İstanbul, Türkiye
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <strong class="text-kvkk-purple">
+                                            <i class="bi bi-envelope me-2"></i>
+                                            E-posta:
+                                        </strong><br>
+                                        kvkk@dikera.com
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <strong class="text-kvkk-purple">
+                                            <i class="bi bi-telephone me-2"></i>
+                                            Telefon:
+                                        </strong><br>
+                                        +90 XXX XXX XX XX
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="law-reference">
+                                <strong>Yasal Referans:</strong> Bu aydınlatma metni, 6698 sayılı Kişisel Verilerin Korunması Kanunu'nun 10. maddesi ile Aydınlatma Yükümlülüğünün Yerine Getirilmesinde Uyulacak Usul ve Esaslar Hakkında Tebliğ kapsamında hazırlanmıştır.
+                            </div>
+                        </div>
+
+                        <!-- İşlenen Kişisel Veriler -->
+                        <div id="islenen-veriler" class="content-card">
+                            <h2 class="section-title">
+                                <i class="bi bi-database"></i>
+                                İşlenen Kişisel Veri Kategorileri
+                            </h2>
+                            <p class="mb-4">
+                                Hizmetlerimizi sunabilmek amacıyla aşağıdaki kişisel veri kategorileri işlenmektedir:
+                            </p>
+
+                            <div class="data-table">
+                                <table class="table mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th width="25%">Veri Kategorisi</th>
+                                            <th width="35%">Veri Türleri</th>
+                                            <th width="40%">İşleme Amacı</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong class="text-kvkk-purple">Kimlik Bilgileri</strong></td>
+                                            <td>Ad, soyad, T.C. kimlik numarası (isteğe bağlı)</td>
+                                            <td>Kullanıcı kimlik tespiti ve hesap yönetimi</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong class="text-kvkk-purple">İletişim Bilgileri</strong></td>
+                                            <td>E-posta adresi, telefon numarası, adres bilgileri</td>
+                                            <td>İletişim kurma, bilgilendirme, destek hizmetleri</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong class="text-kvkk-purple">Mesleki Bilgiler</strong></td>
+                                            <td>Çalıştığı kurum, pozisyon, mesleki deneyim</td>
+                                            <td>Hizmet kişiselleştirme ve analiz</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong class="text-kvkk-purple">İşlem Güvenliği</strong></td>
+                                            <td>IP adresi, çerez bilgileri, log kayıtları</td>
+                                            <td>Sistem güvenliği ve fraud önleme</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong class="text-kvkk-purple">Finansal Bilgiler</strong></td>
+                                            <td>Ödeme bilgileri, fatura adresi</td>
+                                            <td>Ödeme işlemleri ve finansal yükümlülükler</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong class="text-kvkk-purple">Müşteri İşlem</strong></td>
+                                            <td>Platform kullanım geçmişi, yüklenen belgeler</td>
+                                            <td>Hizmet sunumu ve müşteri deneyimi iyileştirme</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Toplama Yöntemleri -->
+                        <div id="toplama-yontemleri" class="content-card">
+                            <h2 class="section-title">
+                                <i class="bi bi-collection"></i>
+                                Kişisel Veri Toplama Yöntemleri
+                            </h2>
+                            <p class="mb-4">
+                                Kişisel verileriniz aşağıdaki yöntemlerle toplanmaktadır:
+                            </p>
+
+                            <div class="process-steps">
+                                <div class="process-step">
+                                    <h5 class="text-kvkk-purple fw-bold mb-3">Doğrudan Toplama</h5>
+                                    <ul class="mb-0">
+                                        <li>Hesap kayıt formları aracılığıyla</li>
+                                        <li>Demo talep formları üzerinden</li>
+                                        <li>İletişim formları ve müşteri hizmetleri</li>
+                                        <li>Platform kullanımı sırasında aktif veri girişi</li>
+                                    </ul>
+                                </div>
+                                <div class="process-step">
+                                    <h5 class="text-kvkk-purple fw-bold mb-3">Otomatik Toplama</h5>
+                                    <ul class="mb-0">
+                                        <li>Çerezler (cookies) ve benzer teknolojiler</li>
+                                        <li>Web sitesi analiz araçları</li>
+                                        <li>Sistem log kayıtları</li>
+                                        <li>Kullanıcı davranış analizi verileri</li>
+                                    </ul>
+                                </div>
+                                <div class="process-step">
+                                    <h5 class="text-kvkk-purple fw-bold mb-3">Üçüncü Kişilerden Toplama</h5>
+                                    <ul class="mb-0">
+                                        <li>Ödeme sağlayıcılarından işlem verileri</li>
+                                        <li>Yasal yükümlülükler kapsamında kamu kurumlarından</li>
+                                        <li>İş ortaklarımızdan alınan referans bilgileri</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- İşleme Amacı -->
+                        <div id="isleme-amaci" class="content-card">
+                            <h2 class="section-title">
+                                <i class="bi bi-target"></i>
+                                Kişisel Verilerin İşlenme Amaçları
+                            </h2>
+
+                            <div class="rights-grid">
+                                <div class="right-card">
+                                    <div class="icon">
+                                        <i class="bi bi-gear"></i>
+                                    </div>
+                                    <h6 class="fw-bold mb-3">Hizmet Sunumu</h6>
+                                    <p class="mb-0">AI destekli belge analiz hizmetlerinin sağlanması ve platform işlevselliğinin sunulması</p>
+                                </div>
+                                <div class="right-card">
+                                    <div class="icon">
+                                        <i class="bi bi-person-check"></i>
+                                    </div>
+                                    <h6 class="fw-bold mb-3">Kimlik Doğrulama</h6>
+                                    <p class="mb-0">Kullanıcı kimlik tespiti, hesap güvenliği ve yetkisiz erişim kontrolü</p>
+                                </div>
+                                <div class="right-card">
+                                    <div class="icon">
+                                        <i class="bi bi-headset"></i>
+                                    </div>
+                                    <h6 class="fw-bold mb-3">Müşteri Desteği</h6>
+                                    <p class="mb-0">Teknik destek sağlanması, şikayet ve taleplerin işleme alınması</p>
+                                </div>
+                                <div class="right-card">
+                                    <div class="icon">
+                                        <i class="bi bi-credit-card"></i>
+                                    </div>
+                                    <h6 class="fw-bold mb-3">Finansal İşlemler</h6>
+                                    <p class="mb-0">Ödeme işlemleri, faturalandırma ve finansal yükümlülüklerin yerine getirilmesi</p>
+                                </div>
+                                <div class="right-card">
+                                    <div class="icon">
+                                        <i class="bi bi-graph-up"></i>
+                                    </div>
+                                    <h6 class="fw-bold mb-3">Hizmet İyileştirme</h6>
+                                    <p class="mb-0">Platform performansının artırılması ve yeni özelliklerin geliştirilmesi</p>
+                                </div>
+                                <div class="right-card">
+                                    <div class="icon">
+                                        <i class="bi bi-shield-lock"></i>
+                                    </div>
+                                    <h6 class="fw-bold mb-3">Güvenlik</h6>
+                                    <p class="mb-0">Sistem güvenliğinin sağlanması, fraud önleme ve siber güvenlik faaliyetleri</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Yasal Dayanak -->
+                        <div id="yasal-dayanak" class="content-card">
+                            <h2 class="section-title">
+                                <i class="bi bi-file-earmark-text"></i>
+                                İşlemenin Yasal Dayanakları
+                            </h2>
+                            <p class="mb-4">
+                                KVKK'nın 5. maddesinde belirtilen kişisel veri işleme şartları kapsamında:
+                            </p>
+
+                            <div class="data-table">
+                                <table class="table mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th width="30%">Yasal Dayanak</th>
+                                            <th width="70%">Açıklama</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong class="text-kvkk-purple">Açık Rıza</strong></td>
+                                            <td>Pazarlama faaliyetleri ve isteğe bağlı hizmetler için alınan kullanıcı onayı</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong class="text-kvkk-purple">Sözleşmenin İfası</strong></td>
+                                            <td>Hizmet sözleşmesinin kurulması ve ifası için gerekli işlemler</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong class="text-kvkk-purple">Yasal Yükümlülük</strong></td>
+                                            <td>Vergi, ticaret ve diğer yasal mevzuat kapsamındaki yükümlülükler</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong class="text-kvkk-purple">Meşru Menfaat</strong></td>
+                                            <td>Güvenlik, fraud önleme ve hizmet iyileştirme faaliyetleri</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Paylaşılma Durumu -->
+                        <div id="paylasilma-durumu" class="content-card">
+                            <h2 class="section-title">
+                                <i class="bi bi-share"></i>
+                                Kişisel Verilerin Paylaşılması
+                            </h2>
+
+                            <div class="kvkk-highlight">
+                                <h5 class="text-kvkk-purple fw-bold mb-3">
+                                    <i class="bi bi-shield-check me-2"></i>
+                                    Temel İlke: Gizlilik ve İzolasyon
+                                </h5>
+                                <p class="mb-0">
+                                    Kişisel verileriniz kesinlikle başka kullanıcılarla paylaşılmaz. Her kullanıcı için tamamen izole edilmiş ortamlar oluşturulur ve veriler bu ortamlar dışına çıkarılmaz.
+                                </p>
+                            </div>
+
+                            <h6 class="text-kvkk-purple fw-bold mt-4 mb-3">Sınırlı Paylaşım Durumları:</h6>
+                            <ul class="mb-4">
+                                <li><strong>Hizmet Sağlayıcılar:</strong> Bulut hizmet sağlayıcıları (AWS, Azure vb.) - Veri işleme sözleşmesi kapsamında</li>
+                                <li><strong>Ödeme Kuruluşları:</strong> Kredi kartı işlemcileri ve bankalar - Sadece ödeme işlemleri için</li>
+                                <li><strong>Yasal Merciler:</strong> Mahkeme kararı veya yasal yükümlülük durumunda kamu kurumları</li>
+                                <li><strong>Teknik Destek:</strong> Yetkili teknisyenler - Sadece sorun çözme amacıyla ve gizlilik sözleşmesi altında</li>
+                            </ul>
+
+                            <div class="law-reference">
+                                <strong>Önemli:</strong> Yukarıdaki paylaşımlar dışında hiçbir durumda kişisel verileriniz üçüncü kişilerle paylaşılmaz. Tüm paylaşımlar KVKK'ya uygun şekilde gerçekleştirilir.
+                            </div>
+                        </div>
+
+                        <!-- Saklama Süresi -->
+                        <div id="saklama-suresi" class="content-card">
+                            <h2 class="section-title">
+                                <i class="bi bi-clock-history"></i>
+                                Kişisel Verilerin Saklama Süresi
+                            </h2>
+
+                            <div class="data-table">
+                                <table class="table mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th width="30%">Veri Türü</th>
+                                            <th width="25%">Saklama Süresi</th>
+                                            <th width="45%">Yasal Dayanak</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong class="text-kvkk-purple">Hesap Bilgileri</strong></td>
+                                            <td>Hesap aktif olduğu sürece + 1 yıl</td>
+                                            <td>Sözleşmenin ifası ve arşivleme</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong class="text-kvkk-purple">İşlem Kayıtları</strong></td>
+                                            <td>10 yıl</td>
+                                            <td>Ticaret Kanunu ve VUK hükümleri</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong class="text-kvkk-purple">Finansal Veriler</strong></td>
+                                            <td>10 yıl</td>
+                                            <td>Vergi mevzuatı</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong class="text-kvkk-purple">Log Kayıtları</strong></td>
+                                            <td>2 yıl</td>
+                                            <td>Bilgi güvenliği ve denetim</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong class="text-kvkk-purple">Pazarlama Verileri</strong></td>
+                                            <td>Rıza geri alınana kadar</td>
+                                            <td>Açık rıza</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong class="text-kvkk-purple">Yüklenen Belgeler</strong></td>
+                                            <td>Hesap aktif olduğu sürece</td>
+                                            <td>Hizmet sunumu</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="kvkk-highlight mt-4">
+                                <h6 class="text-kvkk-purple fw-bold mb-3">Otomatik Silme Süreci</h6>
+                                <p class="mb-0">
+                                    Saklama süreleri dolan kişisel veriler otomatik olarak sistemden silinir. Bu süreç geri alınamaz olup, veri kurtarma mümkün değildir.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Veri Sahibi Hakları -->
+                        <div id="veri-sahibi-haklari" class="content-card">
+                            <h2 class="section-title">
+                                <i class="bi bi-person-check"></i>
+                                Veri Sahibi Olarak Haklarınız
+                            </h2>
+                            <p class="mb-4">
+                                KVKK'nın 11. maddesi kapsamında veri sahibi olarak aşağıdaki haklara sahipsiniz:
+                            </p>
+
+                            <div class="rights-grid">
+                                <div class="right-card">
+                                    <div class="icon">
+                                        <i class="bi bi-info-circle"></i>
+                                    </div>
+                                    <h6 class="fw-bold mb-3">Bilgi Alma Hakkı</h6>
+                                    <p class="mb-0">Kişisel verilerinizin işlenip işlenmediğini öğrenme</p>
+                                </div>
+                                <div class="right-card">
+                                    <div class="icon">
+                                        <i class="bi bi-eye"></i>
+                                    </div>
+                                    <h6 class="fw-bold mb-3">Erişim Hakkı</h6>
+                                    <p class="mb-0">İşlenen kişisel verilerinizi talep etme</p>
+                                </div>
+                                <div class="right-card">
+                                    <div class="icon">
+                                        <i class="bi bi-pencil"></i>
+                                    </div>
+                                    <h6 class="fw-bold mb-3">Düzeltme Hakkı</h6>
+                                    <p class="mb-0">Eksik veya yanlış işlenen verilerin düzeltilmesini isteme</p>
+                                </div>
+                                <div class="right-card">
+                                    <div class="icon">
+                                        <i class="bi bi-trash"></i>
+                                    </div>
+                                    <h6 class="fw-bold mb-3">Silme Hakkı</h6>
+                                    <p class="mb-0">Kişisel verilerinizin silinmesini talep etme</p>
+                                </div>
+                                <div class="right-card">
+                                    <div class="icon">
+                                        <i class="bi bi-x-circle"></i>
+                                    </div>
+                                    <h6 class="fw-bold mb-3">İşlemeyi Durdurma</h6>
+                                    <p class="mb-0">Belirli koşullarda işlemenin durdurulmasını isteme</p>
+                                </div>
+                                <div class="right-card">
+                                    <div class="icon">
+                                        <i class="bi bi-download"></i>
+                                    </div>
+                                    <h6 class="fw-bold mb-3">Taşınabilirlik</h6>
+                                    <p class="mb-0">Verilerinizi yapılandırılmış formatta alma</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Başvuru Yolları -->
+                        <div id="basvuru-yolları" class="content-card">
+                            <h2 class="section-title">
+                                <i class="bi bi-mailbox"></i>
+                                Veri Sahibi Başvuru Yolları
+                            </h2>
+
+                            <div class="process-steps">
+                                <div class="process-step">
+                                    <h5 class="text-kvkk-purple fw-bold mb-3">
+                                        <i class="bi bi-envelope me-2"></i>
+                                        E-posta ile Başvuru
+                                    </h5>
+                                    <p class="mb-3"><strong>E-posta Adresi:</strong> kvkk@dikera.com</p>
+                                    <p class="mb-0">Kimlik belgenizin fotokopisi ile birlikte talebinizi detaylı şekilde belirtiniz.</p>
+                                </div>
+                                <div class="process-step">
+                                    <h5 class="text-kvkk-purple fw-bold mb-3">
+                                        <i class="bi bi-mailbox me-2"></i>
+                                        Posta ile Başvuru
+                                    </h5>
+                                    <p class="mb-3"><strong>Posta Adresi:</strong><br>DikEra AI Teknoloji A.Ş.<br>KVKK Başvuru Birimi<br>İstanbul, Türkiye</p>
+                                    <p class="mb-0">Islak imzalı dilekçe ve kimlik belgesi fotokopisi ile başvurunuzu yapabilirsiniz.</p>
+                                </div>
+                                <div class="process-step">
+                                    <h5 class="text-kvkk-purple fw-bold mb-3">
+                                        <i class="bi bi-person me-2"></i>
+                                        Şahsen Başvuru
+                                    </h5>
+                                    <p class="mb-3"><strong>Randevu:</strong> +90 XXX XXX XX XX</p>
+                                    <p class="mb-0">Kimlik belgenizle birlikte ofisimize gelerek başvuru yapabilirsiniz.</p>
+                                </div>
+                            </div>
+
+                            <div class="kvkk-highlight">
+                                <h6 class="text-kvkk-purple fw-bold mb-3">Başvuru Süreci ve Süreleri</h6>
+                                <ul class="mb-0">
+                                    <li><strong>Başvuru değerlendirmesi:</strong> En geç 30 gün içerisinde</li>
+                                    <li><strong>Bilgi verilmesi:</strong> Ücretsiz (istisnai durumlar hariç)</li>
+                                    <li><strong>Ret durumu:</strong> Gerekçeli ret cevabı ve itiraz yolları bildirilir</li>
+                                    <li><strong>İtiraz hakkı:</strong> Veri Koruma Kurulu'na başvuru imkanı</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- İletişim ve Son Hükümler -->
+                        <div class="contact-section">
+                            <h4>
+                                <i class="bi bi-telephone me-2"></i>
+                                KVKK İletişim Bilgileri
+                            </h4>
+                            <p class="mb-4">
+                                Kişisel verilerinizle ilgili her türlü soru, talep ve şikayetiniz için bizimle iletişime geçebilirsiniz.
+                            </p>
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <a href="mailto:kvkk@dikera.com" class="btn w-100">
+                                        <i class="bi bi-envelope me-2"></i>
+                                        kvkk@dikera.com
+                                    </a>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <a href="tel:+90xxxxxxxxxx" class="btn w-100">
+                                        <i class="bi bi-telephone me-2"></i>
+                                        +90 XXX XXX XX XX
+                                    </a>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <a href="#" class="btn w-100">
+                                        <i class="bi bi-geo-alt me-2"></i>
+                                        İstanbul Ofisi
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Değişiklik ve Güncellemeler -->
+                        <div class="content-card">
+                            <h3 class="text-kvkk-purple fw-bold mb-4">
+                                <i class="bi bi-arrow-clockwise me-2"></i>
+                                Değişiklik ve Güncellemeler
+                            </h3>
+                            <div class="law-reference">
+                                <strong>Veri Koruma Kurulu İletişim:</strong> Haklarınızla ilgili başvurularımıza verdiğimiz cevaptan memnun kalmamanız durumunda, Veri Koruma Kurulu'na başvurabilirsiniz. (www.kvkk.gov.tr)
+                            </div>
+                        </div>
+
+                        <!-- Geri Dön Butonu -->
+                        <div class="text-center mt-5">
+                            <a href="index.html" class="btn gradient-bg text-white px-5 py-3 rounded-pill fw-bold">
+                                <i class="bi bi-arrow-left me-2"></i>
+                                Ana Sayfaya Dön
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+        
+        <!-- Smooth Scrolling and Animations -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Smooth scrolling for sidebar navigation
+                const navLinks = document.querySelectorAll('.sidebar-nav .nav-link');
+                
+                navLinks.forEach(link => {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        
+                        // Remove active class from all links
+                        navLinks.forEach(nl => nl.classList.remove('active'));
+                        // Add active class to clicked link
+                        this.classList.add('active');
+                        
+                        // Get target section
+                        const targetId = this.getAttribute('href');
+                        const targetSection = document.querySelector(targetId);
+                        
+                        if (targetSection) {
+                            const headerOffset = 100;
+                            const elementPosition = targetSection.getBoundingClientRect().top;
+                            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                            window.scrollTo({
+                                top: offsetPosition,
+                                behavior: 'smooth'
+                            });
+                        }
+                    });
+                });
+
+                // Update active nav item on scroll
+                const sections = document.querySelectorAll('[id]');
+                const observer = new IntersectionObserver(function(entries) {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const id = entry.target.getAttribute('id');
+                            navLinks.forEach(link => {
+                                link.classList.remove('active');
+                                if (link.getAttribute('href') === `#${id}`) {
+                                    link.classList.add('active');
+                                }
+                            });
+                        }
+                    });
+                }, {
+                    rootMargin: '-20% 0px -60% 0px'
+                });
+
+                sections.forEach(section => {
+                    observer.observe(section);
+                });
+
+                // Animate content cards on scroll
+                const animateElements = document.querySelectorAll('.content-card, .right-card, .process-step');
+                const animationObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }
+                    });
+                }, {
+                    threshold: 0.1
+                });
+
+                animateElements.forEach(element => {
+                    element.style.opacity = '0';
+                    element.style.transform = 'translateY(30px)';
+                    element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                    animationObserver.observe(element);
+                });
+
+                // Add hover effects to tables
+                const tableRows = document.querySelectorAll('.data-table tbody tr');
+                tableRows.forEach(row => {
+                    row.addEventListener('mouseenter', function() {
+                        this.style.transform = 'scale(1.02)';
+                        this.style.transition = 'transform 0.2s ease';
+                    });
+                    
+                    row.addEventListener('mouseleave', function() {
+                        this.style.transform = 'scale(1)';
+                    });
+                });
+
+                // Add click to copy functionality for contact info
+                const contactButtons = document.querySelectorAll('.contact-section .btn[href^="mailto:"], .contact-section .btn[href^="tel:"]');
+                contactButtons.forEach(button => {
+                    button.addEventListener('click', function(e) {
+                        const text = this.textContent.trim().replace(/.*\s/, ''); // Extract email/phone
+                        
+                        // Copy to clipboard if supported
+                        if (navigator.clipboard) {
+                            navigator.clipboard.writeText(text).then(function() {
+                                // Show temporary tooltip
+                                const originalText = button.innerHTML;
+                                button.innerHTML = '<i class="bi bi-check me-2"></i>Kopyalandı!';
+                                setTimeout(() => {
+                                    button.innerHTML = originalText;
+                                }, 2000);
+                            });
+                        }
+                    });
+                });
+
+                // Progressive loading for better performance
+                const images = document.querySelectorAll('img');
+                const imageObserver = new IntersectionObserver(function(entries) {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            if (img.dataset.src) {
+                                img.src = img.dataset.src;
+                                img.classList.add('loaded');
+                                imageObserver.unobserve(img);
+                            }
+                        }
+                    });
+                });
+
+                images.forEach(img => {
+                    if (img.dataset.src) {
+                        imageObserver.observe(img);
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
+                            ">
+                                    <a class="nav-link active" href="#veri-sorumlusu">
+                                        <i class="bi bi-building"></i>
+                                        Veri Sorumlusu
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#islenen-veriler">
+                                        <i class="bi bi-database"></i>
+                                        İşlenen Veriler
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#toplama-yontemleri">
+                                        <i class="bi bi-collection"></i>
+                                        Toplama Yöntemleri
+                                    </a>
+                                </li>
+                                <li class="nav-item

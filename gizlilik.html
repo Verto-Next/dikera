@@ -1,0 +1,682 @@
+<!doctype html>
+<html class="no-js" lang="tr">
+    <head>
+        <title>Gizlilik Politikası - DikEra AI</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="author" content="DikEra">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+        <meta name="description" content="DikEra AI Gizlilik Politikası - Verilerinizin güvenliği ve gizliliği">
+        <!-- favicon icon -->
+        <link rel="shortcut icon" href="images/favicon.ico">
+        <!-- google fonts preconnect -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <!-- style sheets and font icons -->
+        <link rel="stylesheet" href="css/vendors.min.css"/>
+        <link rel="stylesheet" href="css/icon.min.css"/>
+        <link rel="stylesheet" href="css/style.css"/>
+        <link rel="stylesheet" href="css/responsive.css"/>
+        <link rel="stylesheet" href="css/dikera.css" />
+        <link rel="stylesheet" href="css/style-new.css" />
+        <link rel="stylesheet" href="css/footer.css" />
+        <style>
+            body {
+                font-size: 17px;
+                line-height: 32px;
+            }
+
+            .bg-dark-slate-blue { background-color: var(--dark-slate-blue) !important; }
+            .bg-base-color { background-color: var(--base-color) !important; }
+            .text-base-color { color: var(--base-color) !important; }
+            .text-dark-gray { color: var(--dark-gray) !important; }
+            .text-medium-gray { color: var(--medium-gray) !important; }
+            
+            .gradient-bg {
+                background: linear-gradient(135deg, var(--base-color) 0%, var(--majorelle-blue) 100%);
+            }
+
+            .header-section {
+                padding: 120px 0 80px 0;
+                background: var(--dark-slate-blue);
+                position: relative;
+                overflow: hidden;
+            }
+
+            .header-section::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 400px;
+                height: 400px;
+                background: var(--base-color);
+                opacity: 0.1;
+                border-radius: 50%;
+                filter: blur(100px);
+                transform: translateX(200px) translateY(-200px);
+            }
+
+            .content-section {
+                padding: 80px 0;
+            }
+
+            .sidebar-nav {
+                position: sticky;
+                top: 100px;
+                background: var(--light-gray);
+                border-radius: 12px;
+                padding: 30px;
+            }
+
+            .sidebar-nav .nav-link {
+                color: var(--medium-gray);
+                font-weight: 500;
+                padding: 12px 20px;
+                border-radius: 8px;
+                transition: all 0.3s ease;
+                border-left: 3px solid transparent;
+            }
+
+            .sidebar-nav .nav-link:hover,
+            .sidebar-nav .nav-link.active {
+                background: var(--white);
+                color: var(--base-color);
+                border-left-color: var(--base-color);
+                transform: translateX(5px);
+            }
+
+            .content-card {
+                background: var(--white);
+                border-radius: 16px;
+                padding: 40px;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+                margin-bottom: 30px;
+            }
+
+            .section-title {
+                color: var(--dark-slate-blue);
+                font-weight: 700;
+                font-size: 1.8rem;
+                margin-bottom: 25px;
+                padding-bottom: 15px;
+                border-bottom: 2px solid var(--base-color);
+                position: relative;
+            }
+
+            .section-title::after {
+                content: '';
+                position: absolute;
+                bottom: -2px;
+                left: 0;
+                width: 60px;
+                height: 2px;
+                background: var(--majorelle-blue);
+            }
+
+            .highlight-box {
+                background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+                border-left: 4px solid var(--base-color);
+                padding: 25px;
+                border-radius: 8px;
+                margin: 25px 0;
+            }
+
+            .info-item {
+                display: flex;
+                align-items: flex-start;
+                margin-bottom: 20px;
+                padding: 20px;
+                background: var(--light-gray);
+                border-radius: 12px;
+                transition: all 0.3s ease;
+            }
+
+            .info-item:hover {
+                background: var(--white);
+                box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+                transform: translateY(-2px);
+            }
+
+            .info-item .icon {
+                width: 40px;
+                height: 40px;
+                background: var(--base-color);
+                color: white;
+                border-radius: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-right: 20px;
+                flex-shrink: 0;
+            }
+
+            .table-responsive {
+                border-radius: 12px;
+                overflow: hidden;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                margin: 25px 0;
+            }
+
+            .table th {
+                background: var(--dark-slate-blue);
+                color: white;
+                font-weight: 600;
+                padding: 20px;
+                border: none;
+            }
+
+            .table td {
+                padding: 20px;
+                border-bottom: 1px solid #eee;
+                vertical-align: middle;
+            }
+
+            .table tbody tr:hover {
+                background: var(--light-gray);
+            }
+
+            .last-updated {
+                background: var(--majorelle-blue);
+                color: white;
+                padding: 15px 25px;
+                border-radius: 10px;
+                text-align: center;
+                margin-bottom: 30px;
+                font-weight: 500;
+            }
+
+            @media (max-width: 768px) {
+                .header-section {
+                    padding: 80px 0 50px 0;
+                }
+                
+                .content-section {
+                    padding: 50px 0;
+                }
+                
+                .content-card {
+                    padding: 25px;
+                }
+                
+                .sidebar-nav {
+                    position: relative;
+                    top: 0;
+                    margin-bottom: 30px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <!-- Header Section -->
+        <section class="header-section">
+            <div class="container position-relative">
+                <div class="row justify-content-center text-center">
+                    <div class="col-lg-8">
+                        <a href="index.html" class="d-inline-block mb-4">
+                            <img src="images/DikEra_logo_nobg_2.png" alt="DikEra AI" style="height: 50px;">
+                        </a>
+                        <h1 class="text-white fw-bold mb-4">Gizlilik Politikası</h1>
+                        <p class="text-white opacity-75 fs-18 mb-0">
+                            Verilerinizin güvenliği ve gizliliği bizim için en öncelikli konudur. Bu politika, kişisel verilerinizin nasıl toplandığını, kullanıldığını ve korunduğunu açıklamaktadır.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <section class="content-section">
+            <div class="container">
+                <div class="last-updated">
+                    <i class="bi bi-calendar-event me-2"></i>
+                    Son Güncellenme: 21 Temmuz 2025
+                </div>
+
+                <div class="row">
+                    <!-- Sidebar Navigation -->
+                    <div class="col-lg-3">
+                        <nav class="sidebar-nav">
+                            <h5 class="text-dark-gray fw-bold mb-4">İçindekiler</h5>
+                            <ul class="nav nav-pills flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#genel-bilgiler">Genel Bilgiler</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#veri-toplama">Veri Toplama</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#veri-kullanimi">Veri Kullanımı</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#veri-koruma">Veri Koruma</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#cerezler">Çerezler</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#haklariniz">Haklarınız</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#iletisim">İletişim</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                    <!-- Content -->
+                    <div class="col-lg-9">
+                        <!-- Genel Bilgiler -->
+                        <div id="genel-bilgiler" class="content-card">
+                            <h2 class="section-title">Genel Bilgiler</h2>
+                            <p class="mb-4">
+                                DikEra AI olarak, kullanıcılarımızın gizliliğini korumaya ve kişisel verilerini güvende tutmaya kendimizi adamış bulunmaktayız. Bu Gizlilik Politikası, hizmetlerimizi kullanırken kişisel verilerinizin nasıl toplandığını, işlendiğini, depolandığını ve korunduğunu açıklamaktadır.
+                            </p>
+
+                            <div class="highlight-box">
+                                <h5 class="text-base-color fw-bold mb-3">
+                                    <i class="bi bi-shield-check me-2"></i>
+                                    Güvenlik Taahhüdümüz
+                                </h5>
+                                <p class="mb-0">
+                                    Verileriniz tamamen size özel izole ortamlarda saklanır. Hiçbir üçüncü şahıs veya başka bir kullanıcı verilerinize erişemez. Tüm veriler end-to-end şifreleme ile korunur.
+                                </p>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="info-item">
+                                        <div class="icon">
+                                            <i class="bi bi-building"></i>
+                                        </div>
+                                        <div>
+                                            <strong>Veri Sorumlusu:</strong><br>
+                                            DikEra AI Teknoloji A.Ş.
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="info-item">
+                                        <div class="icon">
+                                            <i class="bi bi-geo-alt"></i>
+                                        </div>
+                                        <div>
+                                            <strong>Adres:</strong><br>
+                                            İstanbul, Türkiye
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Veri Toplama -->
+                        <div id="veri-toplama" class="content-card">
+                            <h2 class="section-title">Toplanan Veriler</h2>
+                            <p class="mb-4">
+                                Hizmetlerimizi sağlamak için aşağıdaki kategorilerdeki kişisel verilerinizi toplayabiliriz:
+                            </p>
+
+                            <div class="table-responsive">
+                                <table class="table table-striped mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>Veri Kategorisi</th>
+                                            <th>Açıklama</th>
+                                            <th>Toplama Yöntemi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Kimlik Bilgileri</strong></td>
+                                            <td>Ad, soyad, e-posta adresi, telefon numarası</td>
+                                            <td>Kayıt formu, demo talepleri</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>İletişim Bilgileri</strong></td>
+                                            <td>E-posta adresi, telefon numarası, posta adresi</td>
+                                            <td>Hesap oluşturma, destek talepleri</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Mesleki Bilgiler</strong></td>
+                                            <td>Şirket adı, pozisyon, sektör bilgileri</td>
+                                            <td>Hesap kurulumu, demo talepleri</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Kullanım Verileri</strong></td>
+                                            <td>Platform kullanım istatistikleri, oturum bilgileri</td>
+                                            <td>Otomatik toplama (anonim)</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Belge İçerikleri</strong></td>
+                                            <td>Yüklenen hukuki belgeler ve dokümanlar</td>
+                                            <td>Platform üzerinden dosya yükleme</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="highlight-box">
+                                <h5 class="text-base-color fw-bold mb-3">
+                                    <i class="bi bi-info-circle me-2"></i>
+                                    Önemli Not
+                                </h5>
+                                <p class="mb-0">
+                                    Yüklediğiniz belgeler ve oluşturduğunuz tüm içerikler size özel izole ortamda saklanır. Bu veriler sadece sizin hesabınızdan erişilebilir ve başka hiçbir kullanıcıyla paylaşılmaz.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Veri Kullanımı -->
+                        <div id="veri-kullanimi" class="content-card">
+                            <h2 class="section-title">Veri Kullanımı</h2>
+                            <p class="mb-4">
+                                Topladığımız kişisel verileri aşağıdaki amaçlarla kullanmaktayız:
+                            </p>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <div class="info-item">
+                                        <div class="icon">
+                                            <i class="bi bi-gear"></i>
+                                        </div>
+                                        <div>
+                                            <strong>Hizmet Sağlama</strong>
+                                            <p class="mb-0 mt-2">AI destekli belge analiz hizmetlerinin sunulması ve platform işleyişinin sağlanması</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="info-item">
+                                        <div class="icon">
+                                            <i class="bi bi-headset"></i>
+                                        </div>
+                                        <div>
+                                            <strong>Müşteri Desteği</strong>
+                                            <p class="mb-0 mt-2">Teknik destek sağlanması ve kullanıcı sorularının yanıtlanması</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="info-item">
+                                        <div class="icon">
+                                            <i class="bi bi-graph-up"></i>
+                                        </div>
+                                        <div>
+                                            <strong>Hizmet İyileştirme</strong>
+                                            <p class="mb-0 mt-2">Platform performansının artırılması ve yeni özelliklerin geliştirilmesi</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="info-item">
+                                        <div class="icon">
+                                            <i class="bi bi-shield-lock"></i>
+                                        </div>
+                                        <div>
+                                            <strong>Güvenlik</strong>
+                                            <p class="mb-0 mt-2">Hesap güvenliğinin sağlanması ve sahtekarlık önleme faaliyetleri</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Veri Koruma -->
+                        <div id="veri-koruma" class="content-card">
+                            <h2 class="section-title">Veri Koruma ve Güvenlik</h2>
+                            <p class="mb-4">
+                                Verilerinizin güvenliğini sağlamak için endüstri standardında güvenlik önlemleri uygulamaktayız:
+                            </p>
+
+                            <div class="row">
+                                <div class="col-12 mb-4">
+                                    <div class="info-item">
+                                        <div class="icon">
+                                            <i class="bi bi-lock-fill"></i>
+                                        </div>
+                                        <div>
+                                            <strong>End-to-End Şifreleme</strong>
+                                            <p class="mb-0 mt-2">Tüm veriler AES-256 standardında şifrelenir ve güvenli sunucularda saklanır</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 mb-4">
+                                    <div class="info-item">
+                                        <div class="icon">
+                                            <i class="bi bi-hdd-rack"></i>
+                                        </div>
+                                        <div>
+                                            <strong>İzole Ortamlar</strong>
+                                            <p class="mb-0 mt-2">Her müşteri için ayrı ve izole veri ortamları oluşturulur</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 mb-4">
+                                    <div class="info-item">
+                                        <div class="icon">
+                                            <i class="bi bi-arrow-repeat"></i>
+                                        </div>
+                                        <div>
+                                            <strong>Düzenli Yedekleme</strong>
+                                            <p class="mb-0 mt-2">Verileriniz düzenli olarak yedeklenir ve felaket kurtarma planları mevcuttur</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 mb-4">
+                                    <div class="info-item">
+                                        <div class="icon">
+                                            <i class="bi bi-person-check"></i>
+                                        </div>
+                                        <div>
+                                            <strong>Erişim Kontrolü</strong>
+                                            <p class="mb-0 mt-2">Sıkı erişim kontrolleri ve çok faktörlü kimlik doğrulama sistemi</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Çerezler -->
+                        <div id="cerezler" class="content-card">
+                            <h2 class="section-title">Çerez Politikası</h2>
+                            <p class="mb-4">
+                                Web sitemizde kullanıcı deneyimini iyileştirmek için çerezler kullanmaktayız:
+                            </p>
+
+                            <div class="table-responsive">
+                                <table class="table table-striped mb-0">
+                                    <thead>
+                                        <tr>
+                                            <th>Çerez Türü</th>
+                                            <th>Amaç</th>
+                                            <th>Süre</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><strong>Zorunlu Çerezler</strong></td>
+                                            <td>Site işlevselliği ve güvenlik</td>
+                                            <td>Oturum süresi</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>İşlevsel Çerezler</strong></td>
+                                            <td>Kullanıcı tercihlerinin hatırlanması</td>
+                                            <td>1 yıl</td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Analitik Çerezler</strong></td>
+                                            <td>Site kullanım analizi (anonim)</td>
+                                            <td>2 yıl</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Haklarınız -->
+                        <div id="haklariniz" class="content-card">
+                            <h2 class="section-title">Veri Sahibi Hakları</h2>
+                            <p class="mb-4">
+                                KVKK kapsamında aşağıdaki haklara sahipsiniz:
+                            </p>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <div class="info-item">
+                                        <div class="icon">
+                                            <i class="bi bi-info-circle"></i>
+                                        </div>
+                                        <div>
+                                            <strong>Bilgi Alma Hakkı</strong>
+                                            <p class="mb-0 mt-2">Kişisel verilerinizin işlenip işlenmediğini öğrenme hakkı</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="info-item">
+                                        <div class="icon">
+                                            <i class="bi bi-eye"></i>
+                                        </div>
+                                        <div>
+                                            <strong>Erişim Hakkı</strong>
+                                            <p class="mb-0 mt-2">İşlenen kişisel verilerinizi talep etme hakkı</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="info-item">
+                                        <div class="icon">
+                                            <i class="bi bi-pencil"></i>
+                                        </div>
+                                        <div>
+                                            <strong>Düzeltme Hakkı</strong>
+                                            <p class="mb-0 mt-2">Yanlış verilerin düzeltilmesini talep etme hakkı</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="info-item">
+                                        <div class="icon">
+                                            <i class="bi bi-trash"></i>
+                                        </div>
+                                        <div>
+                                            <strong>Silme Hakkı</strong>
+                                            <p class="mb-0 mt-2">Kişisel verilerinizin silinmesini talep etme hakkı</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- İletişim -->
+                        <div id="iletisim" class="content-card">
+                            <h2 class="section-title">İletişim</h2>
+                            <p class="mb-4">
+                                Gizlilik politikamız hakkında sorularınız için bizimle iletişime geçebilirsiniz:
+                            </p>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="info-item">
+                                        <div class="icon">
+                                            <i class="bi bi-envelope"></i>
+                                        </div>
+                                        <div>
+                                            <strong>E-posta:</strong><br>
+                                            privacy@dikera.com
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="info-item">
+                                        <div class="icon">
+                                            <i class="bi bi-telephone"></i>
+                                        </div>
+                                        <div>
+                                            <strong>Telefon:</strong><br>
+                                            +90 XXX XXX XX XX
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="highlight-box mt-4">
+                                <h5 class="text-base-color fw-bold mb-3">
+                                    <i class="bi bi-clock me-2"></i>
+                                    Yanıt Süresi
+                                </h5>
+                                <p class="mb-0">
+                                    Gizlilik ile ilgili taleplerinizi en geç 30 gün içerisinde yanıtlayacağımızı taahhüt ediyoruz.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Geri Dön Butonu -->
+                        <div class="text-center mt-5">
+                            <a href="index.html" class="btn gradient-bg text-white px-5 py-3 rounded-pill fw-bold">
+                                <i class="bi bi-arrow-left me-2"></i>
+                                Ana Sayfaya Dön
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bootstrap JS -->
+        <script src="js/vendors.min.js"></script>
+        <script src="js/main.js"></script>
+        
+        <!-- Smooth Scrolling for Navigation -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                // Smooth scrolling for sidebar navigation
+                const navLinks = document.querySelectorAll('.sidebar-nav .nav-link');
+                
+                navLinks.forEach(link => {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        
+                        // Remove active class from all links
+                        navLinks.forEach(nl => nl.classList.remove('active'));
+                        // Add active class to clicked link
+                        this.classList.add('active');
+                        
+                        // Get target section
+                        const targetId = this.getAttribute('href');
+                        const targetSection = document.querySelector(targetId);
+                        
+                        if (targetSection) {
+                            targetSection.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
+                    });
+                });
+
+                // Update active nav item on scroll
+                const sections = document.querySelectorAll('[id]');
+                const observer = new IntersectionObserver(function(entries) {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const id = entry.target.getAttribute('id');
+                            navLinks.forEach(link => {
+                                link.classList.remove('active');
+                                if (link.getAttribute('href') === `#${id}`) {
+                                    link.classList.add('active');
+                                }
+                            });
+                        }
+                    });
+                }, {
+                    rootMargin: '-20% 0px -80% 0px'
+                });
+
+                sections.forEach(section => {
+                    observer.observe(section);
+                });
+            });
+        </script>
+    </body>
+</html>
