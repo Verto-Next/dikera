@@ -1,0 +1,132 @@
+.footer-dark {
+    background: #1a1a1a;
+    position: relative;
+}
+
+/* Text Colors */
+.text-white-50 {
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.text-white-hover:hover {
+    color: #fff !important;
+}
+
+/* Border Colors */
+.border-color-white-20 {
+    border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Placeholder */
+.placeholder-white-50::placeholder {
+    color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Footer Links Animation */
+.footer-links li a {
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.footer-links li a:hover {
+    padding-left: 5px;
+}
+
+.footer-links li a i {
+    transition: transform 0.3s ease;
+}
+
+.footer-links li a:hover i {
+    transform: translateX(3px);
+}
+
+/* Social Icons */
+.elements-social a {
+    width: 38px;
+    height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.elements-social a:hover {
+    background: var(--base-color);
+    transform: translateY(-3px);
+}
+
+/* Newsletter Form */
+.newsletter-footer .form-control {
+    height: 48px;
+    padding-right: 120px;
+    font-size: 14px;
+}
+
+.newsletter-footer .form-control:focus {
+    border-color: var(--base-color) !important;
+    box-shadow: none;
+}
+
+.newsletter-footer .btn {
+    position: absolute;
+    right: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 40px;
+    padding: 0 25px;
+}
+
+/* Blur Effect */
+.filter-blur-100px {
+    filter: blur(100px);
+}
+
+/* Scroll to Top */
+.scroll-to-top {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+.scroll-to-top.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.scroll-to-top:hover {
+    background: var(--dark-gray) !important;
+    transform: translateY(-3px);
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+    .footer-dark {
+        padding-top: 60px;
+        padding-bottom: 30px;
+    }
+    
+    .newsletter-footer .form-control {
+        font-size: 13px;
+    }
+}
+
+/* Utility Classes */
+.pt-6 { padding-top: 4rem; }
+.pb-4 { padding-bottom: 2rem; }
+.mb-5 { margin-bottom: 3rem; }
+.me-3 { margin-right: 1rem; }
+.mt-1 { margin-top: 0.25rem; }
+.fs-14 { font-size: 14px; }
+.fs-18 { font-size: 18px; }
+.fs-20 { font-size: 20px; }
+.bottom-30px { bottom: 30px; }
+.end-30px { right: 30px; }
+.w-50px { width: 50px; }
+h-50px { height: 50px; }
+.w-300px { width: 300px; }
+h-300px { height: 300px; }
+.w-400px { width: 400px; }
+h-400px { height: 400px; }
