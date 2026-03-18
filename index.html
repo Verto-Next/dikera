@@ -1,1056 +1,1310 @@
-﻿<!doctype html>
-<html class="no-js" lang="tr">
-    <head>
-        <title>.DikEra AI.</title>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="author" content="DikEra">
-        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-        <meta name="description" content="Your AI Assistant for Legal Documents">
-        <!-- favicon icon -->
-        <link rel="shortcut icon" href="images/favicon.ico">
-        <link rel="apple-touch-icon" href="images/apple-touch-icon-57x57.png">
-        <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-        <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
-        <!-- google fonts preconnect -->
-        <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <!-- style sheets and font icons -->
-        <link rel="stylesheet" href="css/vendors.min.css"/>
-        <link rel="stylesheet" href="css/icon.min.css"/>
-        <link rel="stylesheet" href="css/style.css"/>
-        <link rel="stylesheet" href="css/responsive.css"/>
-        <link rel="stylesheet" href="css/dikera.css" />
-        <link rel="stylesheet" href="css/chatbot.css" />
-        <link rel="stylesheet" href="css/style-new.css" />
-        <link rel="stylesheet" href="css/demo-form.css" />
-        <link rel="stylesheet" href="css/footer.css" />
-        <script src="js/chatbot.js"></script>   
-        <script src="js/demo-form.js"></script> 
+<!DOCTYPE html>
+<html lang="tr"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DikEra AI | Masaüstü Anasayfa</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&amp;family=Source+Sans+3:ital,wght@0,200..900;1,200..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#08102c",
+                        "charcoal": "#313a40",
+                        "background-light": "#FFFFFF",
+                    },
+                    spacing: {
+                        "18": "4.5rem"
+                    },
+                    fontFamily: {
+                        "header": ["EB Garamond", "serif"],
+                        "body": ["\"Source Sans 3\"", "system-ui", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+            background-color: #FFFFFF;
+            color: #313a40;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: Helvetica, Arial, sans-serif;
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .nav-link {
+            @apply text-charcoal/70 hover:text-primary transition-colors text-sm font-medium;
+        }
+        /* Header tasarım: guvenlik.html referans – font, renk, boyut, aralıklar */
+        header {
+            font-family: Helvetica, Arial, sans-serif;
+        }
+        header h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            color: #08102c;
+        }
+        header .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+    .risk-section {
+      position: relative;
+      background-color: #FFFFFF;
+      color: #fff;
+      padding: 48px 0;
+      padding-top: 0.5rem;
+      font-family: Helvetica, Arial, sans-serif;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    .nasil-calisir-section {
+      position: relative;
+      overflow: hidden;
+      background-color: #030321;
+    }
+    .nasil-calisir-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('assets/nasil-calisir-bg.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      filter: brightness(0.5) saturate(0.9);
+      opacity: 0.7;
+      z-index: 0;
+    }
+    .nasil-calisir-section > * {
+      position: relative;
+      z-index: 1;
+    }
+    .risk-section .risk-container {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(16, minmax(0, 1fr));
+      gap: 80px;
+      align-items: center;
+      max-width: 80rem;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 0;
+      padding-right: 0;
+      width: 100%;
+      min-height: 0;
+    }
+    .risk-section .risk-content-area {
+      position: relative;
+      min-height: 450px;
+      max-width: 100%;
+      margin-left: auto;
+      margin-right: 0;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      grid-column: span 10;
+      padding: 2.5rem 2.75rem;
+      overflow: hidden;
+      border-radius: 1.25rem;
+    }
+    .risk-section .risk-content-area::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('assets/risk-section-bg.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      filter: blur(5px) brightness(0.5) saturate(0.85);
+      opacity: 0.9;
+      z-index: 0;
+    }
+    .risk-section .risk-content-area > * {
+      position: relative;
+      z-index: 1;
+    }
+    .risk-section .risk-content-area h2 {
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: 2.25rem;
+      font-weight: 500;
+      letter-spacing: -0.025em;
+      line-height: 1.2;
+      margin: 0;
+      color: #fff;
+      white-space: nowrap;
+      flex-shrink: 0;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35), 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+    @media (min-width: 1024px) {
+      .risk-section .risk-content-area h2 {
+        font-size: 3rem;
+      }
+    }
+    .risk-section .risk-content-area p {
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: 1.125rem;
+      line-height: 1.9;
+      color: rgba(255, 255, 255, 0.9);
+      margin: 0;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 2px 6px rgba(0, 0, 0, 0.15);
+    }
+    .risk-section .risk-content-inner {
+      transition: opacity 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      flex-wrap: nowrap;
+    }
+    .risk-section .risk-content-inner.is-fading {
+      opacity: 0;
+    }
+    .risk-section .risk-list-wrapper {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      grid-column: span 6;
+    }
+    .risk-section .risk-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: inline-flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      text-align: left;
+      width: 100%;
+      max-width: 28rem;
+    }
+    .risk-section .risk-list li {
+      cursor: pointer;
+      opacity: 0.7;
+      transition: opacity 0.25s ease, border-color 0.25s ease, padding 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: clamp(1.25rem, 2vw, 1.5rem);
+      font-weight: 400;
+      letter-spacing: -0.025em;
+      padding: 0.6rem 0.9rem 0.6rem 1rem;
+      color: #1f2933;
+      text-align: left;
+      background-color: rgba(229, 231, 235, 0.9); /* daha koyu buzlu gri */
+      border-radius: 0.75rem;
+      border-left: 2px solid transparent;
+      box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
+    }
+    .risk-section .risk-list li:hover,
+    .risk-section .risk-list li[aria-selected="true"] {
+      opacity: 1;
+      border-left-width: 4px;
+      border-left-color: rgba(15, 23, 42, 0.9);
+      padding-left: 1.25rem;
+      background-color: rgba(209, 213, 219, 0.95);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
+    }
+    @media (max-width: 768px) {
+      .risk-section {
+        min-height: 0;
+        display: block;
+      }
+      .risk-section .risk-container {
+        grid-template-columns: 1fr;
+        flex-direction: column;
+        display: flex;
+        gap: 0.75rem;
+        align-items: stretch;
+      }
+      .risk-section .risk-content-area {
+        order: 0;
+        min-height: 0;
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        transform: none;
+        text-align: left;
+        padding-top: 0;
+      }
+      .risk-section .risk-content-area h2 {
+        white-space: normal;
+        word-wrap: break-word;
+      }
+      .risk-section .risk-list-wrapper {
+        order: 1;
+      }
+      .risk-mobile-answer {
+        list-style: none;
+        padding: 0.75rem 0 0;
+        margin: 0 0 1rem;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+        font-family: Helvetica, Arial, sans-serif;
+      }
+      .risk-mobile-answer h3 {
+        font-size: 1.125rem;
+        font-weight: 500;
+        color: #fff;
+        margin: 0 0 0.35rem;
+        white-space: normal;
+      }
+      .risk-mobile-answer p {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: rgba(255,255,255,0.85);
+        margin: 0;
+      }
+    }
+    @media (min-width: 769px) {
+      .risk-mobile-answer { display: none !important; }
+    }
+    .slider-section {
+      --bg-color: #f9f9f9;
+      --text-main: #1a1a1a;
+      background: var(--bg-color);
+      padding: 15px 0;
+      font-family: Helvetica, Arial, sans-serif;
+    }
+    .slider-section .hero-container {
+      display: grid;
+      grid-template-columns: repeat(8, 1fr);
+      align-items: center;
+      gap: 0 1rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 5%;
+    }
+    .slider-section .hero-container .side-text {
+      grid-column: 2 / 4; /* 2. ve 3. grid */
+    }
+    .slider-section .hero-container .scroll-wrapper {
+      grid-column: 5 / 8; /* 5, 6, 7. grid */
+    }
+    .slider-section .scroll-wrapper {
+      height: 200px; /* %50 azaltıldı (önceki 400px) */
+      overflow: hidden;
+      position: relative;
+      /* Videodaki yumuşak geçişi sağlayan maske */
+      mask-image: linear-gradient(to bottom,
+        transparent 0%,
+        black 40%,
+        black 60%,
+        transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom,
+        transparent 0%,
+        black 40%,
+        black 60%,
+        transparent 100%);
+    }
+    .slider-section .scroll-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      /* 1 ön klon + 4 asıl + 4 son klon. Bitişte görünen 4 = başlangıçtaki 4, döngü sıçramasız. */
+      animation: harvey-style-scroll 4s cubic-bezier(0.19, 1, 0.22, 1) infinite;
+    }
+    .slider-section .scroll-list li {
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Helvetica, Arial, sans-serif; /* İnsan Odaklı başlığı ile aynı */
+      font-size: 1.96rem; /* %30 küçültülmüş (önceki 2.8rem) */
+      font-weight: 100; /* thin */
+      letter-spacing: -0.04em; /* Dik ve sıkı kurumsal font */
+      color: #1a1a1a;
+      white-space: nowrap;
+      /* Opacity değerlerini statik yerine maskeleme üzerinden alıyor */
+    }
+    @keyframes harvey-style-scroll {
+      /* Başlangıç: Ön klonu gizlemek için -80px */
+      0% { transform: translateY(-80px); }
+      /* Her adımda 80px kayarak 4 asıl maddeyi gez */
+      25% { transform: translateY(-160px); }
+      50% { transform: translateY(-240px); }
+      75% { transform: translateY(-320px); }
+      /* Bitiş: Son 4 klon görünür; 0%’e dönünce aynı içerik, sıçrama yok */
+      100% { transform: translateY(-400px); }
+    }
+    .slider-section .action-area { display: flex; align-items: center; justify-content: flex-end; }
+    .slider-section .side-text {
+      max-width: 280px;
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: clamp(1.75rem, 3.5vw, 3.15rem); /* %30 küçültülmüş */
+      line-height: 1.1;
+      letter-spacing: -0.025em;
+      color: #08102c;
+      white-space: nowrap;
+    }
+    .slider-section .side-text .side-text-bold { font-weight: 700; }
+    .slider-section .side-text .side-text-normal { font-weight: 400; }
+    .slider-section .explore-btn {
+      padding: 10px 24px;
+      border: 1px solid #1a1a1a;
+      background: transparent;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.3s;
+    }
+    .slider-section .explore-btn:hover { background: #1a1a1a; color: #fff; }
+    @media (max-width: 768px) {
+      .slider-section .hero-container {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+      }
+      .slider-section .hero-container .side-text,
+      .slider-section .hero-container .scroll-wrapper {
+        grid-column: 1;
+      }
+      .slider-section .side-text { max-width: none; }
+      .slider-section .scroll-wrapper { width: 100%; }
+      .slider-section .action-area { justify-content: center; }
+    }
+    #karsilastirma .karsilastirma-table-wrap {
+      container-type: inline-size;
+      container-name: karsilastirma;
+    }
+    /* Tablo bütünü %10 küçültülmüş (mevcut hali korunur) */
+    #karsilastirma .karsilastirma-table-scaled {
+      transform: scale(0.9);
+      transform-origin: top center;
+      margin-bottom: -2.5rem;
+    }
+    #karsilastirma .karsilastirma-table {
+      font-size: clamp(0.625rem, 0.5rem + 0.5vw, 0.875rem);
+      font-family: "Inter", system-ui, sans-serif;
+      border-spacing: 3px 6px;
+      background-color: #F2F2F2;
+    }
+    @container karsilastirma (max-width: 500px) {
+      #karsilastirma .karsilastirma-table { font-size: 0.625rem; }
+    }
+    @container karsilastirma (max-width: 400px) {
+      #karsilastirma .karsilastirma-table { font-size: 0.5625rem; }
+    }
+    #karsilastirma .karsilastirma-table th,
+    #karsilastirma .karsilastirma-table td {
+      white-space: normal;
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+      font-size: 1em;
+      border-right: 1px solid rgba(0, 0, 0, 0.066);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.066);
+    }
+    #karsilastirma .karsilastirma-table th:last-child,
+    #karsilastirma .karsilastirma-table td:last-child {
+      border-right: none;
+    }
+    #karsilastirma .karsilastirma-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+    #karsilastirma .karsilastirma-table th *,
+    #karsilastirma .karsilastirma-table td * {
+      font-size: 1em;
+    }
+    #karsilastirma .karsilastirma-table tbody td {
+      color: #313a40;
+      font-weight: 700;
+    }
+    /* Yetkinlik sütunu: font %25 daha büyük */
+    #karsilastirma .karsilastirma-table th:nth-child(1),
+    #karsilastirma .karsilastirma-table td:nth-child(1) {
+      font-size: 1.25em;
+    }
+    /* Dikera AI sütunu: font 1.1em */
+    #karsilastirma .karsilastirma-table th:nth-child(4),
+    #karsilastirma .karsilastirma-table td:nth-child(4) {
+      font-size: 1.1em;
+    }
+    /* Satırlar: bir ton koyu / bir ton açık (zebra) */
+    #karsilastirma .karsilastirma-table tbody tr:nth-child(odd) td {
+      background-color: #EFEFEF !important;
+    }
+    #karsilastirma .karsilastirma-table tbody tr:nth-child(even) td {
+      background-color: #F5F5F5 !important;
+    }
+    /* İkonlar: ince çizgili (outline), büyük; sadece Dikera sütununda canlı renk */
+    #karsilastirma .karsilastirma-table .material-symbols-outlined {
+      font-size: 1.4625rem;
+      font-variation-settings: "FILL" 0, "wght" 400;
+    }
+    #karsilastirma .karsilastirma-table td:nth-child(1) .material-symbols-outlined,
+    #karsilastirma .karsilastirma-table td:nth-child(2) .material-symbols-outlined,
+    #karsilastirma .karsilastirma-table td:nth-child(3) .material-symbols-outlined,
+    #karsilastirma .karsilastirma-table td:nth-child(4) .material-symbols-outlined {
+      color: #A8A8A8;
+    }
+    /* Dikera AI sütunu: ön plana çıkarma – büyütme, çerçeve */
+    #karsilastirma .karsilastirma-table th:nth-child(4),
+    #karsilastirma .karsilastirma-table td:nth-child(4) {
+      border: 1px solid #D4AF37;
+      position: relative;
+      z-index: 2;
+    }
+    /* Dikera AI başlığı: diğer başlıklarla aynı arka plan, altın renkli yazı */
+    #karsilastirma .karsilastirma-table thead th:nth-child(4) {
+      padding-top: 1.25rem;
+      padding-bottom: 1.25rem;
+      min-height: 3.5rem;
+      background-color: #313a40 !important;
+      color: #D4AF37 !important;
+      font-size: 1.15em;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+    /* Dikera sütunu hücreleri: ön planda, büyütülmüş boyut ve gölge */
+    #karsilastirma .karsilastirma-table td:nth-child(4) {
+      transform: scale(1.06);
+      transform-origin: center center;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+      padding: 0.875rem 0.75rem !important;
+      min-height: 3.25rem;
+    }
+    /* Dikera hücreleri: diğer sütunlardan %30 daha koyu, altın çerçeve */
+    #karsilastirma .karsilastirma-cell-accent {
+      color: #313a40;
+      border: 1px solid #D4AF37 !important;
+      background: #D9D9D9 !important;
+    }
+    /* Tablo hücre ikonu: PNG şeffaf alanları hücre zeminini gösterir */
+    #karsilastirma .karsilastirma-cell-accent .karsilastirma-cell-icon-bg {
+      border-radius: 0.125rem;
+    }
+    #karsilastirma .karsilastirma-table td:nth-child(5) .material-symbols-outlined {
+      color: inherit;
+    }
+    #karsilastirma .karsilastirma-table { display: table; width: 100%; }
+    #karsilastirma .karsilastirma-table tr { display: table-row; }
+    #karsilastirma .karsilastirma-table th,
+    #karsilastirma .karsilastirma-table td { display: table-cell; vertical-align: middle; }
+    #karsilastirma .karsilastirma-table .cell-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.25rem;
+    }
+    #karsilastirma .karsilastirma-table .icon-pos { color: #166534; }
+    #karsilastirma .karsilastirma-table .icon-neg { color: #b91c1c; }
+    #karsilastirma .karsilastirma-table .icon-warn { color: #b45309; }
+    #karsilastirma .karsilastirma-table .icon-neutral { color: #1e40af; }
+    #karsilastirma .karsilastirma-table .icon-gold { color: #b45309; }
+    #karsilastirma .karsilastirma-table .denetim-sq { letter-spacing: 0.05em; }
+    /* Denetlenebilirlik satırı: kutu stilleri */
+    #karsilastirma .denetim-boxes { display: inline-flex; align-items: center; gap: 0.2rem; margin-right: 0.35rem; vertical-align: middle; }
+    #karsilastirma .denetim-box { width: 0.65rem; height: 0.65rem; border-radius: 1px; flex-shrink: 0; }
+    #karsilastirma .denetim-box-empty { border: 1px dashed #666; background: transparent; }
+    #karsilastirma .denetim-box-filled-red { background: #b91c1c; border: 1px solid #b91c1c; }
+    #karsilastirma .denetim-box-filled-green { background: #166534; border: 1px solid #166534; }
+  </style>
     </head>
-
-    <body data-mobile-nav-style="classic">  
-        <!-- start header -->
-        <header> 
-            <!-- start navigation -->
-            <nav class="navbar navbar-expand-lg header-transparent bg-transparent header-reverse" data-header-hover="light">
-                <div class="container-fluid bg-dark-slate-blue">
-                    <div class="col-auto col-xxl-3 col-lg-2 me-lg-0 me-auto">
-                        <a class="navbar-brand" href="index.html">
-                            <img src="images/DikEra_logo_nobg_2.png" data-at2x="images/DikEra_logo_nobg_2.png" alt="" class="default-logo">
-                            <img src="images/DikEra_logo_nobg_2.png" data-at2x="images/DikEra_logo_nobg_2.png" alt="" class="alt-logo">
-                            <img src="images/DikEra_logo_nobg_2.png" data-at2x="images/DikEra_logo_nobg_2.png" alt="" class="mobile-logo"> 
-                        </a>
-                    </div>
-                    <div class="col-auto menu-order position-static">
-                        <button class="navbar-toggler float-start" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-line"></span>
-                            <span class="navbar-toggler-line"></span>
-                            <span class="navbar-toggler-line"></span>
-                            <span class="navbar-toggler-line"></span>
-                        </button>
-                        <div class="collapse navbar-collapse" id="navbarNav"> 
-                            <ul class="navbar-nav alt-font"> 
-                                <li class="nav-item "><a href="#problem" class="nav-link text-white">Problem</a></li>
-                                <li class="nav-item"><a href="#ozellikler" class="nav-link text-white">Özellikler</a></li>
-                                <li class="nav-item"><a href="#fiyatlandirma" class="nav-link text-white">Abonelik</a></li>
-                                <li class="nav-item"><a href="#sss" class="nav-link text-white">Sıkça Sorulan Sorular</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-auto col-xxl-3 col-lg-2 text-end d-none d-sm-flex">
-                        <div class="header-icon">
-                            <div class="header-button">
-                                <a href="#demo-section" class="btn btn-medium btn-rounded btn-gradient-purple-pink d-table d-lg-inline-block lg-mb-15px md-mx-auto">Demo Talebi</a>
-                            </div>
-                        </div>  
-                    </div>                    
-                </div>
-            </nav>
-            <!-- end navigation -->
-        </header>
-        <!-- end header --> 
-
-            <!-- start section -->
-        <section class="bg-dark-gray">
-            <div class="swiper lg-no-parallax md-h-600px sm-h-500px swiper-light-pagination" style="height: 75vh;" data-slider-options='{ "slidesPerView": 1, "loop": true, "parallax": true, "speed": 1200, "autoplay": { "delay": 4000, "disableOnInteraction": false }, "pagination": { "el": ".swiper-pagination-bullets", "clickable": true }, "navigation": { "nextEl": ".slider-one-slide-next-1", "prevEl": ".slider-one-slide-prev-1" }, "keyboard": { "enabled": true, "onlyInViewport": true }, "effect": "slide" }'>
-                <div class="swiper-wrapper">
-                    <!-- start slider item -->
-                    <div class="swiper-slide overflow-hidden">
-                        <div class="cover-background position-absolute top-0 start-0 w-100 h-100" style="background-image:url('images/hero1.jpg');"  data-swiper-parallax="1000">
-                            <div class="opacity-light bg-gradient-black-green"></div>
-                            <div class="container h-100" data-swiper-parallax="-300">
-                                <div class="row align-items-center justify-content-center h-100 text-center">
-                                    <div class="col-xl-7 col-lg-9 col-md-10 position-relative text-white">
-                                        <span data-anime='{ "el": "childs", "translateY": [0, 0], "opacity": [0,0.7], "duration": 1500, "delay": 200, "staggervalue": 300, "easing": "easeOutQuad" }'><span class="fw-300 fs-22 opacity-7 mb-15px d-inline-block">Hukuki Zekânızı Güçlendirin</span></span>
-                                        <span class="opacity-7 fs-80 xs-fs-60 alt-font fw-700 text-shadow-extra-large ls-minus-2px mb-45px sm-mb-30px xs-mb-20px d-inline-block swiper-parallax-fancy-text" data-fancy-text='{ "effect": "rotate", "string": ["Belgeleri analiz eden akıllı yapay zeka asistanınız"] }'></span>
+<body class="bg-background-light text-charcoal selection:bg-primary/10">
+<header class="sticky top-0 z-50 w-full bg-[#FFFFFF]/90 backdrop-blur-md border-b border-primary/5">
+<div class="flex items-center justify-between px-8 py-4 max-w-7xl mx-auto">
+<a class="flex items-center gap-2" href="index.html">
+<div class="bg-primary p-1 rounded-sm">
+<span class="material-symbols-outlined text-white text-lg">gavel</span>
+</div>
+<h1 class="text-primary text-2xl font-bold tracking-tight">DikEra AI</h1>
+</a>
+<nav class="hidden md:flex items-center gap-8">
+<a class="nav-link text-primary" href="index.html">Anasayfa</a>
+<a class="nav-link" href="ozellikler.html">Özellikler</a>
+<a class="nav-link" href="guvenlik.html">Güvenlik</a>
+<a class="nav-link" href="hakkimizda.html">Hakkımızda</a>
+<a class="nav-link" href="kaynaklar.html">Kaynaklar</a>
+<button class="bg-primary text-white text-sm px-5 py-2 rounded-sm hover:bg-primary/90 transition-all">Giriş Yap</button>
+</nav>
+<button aria-expanded="false" aria-label="Menüyü aç" class="md:hidden text-primary" data-mobile-menu-toggle type="button">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+</div>
+<div class="hidden md:hidden border-t border-primary/5 px-8 py-4" data-mobile-menu>
+<nav class="flex flex-col gap-3">
+<a class="nav-link text-primary" href="index.html">Anasayfa</a>
+<a class="nav-link" href="ozellikler.html">Özellikler</a>
+<a class="nav-link" href="guvenlik.html">Güvenlik</a>
+<a class="nav-link" href="hakkimizda.html">Hakkımızda</a>
+<a class="nav-link" href="kaynaklar.html">Kaynaklar</a>
+</nav>
+</div>
+</header>
+<main class="flex flex-col">
+<section class="max-w-7xl mx-auto px-4 py-9 min-h-[70vh] grid lg:grid-cols-2 gap-6 items-center bg-gradient-to-br from-[#F5F7FB] via-white to-[#EEF3FF] rounded-3xl mt-6">
+<div class="flex flex-col items-start gap-4">
+<div class="flex flex-col gap-5">
+<h1 class="text-primary font-medium leading-[1.1] tracking-tight text-[1rem] lg:text-[2rem]">Dava ve Müvekkil Verileriniz Güvende mi?</h1>
+<p class="text-slate-500 leading-relaxed max-w-xl font-light text-[0.91rem] lg:text-[1rem] space-y-2">
+                    <span class="block">Yapay zeka destekli hukuk uygulamalarının verilerinizi yurtdışında işlediğini biliyor musunuz?</span>
+                    <span class="block">Müvekkillerinizden ve dava dosyasındaki tüm üçüncü taraflardan yurtdışı veri aktarım onayı alıyor musunuz?</span>
+                </p>
+<p class="text-charcoal leading-relaxed max-w-xl font-medium text-[1rem] lg:text-[1.1rem] mt-6">
+                    <span class="block">Dava dosyalarındaki bilgileri kontrolünüz dışında yurtdışına göndermeyin.</span>
+                    <span class="block mt-2"><strong>Dikera AI</strong> ile bu çıkmazdan kurtulun. %100 yasal güvenceye sahip bir yapay zeka hukuk asistanı kullanın.</span>
+                </p>
                                     </div>
-                                </div> 
                             </div>   
-                        </div>
-                    </div>
-                    <!-- end slider item -->
-                    <!-- start slider item -->
-                    <div class="swiper-slide overflow-hidden">
-                        <div class="cover-background position-absolute top-0 start-0 w-100 h-100" style="background-image:url('images/hero2.jpg');" data-swiper-parallax="1000" >
-                            <div class="opacity-light bg-gradient-black-green"></div>
-                            <div class="container h-100" data-swiper-parallax="-300">
-                                <div class="row align-items-center justify-content-center h-100 text-center">
-                                    <div class="col-xl-7 col-lg-9 col-md-10 position-relative text-white">
-                                        <span data-anime='{ "el": "childs", "translateY": [0, 0], "opacity": [0,0.7], "duration": 1500, "delay": 200, "staggervalue": 300, "easing": "easeOutQuad" }'><span class="fw-300 fs-22 opacity-7 mb-15px d-inline-block">Zaman Kaybına Son</span></span>
-                                        <span class="opacity-7 fs-80 xs-fs-60 alt-font fw-700 text-shadow-extra-large ls-minus-2px mb-45px sm-mb-30px xs-mb-20px d-inline-block swiper-parallax-fancy-text" data-fancy-text='{ "effect": "rotate", "string": ["Hızlı tarama, anında sonuç, yüksek verimlilik"] }'></span>
-                                    </div> 
+<div class="w-full rounded-2xl overflow-hidden border border-primary/10 shadow-2xl relative group flex flex-col gap-6">
+<div class="absolute inset-0 bg-primary/5 z-10 pointer-events-none group-hover:bg-transparent transition-colors"></div>
+<img src="assets/legal_ai.png" alt="Hukuk süreçlerinde güvenli yapay zeka görseli" class="w-full h-auto block" loading="lazy" decoding="async">
+</div>
+<div class="flex flex-col items-start gap-1 lg:gap-2">
+<div class="flex flex-wrap items-center gap-3 mt-1">
+<button type="button" class="bg-primary text-white text-base px-7 py-3 rounded-xl hover:bg-primary/60 transition-all flex items-center gap-3" data-demo-open aria-label="Demo talebi formunu aç">
+                    Demo Talep Et
+                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+<button class="bg-transparent text-primary text-base font-medium px-0 py-0 rounded-full hover:text-primary/80 transition-colors">
+                    Teknik Dokümanı İncele
+                </button>
                                 </div>
+<p class="text-[14px] text-gray-400">%100 KVKK ve Baro mevzuatıyla uyumlu altyapı</p>
                             </div>
-                        </div>
-                    </div>
-                    <!-- end slider item -->
-                    <!-- start slider item -->
-                    <div class="swiper-slide overflow-hidden">
-                        <div class="cover-background position-absolute top-0 start-0 w-100 h-100" style="background-image:url('images/hero3.jpg');" data-swiper-parallax="1000">
-                            <div class="opacity-light bg-gradient-black-green"></div>
-                            <div class="container h-100" data-swiper-parallax="-300">
-                                <div class="row align-items-center justify-content-center h-100 text-center">
-                                    <div class="col-xl-7 col-lg-9 col-md-10 position-relative text-white">
-                                        <span data-anime='{ "el": "childs", "translateY": [0, 0], "opacity": [0,0.7], "duration": 1500, "delay": 200, "staggervalue": 300, "easing": "easeOutQuad" }'><span class="fw-300 fs-22 opacity-7 mb-15px d-inline-block">Güvenli ve Kişiselleştirilmiş Deneyim</span></span>
-                                        <span class="opacity-7 fs-80 xs-fs-60 alt-font fw-700 text-shadow-extra-large ls-minus-2px mb-45px sm-mb-30px xs-mb-20px d-inline-block swiper-parallax-fancy-text" data-fancy-text='{ "effect": "rotate", "string": ["Size özel AI ile maksimum gizlilik ve kontrol"] }'></span>
-                                    </div> 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- end slider item -->
-                </div>
-                <!-- start slider pagination -->
-                <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets"></div>
-                <!-- end slider pagination --> 
-                <!-- start slider navigation -->
-                <!--<div class="slider-one-slide-prev-1 icon-extra-large text-white swiper-button-prev slider-navigation-style-06 d-none d-sm-inline-block"><i class="line-icon-Arrow-OutLeft"></i></div>
-                    <div class="slider-one-slide-next-1 icon-extra-large text-white swiper-button-next slider-navigation-style-06 d-none d-sm-inline-block"><i class="line-icon-Arrow-OutRight"></i></div>-->
-                <!-- end slider navigation -->
-            </div>
         </section>
-        <!-- end section -->
-
-        <!-- Mevcut Problemler - start section -->
-        <section id="problem" class="bg-dark-gray position-relative py-6">
-            <div class="container position-relative z-index-1">
-                <div class="row justify-content-center mb-4">
-                    <div class="col-xl-8 col-lg-9 col-md-10 text-center">
-                        <h3 class="alt-font text-white fw-800 ls-minus-1px sm-mb-20px d-inline-block px-4 py-2 border-radius-8px">
-                            Mevcut Problemler
-                        </h3>
-                        <p class="text-white-50 mt-3">DikEra AI ile, hukuk profesyonellerinin en çok karşılaştığı sorunları kolayca aşın.</p>
-                    </div>
-                </div>
-                <div class="row row-cols-1 row-cols-lg-3 row-cols-sm-2 justify-content-center align-items-stretch" data-anime='{ "el": "childs", "willchange": "transform", "scale":[0.95,1], "opacity": [0, 1], "duration": 800, "delay": 100, "staggervalue": 300, "easing": "easeOutQuad" }'>
-                    <!-- start features box item -->
-                    <div class="col icon-with-text-style-04 transition-inner-all md-mb-30px d-flex flex-column h-100">
-                        <div class="feature-box hover-box transition dark-hover bg-white border-radius-6px pt-10 pb-17 ps-14 pe-14 last-paragraph-no-margin box-shadow-quadruple-large box-shadow-hover overflow-hidden d-flex flex-column h-100" style="border-top: 6px solid #2946f3; background:rgba(41,70,243,0.04);">
-                            <div class="feature-box-icon">
-                                <i class="ti-bar-chart text-base-color icon-extra-large text-light-opacity mb-20px"></i>
-                            </div>
-                            <div class="feature-box-content mb-0">
-                                <span class="d-inline-block alt-font text-dark-gray fw-700 fs-18 mb-5px">Maliyet</span>
-                                <p class="text-light-opacity">Dava dosyaların analizi için harcanan kaynak, işletme maliyetlerini arttırır.</p>
-                            </div>
-                            <div class="feature-box-overlay bg-dark-gray mt-auto"></div>
-                        </div>  
-                    </div>
-                    <!-- end features box item -->
-                    <!-- start features box item -->
-                    <div class="col icon-with-text-style-04 transition-inner-all md-mb-30px d-flex flex-column h-100">
-                        <div class="feature-box hover-box transition dark-hover bg-white border-radius-6px pt-10 pb-17 ps-14 pe-14 last-paragraph-no-margin box-shadow-quadruple-large box-shadow-hover overflow-hidden d-flex flex-column h-100" style="border-top: 6px solid #2946f3; background:rgba(41,70,243,0.04);">
-                            <div class="feature-box-icon">
-                                <i class="ti-time text-base-color icon-extra-large text-light-opacity mb-20px"></i>
-                            </div>
-                            <div class="feature-box-content mb-0">
-                                <span class="d-inline-block alt-font text-dark-gray fw-700 fs-18 mb-5px">Zaman</span>
-                                <p class="text-light-opacity">Belirli bir bilgiye veya emsal karara ulaşmak saatler, hatta günler sürebilir.</p>
-                            </div>
-                            <div class="feature-box-overlay bg-dark-gray mt-auto"></div>
-                        </div>  
-                    </div>
-                    <!-- end features box item -->
-                    <!-- start features box item -->
-                    <div class="col icon-with-text-style-04 transition-inner-all xs-mb-30px d-flex flex-column h-100">
-                        <div class="feature-box hover-box transition dark-hover bg-white border-radius-6px pt-10 pb-17 ps-14 pe-14 last-paragraph-no-margin box-shadow-quadruple-large box-shadow-hover overflow-hidden d-flex flex-column h-100" style="border-top: 6px solid #2946f3; background:rgba(41,70,243,0.04);">
-                            <div class="feature-box-icon">
-                                <i class="bi bi-exclamation-octagon-fill text-base-color icon-extra-large text-light-opacity mb-20px"></i>
-                            </div>
-                            <div class="feature-box-content mb-0">
-                                <span class="d-inline-block alt-font text-dark-gray fw-700 fs-18 mb-5px">Risk</span>
-                                <p class="text-light-opacity">Gözden kaçan bir detay veya emsal karar, davanın seyrini tamamen değiştirebilir.</p>
-                            </div>
-                            <div class="feature-box-overlay bg-dark-gray mt-auto"></div>
-                        </div>  
-                    </div>
-                    <!-- end features box item -->
-                </div>
-            </div>
-        </section>
-        <!-- end section -->
-
-        <!-- start page title -->
-        <section class="small-section">
-            <div class="container">
-                <div class="row align-items-center justify-content-center">
-                    <div class="col-12 col-xl-6 col-lg-8 text-center position-relative page-title-double-large">
-                            <span class="bg-dark-slate-blue text-uppercase fs-13 ps-25px pe-25px alt-font fw-600 text-white lh-40 sm-lh-55 border-radius-100px d-inline-block mb-25px">Çözümümüz</span> 
-                        <div class="d-flex flex-column justify-content-center extra-very-small-screen">
-                            <h1 class="text-dark-gray alt-font ls-minus-1px fw-700 mb-20px">DikEra AI Platformu</h1>
-                            <h2 class="text-dark-gray d-inline-block fw-400 ls-0px mb-0">Hukuk profesyonelleri için tasarlanmış, güvenli ve kişiselleştirilebilir yapay zeka asistan platformu</h2> 
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- end page title -->
-
-        <!-- Product Showcase Section - Add this to your index.html after the features section -->
-        <section class="py-5 bg-very-light-gray">
-            <div class="container">
-                <div class="row align-items-center justify-content-center mb-6">
-                    <div class="col-xl-7 col-lg-8 col-md-10 text-center">
-                        <span class="text-base-color fw-600 text-uppercase d-block mb-10px ls-1px">Güçlü Arayüz</span>
-                        <h2 class="text-dark-gray fw-700 ls-minus-1px">Kullanıcı Dostu Tasarım ile <span class="text-base-color">Maksimum Verimlilik</span></h2>
-                        <p class="w-85 lg-w-95 md-w-100 mx-auto">Dikera AI'nin modern ve sezgisel arayüzü, karmaşık belge analizlerini basit hale getirir. Her detay, kullanıcı deneyimini iyileştirmek için özenle tasarlandı.</p>
-                    </div>
-                </div>
-                
-                <!-- Tab Navigation -->
-                <div class="row justify-content-center mb-4">
-                    <div class="col-12 text-center">
-                        <ul class="nav nav-tabs border-0 justify-content-center text-center alt-font fw-600" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link active px-4 py-3 mx-2 text-dark-gray bg-white border-radius-6px box-shadow-small" data-bs-toggle="tab" href="#app-dashboard" role="tab">
-                                    <i class="bi bi-speedometer2 d-block fs-30 mb-10px text-base-color"></i>
-                                    Kontrol Paneli
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link px-4 py-3 mx-2 text-dark-gray bg-white border-radius-6px box-shadow-small" data-bs-toggle="tab" href="#app-agents" role="tab">
-                                    <i class="line-icon-Robot d-block fs-30 mb-10px text-base-color"></i>
-                                    Özel Agentlar
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link px-4 py-3 mx-2 text-dark-gray bg-white border-radius-6px box-shadow-small" data-bs-toggle="tab" href="#app-chat" role="tab">
-                                    <i class="bi bi-chat-dots d-block fs-30 mb-10px text-base-color"></i>
-                                    AI Sohbet
-                                </a>
-                            </li>
+<section class="px-8 py-4 bg-[#FFFFFF]">
+<div class="max-w-7xl mx-auto">
+<div class="max-w-4xl w-full mx-auto text-center py-4 px-6">
+<h2 class="text-primary font-medium leading-[1.1] tracking-wide max-w-4xl mx-auto text-[1.49175rem] lg:text-[1.8646875rem]">Dijital Dönüşüm mü, Hukuki İhlal Riski mi?</h2>
+</div>
+</div>
+</section>
+<section class="risk-section" id="risk-section" aria-labelledby="risk-content-title">
+<div class="risk-container">
+<div class="risk-list-wrapper">
+<ul class="risk-list" id="risk-list" role="list">
+<li role="button" tabindex="0" data-risk-index="0" data-title="KVKK ve Toplu Onay Riskleri" data-description="Veriyi yurtdışına çıkaran uygulamalarda onay almak sadece sizinle bitmez. Dosyadaki müvekkil, karşı taraf, tanık ve hatta bilirkişilerin her birinden ayrı onay almanız gerekir. Bu onayın alınmadığı her işlem, bir şikayetle yüksek KVKK cezalarına ve denetimlere davetiye çıkarır; olası bir denetim hem cezai sorumluluk hem de hukuk kariyeri anlamında büyük risk getirir.">KVKK ve Toplu Onay Riskleri</li>
+<li role="button" tabindex="0" data-risk-index="1" data-title="Dava ve Müvekkil Mahremiyeti" data-description="Sadece kendi verinizi değil, müvekkilinizin ticari sırlarını ve davanın özel detaylarını dijital dünyaya savunmasız bırakıyorsunuz. Verinin &quot;işlenmesi&quot; sırasında gerçekleşen kontrol kaybı, meslek etiği ve avukatlık kanunu açısından telafisi imkansız sonuçlar doğurabilir.">Dava ve Müvekkil Mahremiyeti</li>
+<li role="button" tabindex="0" data-risk-index="2" data-title="Halka Açık Yapay Zeka Kullanımı" data-description="Halka açık yapay zeka modellerine yüklediğiniz her veri, bu modellerin eğitimi için kullanılır ve anonimliğini yitirir. Sizin yüklediğiniz gizli bir sözleşme maddesi, yarın rakip bir avukatın sorgusunda cevap olarak çıkabilir. Sır saklama yükümlülüğünüzü &quot;açık kaynaklara&quot; kurban etmeyin.">Halka Açık Yapay Zeka Kullanımı</li>
+<li role="button" tabindex="0" data-risk-index="3" data-title="Büyük Dosyalarda Bağlam Kaybı" data-description="Standart yapay zekalar ve bu yapay zekaları kullanan uygulamalar binlerce sayfalık dava dosyalarında &quot;yorulur&quot;. Sayfa 10'daki bir detayla sayfa 500'deki bir çelişkiyi gözden kaçırabilir. Bu durum, sadece yanlış bilgi (halüsinasyon) değil, davanın kaderini değiştirecek kritik bir delilin atlanması anlamına gelir.">Büyük Dosyalarda Bağlam Kaybı</li>
+<li class="risk-mobile-answer" id="risk-mobile-answer" aria-hidden="true" style="display: none;"></li>
                         </ul>
                     </div>
-                </div>
-                
-                <!-- Tab Content -->
-                <div class="tab-content">
-                    <!-- Dashboard Tab -->
-                    <div class="tab-pane fade show active" id="app-dashboard" role="tabpanel">
-                        <div class="row align-items-center">
-                            <div class="col-lg-6 md-mb-50px" data-anime='{ "translateX": [-50, 0], "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>
-                                <div class="position-relative">
-                                    <img src="images/dashboard_view.png" alt="Dikera AI Kontrol Paneli" class="w-100 border-radius-10px box-shadow-quadruple-large" />
-                                </div>
-                            </div>
-                            <div class="col-lg-5 offset-lg-1">
-                                <div class="icon-with-text-style-08 mb-25px">
-                                    <div class="feature-box feature-box-left-icon-middle">
-                                        <div class="feature-box-icon me-20px">
-                                            <i class="bi bi-bar-chart-line text-base-color fs-24"></i>
-                                        </div>
-                                        <div class="feature-box-content">
-                                            <h6 class="fw-600 text-dark-gray mb-5px">Gerçek Zamanlı Analizler</h6>
-                                            <p class="mb-0">Tüm agent'larınızın performansını tek bir ekrandan takip edin</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="icon-with-text-style-08 mb-25px">
-                                    <div class="feature-box feature-box-left-icon-middle">
-                                        <div class="feature-box-icon me-20px">
-                                            <i class="bi bi-graph-up text-base-color fs-24"></i>
-                                        </div>
-                                        <div class="feature-box-content">
-                                            <h6 class="fw-600 text-dark-gray mb-5px">Detaylı İstatistikler</h6>
-                                            <p class="mb-0">İşlenen mesaj sayısı, analiz edilen dosyalar ve daha fazlası</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="icon-with-text-style-08">
-                                    <div class="feature-box feature-box-left-icon-middle">
-                                        <div class="feature-box-icon me-20px">
-                                            <i class="bi bi-clock-history text-base-color fs-24"></i>
-                                        </div>
-                                        <div class="feature-box-content">
-                                            <h6 class="fw-600 text-dark-gray mb-5px">7 Günlük Trend Analizi</h6>
-                                            <p class="mb-0">Kullanım trendlerini görselleştirin ve optimize edin</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+<div class="risk-content-area">
+<div class="risk-content-inner" id="risk-content-inner">
+<h2 id="risk-content-title">Hukukta Dijital Risk Gerçeği</h2>
+<div class="w-16 h-px bg-white/40 mt-3 mb-4 mx-auto"></div>
+<p id="risk-content-description">Hukuk süreçleri dijitalleştirerek hız kazanmak mümkün; ancak kontrol kaybı, veri güvenliği ve bağlam hataları yeni risk alanları yaratır. Özellikle büyük dava dosyaları ve yapay zeka kullanımı söz konusu olduğunda, risk yalnızca teknik değil, hukuki ve itibari sonuçlar doğurabilir.</p>
                     </div>
-                    
-                    <!-- Agents Tab -->
-                    <div class="tab-pane fade" id="app-agents" role="tabpanel">
-                        <div class="row align-items-center flex-row-reverse">
-                            <div class="col-lg-6 md-mb-50px" data-anime='{ "translateX": [50, 0], "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>
-                                <div class="position-relative">
-                                    <img src="images/document_analysis.png" alt="Dikera AI Özel Agentlar" class="w-100 border-radius-10px box-shadow-quadruple-large" />
-                                    <div class="badge bg-base-color text-white position-absolute top-30px end-30px px-20px py-10px fs-14 fw-600">
-                                        <i class="bi bi-lightning-charge-fill me-5px"></i>Yapay Zeka Destekli
-                                    </div>
-                                </div>
+                </div>
+            </div>
+        </section>
+<section class="px-36 lg:px-72 pt-6 pb-4 bg-[#FFFFFF]" id="insan-sinirlari">
+<div class="max-w-7xl mx-auto flex flex-col gap-12">
+<div class="max-w-3xl flex flex-col gap-3">
+<h2 class="text-primary font-normal tracking-tight text-[1.5rem] lg:text-[2rem]">Çözüm Yapay Zeka Yerine Manuel Süreçlere Dönmek Mi?</h2>
+<p class="text-slate-600 text-xl font-normal leading-relaxed">Uzman değerlendirmesi hukuk süreçlerinin temelidir; buna karşın modern araçların kullanılmaması artan dosya hacmi ve zaman baskısı altında bazı sınırlar görünür hale gelebilir.</p>
+                    </div>
+<div class="flex flex-col gap-8">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-20 text-sm lg:text-base">
+<div class="bg-white border border-slate-100 rounded-xl shadow-sm p-6 flex flex-col items-center text-center gap-3">
+<img src="assets/zihinsel-is-yuku-ikon.png" alt="" class="w-10 h-10 lg:w-12 lg:h-12 object-contain" aria-hidden="true">
+<h3 class="text-lg lg:text-xl font-thin text-primary tracking-tight">İlk Sayfadan Son Sayfaya Aynı Kesintisiz Titizlik</h3>
+</div>
+<div class="bg-white border border-slate-100 rounded-xl shadow-sm p-6 flex flex-col items-center text-center gap-3">
+<img src="assets/uzman-bazli-ozet-farki-ikon.png" alt="" class="w-10 h-10 lg:w-12 lg:h-12 object-contain" aria-hidden="true">
+<h3 class="text-lg lg:text-xl font-thin text-primary tracking-tight">Ofis Genelinde Standartlaşmış ve Objektif Analiz</h3>
+</div>
+<div class="bg-white border border-slate-100 rounded-xl shadow-sm p-6 flex flex-col items-center text-center gap-3">
+<img src="assets/degerli-is-zamani-tasarrufu-ikon.png" alt="" class="w-10 h-10 lg:w-12 lg:h-12 object-contain" aria-hidden="true">
+<h3 class="text-lg lg:text-xl font-thin text-primary tracking-tight">Uzman Ekiplerin Zamanının Tekrarlayan Operasyonel İşlere Ayrılması</h3>
+</div>
+</div>
                             </div>
-                            <div class="col-lg-5 me-auto">
-                                <h3 class="fw-700 text-dark-gray mb-20px">Özel AI Agent'lar ile Sınırsız Güç</h3>
-                                <p class="mb-30px">Her bir agent, kendi LLM modeli ve özel konfigürasyonu ile sizin için çalışır. Farklı departmanlar veya projeler için özelleştirilmiş agent'lar oluşturun.</p>
-                                <ul class="list-style-01 ps-0">
-                                    <li class="border-color-extra-medium-gray pb-15px mb-15px">
-                                        <i class="bi bi-check2-circle text-base-color me-10px"></i>
-                                        <span class="text-dark-gray fw-600">Gemma, Mistral, Llama, DeepSeek</span> gibi güçlü modeller
-                                    </li>
-                                    <li class="border-color-extra-medium-gray pb-15px mb-15px">
-                                        <i class="bi bi-check2-circle text-base-color me-10px"></i>
-                                        Tek tıkla <span class="text-dark-gray fw-600">sohbet, düzenleme ve yetkilendirme</span>
-                                    </li>
-                                    <li>
-                                        <i class="bi bi-check2-circle text-base-color me-10px"></i>
-                                        Her agent için <span class="text-dark-gray fw-600">izole vektör veritabanı</span>
-                                    </li>
+<div class="w-full mx-auto text-center py-8 px-6 mt-4">
+<p class="text-primary text-4xl font-normal max-w-4xl mx-auto flex flex-col items-center gap-3">
+    <span>KVKK ve Veri Güvenliği Riski Olmadan Yapay Zeka Mümkün Mü?</span>
+    <span class="inline-flex items-center gap-1 text-primary/70 text-base">
+        <span class="material-symbols-outlined text-lg">south</span>
+        <span>Keşfet</span>
+    </span>
+</p>
+</div>
+            </div>
+        </section>
+<section class="slider-section" id="kayan-alan">
+<div class="hero-container">
+<div class="side-text"><span class="side-text-bold">DikEra AI</span></div>
+<div class="scroll-wrapper">
+<ul class="scroll-list">
+<li class="clone">Doküman Analizi</li>
+<li class="item">Otomatik Doküman Tanıma</li>
+<li class="item">Dava Dosyası Özetleme</li>
+<li class="item">Sistem Loglama</li>
+<li class="item">Doküman Analizi</li>
+<li class="clone">Otomatik Doküman Tanıma</li>
+<li class="clone">Dava Dosyası Özetleme</li>
+<li class="clone">Sistem Loglama</li>
+<li class="clone">Doküman Analizi</li>
                                 </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Chat Tab -->
-                    <div class="tab-pane fade" id="app-chat" role="tabpanel">
-                        <div class="row align-items-center">
-                            <div class="col-lg-6 md-mb-50px" data-anime='{ "translateX": [-50, 0], "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>
-                                <div class="atropos" data-atropos-perspective="1150" data-atropos-scale="1.05" data-atropos-inner-opacity="0.5" data-atropos-duration="600">
-                                    <div class="atropos-scale">
-                                        <div class="atropos-rotate">
-                                            <div class="atropos-inner">
-                                                <img src="images/ai_chat_interface.png" alt="Dikera AI Chat Interface" class="position-relative z-index-1 w-100 border-radius-10px box-shadow-quadruple-large" data-atropos-offset="3" />
-                                                <div class="position-absolute top-50 translate-middle-y end-minus-30px w-200px opacity-3" data-atropos-offset="-3">
-                                                    <div class="bg-base-color p-30px border-radius-10px">
-                                                        <i class="bi bi-chat-dots-fill text-white fs-50"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-5 offset-lg-1">
-                                <div class="mb-25px">
-                                    <span class="bg-light-majorelle-blue text-majorelle-blue text-uppercase fs-13 ps-20px pe-20px pt-5px pb-5px border-radius-100px d-inline-block mb-15px fw-600">Akıllı Sohbet</span>
-                                    <h3 class="fw-700 text-dark-gray mb-20px">Belgelerinizle Doğal Dilde Konuşun</h3>
-                                    <p>Yüklediğiniz PDF, Word, JPEG ve diğer formatları anında analiz edin. Sorularınızı sorun, özetler alın, içgörüler keşfedin.</p>
-                                </div>
-                                <div class="row g-4">
-                                    <div class="col-6">
-                                        <div class="text-center">
-                                            <div class="fs-50 text-base-color mb-10px">
-                                                <i class="bi bi-file-earmark-pdf"></i>
-                                            </div>
-                                            <span class="text-dark-gray fw-600">PDF Desteği</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="text-center">
-                                            <div class="fs-50 text-base-color mb-10px">
-                                                <i class="bi bi-file-earmark-word"></i>
-                                            </div>
-                                            <span class="text-dark-gray fw-600">Word Desteği</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="text-center">
-                                            <div class="fs-50 text-base-color mb-10px">
-                                                <i class="bi bi-file-earmark-image"></i>
-                                            </div>
-                                            <span class="text-dark-gray fw-600">JPEG Desteği</span>
-                                        </div>
-                                    </div>
-                                    <div class="col-6">
-                                        <div class="text-center">
-                                            <div class="fs-50 text-base-color mb-10px">
-                                                <i class="bi bi-file-earmark-text"></i>
-                                            </div>
-                                            <span class="text-dark-gray fw-600">Text Desteği</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
-
-        <!-- Özellikler - start section -->
-        <section id="ozellikler" class="bg-extra-dark-slate-blue section">
-            <div class="container">
-                <div class="row mb-3">
-                    <div class="col-12 text-center" data-anime='{ "el": "childs", "translateY": [30, 0], "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>
-                        <h2 class="fw-800 ls-minus-2px alt-font text-white text-uppercase">Gücünüze Güç Katacak Yetenekler</h2>
+<section class="nasil-calisir-section px-8 py-16 text-white" id="ozellikler">
+<div class="max-w-7xl mx-auto flex flex-col gap-20">
+<div class="grid lg:grid-cols-2 gap-16 items-center">
+<div class="flex flex-col gap-6">
+<h2 class="text-3xl lg:text-3xl font-medium leading-tight">Nasıl Çalışır?</h2>
+<p class="text-white/80 text-base font-light leading-relaxed">KVKK Mevzuatına Yalın Çözüm : Türkiye Sınırları İçinde Uçtan Uca Veri Hakimiyeti</p>
+<div class="flex flex-col gap-4 mt-4">
+<div class="flex items-center gap-4 bg-white/5 p-4 rounded-lg border border-white/10">
+<span class="material-symbols-outlined text-2xl">check_circle</span>
+<span class="text-lg font-light">Türkiye Sınırları İçinde İzole Veri İşleme</span>
                     </div>
-                </div>
-                <div class="row row-cols-1 row-cols-lg-2 justify-content-center" data-anime='{ "el": "childs", "translateY": [30, 0], "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 300, "easing": "easeOutQuad" }'>
-                    <!-- start features box item -->
-                    <div class="col icon-with-text-style-02 transition-inner-all mb-30px">
-                        <div class="feature-box feature-box-left-icon-middle text-start hover-box dark-hover bg-dark-slate-blue border-radius-8px p-9 overflow-hidden last-paragraph-no-margin">
-                            <div class="feature-box-icon">
-                                <i class="line-icon-Archery-2 icon-double-large text-white"></i>
-                            </div>
-                            <div class="feature-box-content">
-                                <span class="d-inline-block fs-18 text-white fw-500 mb-5px">Maksimum Güvenlik ve Gizlilik</span>
-                                <p class="text-light-opacity">Her müvekkil veya dava için tamamen izole ve şifrelenmiş bilgi havuzları (Agent'lar) oluşturun. Verileriniz asla başka bir veriyle karışmaz, gizlilik en üst düzeyde sağlanır.</p>
-                            </div>
-                            <div class="feature-box-overlay bg-dark-slate-blue"></div>
-                        </div>  
-                    </div>
-                    <!-- end features box item -->                    
-                    <!-- start features box item -->
-                    <div class="col icon-with-text-style-02 transition-inner-all mb-30px">
-                        <div class="feature-box feature-box-left-icon-middle text-start hover-box dark-hover bg-dark-slate-blue border-radius-8px p-9 overflow-hidden last-paragraph-no-margin">
-                            <div class="feature-box-icon">
-                                <i class="line-icon-Gear icon-double-large text-white"></i>
-                            </div>
-                            <div class="feature-box-content">
-                                <span class="d-inline-block fs-18 text-white fw-500 mb-5px">Akıllı Metin ve Belge Tanıma</span>
-                                <p class="text-light-opacity">Taranmış (pdf,resim, belge) veya dijital (pdf,docx,txt, jpg) fark etmeksizin, her türlü evraklarınızı hassasiyetle okur ve bilgisayarın anlayacağı şekle dönüştürür.</p>
-                            </div>
-                            <div class="feature-box-overlay bg-dark-slate-blue"></div>
-                        </div>  
-                    </div>
-                    <!-- end features box item -->                    
-                    <!-- start features box item -->
-                    <div class="col icon-with-text-style-02 transition-inner-all md-mb-30px">
-                        <div class="feature-box feature-box-left-icon-middle text-start hover-box dark-hover bg-dark-slate-blue border-radius-8px p-9 overflow-hidden last-paragraph-no-margin">
-                            <div class="feature-box-icon">
-                                <i class="line-icon-Navigation-LeftWindow icon-double-large text-white"></i>
-                            </div>
-                            <div class="feature-box-content">
-                                <span class="d-inline-block fs-18 text-white fw-500 mb-5px">Gelişmiş Anlamsal Sorgulama</span>
-                                <p class="text-light-opacity">Anahtar kelime aramasının ötesine geçin. 10.000 sayfalık bir dosyadan, birbiriyle ilişkili birden fazla bilgiyi sentezleyerek size bütüncül bir cevap sunar.</p>
-                            </div>
-                            <div class="feature-box-overlay bg-dark-slate-blue"></div>
-                        </div>  
-                    </div>
-                    <!-- end features box item -->                    
-                    <!-- start features box item -->
-                    <div class="col icon-with-text-style-02 transition-inner-all">
-                        <div class="feature-box feature-box-left-icon-middle text-start hover-box dark-hover bg-dark-slate-blue border-radius-8px p-9 overflow-hidden last-paragraph-no-margin">
-                            <div class="feature-box-icon">
-                                <i class="line-icon-Female icon-double-large text-white"></i>
-                            </div>
-                            <div class="feature-box-content">
-                                <span class="d-inline-block fs-18 text-white fw-500 mb-5px">Detaylı Yetki Yönetimi</span>
-                                <p class="text-light-opacity">Ekibinizdeki stajyer avukatların, kıdemli avukatların veya yöneticilerin hangi bilgilere erişip hangilerini düzenleyebileceğini ayrıntılı olarak siz belirleyin.</p>
-                            </div>
-                            <div class="feature-box-overlay bg-dark-slate-blue"></div>
-                        </div>  
-                    </div>
-                    <!-- end features box item -->                    
-                </div>
-            </div>
-        </section>
-        <!-- Özellikler - end section -->
-
-        <!-- Nasıl - start section -->
-        <section id="nasil" class="section overlap-height background-no-repeat background-position-left-top cover-background position-relative" style="background-image: url('images/demo-it-business-about-bg2.jpg')"> 
-            <div class="container overlap-gap-section">
-                <div class="row justify-content-center mb-3 sm-mb-8"> 
-                    <div class="col-xl-5 col-lg-7 col-md-8 text-center last-paragraph-no-margin">
-                        <h3 class="alt-font fw-700 text-dark-gray ls-minus-1px">3 Basit Adımda Başlayın</h3>
-                    </div>
-                </div>
-                <div class="row row-cols-1 row-cols-lg-3 row-cols-md-2"> 
-                    <!-- start process step item -->
-                    <div class="col process-step-style-04 text-center last-paragraph-no-margin hover-box md-mb-50px">
-                        <div class="process-step-icon-box position-relative mb-25px">
-                            <span class="progress-step-separator bg-dark-gray opacity-1 w-55 separator-line-1px"></span>
-                            <h4 class="number d-inline-block fw-700 alt-font text-dark-gray ls-minus-2 px mb-0">01</h4>
-                        </div>
-                        <span class="d-inline-block fw-700 alt-font fs-18 text-dark-gray mb-5px">Model Oluştur</span>
-                        <p class="d-inline-block w-75 lg-w-100 md-w-80">Dosyalarını analiz edecek, belirli rol ve tanımlara göre çalışacak modelinizi seçiniz.</p>
-                    </div>
-                    <!-- end process step item -->                                       
-                    <!-- start process step item -->
-                    <div class="col process-step-style-04 text-center last-paragraph-no-margin hover-box md-mb-50px">
-                        <div class="process-step-icon-box position-relative mb-25px">
-                            <span class="progress-step-separator bg-dark-gray opacity-1 w-55 separator-line-1px"></span>
-                            <h4 class="number d-inline-block fw-700 alt-font text-dark-gray ls-minus-2 px mb-0">02</h4>
-                        </div>
-                        <span class="d-inline-block fw-700 alt-font fs-18 text-dark-gray mb-5px">Doküman Yükle</span>
-                        <p class="d-inline-block w-75 lg-w-100 md-w-80">Dokümanlarınızı yükleyin ve size özel cevaplar üreten akıllı asistanınızı kullanmaya hazırsınız.</p>
-                    </div>
-                    <!-- end process step item -->                    
-                    <!-- start process step item -->
-                    <div class="col process-step-style-04 text-center last-paragraph-no-margin hover-box sm-mb-50px">
-                        <div class="process-step-icon-box position-relative mb-25px">
-                            <span class="progress-step-separator bg-dark-gray opacity-1 w-55"></span>
-                            <h4 class="number d-inline-block fw-700 alt-font text-dark-gray ls-minus-2 px mb-0">03</h4>
-                        </div>
-                        <span class="d-inline-block fw-700 alt-font fs-18 text-dark-gray mb-5px">Sohbeti Başlat</span>
-                        <p class="d-inline-block w-75 lg-w-100 md-w-80">Hukuk asistanınızla sohbete başlayın!</p>
-                    </div>
-                    <!-- end process step item -->              
-                </div>
-            </div>
-        </section>
-        <!-- Nasıl - end section -->
-
-        <!-- Güvenlik - start section -->
-        <section id="güvenlik" class="border-top border-color-extra-medium-gray bg-dark-gray py-6 section">
-            <div class="container-xl">
-                <div class="row justify-content-center mb-5">
-                    <div class="col-xl-8 col-lg-10">
-                        <div class="card bg-gradient-dark-slate-blue border-0 shadow-lg text-center p-5 mb-4 position-relative">
-                            <div class="position-absolute top-0 start-50 translate-middle-x" style="margin-top: -48px;">
-                                <div class="bg-base-color rounded-circle d-flex align-items-center justify-content-center" style="width:96px;height:96px;box-shadow:0 4px 24px #2946f366;">
-                                    <i class="bi bi-shield-lock-fill text-white fs-1"></i>
-                                </div>
-                            </div>
-                            <h2 class="fw-800 text-dark-gray mt-5 mb-3 ls-minus-2px">Verileriniz %100 Güvende</h2>
-                            <p class="lead text-dark-gray mb-0 fs-20">Tüm dosyalarınız ve bilgileriniz, size özel izole ortamda, ileri düzey şifreleme ile korunur. Hiçbir üçüncü şahıs veya başka bir kullanıcı verilerinize erişemez.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="row justify-content-center mb-4">
-                    <div class="col-lg-10">
-                        <div class="d-flex flex-column flex-md-row justify-content-center align-items-center gap-4">
-                            <div class="security-badge-alt bg-white d-flex align-items-center justify-content-center px-4 py-3 rounded-3 shadow-sm">
-                                <i class="bi bi-lock-fill text-base-color fs-2 me-3"></i>
-                                <span class="fw-700 text-dark-gray">Tamamen İzole</span>
-                            </div>
-                            <div class="security-badge-alt bg-white d-flex align-items-center justify-content-center px-4 py-3 rounded-3 shadow-sm">
-                                <i class="bi bi-shield-check text-base-color fs-2 me-3"></i>
-                                <span class="fw-700 text-dark-gray">Dosyalar Güvende</span>
-                            </div>
-                            <div class="security-badge-alt bg-white d-flex align-items-center justify-content-center px-4 py-3 rounded-3 shadow-sm">
-                                <i class="bi bi-eye-slash text-base-color fs-2 me-3"></i>
-                                <span class="fw-700 text-dark-gray">Herşey Gizli</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row justify-content-center mt-4">
-                    <div class="col-xl-7 col-lg-9 text-center">
-                            <i class="bi fs-1 text-base-color mb-2 d-block"></i>
-                            Tamamı ile size ait ortam ile, yüklediğiniz dosyalara başkaları erişemez.
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Güvenlik - end section -->
-
-        <!-- Fiyatlandırma - start section -->
-        <section id="fiyatlandirma" class="section"> 
-            <div class="container"> 
-                <div class="row mb-6 md-mb-70px sm-mb-40px">
-                    <div class="col-xxl-3 col-lg-4 md-mb-30px">
-                        <h3 class="fw-700 text-dark-gray mb-0" data-anime='{ "translateY": [30, 0], "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 200, "easing": "easeOutQuad" }'>Abonelik Seçenekleri</h3>
-                    </div>
-                    <div class="col-lg-8 offset-xxl-1">
-                        <div class="row row-cols-1 row-cols-md-2">
-                            <div class="col">
-                                <ul class="p-0 m-0 list-style-02 fw-500 text-dark-gray" data-anime='{ "el": "childs", "translateY": [30, 0], "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 200, "easing": "easeOutQuad" }'>
-                                    <li class="pb-5px"><i class="feather icon-feather-arrow-right-circle fs-20 text-orange me-10px"></i>İstediğiniz Agent'ı kullanabilme</li>
-                                    <li class="pb-5px"><i class="feather icon-feather-arrow-right-circle fs-20 text-orange me-10px"></i>Sınırsız dosya yükleme</li>
-                                    <li class="pb-5px"><i class="feather icon-feather-arrow-right-circle fs-20 text-orange me-10px"></i>Kullanıcı Yaratma ve Yetkilendirme</li>
-                                </ul>
-                            </div>  
-                            <div class="col">
-                                <ul class="p-0 m-0 list-style-02 fw-500 text-dark-gray" data-anime='{ "el": "childs", "translateY": [30, 0], "opacity": [0,1], "duration": 600, "delay": 0, "staggervalue": 200, "easing": "easeOutQuad" }'>
-                                    <li class="pb-5px"><i class="feather icon-feather-arrow-right-circle fs-20 text-orange me-10px"></i>Agent'a Özel Rol ve Yetkiler tanımlama</li>
-                                    <li class="pb-5px"><i class="feather icon-feather-arrow-right-circle fs-20 text-orange me-10px"></i>Tamamen izole ortam</li>
-                                    <li class="pb-5px"><i class="feather icon-feather-arrow-right-circle fs-20 text-orange me-10px"></i>Güvenli Doküman Yönetimi</li>
-                                </ul>
-                            </div> 
-                        </div>
-                    </div>
-                </div>
-                <div class="row row-cols-1 row-cols-lg-3 row-cols-md-2 justify-content-center" data-anime='{"el": "childs", "translateX": [-30, 0], "opacity": [0,1], "delay": 500, "staggervalue": 100, "easing": "easeOutQuad" }'>
-                    <!-- start pricing item -->
-                    <div class="col pricing-table-style-10 md-mb-30px">
-                        <div class="bg-very-light-gray p-50px lg-p-25px sm-mb-50px border-radius-6px overflow-hidden position-relative">
-                            <span class="fs-14 lh-normal fw-600 text-dark-gray text-uppercase bg-white box-shadow-small border-radius-26px d-inline-block pt-10px pb-10px ps-20px pe-20px mb-30px">Silver</span>
-                            <h3 class="ls-minus-1px lh-50 fw-700 alt-font text-dark-gray mb-0">60.000<sub class="fs-30 bottom-0px">TL</sub></h3>
-                            <span class="d-block mb-20px text-uppercase fs-15 fw-600 text-dark-gray">aylık</span>
-                            <ul class="list-style-02 fw-500 p-0 mb-30px">
-                                <li class="pb-10px text-dark-gray"><span class="d-flex align-items-center justify-content-center box-shadow-small bg-white h-25px w-25px border-radius-100 me-10px mt-5px"><i class="bi bi-check icon-small text-green"></i></span>Sınırsız dosya yükleme</li>
-                                <li class="pb-10px text-dark-gray"><span class="d-flex align-items-center justify-content-center box-shadow-small bg-white h-25px w-25px border-radius-100 me-10px mt-5px"><i class="bi bi-check icon-small text-green"></i></span>1 Kullanıcı</li>
-                                <li class="pb-10px text-dark-gray"><span class="d-flex align-items-center justify-content-center box-shadow-small bg-white h-25px w-25px border-radius-100 me-10px mt-5px"><i class="bi bi-check icon-small text-green"></i></span>Sınırsız Rol ve Yetki Tanımı</li>
-                                <li class="pb-10px text-dark-gray"><span class="d-flex align-items-center justify-content-center box-shadow-small bg-white h-25px w-25px border-radius-100 me-10px mt-5px"><i class="bi bi-check icon-small text-green"></i></span>Standart Agent Kullanımı</li>
-                            </ul>
-                            <a href="#" class="btn btn-small btn-round-edge fw-600 btn-dark-gray btn-slide-right me-15px">Satın Al<span class="bg-very-light-gray"></span></a>
-                            <div class="cover-background background-position-center-bottom position-absolute right-0px top-0px h-100 w-65px" style="background-image: url('images/subscriptıon_silver_1.png');"></div>
-                        </div>
-                    </div>
-                    <!-- end pricing item -->
-                    <!-- start pricing item -->
-                    <div class="col pricing-table-style-10 position-relative md-mb-30px">
-                        <div class="bg-very-light-gray p-50px lg-p-25px border-radius-6px overflow-hidden position-relative">
-                            <span class="fs-14 lh-normal fw-600 text-dark-gray text-uppercase bg-white box-shadow-small border-radius-26px d-inline-block pt-10px pb-10px ps-20px pe-20px mb-30px">Gold</span>
-                            <h3 class="lh-50 fw-700 alt-font text-dark-gray mb-0">90.000<sub class="fs-30 bottom-0px">TL</sub></h3>
-                            <span class="d-block mb-20px text-uppercase fs-15 fw-600 text-dark-gray">aylık</span>
-                            <ul class="list-style-02 fw-500 p-0 mb-30px">
-                                <li class="pb-10px text-dark-gray"><span class="d-flex align-items-center justify-content-center box-shadow-small bg-white h-25px w-25px border-radius-100 me-10px mt-5px"><i class="bi bi-check icon-small text-green"></i></span>Sınırsız dosya yükleme</li>
-                                <li class="pb-10px text-dark-gray"><span class="d-flex align-items-center justify-content-center box-shadow-small bg-white h-25px w-25px border-radius-100 me-10px mt-5px"><i class="bi bi-check icon-small text-green"></i></span>5 Kullanıcı</li>
-                                <li class="pb-10px text-dark-gray"><span class="d-flex align-items-center justify-content-center box-shadow-small bg-white h-25px w-25px border-radius-100 me-10px mt-5px"><i class="bi bi-check icon-small text-green"></i></span>Sınırsız Rol ve Yetki Tanımı</li>
-                                <li class="pb-10px text-dark-gray"><span class="d-flex align-items-center justify-content-center box-shadow-small bg-white h-25px w-25px border-radius-100 me-10px mt-5px"><i class="bi bi-check icon-small text-green"></i></span>Standart Agent Kullanımı</li>
-                            </ul>
-                            <a href="#" class="btn btn-small btn-round-edge fw-600 btn-dark-gray btn-slide-right me-15px">Satın Al<span class="bg-very-light-gray"></span></a>
-                            <div class="cover-background background-position-center-bottom position-absolute right-0px top-0px h-100 w-65px" style="background-image: url('images/subscriptıon_gold_1.png');"></div>
-                        </div>
-                    </div>
-                    <!-- end pricing item -->
-                    <!-- start pricing item -->
-                    <div class="col pricing-table-style-10">
-                        <div class="bg-very-light-gray p-50px lg-p-25px sm-mb-50px border-radius-6px overflow-hidden position-relative">
-                            <span class="fs-14 lh-normal fw-600 text-dark-gray text-uppercase bg-white box-shadow-small border-radius-26px d-inline-block pt-10px pb-10px ps-20px pe-20px mb-30px">Premium</span>
-                            <h3 class="lh-50 fw-700 alt-font text-dark-gray mb-0">120.000<sub class="fs-30 bottom-0px">TL</sub></h3>
-                            <span class="d-block mb-20px text-uppercase fs-15 fw-600 text-dark-gray">aylık</span>
-                            <ul class="list-style-02 fw-500 p-0 mb-30px">
-                                <li class="pb-10px text-dark-gray"><span class="d-flex align-items-center justify-content-center box-shadow-small bg-white h-25px w-25px border-radius-100 me-10px mt-5px"><i class="bi bi-check icon-small text-green"></i></span>Sınırsız dosya yükleme</li>
-                                <li class="pb-10px text-dark-gray"><span class="d-flex align-items-center justify-content-center box-shadow-small bg-white h-25px w-25px border-radius-100 me-10px mt-5px"><i class="bi bi-check icon-small text-green"></i></span>10 Kullanıcı</li>
-                                <li class="pb-10px text-dark-gray"><span class="d-flex align-items-center justify-content-center box-shadow-small bg-white h-25px w-25px border-radius-100 me-10px mt-5px"><i class="bi bi-check icon-small text-green"></i></span>Sınırsız Rol ve Yetki Tanımı</li>
-                                <li class="pb-10px text-dark-gray"><span class="d-flex align-items-center justify-content-center box-shadow-small bg-white h-25px w-25px border-radius-100 me-10px mt-5px"><i class="bi bi-check icon-small text-green"></i></span>Gelişmiş Agent Kullanımı</li>
-                            </ul>
-                            <a href="#" class="btn btn-small btn-round-edge fw-600 btn-dark-gray btn-slide-right me-15px">Satın Al<span class="bg-very-light-gray"></span></a>
-                            <div class="cover-background background-position-center-bottom position-absolute right-0px top-0px h-100 w-65px" style="background-image: url('images/subscriptıon_premium_1.png');"></div>
-                        </div>
-                    </div>
-                    <!-- end pricing item -->
-                </div>
-            </div>
-        </section>
-        <!-- Fiyatlandırma - end section -->  
-
-        <!-- Sıkça Sorulan Sorular - start section -->
-        <section id="sss" class="section bg-dark-slate-blue">
-            <div class="container">
-                <div class="row"> 
-                    <div class="col-xxl-4 col-lg-5 position-relative md-mb-25px" data-anime='{ "el": "childs", "translateX": [-50, 0], "opacity": [0,1], "duration": 1200, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'>
-                        <h2 class="fw-700 alt-font ls-minus-2px text-white">Sıkça Sorulan Sorular?</h2>
-                        <div><span class="text-dark-gray fs-30 me-5px align-middle fancy-text-style-4 ls-minus-1px text-white"><span class="fw-600" data-fancy-text='{ "effect": "rotate", "string": ["Agent", "Model", "LLM", "Prompt"] }'></span> nedir?</span></div>
-                    </div>
-                    <div class="col-xxl-7 col-lg-7 offset-xxl-1">  
-                        <div class="accordion accordion-style-02" id="accordion-style-02" data-active-icon="icon-feather-chevron-up" data-inactive-icon="icon-feather-chevron-down" data-anime='{ "el": "childs", "translateX": [50, 0], "opacity": [0,1], "duration": 1200, "delay": 0, "staggervalue": 150, "easing": "easeOutQuad" }'>
-                            <!-- start accordion item -->
-                            <div class="accordion-item">
-                                <div class="accordion-header border-bottom border-color-extra-medium-gray">
-                                    <a href="#" data-bs-toggle="collapse" data-bs-target="#accordion-style-02-01" aria-expanded="false" data-bs-parent="#accordion-style-02">
-                                        <div class="accordion-title mb-0 position-relative text-white pe-30px">
-                                            <i class="feather icon-feather-chevron-down icon-extra-medium text-white"></i><span class="fw-600 fs-18">Verilerimin güvenliği nasıl sağlanıyor?</span>
+<div class="flex items-center gap-4 bg-white/5 p-4 rounded-lg border border-white/10">
+<span class="material-symbols-outlined text-2xl">check_circle</span>
+<span class="text-lg font-light">Sadece Sizin Dosyalarınızla Sınırlı Analiz</span>
                                         </div>
-                                    </a>
+<div class="flex items-center gap-4 bg-white/5 p-4 rounded-lg border border-white/10">
+<span class="material-symbols-outlined text-2xl">check_circle</span>
+<span class="text-lg font-light">Varsayım Değil, Kanıta Dayalı Yanıtlar</span>
                                 </div>
-                                <div id="accordion-style-02-01" class="accordion-collapse collapse" data-bs-parent="#accordion-style-02">
-                                    <div class="accordion-body last-paragraph-no-margin border-bottom border-color-light-medium-gray">
-                                        <p>Her müşterimiz için tamamen izole veritabanları kullanıyoruz. Verileriniz hem aktarım sırasında hem de sunucularımızda AES-256 gibi en üst düzey şifreleme standartlarıyla korunur. Verileriniz size aittir ve asla üçüncü partilerle paylaşılmaz.</p>
+                                    </div>
+<p class="text-[15px] text-gray-400 mt-2">%100 No-Training Data Policy &amp; Encryption at Rest</p>
+                                </div>
+<div class="flex flex-col bg-white/5 rounded-xl p-8 border border-white/10 gap-8 backdrop-blur-md shadow-2xl">
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary bg-[#FFFFFF] rounded-sm p-1">description</span>
+<span class="text-sm font-medium tracking-wide opacity-80 font-body">Dava_Dosyasi_04.pdf</span>
+                            </div>
+<div class="h-px bg-white/10 w-full"></div>
+<div class="flex flex-col gap-4">
+<div class="flex gap-4">
+<div class="size-8 rounded-full bg-white/20 shrink-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-sm">smart_toy</span>
+                                        </div>
+<div class="bg-white/10 rounded-lg p-5 text-base leading-relaxed font-light font-body">
+<span class="font-bold block mb-2 font-header text-xl border-b border-white/10 pb-1">Özet Analiz:</span>
+                                    Dosyadaki 23. maddede belirtilen ihlal gerekçesiyle tazminat talebi haklı bulunmuştur. Mevcut emsal kararlar ışığında risk analizi tamamlanmıştır.
+                                </div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- end accordion item -->
-                            <!-- start accordion item -->
-                            <div class="accordion-item">
-                                <div class="accordion-header border-bottom border-color-extra-medium-gray">
-                                    <a href="#" data-bs-toggle="collapse" data-bs-target="#accordion-style-02-02" aria-expanded="false" data-bs-parent="#accordion-style-02">
-                                        <div class="accordion-title mb-0 position-relative text-white pe-30px">
-                                            <i class="feather icon-feather-chevron-down icon-extra-medium"></i><span class="fw-600 fs-18">Hangi tür ve dildeki belgeleri yükleyebilirim?</span>
                                         </div>
-                                    </a>
                                 </div>
-                                <div id="accordion-style-02-02" class="accordion-collapse collapse" data-bs-parent="#accordion-style-02">
-                                    <div class="accordion-body last-paragraph-no-margin border-bottom border-color-light-medium-gray">
-                                        <p>Platformumuz, metin tabanlı ve taranmış PDF'ler başta olmak üzere .docx, .txt gibi birçok formatı desteklemektedir. Şu an için Türkçe ve İngilizce dillerindeki hukuki metinler üzerinde optimize edilmiştir.</p>
+<div class="grid md:grid-cols-3 gap-12 pt-12 border-t border-white/10">
+<div class="flex flex-col gap-4 group items-center text-center">
+<span class="material-symbols-outlined text-4xl opacity-60 group-hover:opacity-100 transition-opacity">gpp_maybe</span>
+<h4 class="text-2xl font-medium">Data Sovereignty (Veri Egemenliği)</h4>
+<p class="text-white/70 leading-relaxed font-light">Veriniz asla global bulut ağlarına (Azure, Google, Amazon gibi) çıkmaz. Tier-3 standartlarındaki yerel veri merkezlerindeki sunucularımızda mühürlenir.</p>
                                     </div>
+<div class="flex flex-col gap-4 group items-center text-center">
+<span class="material-symbols-outlined text-4xl opacity-60 group-hover:opacity-100 transition-opacity">check_circle</span>
+<h4 class="text-2xl font-medium">Mevzuat Dokunulmazlığı</h4>
+<p class="text-white/70 leading-relaxed font-light">Üçüncü şahıslardan onay alma mecburiyetini teknolojimizle ortadan kaldırdık. Yasal risk barındırmayan, pürüzsüz uyumluluk.</p>
                                 </div>
+<div class="flex flex-col gap-4 group items-center text-center">
+<span class="material-symbols-outlined text-4xl opacity-60 group-hover:opacity-100 transition-opacity">description</span>
+<h4 class="text-2xl font-medium">Zero-Knowledge Güvencesi</h4>
+<p class="text-white/70 leading-relaxed font-light">Biz dahi verinize erişemeyiz. Sistemimiz tahminde bulunmaz; sadece somut dosya gerçeklerini analiz eder.</p>
                             </div>
-                            <!-- end accordion item -->
-                            <!-- start accordion item -->
-                            <div class="accordion-item">
-                                <div class="accordion-header border-bottom border-color-light-medium-gray">
-                                    <a href="#" data-bs-toggle="collapse" data-bs-target="#accordion-style-02-03" aria-expanded="false" data-bs-parent="#accordion-style-02">
-                                        <div class="accordion-title mb-0 position-relative text-white pe-30px">
-                                            <i class="feather icon-feather-chevron-down icon-extra-medium"></i><span class="fw-600 fs-18">Platformu kullanmak için teknik bilgi gerekiyor mu?</span>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div id="accordion-style-02-03" class="accordion-collapse collapse" data-bs-parent="#accordion-style-02">
-                                    <div class="accordion-body last-paragraph-no-margin border-bottom border-color-light-medium-gray">
-                                        <p>DikEra AI, son kullanıcı dostu bir arayüzle tasarlanmıştır. Belge yüklemek, Agent oluşturmak ve soru sormak için herhangi bir teknik bilgiye ihtiyacınız yoktur.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end accordion item -->
-                            <!-- start accordion item -->
-                            <div class="accordion-item">
-                                <div class="accordion-header border-bottom border-color-transparent">
-                                    <a href="#" data-bs-toggle="collapse" data-bs-target="#accordion-style-02-04" aria-expanded="false" data-bs-parent="#accordion-style-02">
-                                        <div class="accordion-title mb-0 position-relative text-white pe-30px">
-                                            <i class="feather icon-feather-chevron-down icon-extra-medium"></i><span class="fw-600 fs-18">Fiyatlandırma modeli nasıl?</span>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div id="accordion-style-02-04" class="accordion-collapse collapse" data-bs-parent="#accordion-style-02">
-                                    <div class="accordion-body last-paragraph-no-margin border-bottom border-color-transparent">
-                                        <p>Fiyatlandırmamız, kullanıcı sayısı ve depolama alanına göre esnek paketler halinde sunulmaktadır. İhtiyaçlarınıza en uygun çözümü belirlemek için demo talebinde bulunabilirsiniz.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- end accordion item -->
-                        </div>
-                    </div>   
                 </div>
             </div> 
         </section>
-        <!-- Sıkça Sorulan Sorular - end section -->
-
-        <!-- start Enhanced Demo Request section -->
-        <section id="demo-section" class="bg-very-light-gray position-relative overlap-height">
-            <div class="container overlap-gap-section">
-                <div class="row justify-content-center">
-                    <div class="col-xl-10 col-lg-11">
-                        <div class="bg-white border-radius-10px p-8 md-p-6 box-shadow-quadruple-large">
-                            <div class="row align-items-center">
-                                <!-- Enhanced Demo Form -->
-                                <div class="col-lg-12">
-                                    <div class="demo-form-container">
-                                        <!-- Form Header -->
-                                        <div class="text-center ">
-                                            <div class="d-inline-block position-relative">
-                                                <h2 class="text-dark-gray fw-700 ls-minus-2px mb-15px">
-                                                    <i class="text-base-color me-10px"></i>Demo Talebinde Bulun
-                                                </h2>
-                                                <span class="fs-19 text-medium-gray mb-25px d-block">DikEra AI platformunun gücünü keşfedin ve işinizi dönüştürün</span>
-                                            </div>
+<section class="px-8 pt-12 pb-4 bg-[#EBEBEB]">
+<div class="max-w-7xl mx-auto text-center">
+<h2 class="text-primary text-4xl lg:text-5xl font-medium tracking-tight">Dikera AI ve Geleneksel Çözümler</h2>
+<p class="text-primary/70 text-base lg:text-lg font-normal mt-2">Risk ve Uyumluluk Analizi</p>
+</div>
+</section>
+<section class="px-8 py-6 pt-4 bg-[#EBEBEB]" id="karsilastirma">
+<div class="max-w-7xl mx-auto">
+<div class="rounded-3xl border border-[#A8A8A8] bg-[#F2F2F2] p-6 lg:p-8">
+<div class="overflow-x-auto karsilastirma-table-wrap">
+<div class="karsilastirma-table-scaled">
+<div class="w-full max-w-full flex flex-col gap-0">
+<div class="pt-0">
+<table class="karsilastirma-table w-full min-w-0 table-fixed text-center border-separate border-spacing-x-[3px]">
+<colgroup>
+<col class="w-[32.4%]"/>
+<col class="w-[22.5%]"/>
+<col class="w-[22.5%]"/>
+<col class="w-[22.5%]"/>
+</colgroup>
+<thead>
+<tr>
+<th class="px-3 py-2.5 text-left font-bold rounded-xl bg-[#313a40] text-white">Kurumsal Kriterler</th>
+<th class="px-3 py-2.5 font-bold rounded-xl bg-[#313a40] text-white">Manuel Süreçler</th>
+<th class="px-3 py-2.5 font-bold rounded-xl bg-[#313a40] text-white whitespace-normal break-words">Standart Hukuk AI</th>
+<th class="px-3 py-2.5 font-bold rounded-xl">Dikera AI</th>
+</tr>
+</thead>
+<tbody class="text-charcoal">
+<tr class="transition-colors hover:bg-[#E8E8E8]/80">
+<td class="px-3 py-2.5 font-medium bg-[#F7F7F7] rounded-lg text-left">Veri Merkezi</td>
+<td class="px-3 py-2.5 bg-[#F7F7F7] rounded-lg">Yerel Arşiv</td>
+<td class="px-3 py-2.5 bg-[#F7F7F7] rounded-lg">Yurtdışı (Cloud)</td>
+<td class="px-3 py-2.5 rounded-lg font-bold karsilastirma-cell-accent border border-primary/20">Türkiye (KVKK Uyumlu)</td>
+</tr>
+<tr class="transition-colors hover:bg-[#dceacb]/50">
+<td class="px-3 py-2.5 font-medium bg-[#F7F7F7] rounded-lg text-left">KVKK Aktarım Onayı</td>
+<td class="px-3 py-2.5 bg-[#F7F7F7] rounded-lg">Onay Gerekmez</td>
+<td class="px-3 py-2.5 bg-[#F7F7F7] rounded-lg">3. Şahıslardan Onay Gerekir !</td>
+<td class="px-3 py-2.5 rounded-lg font-bold karsilastirma-cell-accent border border-primary/20">Onay Gerekmez</td>
+</tr>
+<tr class="transition-colors hover:bg-[#dceacb]/50">
+<td class="px-3 py-2.5 font-medium bg-[#F7F7F7] rounded-lg text-left whitespace-normal break-words">Model Eğitimi ve Gizlilik</td>
+<td class="px-3 py-2.5 bg-[#F7F7F7] rounded-lg">Uygulanmaz</td>
+<td class="px-3 py-2.5 bg-[#F7F7F7] rounded-lg">Riskli (Eğitim Olasılığı)</td>
+<td class="px-3 py-2.5 rounded-lg font-bold karsilastirma-cell-accent border border-primary/20">Asla Kullanılmaz (%100 Gizli)</td>
+</tr>
+<tr class="transition-colors hover:bg-[#dceacb]/50">
+<td class="px-3 py-2.5 font-medium bg-[#F7F7F7] rounded-lg text-left">Denetlenebilirlik</td>
+<td class="px-3 py-2.5 bg-[#F7F7F7] rounded-lg">Zor / Manuel</td>
+<td class="px-3 py-2.5 bg-[#F7F7F7] rounded-lg">Sınırlı (Şeffaf Değil)</td>
+<td class="px-3 py-2.5 rounded-lg font-bold karsilastirma-cell-accent border border-primary/20">Tam Şeffaf / Kayıtlı (Audit Trail)</td>
+</tr>
+<tr class="transition-colors hover:bg-[#dceacb]/50">
+<td class="px-3 py-2.5 font-medium bg-[#F7F7F7] rounded-lg text-left">Analiz Kapsamı</td>
+<td class="px-3 py-2.5 bg-[#F7F7F7] rounded-lg">Kişisel / Sınırlı</td>
+<td class="px-3 py-2.5 bg-[#F7F7F7] rounded-lg">Genel / Jenerik</td>
+<td class="px-3 py-2.5 rounded-lg font-bold karsilastirma-cell-accent border border-primary/20">Dosyaya Özel / Deterministik</td>
+</tr>
+<tr class="transition-colors hover:bg-[#dceacb]/50">
+<td class="px-3 py-2.5 font-medium bg-[#F7F7F7] rounded-lg text-left">Erişim Yetki Kontrolü</td>
+<td class="px-3 py-2.5 bg-[#F7F7F7] rounded-lg">Dağınık</td>
+<td class="px-3 py-2.5 bg-[#F7F7F7] rounded-lg">Standart Kullanıcı Rolleri</td>
+<td class="px-3 py-2.5 rounded-lg font-bold karsilastirma-cell-accent border border-primary/20">Hiyerarşik / Rol Bazlı (RBAC)</td>
+</tr>
+</tbody>
+</table>
                                         </div>
-
-                                        <!-- Enhanced Demo Form -->
-                                        <form id="enhancedDemoForm" action="demo-request-handler.php" method="POST" class="contact-form-style-01">
-                                            <div class="row">
-                                                <!-- Name Field -->
-                                                <div class="col-lg-6 md-mb-25px">
-                                                    <div class="form-group position-relative">
-                                                        <input type="text" class="form-control border-radius-8px border-color-extra-medium-gray pe-15" 
-                                                               id="demo_name" name="name" placeholder="* Adınız ve Soyadınız" required>
-                                                        <span class="form-icon">
-                                                            <i class="line-icon-Male text-medium-gray"></i>
-                                                        </span>
                                                     </div>
                                                 </div>
-
-                                                <!-- Email Field -->
-                                                <div class="col-lg-6 md-mb-25px">
-                                                    <div class="form-group position-relative">
-                                                        <input type="email" class="form-control border-radius-8px border-color-extra-medium-gray pe-15" 
-                                                               id="demo_email" name="email" placeholder="* E-posta Adresiniz" required>
-                                                        <span class="form-icon">
-                                                            <i class="line-icon-Mail text-medium-gray"></i>
-                                                        </span>
-                                                    </div>
+</div>
+<p class="mt-4 text-charcoal/70 text-sm text-center w-full">%100 Türkiye Lokasyonlu Mimari – Tüm mimari Türkiye yerel altyapısındadır.</p>
                                                 </div>
-
-                                                <!-- Company Field -->
-                                                <div class="col-lg-6 md-mb-25px">
-                                                    <div class="form-group position-relative">
-                                                        <input type="text" class="form-control border-radius-8px border-color-extra-medium-gray pe-15" 
-                                                               id="demo_company" name="company" placeholder="Şirket Adı">
-                                                        <span class="form-icon">
-                                                            <i class="line-icon-Building text-medium-gray"></i>
-                                                        </span>
                                                     </div>
-                                                </div>
-
-                                                <!-- Phone Field -->
-                                                <div class="col-lg-6 md-mb-25px">
-                                                    <div class="form-group position-relative">
-                                                        <input type="tel" class="form-control border-radius-8px border-color-extra-medium-gray pe-15" 
-                                                               id="demo_phone" name="phone" placeholder="Telefon Numaranız">
-                                                        <span class="form-icon">
-                                                            <i class="line-icon-Phone text-medium-gray"></i>
-                                                        </span>
-                                                    </div>
-                                                </div>
-
-                                                <!-- Sector Field -->
-                                                <div class="col-12 mb-25px">
-                                                    <div class="form-group position-relative">
-                                                        <select class="form-control border-radius-8px border-color-extra-medium-gray pe-15" 
-                                                                id="demo_sector" name="sector">
-                                                            <option value="">Sektörünüzü Seçin *</option>
-                                                            <option value="teknoloji">Teknoloji</option>
-                                                            <option value="finans">Finans</option>
-                                                            <option value="saglik">Sağlık</option>
-                                                            <option value="egitim">Eğitim</option>
-                                                            <option value="e-ticaret">E-ticaret</option>
-                                                            <option value="imalat">İmalat</option>
-                                                            <option value="hizmet">Hizmet</option>
-                                                            <option value="diger">Diğer</option>
-                                                        </select>
-                                                        <span class="form-icon">
-                                                            <i class="line-icon-Factory text-medium-gray"></i>
-                                                        </span>
-                                                    </div>
-                                                </div>
-
-                                                <!-- Message Field -->
-                                                <div class="col-12 mb-25px">
-                                                    <div class="form-group form-textarea position-relative">
-                                                        <textarea class="form-control border-radius-8px border-color-extra-medium-gray pe-15" 
-                                                                  id="demo_message" name="message" rows="2" 
-                                                                  placeholder="Hangi konularda yardıma ihtiyacınız var? Lütfen detayları paylaşın..."></textarea>
-                                                        <span class="form-icon">
-                                                            <i class="line-icon-Talk-Chat text-medium-gray"></i>
-                                                        </span>
-                                                    </div>
-                                                </div>
-
-                                                <!-- Submit Button -->
-                                                <div class="col-12 text-center">
-                                                    <button type="submit" class="btn btn-large btn-dark-gray btn-hover-animation-switch btn-round-edge btn-box-shadow submit-form" 
-                                                            id="enhancedSubmitBtn">
-                                                        <span>
-                                                            <span class="btn-text">Demo Talebini Gönder</span>
-                                                            <span class="btn-icon"><i class="feather icon-feather-send"></i></span>
-                                                            <span class="btn-loading d-none">
-                                                                <i class="feather icon-feather-loader"></i> Gönderiliyor...
-                                                            </span>
-                                                        </span>
+</section>
+<section class="px-8 py-12 bg-[#FFFFFF]">
+<div class="max-w-4xl mx-auto bg-primary text-white rounded-2xl p-12 text-center flex flex-col items-center gap-8 shadow-2xl">
+<h2 class="text-3xl lg:text-4xl font-medium text-center">DikEra AI<span style="display: block; margin-top: 0.5em;">Seçili kurumlarla yürütülen erken erişim programı kapsamında çalışmaktadır.</span></h2>
+<p class="text-white/80 text-lg font-light max-w-xl">Erken erişime dahil olmak ve bilgi almak için:</p>
+<div class="flex items-center gap-4">
+<button type="button" class="border border-white/20 hover:bg-white/10 px-8 py-3 rounded-sm font-medium transition-all" data-demo-open aria-label="Demo talebi formunu aç">
+                    Demo Talep Et
                                                     </button>
-                                                </div>
-
-                                                <!-- Results Area -->
-                                                <div class="col-12">
-                                                    <div id="enhancedFormResults" class="form-results mt-15px p-15px text-center border-radius-8px d-none"></div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
-        <!-- end Enhanced Demo Request section -->
 
-        <!-- Modern Footer Section -->
-        <footer class="footer-dark bg-dark-gray pt-6 pb-4 position-relative overflow-hidden">
-            <!-- Background Pattern -->
-            <div class="position-absolute top-0 start-0 w-100 h-100 opacity-1">
-                <div class="bg-gradient-dark-slate-blue opacity-9 position-absolute top-0 start-0 w-100 h-100"></div>
-                <div class="position-absolute top-0 end-0 w-400px h-400px bg-base-color opacity-1 filter-blur-100px"></div>
-                <div class="position-absolute bottom-0 start-0 w-300px h-300px bg-majorelle-blue opacity-1 filter-blur-100px"></div>
-            </div>
-            
-            <div class="container position-relative">
-                <!-- Main Footer Content -->
-                <div class="row mb-5">
-                    <!-- Company Info -->
-                    <div class="col-lg-4 col-md-6 mb-5 mb-lg-0">
-                        <a href="index.html" class="footer-logo d-inline-block mb-3">
-                            <img src="images/DikEra_logo_nobg_2.png" alt="Dikera AI" style="height: 40px;">
-                        </a>
-                        <p class="text-white-50 mb-4 pe-lg-4">
-                            Dikera AI, hukuk profesyonelleri için geliştirilmiş, yapay zeka destekli belge analiz platformudur. Güvenli, hızlı ve kişiselleştirilebilir çözümler sunuyoruz.
-                        </p>
-                    </div>
-                    
-                    <!-- Quick Links -->
-                    <div class="col-lg-2 col-md-6 mb-5 mb-lg-0">
-                        <h6 class="fw-600 text-white mb-3">Hızlı Linkler</h6>
-                        <ul class="list-unstyled footer-links">
-                            <li class="mb-2">
-                                <a href="#ozellikler" class="text-white-50 text-white-hover d-flex align-items-center">
-                                    <i class="bi bi-chevron-right fs-14 me-1"></i>
-                                    <span>Özellikler</span>
-                                </a>
-                            </li>
-                            <li class="mb-2">
-                                <a href="#nasil" class="text-white-50 text-white-hover d-flex align-items-center">
-                                    <i class="bi bi-chevron-right fs-14 me-1"></i>
-                                    <span>Nasıl Çalışır</span>
-                                </a>
-                            </li>
-                            <li class="mb-2">
-                                <a href="#fiyatlandirma" class="text-white-50 text-white-hover d-flex align-items-center">
-                                    <i class="bi bi-chevron-right fs-14 me-1"></i>
-                                    <span>Fiyatlandırma</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#demo-section" class="text-white-50 text-white-hover d-flex align-items-center">
-                                    <i class="bi bi-chevron-right fs-14 me-1"></i>
-                                    <span>Demo Talep Et</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                                        
-                    <!-- Contact & Newsletter -->
-                    <div class="col-lg-4 col-md-6">
-                        <h6 class="fw-600 text-white mb-3">İletişim</h6>
-                        <div class="mb-4">
-                            <div class="d-flex align-items-start mb-3">
-                                <i class="bi bi-envelope text-base-color fs-18 me-3 mt-1"></i>
+        <!-- Demo Talep Modal -->
+        <iframe name="demo-form-iframe" id="demo-form-iframe" title="Gizli" class="hidden w-0 h-0 border-0 absolute" aria-hidden="true"></iframe>
+        <div id="demo-modal" class="fixed inset-0 z-50 hidden" aria-modal="true" aria-labelledby="demo-modal-title" role="dialog">
+            <div class="absolute inset-0 bg-primary/60 backdrop-blur-sm" data-demo-close></div>
+            <div class="absolute inset-0 flex items-center justify-center p-4 overflow-y-auto">
+                <div class="relative w-full max-w-2xl max-h-[90vh] flex flex-col bg-white rounded-lg shadow-2xl border border-primary/10 my-8 overflow-hidden">
+                    <button type="button" class="absolute top-4 right-4 z-10 text-charcoal/60 hover:text-primary p-1 rounded bg-white/80" data-demo-close aria-label="Kapat">
+                        <span class="material-symbols-outlined">close</span>
+                    </button>
+                    <div class="p-8 pt-12 overflow-y-auto flex-1 min-h-0">
+                        <h2 id="demo-modal-title" class="text-2xl font-medium text-primary mb-2">Demo Talep Et</h2>
+                        <p class="text-charcoal/80 text-sm mb-6">Erken erişim programı için bilgilerinizi bırakın; en kısa sürede size dönüş yapacağız.</p>
+
+                        <form id="demo-form" class="flex flex-col gap-5" novalidate>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div>
-                                    <a href="mailto:info@dikera.com" class="text-white-50 text-white-hover">info@dikera.com</a>
+                                    <label for="demo-ad" class="block text-sm font-medium text-charcoal mb-1">Ad <span class="text-red-600">*</span></label>
+                                    <input type="text" id="demo-ad" name="ad" required maxlength="100" class="w-full px-3 py-2 border border-primary/20 rounded-sm text-charcoal focus:ring-2 focus:ring-primary/30 focus:border-primary" placeholder="Adınız" autocomplete="given-name"/>
+                                    <span class="demo-error text-red-600 text-xs mt-0.5 hidden" data-for="demo-ad"></span>
+                                </div>
+                                <div>
+                                    <label for="demo-soyad" class="block text-sm font-medium text-charcoal mb-1">Soyad <span class="text-red-600">*</span></label>
+                                    <input type="text" id="demo-soyad" name="soyad" required maxlength="100" class="w-full px-3 py-2 border border-primary/20 rounded-sm text-charcoal focus:ring-2 focus:ring-primary/30 focus:border-primary" placeholder="Soyadınız" autocomplete="family-name"/>
+                                    <span class="demo-error text-red-600 text-xs mt-0.5 hidden" data-for="demo-soyad"></span>
                                 </div>
                             </div>
-                        </div>                        
+                            <div>
+                                <label for="demo-email" class="block text-sm font-medium text-charcoal mb-1">E-posta <span class="text-red-600">*</span></label>
+                                <input type="email" id="demo-email" name="email" required class="w-full px-3 py-2 border border-primary/20 rounded-sm text-charcoal focus:ring-2 focus:ring-primary/30 focus:border-primary" placeholder="ornek@sirket.com" autocomplete="email"/>
+                                <p id="demo-email-warning" class="text-amber-600 text-xs mt-1 hidden">Kurumsal e-posta adresi kullanmanız talebinizin değerlendirilmesini hızlandırır.</p>
+                                <span class="demo-error text-red-600 text-xs mt-0.5 hidden" data-for="demo-email"></span>
+                            </div>
+                            <div>
+                                <label for="demo-telefon" class="block text-sm font-medium text-charcoal mb-1">Telefon <span class="text-red-600">*</span></label>
+                                <input type="tel" id="demo-telefon" name="telefon" required class="w-full px-3 py-2 border border-primary/20 rounded-sm text-charcoal focus:ring-2 focus:ring-primary/30 focus:border-primary" placeholder="+90 5XX XXX XX XX" autocomplete="tel"/>
+                                <span class="demo-error text-red-600 text-xs mt-0.5 hidden" data-for="demo-telefon"></span>
+                            </div>
+                            <div>
+                                <label for="demo-sirket" class="block text-sm font-medium text-charcoal mb-1">Şirket Adı <span class="text-red-600">*</span></label>
+                                <input type="text" id="demo-sirket" name="sirket_adi" required maxlength="200" class="w-full px-3 py-2 border border-primary/20 rounded-sm text-charcoal focus:ring-2 focus:ring-primary/30 focus:border-primary" placeholder="Şirket veya kurum adı" autocomplete="organization"/>
+                                <span class="demo-error text-red-600 text-xs mt-0.5 hidden" data-for="demo-sirket"></span>
+                            </div>
+                            <div>
+                                <label for="demo-kurulus-tipi" class="block text-sm font-medium text-charcoal mb-1">Kuruluş Tipi <span class="text-red-600">*</span></label>
+                                <select id="demo-kurulus-tipi" name="kurulus_tipi" required class="w-full px-3 py-2 border border-primary/20 rounded-sm text-charcoal focus:ring-2 focus:ring-primary/30 focus:border-primary">
+                                    <option value="">Seçiniz</option>
+                                    <option value="Hukuk Bürosu">Hukuk Bürosu</option>
+                                    <option value="Kurumsal Şirket">Kurumsal Şirket</option>
+                                    <option value="Kamu">Kamu</option>
+                                    <option value="Diğer">Diğer</option>
+                                </select>
+                                <span class="demo-error text-red-600 text-xs mt-0.5 hidden" data-for="demo-kurulus-tipi"></span>
+                            </div>
+
+                            <!-- Hukuk Bürosu: Avukat Sayısı -->
+                            <div id="demo-avukat-wrap" class="hidden">
+                                <label for="demo-avukat-sayisi" class="block text-sm font-medium text-charcoal mb-1">Avukat Sayısı</label>
+                                <select id="demo-avukat-sayisi" name="avukat_sayisi" class="w-full px-3 py-2 border border-primary/20 rounded-sm text-charcoal focus:ring-2 focus:ring-primary/30 focus:border-primary">
+                                    <option value="">Seçiniz</option>
+                                    <option value="1 (Solo)">1 (Solo)</option>
+                                    <option value="2–5">2–5</option>
+                                    <option value="6–15">6–15</option>
+                                    <option value="16–30">16–30</option>
+                                    <option value="30+">30+</option>
+                                </select>
+                                <span class="demo-error text-red-600 text-xs mt-0.5 hidden" data-for="demo-avukat-sayisi"></span>
+                            </div>
+
+                            <!-- Kurumsal / Kamu: Çalışan Sayısı + Hukuki Süreçler -->
+                            <div id="demo-kurumsal-wrap" class="hidden space-y-4">
+                                <div>
+                                    <label for="demo-calisan-sayisi" class="block text-sm font-medium text-charcoal mb-1">Toplam Çalışan Sayısı</label>
+                                    <select id="demo-calisan-sayisi" name="calisan_sayisi" class="w-full px-3 py-2 border border-primary/20 rounded-sm text-charcoal focus:ring-2 focus:ring-primary/30 focus:border-primary">
+                                        <option value="">Seçiniz</option>
+                                        <option value="1–50">1–50</option>
+                                        <option value="51–200">51–200</option>
+                                        <option value="201–1000">201–1000</option>
+                                        <option value="1000+">1000+</option>
+                                    </select>
+                                    <span class="demo-error text-red-600 text-xs mt-0.5 hidden" data-for="demo-calisan-sayisi"></span>
+                                </div>
+                                <div>
+                                    <label for="demo-hukuki-surec" class="block text-sm font-medium text-charcoal mb-1">Hukuki Süreçleri Kim Yönetiyor?</label>
+                                    <select id="demo-hukuki-surec" name="hukuki_surec_yonetimi" class="w-full px-3 py-2 border border-primary/20 rounded-sm text-charcoal focus:ring-2 focus:ring-primary/30 focus:border-primary">
+                                        <option value="">Seçiniz</option>
+                                        <option value="Kendi hukuk departmanımız var">Kendi hukuk departmanımız var</option>
+                                        <option value="Dış hukuk bürosu ile çalışıyoruz">Dış hukuk bürosu ile çalışıyoruz</option>
+                                        <option value="Operasyon / Finans ekibi yönetiyor">Operasyon / Finans ekibi yönetiyor</option>
+                                        <option value="Emin değilim">Emin değilim</option>
+                                    </select>
+                                    <span class="demo-error text-red-600 text-xs mt-0.5 hidden" data-for="demo-hukuki-surec"></span>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="demo-gorev" class="block text-sm font-medium text-charcoal mb-1">Şirketteki Göreviniz <span class="text-charcoal/50 font-normal">(opsiyonel)</span></label>
+                                <input type="text" id="demo-gorev" name="gorev" maxlength="150" class="w-full px-3 py-2 border border-primary/20 rounded-sm text-charcoal focus:ring-2 focus:ring-primary/30 focus:border-primary" placeholder="Head of Legal" autocomplete="organization-title"/>
+                            </div>
+                            <div>
+                                <label for="demo-problem" class="block text-sm font-medium text-charcoal mb-1">Şu an yaşadığınız hukuki süreç problemini kısaca tarif eder misiniz? <span class="text-charcoal/50 font-normal">(opsiyonel)</span></label>
+                                <textarea id="demo-problem" name="problem" maxlength="500" rows="3" class="w-full px-3 py-2 border border-primary/20 rounded-sm text-charcoal focus:ring-2 focus:ring-primary/30 focus:border-primary resize-none" placeholder="Hukuki doküman inceleme süresi çok uzun; özetleme ve risk tarama süreçlerini hızlandırmak istiyoruz."></textarea>
+                                <p class="text-charcoal/60 text-xs mt-1"><span id="demo-problem-count">0</span>/500 karakter</p>
+                                <span class="demo-error text-red-600 text-xs mt-0.5 hidden" data-for="demo-problem"></span>
+                            </div>
+
+                            <div class="flex items-start gap-3">
+                                <input type="checkbox" id="demo-kvkk" name="kvkk" required class="mt-1 rounded border-primary/30 text-primary focus:ring-primary/30"/>
+                                <label for="demo-kvkk" class="text-sm text-charcoal/90">
+                                    <a href="kvkk.html" target="_blank" rel="noopener" class="text-primary underline hover:no-underline">KVKK Aydınlatma Metni</a>'ni okudum; kişisel verilerimin bu talep kapsamında işlenmesini kabul ediyorum. <span class="text-red-600">*</span>
+                                </label>
+                            </div>
+                            <span class="demo-error text-red-600 text-xs hidden" data-for="demo-kvkk"></span>
+
+                            <div id="demo-recaptcha-placeholder" class="text-charcoal/60 text-xs">reCAPTCHA v3 entegrasyonu eklenecek.</div>
+
+                            <div class="flex flex-col sm:flex-row gap-3 pt-2">
+                                <button type="submit" id="demo-submit" class="bg-primary text-white px-6 py-2.5 rounded-sm font-medium hover:bg-primary/90 transition-all disabled:opacity-50 disabled:cursor-not-allowed">
+                                    Talebi Gönder
+                                </button>
+                                <button type="button" class="border border-primary/20 text-charcoal px-6 py-2.5 rounded-sm font-medium hover:bg-primary/5 transition-all" data-demo-close>
+                                    İptal
+                                </button>
+                            </div>
+                        </form>
+
+                        <div id="demo-success" class="hidden text-center py-8">
+                            <p class="text-primary font-medium text-lg">Talebiniz alındı.</p>
+                            <p class="text-charcoal/80 mt-2">En kısa sürede sizinle iletişime geçeceğiz.</p>
+                            <button type="button" class="mt-4 text-primary font-medium underline hover:no-underline" data-demo-close>Kapat</button>
+                        </div>
                     </div>
                 </div>
-                
-                <!-- Footer Bottom -->
-                <div class="border-top border-color-white-20 pt-4">
-                    <div class="footer-bottom-row">
-                        <div class="footer-bottom-left">
-                            <p class="mb-0 text-white-50 fs-14">
-                                © 2025 <span class="text-white">DikEra AI</span>, bir <a href="https://www.vertonext.com" class="text-white">Verto Next</a> çözümüdür. Tüm hakları saklıdır.
+            </div>
+        </div>
+</main>
+<footer class="bg-[#FFFFFF] border-t border-primary/5 px-8 pt-20 pb-12">
+<div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-12 mb-16">
+<div class="flex flex-col gap-6 col-span-1 md:col-span-2">
+<div class="flex items-center gap-2">
+<div class="bg-primary p-1 rounded-sm">
+<span class="material-symbols-outlined text-white text-base">gavel</span>
+            </div>
+<h1 class="text-primary text-2xl font-bold tracking-tight">DikEra AI</h1>
+</div>
+<p class="text-base text-charcoal/80 leading-relaxed max-w-xs font-light">
+                Türkiye'de geliştirilen, hukuk odaklı güvenli yapay zeka asistanı. Veri egemenliği ve güvenlik mimarimizin temelini oluşturur.
+                        </p>
+                    </div>
+<div class="flex flex-col gap-6">
+<h4 class="font-medium text-primary text-sm uppercase tracking-widest font-body">Kurumsal</h4>
+<nav class="flex flex-col gap-3">
+<a class="text-charcoal/70 hover:text-primary transition-colors font-body" href="hakkimizda.html">Hakkımızda</a>
+<a class="text-charcoal/70 hover:text-primary transition-colors font-body" href="guvenlik.html">Güvenlik Standartları</a>
+<a class="text-charcoal/70 hover:text-primary transition-colors font-body" href="#">Kariyer</a>
+<a class="text-charcoal/70 hover:text-primary transition-colors font-body" href="#">İletişim</a>
+</nav>
+                    </div>
+<div class="flex flex-col gap-6">
+<h4 class="font-medium text-primary text-sm uppercase tracking-widest font-body">Yasal</h4>
+<nav class="flex flex-col gap-3">
+<a class="text-charcoal/70 hover:text-primary transition-colors font-body" href="#">Kullanım Şartları</a>
+<a class="text-charcoal/70 hover:text-primary transition-colors font-body" href="#">KVKK Aydınlatma Metni</a>
+<a class="text-charcoal/70 hover:text-primary transition-colors font-body" href="#">Gizlilik Sözleşmesi</a>
+</nav>
+                                </div>
+                            </div>
+<div class="max-w-7xl mx-auto pt-8 border-t border-primary/5 flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex gap-6 items-center">
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-xl">mail</span>
+<span class="text-base font-medium font-body">info@dikera.com</span>
+                        </div>                        
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-xl">location_on</span>
+<span class="text-base font-medium font-body">İstanbul, Türkiye</span>
+                    </div>
+                </div>
+<p class="text-sm text-charcoal/50 font-body italic">
+            © 2025 DikEra AI, bir Verto Next çözümüdür. Tüm hakları saklıdır.
                             </p>
                         </div>
-                        <div class="footer-bottom-right">
-                            <ul class="list-inline mb-0">
-                                <li class="list-inline-item">
-                                    <a href="#" class="text-white-50 text-white-hover fs-14">Gizlilik Politikası</a>
-                                </li>
-                                <li class="list-inline-item ms-3">
-                                    <a href="#" class="text-white-50 text-white-hover fs-14">Kullanım Koşulları</a>
-                                </li>
-                                <li class="list-inline-item ms-3">
-                                    <a href="#" class="text-white-50 text-white-hover fs-14">KVKK</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Scroll to Top Button -->
-            <a href="#" class="scroll-to-top position-fixed bottom-30px end-30px bg-base-color text-white w-50px h-50px rounded-circle d-flex align-items-center justify-content-center shadow-lg opacity-0 transition-all">
-                <i class="bi bi-arrow-up fs-20"></i>
-            </a>
         </footer>
-
-        <!-- Add this JavaScript for scroll to top functionality -->
         <script>
-        // Scroll to Top Button
-        document.addEventListener('DOMContentLoaded', function() {
-            const scrollToTopBtn = document.querySelector('.scroll-to-top');
-            
-            // Show/hide button based on scroll position
-            window.addEventListener('scroll', function() {
-                if (window.scrollY > 300) {
-                    scrollToTopBtn.classList.add('show');
-                } else {
-                    scrollToTopBtn.classList.remove('show');
-                }
-            });
-            
-            // Smooth scroll to top
-            scrollToTopBtn.addEventListener('click', function(e) {
-                e.preventDefault();
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-            
-            // Newsletter form submission
-            const newsletterForm = document.querySelector('.newsletter-footer form');
-            if (newsletterForm) {
-                newsletterForm.addEventListener('submit', function(e) {
-                    e.preventDefault();
-                    const email = this.querySelector('input[type="email"]').value;
-                    // Add your newsletter subscription logic here
-                    alert('Bültenimize başarıyla abone oldunuz!');
-                    this.reset();
-                });
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('[data-mobile-menu-toggle]').forEach(function (toggle) {
+        var header = toggle.closest('header');
+        if (!header) return;
+        var menu = header.querySelector('[data-mobile-menu]');
+        if (!menu) return;
+        toggle.addEventListener('click', function () {
+            var willOpen = menu.classList.contains('hidden');
+            menu.classList.toggle('hidden');
+            toggle.setAttribute('aria-expanded', String(willOpen));
+        });
+    });
+
+    var riskSection = document.getElementById('risk-section');
+    if (!riskSection) return;
+    var riskTitleEl = document.getElementById('risk-content-title');
+    var riskDescEl = document.getElementById('risk-content-description');
+    var riskInnerEl = document.getElementById('risk-content-inner');
+    var riskListEl = document.getElementById('risk-list');
+    if (!riskTitleEl || !riskDescEl || !riskInnerEl || !riskListEl) return;
+
+    var defaultRiskTitle = riskTitleEl.textContent;
+    var defaultRiskDesc = riskDescEl.textContent;
+    var activeRiskIndex = null;
+    var fadeDuration = 300;
+
+    function setRiskContent(title, description) {
+        riskInnerEl.classList.add('is-fading');
+        setTimeout(function () {
+            riskTitleEl.textContent = title;
+            riskDescEl.textContent = description;
+            riskInnerEl.classList.remove('is-fading');
+        }, fadeDuration);
+    }
+
+    function setActiveRisk(index) {
+        activeRiskIndex = index;
+        riskListEl.querySelectorAll('li[data-risk-index]').forEach(function (li, i) {
+            li.setAttribute('aria-selected', i === index ? 'true' : 'false');
+        });
+        if (index === null) {
+            setRiskContent(defaultRiskTitle, defaultRiskDesc);
+            updateMobileAnswer(null);
+            return;
+        }
+        var li = riskListEl.querySelector('li[data-risk-index="' + index + '"]');
+        if (li) {
+            setRiskContent(li.getAttribute('data-title') || '', li.getAttribute('data-description') || '');
+            updateMobileAnswer(li);
+        }
+    }
+
+    function updateMobileAnswer(selectedLi) {
+        var mobileAnswer = document.getElementById('risk-mobile-answer');
+        if (!mobileAnswer) return;
+        if (!selectedLi || window.matchMedia('(min-width: 769px)').matches) {
+            mobileAnswer.style.display = 'none';
+            mobileAnswer.setAttribute('aria-hidden', 'true');
+            mobileAnswer.innerHTML = '';
+            if (selectedLi === null && mobileAnswer.parentNode) {
+                riskListEl.appendChild(mobileAnswer);
             }
+            return;
+        }
+        var title = selectedLi.getAttribute('data-title') || '';
+        var desc = selectedLi.getAttribute('data-description') || '';
+        mobileAnswer.innerHTML = '<h3>' + title.replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</h3><p>' + desc.replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</p>';
+        mobileAnswer.style.display = 'block';
+        mobileAnswer.setAttribute('aria-hidden', 'false');
+        mobileAnswer.remove();
+        selectedLi.parentNode.insertBefore(mobileAnswer, selectedLi.nextSibling);
+    }
+
+    riskListEl.querySelectorAll('li').forEach(function (li) {
+        var index = parseInt(li.getAttribute('data-risk-index'), 10);
+        li.addEventListener('mouseenter', function () {
+            setActiveRisk(index);
+        });
+        li.addEventListener('click', function () {
+            setActiveRisk(index);
+        });
+        li.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                setActiveRisk(index);
+            }
+                });
+            });
+            
+    var riskListWrapper = riskSection.querySelector('.risk-list-wrapper');
+    if (riskListWrapper) {
+        riskListWrapper.addEventListener('mouseleave', function () {
+            setActiveRisk(null);
+        });
+    }
+
+    // --- Demo Talep Modal & Form ---
+    var DEMO_SHEETS_URL = 'https://script.google.com/macros/s/AKfycbzPNFQMlnEBXxsNZMFQpgOq9qlQIl_fK3LaS9iQzb-QvrBjvtNekkV7VuweGf7cp3vINg/exec';
+    var demoModal = document.getElementById('demo-modal');
+    var demoForm = document.getElementById('demo-form');
+    var demoSuccess = document.getElementById('demo-success');
+
+    function openDemoModal() {
+        if (!demoModal) return;
+        demoModal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+        if (demoForm) demoForm.reset();
+        if (demoSuccess) demoSuccess.classList.add('hidden');
+        if (demoForm) demoForm.classList.remove('hidden');
+        hideAllDemoErrors();
+        toggleDemoConditionalFields();
+        updateProblemCount();
+        document.getElementById('demo-email-warning').classList.add('hidden');
+        var first = demoModal.querySelector('input:not([type="checkbox"]), select');
+        if (first) first.focus();
+    }
+
+    function closeDemoModal() {
+        if (!demoModal) return;
+        demoModal.classList.add('hidden');
+        document.body.style.overflow = '';
+    }
+
+    function hideAllDemoErrors() {
+        demoModal.querySelectorAll('.demo-error').forEach(function (el) { el.classList.add('hidden'); el.textContent = ''; });
+    }
+
+    function showDemoError(fieldId, message) {
+        var err = demoModal.querySelector('.demo-error[data-for="' + fieldId + '"]');
+        if (err) { err.textContent = message; err.classList.remove('hidden'); }
+    }
+
+    var freeEmailDomains = ['gmail.com', 'hotmail.com', 'yahoo.com', 'outlook.com', 'live.com', 'msn.com', 'yandex.com', 'mynet.com', 'turkcell.com.tr', 'ttmail.com', 'windowslive.com', 'icloud.com', 'me.com', 'mac.com'];
+    function checkEmailDomain(email) {
+        if (!email || !email.includes('@')) return false;
+        var domain = email.split('@')[1].toLowerCase().replace(/^\s+|\s+$/g, '');
+        return freeEmailDomains.some(function (d) { return domain === d || domain.endsWith('.' + d); });
+    }
+
+    function toggleDemoConditionalFields() {
+        var tip = (document.getElementById('demo-kurulus-tipi') || {}).value;
+        var avukatWrap = document.getElementById('demo-avukat-wrap');
+        var kurumsalWrap = document.getElementById('demo-kurumsal-wrap');
+        var avukatSel = document.getElementById('demo-avukat-sayisi');
+        var calisanSel = document.getElementById('demo-calisan-sayisi');
+        var hukukiSel = document.getElementById('demo-hukuki-surec');
+        if (avukatWrap) avukatWrap.classList.add('hidden');
+        if (kurumsalWrap) kurumsalWrap.classList.add('hidden');
+        if (avukatSel) avukatSel.removeAttribute('required');
+        if (calisanSel) calisanSel.removeAttribute('required');
+        if (hukukiSel) hukukiSel.removeAttribute('required');
+        if (tip === 'Hukuk Bürosu') {
+            if (avukatWrap) avukatWrap.classList.remove('hidden');
+            if (avukatSel) avukatSel.setAttribute('required', 'required');
+        } else if (tip === 'Kurumsal Şirket' || tip === 'Kamu') {
+            if (kurumsalWrap) kurumsalWrap.classList.remove('hidden');
+            if (calisanSel) calisanSel.setAttribute('required', 'required');
+            if (hukukiSel) hukukiSel.setAttribute('required', 'required');
+        }
+    }
+
+    function sanitizeText(str) {
+        if (typeof str !== 'string') return '';
+        return str.replace(/<[^>]*>?/g, '').replace(/[\u0000-\u001F]/g, '').trim().substring(0, 500);
+    }
+
+    function updateProblemCount() {
+        var ta = document.getElementById('demo-problem');
+        var count = document.getElementById('demo-problem-count');
+        if (ta && count) count.textContent = (ta.value || '').length;
+    }
+
+    document.querySelectorAll('[data-demo-open]').forEach(function (btn) {
+        btn.addEventListener('click', openDemoModal);
+    });
+    if (window.location.hash === '#demo') {
+        openDemoModal();
+        if (history.replaceState) history.replaceState(null, '', window.location.pathname + window.location.search);
+    }
+    document.querySelectorAll('[data-demo-close]').forEach(function (el) {
+        el.addEventListener('click', closeDemoModal);
+    });
+    var demoOverlay = demoModal && demoModal.querySelector('[data-demo-close]');
+    if (demoOverlay && demoOverlay.classList.contains('backdrop-blur-sm')) demoOverlay.addEventListener('click', closeDemoModal);
+
+    var kurulusTipiEl = document.getElementById('demo-kurulus-tipi');
+    if (kurulusTipiEl) kurulusTipiEl.addEventListener('change', toggleDemoConditionalFields);
+
+    var problemEl = document.getElementById('demo-problem');
+    if (problemEl) {
+        problemEl.addEventListener('input', function () {
+            if (this.value.length > 500) this.value = this.value.substring(0, 500);
+            updateProblemCount();
+        });
+        problemEl.addEventListener('paste', function () {
+            var self = this;
+            setTimeout(function () {
+                if (self.value.length > 500) self.value = self.value.substring(0, 500);
+                updateProblemCount();
+            }, 0);
+        });
+    }
+
+    var demoEmailEl = document.getElementById('demo-email');
+    if (demoEmailEl) {
+        demoEmailEl.addEventListener('blur', function () {
+            var warn = document.getElementById('demo-email-warning');
+            if (!warn) return;
+            if (checkEmailDomain(this.value)) warn.classList.remove('hidden'); else warn.classList.add('hidden');
+        });
+    }
+
+    if (demoForm) {
+        demoForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            hideAllDemoErrors();
+            var ad = (document.getElementById('demo-ad') || {}).value.trim();
+            var soyad = (document.getElementById('demo-soyad') || {}).value.trim();
+            var email = (document.getElementById('demo-email') || {}).value.trim();
+            var telefon = (document.getElementById('demo-telefon') || {}).value.trim();
+            var sirket = (document.getElementById('demo-sirket') || {}).value.trim();
+            var kurulusTipi = (document.getElementById('demo-kurulus-tipi') || {}).value;
+            var valid = true;
+            if (!ad) { showDemoError('demo-ad', 'Ad zorunludur.'); valid = false; }
+            if (!soyad) { showDemoError('demo-soyad', 'Soyad zorunludur.'); valid = false; }
+            if (!email) { showDemoError('demo-email', 'E-posta zorunludur.'); valid = false; }
+            else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { showDemoError('demo-email', 'Geçerli bir e-posta adresi girin.'); valid = false; }
+            if (!telefon) { showDemoError('demo-telefon', 'Telefon zorunludur.'); valid = false; }
+            if (!sirket) { showDemoError('demo-sirket', 'Şirket adı zorunludur.'); valid = false; }
+            if (!kurulusTipi) { showDemoError('demo-kurulus-tipi', 'Kuruluş tipi seçiniz.'); valid = false; }
+            if (kurulusTipi === 'Hukuk Bürosu') {
+                var av = (document.getElementById('demo-avukat-sayisi') || {}).value;
+                if (!av) { showDemoError('demo-avukat-sayisi', 'Avukat sayısı seçiniz.'); valid = false; }
+            }
+            if (kurulusTipi === 'Kurumsal Şirket' || kurulusTipi === 'Kamu') {
+                var cs = (document.getElementById('demo-calisan-sayisi') || {}).value;
+                var hs = (document.getElementById('demo-hukuki-surec') || {}).value;
+                if (!cs) { showDemoError('demo-calisan-sayisi', 'Çalışan sayısı seçiniz.'); valid = false; }
+                if (!hs) { showDemoError('demo-hukuki-surec', 'Hukuki süreç yönetimini seçiniz.'); valid = false; }
+            }
+            var kvkk = document.getElementById('demo-kvkk');
+            if (!kvkk || !kvkk.checked) { showDemoError('demo-kvkk', 'KVKK metnini okuyup onaylamanız gerekiyor.'); valid = false; }
+            var problemRaw = (document.getElementById('demo-problem') || {}).value;
+            if (problemRaw && problemRaw.length > 500) { showDemoError('demo-problem', 'En fazla 500 karakter girebilirsiniz.'); valid = false; }
+            if (!valid) return;
+
+            var payload = {
+                ad: ad,
+                soyad: soyad,
+                email: email,
+                telefon: telefon,
+                sirket_adi: sirket,
+                kurulus_tipi: kurulusTipi,
+                avukat_sayisi: kurulusTipi === 'Hukuk Bürosu' ? (document.getElementById('demo-avukat-sayisi') || {}).value : '',
+                calisan_sayisi: (kurulusTipi === 'Kurumsal Şirket' || kurulusTipi === 'Kamu') ? (document.getElementById('demo-calisan-sayisi') || {}).value : '',
+                hukuki_surec_yonetimi: (kurulusTipi === 'Kurumsal Şirket' || kurulusTipi === 'Kamu') ? (document.getElementById('demo-hukuki-surec') || {}).value : '',
+                gorev: sanitizeText((document.getElementById('demo-gorev') || {}).value || '').substring(0, 150),
+                problem: sanitizeText(problemRaw || ''),
+                kvkk: !!(document.getElementById('demo-kvkk') && document.getElementById('demo-kvkk').checked),
+                sourceUrl: typeof window !== 'undefined' && window.location ? window.location.href : ''
+            };
+
+            var submitBtn = document.getElementById('demo-submit');
+            if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Gönderiliyor…'; }
+
+            if (!DEMO_SHEETS_URL) {
+                setTimeout(function () {
+                    if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Talebi Gönder'; }
+                    alert('Google Sheets bağlantısı henüz tanımlı değil. Lütfen yöneticiye iletin: DEMO_SHEETS_URL ve dağıtım kimliği eklenmeli.');
+                }, 300);
+                return;
+            }
+
+            var form = document.createElement('form');
+            form.method = 'POST';
+            form.action = DEMO_SHEETS_URL;
+            form.target = 'demo-form-iframe';
+            form.style.display = 'none';
+
+            var fields = {
+                ad: payload.ad,
+                soyad: payload.soyad,
+                email: payload.email,
+                telefon: payload.telefon,
+                sirket_adi: payload.sirket_adi,
+                kurulus_tipi: payload.kurulus_tipi,
+                avukat_sayisi: payload.avukat_sayisi,
+                calisan_sayisi: payload.calisan_sayisi,
+                hukuki_surec_yonetimi: payload.hukuki_surec_yonetimi,
+                gorev: payload.gorev,
+                problem: payload.problem,
+                sourceUrl: payload.sourceUrl
+            };
+            if (payload.kvkk) fields.kvkk = 'on';
+
+            Object.keys(fields).forEach(function (key) {
+                var val = fields[key];
+                if (val == null) val = '';
+                var input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = key;
+                input.value = typeof val === 'string' ? val : String(val);
+                form.appendChild(input);
+            });
+
+            document.body.appendChild(form);
+            form.submit();
+            document.body.removeChild(form);
+
+            demoForm.classList.add('hidden');
+            if (demoSuccess) demoSuccess.classList.remove('hidden');
+            if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Talebi Gönder'; }
+        });
+    }
+
         });
         </script>
-
-        <!-- start scroll progress -->
-        <div class="scroll-progress d-none d-xxl-block">
-          <a href="#" class="scroll-top" aria-label="scroll">
-            <span class="scroll-text">Yukarı</span><span class="scroll-line"><span class="scroll-point"></span></span>
-          </a>
-        </div>
-        <!-- end scroll progress -->
-        <!-- javascript libraries -->
-        <script type="text/javascript" src="js/jquery.js"></script>
-        <script type="text/javascript" src="js/vendors.min.js"></script>
-        <script type="text/javascript" src="js/main.js"></script>
-        <script type="text/javascript" src="js/email_subscription.js"></script>
-
-        <!-- DikEra AI Chatbot -->
-        <div class="dikera-chatbot">
-            <!-- Chatbot Toggle Button -->
-            <button class="chatbot-toggle" id="chatbotToggle">
-                <svg id="chatIcon" viewBox="0 0 24 24">
-                    <path d="M20 2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h4l4 4 4-4h4c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/>
-                </svg>
-                <svg id="closeIcon" style="display: none;" viewBox="0 0 24 24">
-                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
-                </svg>
-            </button>
-
-            <!-- Chatbot Window -->
-            <div class="chatbot-window" id="chatbotWindow">
-                <!-- Header -->
-                <div class="chatbot-header">
-                    <h3>DikEra AI Asistan</h3>
-                    <p>Size nasıl yardımcı olabilirim?</p>
-                    <div class="chatbot-status">
-                        <div class="status-dot"></div>
-                        <span style="font-size: 12px;">Çevrimiçi</span>
-                    </div>
-                </div>
-
-                <!-- Messages Area -->
-                <div class="chatbot-messages" id="chatMessages">
-                    <div class="message bot">
-                        <div class="message-bubble">
-                            Merhaba! Ben DikEra AI asistanınızım. Platform hakkında sorularınızı yanıtlayabilirim.
-                        </div>
-                        <div class="quick-replies">
-                            <div class="quick-reply" onclick="sendQuickReply('Platform nasıl çalışır?')">Platform Nasıl Çalışır?</div>
-                            <div class="quick-reply" onclick="sendQuickReply('Ücretlendirme')">Ücretlendirme</div>
-                            <div class="quick-reply" onclick="sendQuickReply('Güvenlik')">Güvenlik</div>
-                            <div class="quick-reply" onclick="sendQuickReply('Demo talep etmek istiyorum')">Demo İsteği</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Input Area -->
-                <div class="chatbot-input">
-                    <div class="input-group">
-                                            <input 
-                        type="text" 
-                        class="message-input" 
-                        id="messageInput" 
-                        placeholder="Mesajınızı yazın..."
-                        onkeydown="handleKeyPress(event)"
-                        autocomplete="off"
-                        maxlength="500"
-                    >
-                        <button class="send-button" onclick="sendMessage()" type="button">
-                            <svg viewBox="0 0 24 24">
-                                <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </body>
-</html>
+</body></html>
