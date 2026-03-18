@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DikEra AI | Güvenlik</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Source+Sans+3:ital,wght@0,200..900;1,200..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+tailwind.config = {
+    darkMode: "class",
+    theme: {
+        extend: {
+            colors: {
+                "primary": "#08102c",
+                "charcoal": "#313a40",
+                "background-light": "#FFFFFF"
+            },
+            fontFamily: {
+                "header": ["EB Garamond", "serif"],
+                "body": ["\"Source Sans 3\"", "system-ui", "sans-serif"]
+            }
+        }
+    }
+}
+</script>
+<style type="text/tailwindcss">
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    background-color: #FFFFFF;
+    color: #313a40;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: Helvetica, Arial, sans-serif;
+}
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+}
+.nav-link {
+    @apply text-charcoal/70 hover:text-primary transition-colors text-sm font-medium;
+}
+</style>
+</head>
+<body class="bg-background-light text-charcoal selection:bg-primary/10">
+<header class="sticky top-0 z-50 w-full bg-[#FFFFFF]/90 backdrop-blur-md border-b border-primary/5">
+<div class="flex items-center justify-between px-8 py-4 max-w-7xl mx-auto">
+<a class="flex items-center gap-2" href="index.html">
+<div class="bg-primary p-1 rounded-sm">
+<span class="material-symbols-outlined text-white text-lg">gavel</span>
+</div>
+<h1 class="text-primary text-2xl font-bold tracking-tight">DikEra AI</h1>
+</a>
+<nav class="hidden md:flex items-center gap-8">
+<a class="nav-link" href="index.html">Anasayfa</a>
+<a class="nav-link" href="ozellikler.html">Özellikler</a>
+<a class="nav-link text-primary" href="guvenlik.html">Güvenlik</a>
+<a class="nav-link" href="hakkimizda.html">Hakkımızda</a>
+<a class="nav-link" href="kaynaklar.html">Kaynaklar</a>
+<button class="bg-primary text-white text-sm px-5 py-2 rounded-sm hover:bg-primary/90 transition-all">Giriş Yap</button>
+</nav>
+<button aria-expanded="false" aria-label="Menüyü aç" class="md:hidden text-primary" data-mobile-menu-toggle type="button">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+</div>
+<div class="hidden md:hidden border-t border-primary/5 px-8 py-4" data-mobile-menu>
+<nav class="flex flex-col gap-3">
+<a class="nav-link" href="index.html">Anasayfa</a>
+<a class="nav-link" href="ozellikler.html">Özellikler</a>
+<a class="nav-link text-primary" href="guvenlik.html">Güvenlik</a>
+<a class="nav-link" href="hakkimizda.html">Hakkımızda</a>
+<a class="nav-link" href="kaynaklar.html">Kaynaklar</a>
+</nav>
+</div>
+</header>
+
+<main class="flex flex-col">
+<!-- 1. HERO -->
+<section class="max-w-7xl mx-auto px-8 py-10 lg:py-[3.75rem]">
+<div class="max-w-3xl text-center lg:text-center">
+<span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/5 border border-primary/10 text-primary text-xs font-semibold uppercase tracking-[0.1em]">
+<span class="material-symbols-outlined text-sm">shield</span>
+Güvenlik ve Veri Kontrolü
+</span>
+<h2 class="mt-6 text-primary text-4xl lg:text-5xl font-medium leading-tight">Kurumsal Düzeyde Güvenlik ve Veri Kontrolü</h2>
+<p class="mt-4 text-charcoal/80 text-xl font-light leading-relaxed">
+Dikera, hukuk ekiplerinin hassas verilerini izole, denetlenebilir ve mevzuata uygun bir altyapıda işler.
+</p>
+</div>
+</section>
+
+<!-- 2. Veri Egemenliği -->
+<section class="border-t border-primary/10 bg-[#f8f9fa]">
+<div class="max-w-7xl mx-auto px-8 py-12 lg:py-16">
+<div class="flex flex-col gap-6 mb-8 text-center">
+<h3 class="text-primary text-2xl lg:text-3xl font-medium">Verileriniz Türkiye'den Dışarı Çıkmaz</h3>
+<p class="text-charcoal/80 text-base lg:text-lg font-light max-w-3xl mx-auto">
+    Verinin nerede ve nasıl işlendiği, hukuki sorumluluğunuzun ayrılmaz bir parçasıdır. DikEra AI, altyapı mimarisini bu sorumluluğa göre kurgular.
+</p>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <!-- Kart A: Veri Egemenliği -->
+    <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-6 lg:p-8 flex flex-col gap-4">
+        <div class="inline-flex items-center justify-center w-12 h-12 lg:w-14 lg:h-14 rounded-full bg-primary/5 text-primary">
+            <span class="material-symbols-outlined text-2xl lg:text-3xl">cloud_done</span>
+        </div>
+        <div class="flex flex-col gap-2">
+            <h4 class="text-primary text-lg lg:text-xl font-medium tracking-tight">Türkiye Lokasyonlu Private Cloud</h4>
+            <p class="text-charcoal/85 text-sm lg:text-base leading-relaxed">
+                Verileriniz Türkiye sınırları içerisinde, Tier-3 standartlarına sahip, yedekli ve fiziksel olarak izole edilmiş özel bulut altyapısında barındırılır.
+            </p>
+            <p class="text-xs text-slate-500 mt-1">
+                %100 KVKK uyumluluğu ve veri lokalizasyonu garantisi.
+            </p>
+        </div>
+    </div>
+
+    <!-- Kart B: Esnek Kurulum -->
+    <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-6 lg:p-8 flex flex-col gap-4">
+        <div class="inline-flex items-center justify-center w-12 h-12 lg:w-14 lg:h-14 rounded-full bg-primary/5 text-primary">
+            <span class="material-symbols-outlined text-2xl lg:text-3xl">lan</span>
+        </div>
+        <div class="flex flex-col gap-2">
+            <h4 class="text-primary text-lg lg:text-xl font-medium tracking-tight">On-Premise &amp; Hibrit Seçenekleri</h4>
+            <p class="text-charcoal/85 text-sm lg:text-base leading-relaxed">
+                Yüksek güvenlik hassasiyeti olan büyük hukuk büroları için yazılımı tamamen kendi sunucularınıza (air-gapped) kurma ve yönetme imkânı sunuyoruz.
+            </p>
+            <p class="text-xs text-slate-500 mt-1">
+                Kurumsal IT politikalarınıza tam entegrasyon desteği.
+            </p>
+        </div>
+    </div>
+
+    <!-- Kart C: İzolasyon -->
+    <div class="bg-white rounded-xl border border-slate-200 shadow-sm p-6 lg:p-8 flex flex-col gap-4">
+        <div class="inline-flex items-center justify-center w-12 h-12 lg:w-14 lg:h-14 rounded-full bg-primary/5 text-primary">
+            <span class="material-symbols-outlined text-2xl lg:text-3xl">shield_lock</span>
+        </div>
+        <div class="flex flex-col gap-2">
+            <h4 class="text-primary text-lg lg:text-xl font-medium tracking-tight">İzole Container Mimarisi</h4>
+            <p class="text-charcoal/85 text-sm lg:text-base leading-relaxed">
+                Her hukuk bürosunun verisi, diğer kullanıcılardan mantıksal ve fiziksel olarak ayrılmış, kendine özel şifrelenmiş konteyner yapılarında işlenir.
+            </p>
+            <p class="text-xs text-slate-500 mt-1">
+                Uçtan uca izolasyon ve çok katmanlı güvenlik katmanı.
+            </p>
+        </div>
+    </div>
+</div>
+</div>
+</section>
+
+<!-- 3. Dış Dünyadan İzole Hukuk Zekası (vurgulu) -->
+<section class="max-w-7xl mx-auto px-8 py-12 lg:py-16">
+<div class="max-w-3xl mx-auto rounded-3xl border-2 border-primary/20 bg-blue-50/60 shadow-2xl shadow-blue-900/10 p-8 lg:p-10">
+    <!-- Etiket -->
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/5 border border-primary/20 text-primary text-[11px] font-semibold uppercase tracking-[0.18em] mb-4">
+        <span class="material-symbols-outlined text-sm">verified_user</span>
+        <span>Stratejik Güvence</span>
+    </div>
+
+    <!-- Başlık -->
+    <h3 class="text-primary text-3xl lg:text-3xl font-extrabold leading-tight">
+        Dış Dünyadan İzole Hukuk Zekası
+    </h3>
+    <p class="mt-3 text-charcoal/80 text-base lg:text-lg font-light leading-relaxed">
+        Yanıtlar yalnızca kurum içi belgelerinize dayanır; sorgularınız hiçbir zaman harici yapay zeka servislerine gönderilmez.
+    </p>
+
+    <!-- Maddeler -->
+    <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Madde 1 -->
+        <div class="flex items-start gap-3">
+            <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary">
+                <span class="material-symbols-outlined text-xl">block</span>
+            </div>
+            <div class="flex-1">
+                <h4 class="text-primary text-sm lg:text-base font-semibold">Harici AI Servislerine Veri Aktarımı Yok</h4>
+                <p class="mt-1 text-charcoal/80 text-xs lg:text-sm leading-relaxed">
+                    Sorgularınız OpenAI veya benzeri bulut servislerine gönderilmez; tüm işleme güvenli yerel altyapıda gerçekleşir.
+                </p>
+            </div>
+        </div>
+
+        <!-- Madde 2 -->
+        <div class="flex items-start gap-3">
+            <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary">
+                <span class="material-symbols-outlined text-xl">description</span>
+            </div>
+            <div class="flex-1">
+                <h4 class="text-primary text-sm lg:text-base font-semibold">Yanıtlar Yalnızca Belgelere Dayanır</h4>
+                <p class="mt-1 text-charcoal/80 text-xs lg:text-sm leading-relaxed">
+                    Halüsinasyon riski minimize edilmiş, tamamen dosya gerçeğine sadık analiz üreten bir kapalı bağlam mimarisi kullanılır.
+                </p>
+            </div>
+        </div>
+
+        <!-- Madde 3 -->
+        <div class="flex items-start gap-3">
+            <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary">
+                <span class="material-symbols-outlined text-xl">link_off</span>
+            </div>
+            <div class="flex-1">
+                <h4 class="text-primary text-sm lg:text-base font-semibold">Dış API Çağrısı Yok</h4>
+                <p class="mt-1 text-charcoal/80 text-xs lg:text-sm leading-relaxed">
+                    Kritik süreçlerde üçüncü parti API bağımlılığı bulunmaz; performans ve güvenlik tek bir kontrol noktasında tutulur.
+                </p>
+            </div>
+        </div>
+
+        <!-- Madde 4 -->
+        <div class="flex items-start gap-3">
+            <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary">
+                <span class="material-symbols-outlined text-xl">shield</span>
+            </div>
+            <div class="flex-1">
+                <h4 class="text-primary text-sm lg:text-base font-semibold">Deterministik ve Denetlenebilir Çıktı</h4>
+                <p class="mt-1 text-charcoal/80 text-xs lg:text-sm leading-relaxed">
+                    Aynı doküman seti ve aynı sorgu için tekrarlanabilir, denetlenebilir ve raporlanabilir sonuçlar üretir.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Local Inference Badge -->
+    <div class="mt-6 bg-primary/5 border border-primary/20 rounded-2xl px-5 py-4 flex flex-col md:flex-row items-start md:items-center gap-3">
+        <div class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-primary text-white">
+            <span class="material-symbols-outlined text-lg">memory</span>
+        </div>
+        <div class="flex-1">
+            <p class="text-primary text-sm font-semibold uppercase tracking-[0.18em]">ALTYAPI GÜVENCESİ - LOCAL INFERENCE ENGINE</p>
+            <p class="mt-1 text-charcoal/80 text-xs lg:text-sm leading-relaxed">
+                Tüm model çıkarım süreçleri (inference), kurum içi altyapınızda veya Türkiye lokasyonlu özel bulut ortamında çalışır; veri asla bu sınırların dışına çıkmaz.
+            </p>
+        </div>
+    </div>
+    </div>
+</section>
+
+<!-- 4. Güvenlik Üçlemesi (Özet Kartlar) -->
+<section class="border-t border-primary/10 bg-[#f8f9fa]">
+<div class="max-w-7xl mx-auto px-8 py-12 lg:py-16">
+    <div class="max-w-3xl mx-auto text-center mb-10">
+        <h3 class="text-primary text-2xl lg:text-3xl font-semibold">Veri Gizliliği Kurumsal Hiyerarşi Denetlenebilirlik</h3>
+        <p class="mt-3 text-charcoal/80 text-sm lg:text-base font-light leading-relaxed">
+            Veri gizliliği, kurumsal hiyerarşi ve denetlenebilirlik; DikEra AI güvenlik mimarisinin üç temel sütunudur.
+        </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+        <!-- Kart 1: Veri Gizliliği Sözü -->
+        <div class="bg-white rounded-3xl border border-slate-50 shadow-sm p-8 flex flex-col gap-4">
+            <div class="flex items-center justify-between gap-2">
+        <div class="inline-flex items-center justify-center w-11 h-11 rounded-full bg-primary/10 text-primary">
+                    <span class="material-symbols-outlined text-xl">psychology_alt</span>
+                </div>
+            </div>
+            <h4 class="text-primary text-xl font-bold">%100 No-Training Politikası</h4>
+            <p class="text-slate-600 text-sm leading-relaxed">
+                Verileriniz merkezi modelleri eğitmek için kullanılmaz; hukuki bilgi birikimiz sadece size özel kalır ve hiçbir zaman anonimleştirilmiş dahi olsa eğitim verisi haline getirilmez.
+            </p>
+            <ul class="mt-2 space-y-1.5 text-slate-500 text-sm leading-relaxed">
+                <li class="flex items-start gap-2">
+                    <span class="material-symbols-outlined text-[16px] mt-0.5">block</span>
+                    <span>Müşteri verileri hiçbir koşulda model güncellemelerinde kullanılmaz.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                    <span class="material-symbols-outlined text-[16px] mt-0.5">folder_off</span>
+                    <span>Çapraz müşteri öğrenimi (cross-customer training) kesin olarak engellenir.</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Kart 2: Kurumsal Hiyerarşi (RBAC) -->
+        <div class="bg-white rounded-3xl border border-slate-50 shadow-sm p-8 flex flex-col gap-4">
+            <div class="inline-flex items-center justify-center w-11 h-11 rounded-full bg-primary/10 text-primary">
+                <span class="material-symbols-outlined text-xl">admin_panel_settings</span>
+            </div>
+            <h4 class="text-primary text-xl font-bold">Gelişmiş Yetkilendirme (RBAC)</h4>
+            <p class="text-slate-600 text-sm leading-relaxed">
+                Dosya ve kullanıcı bazlı yetkilendirme ile “bilmesi gereken prensibini&quot; (need-to-know) dijital ortamda hayata geçirir; ortak, kıdemli ve stajyer rollerini ayrıştırırsınız.
+            </p>
+            <ul class="mt-2 space-y-1.5 text-slate-500 text-sm leading-relaxed">
+                <li class="flex items-start gap-2">
+                    <span class="material-symbols-outlined text-[16px] mt-0.5">key</span>
+                    <span>Rol bazlı erişim; kullanıcıların yalnızca yetkili olduğu dosyaları görmesini sağlar.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                    <span class="material-symbols-outlined text-[16px] mt-0.5">visibility_off</span>
+                    <span>Kritik davalar için kısıtlı görünürlük ve ek onay akışları tanımlanabilir.</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Kart 3: Dijital Denetim (Audit Trail) -->
+        <div class="bg-white rounded-3xl border border-slate-50 shadow-sm p-8 flex flex-col gap-4">
+            <div class="inline-flex items-center justify-center w-11 h-11 rounded-full bg-primary/10 text-primary">
+                <span class="material-symbols-outlined text-xl">search</span>
+            </div>
+            <h4 class="text-primary text-xl font-bold">Şeffaf Denetim ve Loglama</h4>
+            <p class="text-slate-600 text-sm leading-relaxed">
+                Sistemdeki tüm sorgu ve işlemler loglanır; hem IT hem de uyum ekipleri için geriye dönük incelenebilir tam bir denetim izi sunulur.
+            </p>
+            <ul class="mt-2 space-y-1.5 text-slate-500 text-sm leading-relaxed">
+                <li class="flex items-start gap-2">
+                    <span class="material-symbols-outlined text-[16px] mt-0.5">assignment</span>
+                    <span>Sorgular, üretilen yanıtlar ve kritik aksiyonlar zaman damgası ile kaydedilir.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                    <span class="material-symbols-outlined text-[16px] mt-0.5">rule</span>
+                    <span>Denetim süreçlerinde gerekli raporları hızlıca üretebilmeniz için merkezi loglama katmanı.</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</section>
+
+<!-- 4. Veri – Model Eğitimi, 5. RBAC, 6. Denetim, 7. Altyapı bölümleri kaldırıldı -->
+
+<!-- CTA -->
+<section class="px-8 pb-24">
+<div class="max-w-4xl mx-auto bg-primary text-white rounded-2xl p-12 text-center">
+<h3 class="text-4xl font-medium">Erken Erişim için Demo Talep Edin</h3>
+<a class="inline-flex mt-8 bg-white text-primary px-8 py-3 rounded-sm font-medium hover:bg-white/90 transition-all" href="index.html#demo" aria-label="Demo talebi formunu aç">
+Demo Talep Et
+</a>
+</div>
+</section>
+</main>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('[data-mobile-menu-toggle]').forEach(function (toggle) {
+        var header = toggle.closest('header');
+        if (!header) return;
+        var menu = header.querySelector('[data-mobile-menu]');
+        if (!menu) return;
+        toggle.addEventListener('click', function () {
+            var willOpen = menu.classList.contains('hidden');
+            menu.classList.toggle('hidden');
+            toggle.setAttribute('aria-expanded', String(willOpen));
+        });
+    });
+});
+</script>
+</body>
+</html>
