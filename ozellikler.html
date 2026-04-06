@@ -7,7 +7,7 @@
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Source+Sans+3:ital,wght@0,200..900;1,200..900&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script>
+<script id="tailwind-config">
 tailwind.config = {
     darkMode: "class",
     theme: {
@@ -17,9 +17,19 @@ tailwind.config = {
                 "charcoal": "#313a40",
                 "background-light": "#FFFFFF"
             },
+            spacing: {
+                "18": "4.5rem"
+            },
             fontFamily: {
+                sans: ['"Source Sans 3"', "system-ui", "-apple-system", '"Segoe UI"', "sans-serif"],
                 "header": ["EB Garamond", "serif"],
-                "body": ["\"Source Sans 3\"", "system-ui", "sans-serif"]
+                "body": ['"Source Sans 3"', "system-ui", "-apple-system", '"Segoe UI"', "sans-serif"]
+            },
+            borderRadius: {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "9999px"
             }
         }
     }
@@ -27,12 +37,21 @@ tailwind.config = {
 </script>
 <style type="text/tailwindcss">
 body {
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
     background-color: #FFFFFF;
     color: #313a40;
+    min-height: max(884px, 100dvh);
 }
 h1, h2, h3, h4, h5, h6 {
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+/* index: hero / editorial serif */
+main section:first-of-type h1.hero-headline,
+h2.hero-headline,
+h2.hero-editorial,
+p.hero-editorial,
+.alameti {
+    font-family: "EB Garamond", Georgia, "Times New Roman", serif;
 }
 .material-symbols-outlined {
     font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
@@ -40,30 +59,94 @@ h1, h2, h3, h4, h5, h6 {
 .nav-link {
     @apply text-charcoal/70 hover:text-primary transition-colors text-sm font-medium;
 }
+header {
+    font-family: "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+header h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: #08102c;
+}
+header .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+}
+/* Kaydırma ile değişen mock katmanları */
+.mock-layer {
+    transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1), transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+    opacity: 0;
+    transform: scale(0.97);
+    z-index: 0;
+    pointer-events: none;
+}
+.mock-layer.is-active {
+    opacity: 1;
+    transform: scale(1);
+    z-index: 2;
+    pointer-events: auto;
+}
+@media (prefers-reduced-motion: reduce) {
+    .mock-layer {
+        transition: none;
+        transform: none;
+    }
+    .mock-layer.is-active {
+        transform: none;
+    }
+}
+.nasil-calisir-features::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('assets/nasil-calisir-bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: brightness(0.5) saturate(0.9);
+    opacity: 0.7;
+    z-index: 0;
+}
+.nasil-calisir-features > * {
+    position: relative;
+    z-index: 1;
+}
+@keyframes compliance-glow {
+    0%, 100% { box-shadow: 0 0 0 1px rgba(8, 16, 44, 0.12), 0 8px 32px rgba(8, 16, 44, 0.08); }
+    50% { box-shadow: 0 0 0 2px rgba(8, 16, 44, 0.2), 0 12px 40px rgba(8, 16, 44, 0.12); }
+}
+.panel-glow {
+    animation: compliance-glow 4s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+    .panel-glow { animation: none; }
+}
+.feature-panel-hot {
+    box-shadow: inset 3px 0 0 0 #b45309;
+}
 </style>
 </head>
-<body class="bg-background-light text-charcoal selection:bg-primary/10">
-<header class="sticky top-0 z-50 w-full bg-[#FFFFFF]/90 backdrop-blur-md border-b border-primary/5">
-<div class="flex items-center justify-between px-8 py-4 max-w-7xl mx-auto">
+<body class="bg-background-light text-charcoal font-sans antialiased selection:bg-primary/10">
+<header class="sticky top-0 z-50 w-full bg-[#FFFFFF]/92 backdrop-blur-md border-b border-primary/5">
+<div class="flex items-center justify-between px-4 sm:px-6 lg:px-8 py-5 max-w-7xl mx-auto">
 <a class="flex items-center gap-2" href="index.html">
 <div class="bg-primary p-1 rounded-sm">
 <span class="material-symbols-outlined text-white text-lg">gavel</span>
 </div>
-<h1 class="text-primary text-2xl font-bold tracking-tight">DikEra AI</h1>
+<h1 class="text-primary text-2xl font-medium tracking-[0.02em]">DikEra AI</h1>
 </a>
-<nav class="hidden md:flex items-center gap-8">
+<nav class="hidden md:flex items-center gap-10">
 <a class="nav-link" href="index.html">Anasayfa</a>
 <a class="nav-link text-primary" href="ozellikler.html">Özellikler</a>
 <a class="nav-link" href="guvenlik.html">Güvenlik</a>
 <a class="nav-link" href="hakkimizda.html">Hakkımızda</a>
 <a class="nav-link" href="kaynaklar.html">Kaynaklar</a>
-<button class="bg-primary text-white text-sm px-5 py-2 rounded-sm hover:bg-primary/90 transition-all">Giriş Yap</button>
+<button class="bg-primary text-white text-sm font-medium tracking-[0.02em] px-6 py-2.5 rounded-xl hover:bg-primary/85 transition-all">Giriş Yap</button>
 </nav>
 <button aria-expanded="false" aria-label="Menüyü aç" class="md:hidden text-primary" data-mobile-menu-toggle type="button">
 <span class="material-symbols-outlined text-3xl">menu</span>
 </button>
 </div>
-<div class="hidden md:hidden border-t border-primary/5 px-8 py-4" data-mobile-menu>
+<div class="hidden md:hidden border-t border-primary/5 px-4 sm:px-6 py-5" data-mobile-menu>
 <nav class="flex flex-col gap-3">
 <a class="nav-link" href="index.html">Anasayfa</a>
 <a class="nav-link text-primary" href="ozellikler.html">Özellikler</a>
@@ -74,101 +157,251 @@ h1, h2, h3, h4, h5, h6 {
 </div>
 </header>
 
-<main class="flex flex-col">
-<section class="max-w-7xl mx-auto px-8 py-20 lg:py-28">
-<div class="max-w-3xl">
-<span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/5 border border-primary/10 text-primary text-xs font-semibold uppercase tracking-[0.1em]">
-<span class="material-symbols-outlined text-sm">auto_awesome</span>
-Ürün Yetenekleri
-</span>
-<h2 class="mt-6 text-primary text-5xl lg:text-6xl font-medium leading-tight">DikEra AI Özellikleri</h2>
-<p class="mt-4 text-charcoal/80 text-xl font-light leading-relaxed">
-Hukuk ekiplerinin hızlı, güvenli ve ölçeklenebilir şekilde çalışması için geliştirilmiş temel yetenekler.
+<main class="flex flex-col gap-10 lg:gap-16">
+<!-- Hero -->
+<section class="max-w-7xl mx-3 sm:mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-8 lg:pt-14 lg:pb-12 bg-gradient-to-br from-[#F5F7FB] via-white to-[#EEF3FF] rounded-3xl mt-4 sm:mt-6">
+<div class="w-full flex flex-col items-center text-center">
+<h2 class="hero-headline text-black font-normal leading-[1.12] tracking-[-0.02em] text-center w-full max-w-full text-[clamp(1.5rem,2vw+1rem,3.5rem)] px-0 py-0">
+<span class="block">Hukuki dokümanlarınızı sadece analiz etmez</span>
+<span class="block">Anlar, ilişkilendirir ve riskleri ortaya çıkarır.</span>
+</h2>
+<ul class="mt-7 space-y-2 text-slate-900 font-light leading-relaxed w-full max-w-[42rem] text-[clamp(0.744rem,0.8vw+0.32rem,0.84rem)] mx-auto text-center list-none pl-0">
+<li>Veriler yurtdışına çıkmaz.</li>
+<li>Sadece yüklenen doküman üzerinden çalışır.</li>
+<li>Hukuki bağlamda akıl yürütür; parçalar arasında bağ kurar.</li>
+</ul>
+</div>
+</section>
+
+<!-- Scrollytelling: sol metin blokları (yüksek) + sağ yapışkan görsel yığını -->
+<section class="px-4 sm:px-6 lg:px-8 pb-8 lg:pb-16 bg-[#FFFFFF]" aria-label="Özellik modülleri" id="ozellik-akış">
+<div class="max-w-7xl mx-auto">
+<div class="lg:grid lg:grid-cols-12 lg:gap-10 xl:gap-14 items-start">
+<!-- Sol: ray + metin panelleri -->
+<div class="lg:col-span-5 relative lg:pl-2">
+<div class="hidden lg:block absolute left-0 top-0 bottom-0 w-px bg-primary/10" aria-hidden="true"></div>
+<div class="hidden lg:block absolute left-0 top-0 z-[1] w-px bg-primary transition-[height] duration-300 ease-out" id="scroll-rail-fill" style="height: 20%;" aria-hidden="true"></div>
+
+<div class="space-y-0">
+<!-- 0 Doküman analizi -->
+<article class="feature-panel min-h-[min(88vh,52rem)] flex flex-col justify-center py-14 lg:py-20 border-l-2 border-transparent lg:pl-8 pl-0" data-feature-panel data-index="0">
+<div class="lg:hidden mb-6 inline-flex rounded-2xl border border-primary/10 bg-[#FAFBFD] shadow-sm px-4 py-3 text-sm font-medium text-primary tracking-[0.02em]"><span class="mr-2 opacity-50">01</span> Doküman</div>
+<h3 class="text-lg sm:text-xl font-[350] text-primary/45 leading-snug tracking-[0.02em]">Doküman analizi ve bağlam</h3>
+<p class="alameti hero-editorial mt-4 text-primary font-normal leading-[1.12] tracking-[-0.02em] text-[clamp(1.35rem,1rem+1.2vw,2.5rem)]">Yüklenen dosyaya kilitlenen, parçaları birbirine bağlayan analiz.</p>
+<p class="mt-4 text-charcoal/90 font-light leading-relaxed text-[clamp(0.744rem,0.8vw+0.32rem,0.9rem)]">Dava dosyası veya sözleşme yüklenir; sistem okur, metinler arasında ilişki kurar, yanıtları belge içi referansla sunar.</p>
+<ul class="mt-5 space-y-3 text-charcoal/90 font-light leading-relaxed text-[clamp(0.744rem,0.8vw+0.32rem,0.9rem)] list-none pl-0">
+<li><strong class="font-medium text-charcoal">Dikera</strong> genel amaçlı sohbet botu değildir; yalnızca sizin yüklediğiniz dokümanda çalışır.</li>
+<li>Cevaplar <strong class="font-medium text-charcoal">dosya içi konumla</strong> ilişkilendirilir; dayanak takibi kolaylaşır.</li>
+<li>Verileriniz yurtdışına çıkmadığı için <strong class="font-medium text-charcoal">KVKK</strong> açısından daha kontrollü bir zemindesiniz.</li>
+</ul>
+<div class="lg:hidden mt-8 rounded-2xl border border-primary/10 bg-white shadow-sm overflow-hidden text-sm text-charcoal/80 font-light">
+<img src="assets/Chat.png" alt="" class="w-full h-auto max-h-48 object-contain bg-white" loading="lazy" decoding="async" width="960" height="540" aria-hidden="true"/>
+<p class="p-4">Ekran: soru-cevap ve yüklü doküman</p>
+</div>
+</article>
+<!-- 1 Mevzuat & emsal -->
+<article class="feature-panel min-h-[min(88vh,50rem)] flex flex-col justify-center py-14 lg:py-20 border-l-2 border-transparent lg:pl-8 pl-0 bg-[#FAFBFD] lg:bg-transparent -mx-4 px-4 sm:mx-0 sm:px-0 lg:mx-0 rounded-3xl lg:rounded-none" data-feature-panel data-index="1">
+<div class="lg:hidden mb-6 inline-flex rounded-2xl border border-primary/10 bg-white shadow-sm px-4 py-3 text-sm font-medium text-primary tracking-[0.02em]"><span class="mr-2 opacity-50">02</span> Araştırma</div>
+<h3 class="text-lg sm:text-xl font-[350] text-primary/45 leading-snug tracking-[0.02em]">Mevzuat ve emsal karar arama</h3>
+<p class="alameti hero-editorial mt-4 text-slate-700 font-normal leading-[1.12] tracking-[-0.02em] text-[clamp(1.35rem,1rem+1.2vw,2.5rem)]">Kanun maddesi ile içtihat hattını aynı akışta ilişkilendirir.</p>
+<ul class="mt-5 space-y-3 text-charcoal/90 font-light leading-relaxed text-[clamp(0.744rem,0.8vw+0.32rem,0.9rem)] list-none pl-0">
+<li><strong class="font-medium text-charcoal">Mevzuat araması</strong> ve <strong class="font-medium text-charcoal">emsal / içtihat</strong> sonuçlarını sorunun hukuki çerçevesine göre beraber getirir.</li>
+<li>Madde–karar bağını tek ekranda kurarak paralel sekme ve liste taramasını azaltır.</li>
+</ul>
+<div class="lg:hidden mt-8 rounded-2xl border border-primary/10 bg-white shadow-sm p-3 text-xs text-charcoal/80 font-light">Ekran: mevzuat ve karar entegrasyonu</div>
+</article>
+<!-- 2 Sözleşme & dilekçe -->
+<article class="feature-panel min-h-[min(86vh,48rem)] flex flex-col justify-center py-14 lg:py-20 border-l-2 border-transparent lg:pl-8 pl-0" data-feature-panel data-index="2">
+<div class="lg:hidden mb-6 inline-flex rounded-2xl border border-primary/10 bg-[#FAFBFD] shadow-sm px-4 py-3 text-sm font-medium text-primary tracking-[0.02em]"><span class="mr-2 opacity-50">03</span> Üretim</div>
+<h3 class="text-lg sm:text-xl font-[350] text-primary/45 leading-snug tracking-[0.02em]">Sözleşme ve dilekçe oluşturma</h3>
+<p class="alameti hero-editorial mt-4 text-primary font-normal leading-[1.12] tracking-[-0.02em] text-[clamp(1.35rem,1rem+1.2vw,2.5rem)]">Boş şablondan ziyade olaya bağlı taslak üretimi.</p>
+<ul class="mt-5 space-y-3 text-charcoal/90 font-light leading-relaxed text-[clamp(0.744rem,0.8vw+0.32rem,0.9rem)] list-none pl-0">
+<li><strong class="font-medium text-charcoal">Sözleşme oluşturma</strong> ve <strong class="font-medium text-charcoal">dilekçe oluşturma</strong> ayrı akışlar olarak ele alınır.</li>
+<li><strong class="font-medium text-charcoal">İlgili kanun maddeleri</strong> ve <strong class="font-medium text-charcoal">emredici hükümlere</strong> uyumlu doküman taslakları hazırlanır.</li>
+</ul>
+<div class="lg:hidden mt-8 rounded-2xl border border-dashed border-primary/20 bg-white shadow-sm p-4 text-xs text-slate-500 font-light">Ekran: sözleşme / dilekçe üretimi</div>
+</article>
+<!-- 3 Risk & dayanak -->
+<article class="feature-panel feature-panel-hot min-h-[min(90vh,52rem)] flex flex-col justify-center py-14 lg:py-24 border-l-2 border-transparent lg:pl-8 pl-0 bg-[#FAFBFD] lg:bg-transparent -mx-4 px-4 sm:mx-0 sm:px-0 lg:mx-0 rounded-3xl lg:rounded-none" data-feature-panel data-index="3">
+<div class="lg:hidden mb-6 inline-flex rounded-2xl border border-amber-800/25 bg-amber-50/80 shadow-sm px-4 py-3 text-sm font-medium text-amber-950 tracking-[0.02em]"><span class="mr-2 opacity-50">04</span> Risk</div>
+<h3 class="text-lg sm:text-xl font-[350] text-primary/45 leading-snug tracking-[0.02em]">Risk denetimi ve dayanak</h3>
+<p class="alameti hero-editorial mt-4 text-slate-700 font-normal leading-[1.12] tracking-[-0.02em] text-[clamp(1.35rem,1rem+1.2vw,2.5rem)]">Dava dosyası üzerinde riskli noktaları ve eksik dayanakları öne çıkarır.</p>
+<ul class="mt-5 space-y-3 text-charcoal/90 font-light leading-relaxed text-[clamp(0.744rem,0.8vw+0.32rem,0.9rem)] list-none pl-0">
+<li>Kanun dayanakları ve <strong class="font-medium text-charcoal">emsal kararlar</strong> ile eşleştirme; riskli maddelerin işaretlenmesi.</li>
+<li><strong class="font-medium text-charcoal">Emredici hüküm</strong> ihlalleri ve eksik dayanakların görünür hale getirilmesi.</li>
+<li>Analiz sonuçlarının madde ve karar düzeyinde ilişkilendirilmesi.</li>
+</ul>
+<div class="lg:hidden mt-8 rounded-2xl border border-amber-200 bg-amber-50/50 shadow-sm p-4 text-xs text-charcoal font-light">Ekran: dava dosyası ve risk denetimi</div>
+</article>
+<!-- 4 Kronoloji & çelişki -->
+<article class="feature-panel min-h-[min(84vh,46rem)] flex flex-col justify-center py-14 lg:py-20 border-l-2 border-transparent lg:pl-8 pl-0" data-feature-panel data-index="4">
+<div class="lg:hidden mb-6 inline-flex rounded-2xl border border-primary/10 bg-[#FAFBFD] shadow-sm px-4 py-3 text-sm font-medium text-primary tracking-[0.02em]"><span class="mr-2 opacity-50">05</span> Zaman</div>
+<h3 class="text-lg sm:text-xl font-[350] text-primary/45 leading-snug tracking-[0.02em]">Dava kronolojisi ve çelişki tespiti</h3>
+<p class="alameti hero-editorial mt-4 text-primary font-normal leading-[1.12] tracking-[-0.02em] text-[clamp(1.35rem,1rem+1.2vw,2.5rem)]">Olayları zaman sırasına dizer; tarih ve beyan uyumsuzluklarına dikkat çeker.</p>
+<ul class="mt-5 space-y-3 text-charcoal/90 font-light leading-relaxed text-[clamp(0.744rem,0.8vw+0.32rem,0.9rem)]">
+<li class="flex gap-2.5"><span class="material-symbols-outlined text-primary text-lg shrink-0 mt-0.5 font-light">calendar_month</span><span>Belgelerden tarihleri süzer, olayları sıralar, <strong class="font-medium text-charcoal">kaynak referansı</strong> verir.</span></li>
+<li class="flex gap-2.5"><span class="material-symbols-outlined text-primary text-lg shrink-0 mt-0.5 font-light">difference</span><span>Beyan, delil veya sözleşme içi <strong class="font-medium text-charcoal">çelişki tespiti</strong> için uyarılar üretir.</span></li>
+<li class="flex gap-2.5"><span class="material-symbols-outlined text-primary text-lg shrink-0 mt-0.5 font-light">folder_open</span><span>Yoğun hacimli dosyalarda özet iş akışı ve genel görünümle hızlanır.</span></li>
+</ul>
+<div class="lg:hidden mt-8 rounded-2xl border border-primary/10 bg-white shadow-sm p-4 text-xs text-charcoal/80 font-light tabular-nums">Ekran: ana görünüm ve zaman çizelgesi</div>
+</article>
+<!-- 5 Çelişki -->
+<article class="feature-panel min-h-[min(86vh,48rem)] flex flex-col justify-center py-14 lg:py-20 border-l-2 border-transparent lg:pl-8 pl-0 bg-[#FAFBFD] lg:bg-transparent -mx-4 px-4 sm:mx-0 sm:px-0 lg:mx-0 rounded-3xl lg:rounded-none hidden" data-feature-panel data-index="5">
+<div class="lg:hidden mb-6 inline-flex rounded-2xl border border-primary/10 bg-white shadow-sm px-4 py-3 text-sm font-medium text-primary tracking-[0.02em]"><span class="mr-2 opacity-50">06</span> Çelişki</div>
+<h3 class="text-lg sm:text-xl font-[350] text-primary/45 leading-snug tracking-[0.02em]">Zayıf Nokta Tespiti</h3>
+<p class="alameti hero-editorial mt-4 text-slate-700 font-normal leading-[1.12] tracking-[-0.02em] text-[clamp(1.35rem,1rem+1.2vw,2.5rem)]">Manuel süreçte gözden kaçan kritik noktaları işaretler.</p>
+<ul class="mt-5 space-y-3 text-charcoal/90 font-light leading-relaxed text-[clamp(0.744rem,0.8vw+0.32rem,0.9rem)]">
+<li class="flex gap-2.5"><span class="material-symbols-outlined text-primary text-lg shrink-0 mt-0.5 font-light">difference</span><span>Beyan, delil ve tarih çelişkileri, sözleşme içi uyumsuzlukları tespit eder, işaretler ve görünür hale getirir.</span></li>
+<li class="flex gap-2.5"><span class="material-symbols-outlined text-primary text-lg shrink-0 mt-0.5 font-light">military_tech</span><span>Davanızda ve sözleşmenizde karşı tarafın görebileceği açıkları siz önce görür ve önlem alabilirsiniz.</span></li>
+</ul>
+<div class="lg:hidden mt-8 rounded-2xl border border-red-200/60 bg-red-50/40 shadow-sm p-3 text-xs text-charcoal font-light">Tarih A ≠ Tarih B</div>
+</article>
+<!-- 6 Stratejik analiz 🚀 -->
+<article class="feature-panel min-h-[min(88vh,50rem)] flex flex-col justify-center py-14 lg:py-24 border-l-2 border-transparent lg:pl-8 pl-0 hidden" data-feature-panel data-index="6">
+<div class="lg:hidden mb-6 inline-flex rounded-2xl border border-primary/20 bg-primary/5 shadow-sm px-4 py-3 text-sm font-medium text-primary tracking-[0.02em]"><span class="mr-2 opacity-50">07</span> Kurumsal</div>
+<h3 class="text-lg sm:text-xl font-[350] text-primary/45 leading-snug tracking-[0.02em]">Strateji Katmanı</h3>
+<p class="alameti hero-editorial mt-4 text-primary font-normal leading-[1.12] tracking-[-0.02em] text-[clamp(1.35rem,1rem+1.2vw,2.5rem)]">Dikera sadece özet çıkarmaz, profesyonel bir hukuki zekâ sunar.</p>
+<ul class="mt-5 space-y-3 text-charcoal/90 font-light leading-relaxed text-[clamp(0.744rem,0.8vw+0.32rem,0.9rem)]">
+<li class="flex gap-2.5"><span class="material-symbols-outlined text-primary text-lg shrink-0 mt-0.5 font-light">grid_view</span><span>Güçlü / zayıf yön analizi, risk haritası, olası senaryolar; yalnızca bilgi değil yorum ve öneri katar.</span></li>
+<li class="flex gap-2.5"><span class="material-symbols-outlined text-primary text-lg shrink-0 mt-0.5 font-light">rocket_launch</span><span>Güvenli ve doğru yönetim, doğru stratejik karar sağlar.</span></li>
+</ul>
+<div class="lg:hidden mt-8 rounded-2xl border border-white/10 bg-[#030321] text-white shadow-lg p-4 text-xs font-light tracking-[0.02em]">Güçlü · Risk · Senaryo</div>
+</article>
+</div>
+</div>
+
+<!-- Sağ: yapışkan önizleme yığını (yalnızca masaüstü) -->
+<div class="hidden lg:block lg:col-span-7 lg:sticky lg:top-28 lg:self-start w-full">
+<div class="relative min-h-[min(520px,72vh)] w-full">
+<div class="relative h-[min(480px,65vh)] w-full" id="feature-mock-stack">
+<!-- Mock 0 — çekirdek dosya -->
+<div class="mock-layer absolute inset-0 rounded-2xl border border-primary/10 bg-white shadow-[0_24px_60px_-24px_rgba(8,16,44,0.18)] overflow-hidden is-active" data-mock-index="0">
+<img src="assets/Chat.png" alt="Yüklü doküman ve soru ekranı" class="w-full h-full object-contain bg-white" loading="lazy" decoding="async" width="1365" height="768"/>
+<div class="absolute bottom-3 right-3 text-[10px] font-medium uppercase tracking-wide text-primary/60 bg-white/90 px-2 py-1 rounded border border-primary/10">Yerel işlem</div>
+</div>
+<!-- Mock 1 — madde + karar -->
+<div class="mock-layer absolute inset-0 rounded-2xl border border-primary/10 bg-slate-50/90 shadow-inner overflow-hidden" data-mock-index="1">
+<img src="assets/mevzuat arama.png" alt="Mevzuat arama ve içtihat entegrasyonu ekranı" class="w-full h-full object-contain bg-white" loading="lazy" decoding="async" width="1365" height="768"/>
+</div>
+<!-- Mock 2 — sözleşme / dilekçe -->
+<div class="mock-layer absolute inset-0 rounded-2xl border border-primary/10 bg-white overflow-hidden shadow-sm" data-mock-index="2">
+<img src="assets/Sözleşme.png" alt="Sözleşme ve dilekçe üretimi ekranı" class="w-full h-full object-contain bg-white" loading="lazy" decoding="async" width="1365" height="768"/>
+</div>
+<!-- Mock 3 — risk & dayanak -->
+<div class="mock-layer absolute inset-0 rounded-2xl border-2 border-amber-800/30 bg-gradient-to-b from-amber-50/80 to-white overflow-hidden shadow-md" data-mock-index="3">
+<img src="assets/Dava dosyaları.png" alt="Dava dosyası analizi ve risk denetimi ekranı" class="w-full h-full object-contain bg-white" loading="lazy" decoding="async" width="1365" height="768"/>
+</div>
+<!-- Mock 4 — kronoloji / genel görünüm -->
+<div class="mock-layer absolute inset-0 rounded-2xl border border-primary/10 bg-white overflow-hidden" data-mock-index="4">
+<img src="assets/ana sayfa.png" alt="Dava kronolojisi ve genel iş akışı ekranı" class="w-full h-full object-contain bg-white" loading="lazy" decoding="async" width="1365" height="768"/>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Kapanış bandı — index nasil-calisir / koyu dil -->
+<section class="relative overflow-hidden nasil-calisir-features px-4 sm:px-6 lg:px-8 py-16 lg:py-20 text-white">
+<div class="max-w-3xl mx-auto text-center">
+<h2 class="hero-headline text-white font-normal leading-[1.12] tracking-[-0.02em] text-[clamp(1.5rem,1rem+1.5vw,2.75rem)]">
+Risk, hız ve güven: tek yerel çatı
+</h2>
+<p class="mt-5 text-white/75 font-light leading-relaxed text-[clamp(0.744rem,0.8vw+0.32rem,0.9rem)]">
+Doküman analizinden mevzuat ve emsal aramaya, üretim ve risk denetiminden kronoloji ve çelişki tespitine kadar beş adım; veri <strong class="font-medium text-white/90">yerelde</strong> kalır, süreçler <strong class="font-medium text-white/90">hızlanır</strong>, riskler <strong class="font-medium text-white/90">erken görünür</strong>.
 </p>
 </div>
 </section>
 
-<section class="max-w-7xl mx-auto px-8 pb-16">
-<h3 class="text-2xl font-semibold text-primary border-b border-primary/10 pb-2 mb-6">A) Güvenlik & Altyapı</h3>
-<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-<article class="p-8 border border-primary/10 rounded-lg bg-white shadow-sm">
-<span class="material-symbols-outlined text-primary text-4xl">policy</span>
-<h4 class="mt-4 text-xl text-primary font-medium">KVKK Uyumlu Mimari</h4>
-<p class="mt-3 text-charcoal/80 text-base font-light leading-relaxed">Veri süreçlerini yerel mevzuata uygun şekilde kurgulayarak denetlenebilir bir yapı sunar.</p>
-</article>
-<article class="p-8 border border-primary/10 rounded-lg bg-white shadow-sm">
-<span class="material-symbols-outlined text-primary text-4xl">history</span>
-<h4 class="mt-4 text-xl text-primary font-medium">Aksiyonların Loglanması</h4>
-<p class="mt-3 text-charcoal/80 text-base font-light leading-relaxed">Uygulama içindeki tüm kritik aksiyonları kaydederek süreçlerin izlenebilirliğini artırır.</p>
-</article>
-<article class="p-8 border border-primary/10 rounded-lg bg-white shadow-sm">
-<span class="material-symbols-outlined text-primary text-4xl">admin_panel_settings</span>
-<h4 class="mt-4 text-xl text-primary font-medium">Kullanıcı Bazlı Yetkilendirme</h4>
-<p class="mt-3 text-charcoal/80 text-base font-light leading-relaxed">Kullanıcı rollerini tanımlayarak dosya ve özellik erişimini kontrollü şekilde yönetir.</p>
-</article>
-<article class="p-8 border border-primary/10 rounded-lg bg-white shadow-sm">
-<span class="material-symbols-outlined text-primary text-4xl">find_in_page</span>
-<h4 class="mt-4 text-xl text-primary font-medium">Kaynak Bazlı Yanıt</h4>
-<p class="mt-3 text-charcoal/80 text-base font-light leading-relaxed">Yanıtları yalnızca yüklenen dosyalara dayandırarak tahmine dayalı üretim riskini azaltır.</p>
-</article>
+<section class="px-4 sm:px-6 lg:px-8 py-12 bg-[#F5F7FB]">
+<div class="max-w-3xl mx-auto">
+<blockquote class="text-center text-charcoal font-light leading-relaxed text-[clamp(0.76rem,0.8vw+0.4rem,0.95rem)] py-1 px-4 sm:px-6">
+Dikera yalnızca bilgi listesi sunmaz: riskleri azaltır, zaman kazandırır, veriyi güvende tutar. Hukuk araştırması ve doküman süreçlerini güvenli yerel altyapıda bir araya getiren dijital iş ortağınızdır.
+</blockquote>
 </div>
 </section>
 
-<section class="max-w-7xl mx-auto px-8 pb-16">
-<h3 class="text-2xl font-semibold text-primary border-b border-primary/10 pb-2 mb-6">B) Operasyonel Verimlilik</h3>
-<div class="grid md:grid-cols-2 gap-8">
-<article class="p-8 border border-primary/10 rounded-lg bg-white shadow-sm">
-<span class="material-symbols-outlined text-primary text-4xl">timer</span>
-<h4 class="mt-4 text-xl text-primary font-medium">Zaman Tasarrufu</h4>
-<p class="mt-3 text-charcoal/80 text-base font-light leading-relaxed">Uzun dava dosyalarını saniyeler içinde analiz ederek operasyonel iş yükünü azaltır.</p>
-</article>
-<article class="p-8 border border-primary/10 rounded-lg bg-white shadow-sm">
-<span class="material-symbols-outlined text-primary text-4xl">category</span>
-<h4 class="mt-4 text-xl text-primary font-medium">Dokümanların Otomatik Sınıflandırılması</h4>
-<p class="mt-3 text-charcoal/80 text-base font-light leading-relaxed">Yüklenen dokümanları içerik tipine göre otomatik sınıflandırarak arşiv yönetimini hızlandırır.</p>
-</article>
-</div>
-</section>
-
-<section class="max-w-7xl mx-auto px-8 pb-24">
-<h3 class="text-2xl font-semibold text-primary border-b border-primary/10 pb-2 mb-6">C) Kurumsal Değer</h3>
-<div class="grid md:grid-cols-2 gap-8">
-<article class="p-8 border border-primary/10 rounded-lg bg-white shadow-sm">
-<span class="material-symbols-outlined text-primary text-4xl">library_books</span>
-<h4 class="mt-4 text-xl text-primary font-medium">Kurumsal Hafıza</h4>
-<p class="mt-3 text-charcoal/80 text-base font-light leading-relaxed">Geçmiş dosya ve karar birikimini düzenli biçimde saklayarak bilgiye erişimi hızlandırır.</p>
-</article>
-<article class="p-8 border border-primary/10 rounded-lg bg-white shadow-sm">
-<span class="material-symbols-outlined text-primary text-4xl">groups</span>
-<h4 class="mt-4 text-xl text-primary font-medium">Ekip İşbirliği</h4>
-<p class="mt-3 text-charcoal/80 text-base font-light leading-relaxed">Aynı dosya üzerinde ortak çalışma ve hızlı bilgi paylaşımı sağlayarak ekip içi uyumu güçlendirir.</p>
-</article>
-</div>
-</section>
-
-<section class="px-8 pb-24">
-<div class="max-w-4xl mx-auto bg-primary text-white rounded-2xl p-12 text-center">
-<h3 class="text-4xl font-medium">Erken Erişim için Demo Talep Edin</h3>
-<a class="inline-flex mt-8 bg-white text-primary px-8 py-3 rounded-sm font-medium hover:bg-white/90 transition-all" href="index.html#demo" aria-label="Demo talebi formunu aç">
+<section class="px-4 sm:px-6 lg:px-8 pb-20 pt-2 bg-[#F5F7FB]">
+<div class="max-w-4xl mx-auto bg-primary text-white rounded-3xl p-10 sm:p-12 text-center border border-primary/20 shadow-sm">
+<h3 class="text-[clamp(1.35rem,1.5vw+1rem,2.25rem)] font-medium tracking-[0.02em]">Erken erişim için demo talep edin</h3>
+<p class="mt-3 text-white/70 max-w-lg mx-auto font-light leading-relaxed text-[clamp(0.744rem,0.8vw+0.32rem,0.9rem)]">Özellikleri ekibinizin dosya akışında görmek için iletişime geçin.</p>
+<a class="inline-flex mt-8 bg-white text-primary px-8 py-3 rounded-xl font-medium tracking-[0.02em] hover:bg-white/90 transition-all" href="index.html#demo" aria-label="Demo talebi formunu aç">
 Demo Talep Et
 </a>
 </div>
 </section>
 </main>
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-    document.querySelectorAll('[data-mobile-menu-toggle]').forEach(function (toggle) {
-        var header = toggle.closest('header');
-        if (!header) return;
-        var menu = header.querySelector('[data-mobile-menu]');
-        if (!menu) return;
-        toggle.addEventListener('click', function () {
-            var willOpen = menu.classList.contains('hidden');
-            menu.classList.toggle('hidden');
-            toggle.setAttribute('aria-expanded', String(willOpen));
+(function () {
+    document.addEventListener('DOMContentLoaded', function () {
+        document.querySelectorAll('[data-mobile-menu-toggle]').forEach(function (toggle) {
+            var header = toggle.closest('header');
+            if (!header) return;
+            var menu = header.querySelector('[data-mobile-menu]');
+            if (!menu) return;
+            toggle.addEventListener('click', function () {
+                var willOpen = menu.classList.contains('hidden');
+                menu.classList.toggle('hidden');
+                toggle.setAttribute('aria-expanded', String(willOpen));
+            });
         });
+
+        var panels = document.querySelectorAll('[data-feature-panel]:not(.hidden)');
+        var layers = document.querySelectorAll('#feature-mock-stack [data-mock-index]');
+        var railFill = document.getElementById('scroll-rail-fill');
+        var count = panels.length;
+
+        function getActiveIndex() {
+            var vh = window.innerHeight;
+            var focal = vh * 0.42;
+            var bestIdx = 0;
+            var bestScore = -Infinity;
+            panels.forEach(function (panel, i) {
+                var r = panel.getBoundingClientRect();
+                var center = (r.top + r.bottom) / 2;
+                var visible = Math.max(0, Math.min(r.bottom, vh) - Math.max(r.top, 0));
+                var visRatio = r.height > 0 ? visible / r.height : 0;
+                var dist = Math.abs(center - focal);
+                var score = visRatio * 2 - dist / vh;
+                if (score > bestScore) {
+                    bestScore = score;
+                    bestIdx = i;
+                }
+            });
+            return bestIdx;
+        }
+
+        function syncMocksAndRail() {
+            var idx = getActiveIndex();
+            layers.forEach(function (layer) {
+                var i = parseInt(layer.getAttribute('data-mock-index'), 10);
+                layer.classList.toggle('is-active', i === idx);
+            });
+            if (railFill && count > 0) {
+                var progress = ((idx + 1) / count) * 100;
+                railFill.style.height = Math.min(100, progress) + '%';
+            }
+        }
+
+        var ticking = false;
+        function onScroll() {
+            if (!ticking) {
+                window.requestAnimationFrame(function () {
+                    syncMocksAndRail();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }
+
+        if (panels.length && layers.length) {
+            syncMocksAndRail();
+            window.addEventListener('scroll', onScroll, { passive: true });
+            window.addEventListener('resize', syncMocksAndRail);
+        }
     });
-});
+})();
 </script>
 </body>
 </html>

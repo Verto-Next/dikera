@@ -21,19 +21,23 @@ tailwind.config = {
     theme: {
         extend: {
             colors: { "primary": "#08102c", "charcoal": "#313a40", "background-light": "#FFFFFF" },
-            fontFamily: { "header": ["EB Garamond", "serif"], "body": ["\"Source Sans 3\"", "system-ui", "sans-serif"] }
+            fontFamily: {
+                sans: ['"Source Sans 3"', "system-ui", "-apple-system", '"Segoe UI"', "sans-serif"],
+                "header": ["EB Garamond", "serif"],
+                "body": ['"Source Sans 3"', "system-ui", "-apple-system", '"Segoe UI"', "sans-serif"]
+            }
         }
     }
 }
 </script>
 <style type="text/tailwindcss">
-body { font-family: Helvetica, Arial, sans-serif; background-color: #FFFFFF; color: #313a40; }
-h1, h2, h3, h4, h5, h6 { font-family: Helvetica, Arial, sans-serif; }
+body { font-family: "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif; background-color: #FFFFFF; color: #313a40; }
+h1, h2, h3, h4, h5, h6 { font-family: "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif; }
 .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
 .nav-link { @apply text-charcoal/70 hover:text-primary transition-colors text-sm font-medium; }
 </style>
 </head>
-<body class="bg-background-light text-charcoal selection:bg-primary/10">
+<body class="bg-background-light text-charcoal font-sans antialiased selection:bg-primary/10">
 <header class="sticky top-0 z-50 w-full bg-[#FFFFFF]/90 backdrop-blur-md border-b border-primary/5">
 <div class="flex items-center justify-between px-8 py-4 max-w-7xl mx-auto">
 <a class="flex items-center gap-2" href="index.html">
