@@ -5,7 +5,7 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>DikEra AI | Özellikler</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Source+Sans+3:ital,wght@0,200..900;1,200..900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Inter:ital,wght@0,100..900;1,100..900&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <script id="tailwind-config">
 tailwind.config = {
@@ -21,9 +21,9 @@ tailwind.config = {
                 "18": "4.5rem"
             },
             fontFamily: {
-                sans: ['"Source Sans 3"', "system-ui", "-apple-system", '"Segoe UI"', "sans-serif"],
+                sans: ['"Inter"', "system-ui", "-apple-system", '"Segoe UI"', "sans-serif"],
                 "header": ["EB Garamond", "serif"],
-                "body": ['"Source Sans 3"', "system-ui", "-apple-system", '"Segoe UI"', "sans-serif"]
+                "body": ['"Inter"', "system-ui", "-apple-system", '"Segoe UI"', "sans-serif"]
             },
             borderRadius: {
                 "DEFAULT": "0.125rem",
@@ -37,13 +37,16 @@ tailwind.config = {
 </script>
 <style type="text/tailwindcss">
 body {
-    font-family: "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
     background-color: #FFFFFF;
     color: #313a40;
     min-height: max(884px, 100dvh);
 }
-h1, h2, h3, h4, h5, h6 {
-    font-family: "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
+h1, h2 {
+    font-family: "EB Garamond", Georgia, "Times New Roman", serif;
+}
+h3, h4, h5, h6 {
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 /* index: hero / editorial serif */
 main section:first-of-type h1.hero-headline,
@@ -60,7 +63,7 @@ p.hero-editorial,
     @apply text-charcoal/70 hover:text-primary transition-colors text-sm font-medium;
 }
 header {
-    font-family: "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 header h1 {
     font-size: 1.5rem;
@@ -122,6 +125,29 @@ header .material-symbols-outlined {
 }
 .feature-panel-hot {
     box-shadow: inset 3px 0 0 0 #b45309;
+}
+.mobile-step-chip {
+    box-shadow: 0 10px 24px -12px rgba(8, 16, 44, 0.45);
+}
+@media (max-width: 1023px) {
+    #ozellik-akış .feature-panel {
+        min-height: 0 !important;
+        padding-top: 1.5rem !important;
+        padding-bottom: 1.5rem !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        border-left-width: 0 !important;
+        border-radius: 0 !important;
+        background: transparent !important;
+    }
+    #ozellik-akış .feature-panel h3,
+    #ozellik-akış .feature-panel p,
+    #ozellik-akış .feature-panel ul {
+        padding-left: 0.25rem;
+        padding-right: 0.25rem;
+    }
 }
 </style>
 </head>
@@ -208,7 +234,10 @@ header .material-symbols-outlined {
 <li><strong class="font-medium text-charcoal">Mevzuat araması</strong> ve <strong class="font-medium text-charcoal">emsal / içtihat</strong> sonuçlarını sorunun hukuki çerçevesine göre beraber getirir.</li>
 <li>Madde–karar bağını tek ekranda kurarak paralel sekme ve liste taramasını azaltır.</li>
 </ul>
-<div class="lg:hidden mt-8 rounded-2xl border border-primary/10 bg-white shadow-sm p-3 text-xs text-charcoal/80 font-light">Ekran: mevzuat ve karar entegrasyonu</div>
+<div class="lg:hidden mt-8 rounded-2xl border border-slate-700/30 bg-slate-950 shadow-sm overflow-hidden text-sm text-slate-300 font-light">
+<img src="assets/mevzuat arama.png" alt="Mevzuat arama ekranı" class="w-full h-auto max-h-48 object-contain bg-slate-950" loading="lazy" decoding="async" width="960" height="540"/>
+<p class="p-4">Ekran: mevzuat ve emsal karar arama</p>
+</div>
 </article>
 <!-- 2 Sözleşme & dilekçe -->
 <article class="feature-panel min-h-[min(86vh,48rem)] flex flex-col justify-center py-14 lg:py-20 border-l-2 border-transparent lg:pl-8 pl-0" data-feature-panel data-index="2">
@@ -219,10 +248,13 @@ header .material-symbols-outlined {
 <li><strong class="font-medium text-charcoal">Sözleşme oluşturma</strong> ve <strong class="font-medium text-charcoal">dilekçe oluşturma</strong> ayrı akışlar olarak ele alınır.</li>
 <li><strong class="font-medium text-charcoal">İlgili kanun maddeleri</strong> ve <strong class="font-medium text-charcoal">emredici hükümlere</strong> uyumlu doküman taslakları hazırlanır.</li>
 </ul>
-<div class="lg:hidden mt-8 rounded-2xl border border-dashed border-primary/20 bg-white shadow-sm p-4 text-xs text-slate-500 font-light">Ekran: sözleşme / dilekçe üretimi</div>
+<div class="lg:hidden mt-8 rounded-2xl border border-dashed border-primary/20 bg-white shadow-sm overflow-hidden text-sm text-charcoal/80 font-light">
+<img src="assets/Sözleşme.png" alt="Sözleşme ve dilekçe üretimi ekranı" class="w-full h-auto max-h-48 object-contain bg-white" loading="lazy" decoding="async" width="960" height="540"/>
+<p class="p-4">Ekran: sözleşme / dilekçe üretimi</p>
+</div>
 </article>
 <!-- 3 Risk & dayanak -->
-<article class="feature-panel feature-panel-hot min-h-[min(90vh,52rem)] flex flex-col justify-center py-14 lg:py-24 border-l-2 border-transparent lg:pl-8 pl-0 bg-[#FAFBFD] lg:bg-transparent -mx-4 px-4 sm:mx-0 sm:px-0 lg:mx-0 rounded-3xl lg:rounded-none" data-feature-panel data-index="3">
+<article class="feature-panel min-h-[min(90vh,52rem)] flex flex-col justify-center py-14 lg:py-24 border-l-2 border-transparent lg:pl-8 pl-0 bg-[#FAFBFD] lg:bg-transparent -mx-4 px-4 sm:mx-0 sm:px-0 lg:mx-0 rounded-3xl lg:rounded-none" data-feature-panel data-index="3">
 <div class="lg:hidden mb-6 inline-flex rounded-2xl border border-amber-800/25 bg-amber-50/80 shadow-sm px-4 py-3 text-sm font-medium text-amber-950 tracking-[0.02em]"><span class="mr-2 opacity-50">04</span> Risk</div>
 <h3 class="text-lg sm:text-xl font-[350] text-primary/45 leading-snug tracking-[0.02em]">Risk denetimi ve dayanak</h3>
 <p class="alameti hero-editorial mt-4 text-slate-700 font-normal leading-[1.12] tracking-[-0.02em] text-[clamp(1.35rem,1rem+1.2vw,2.5rem)]">Dava dosyası üzerinde riskli noktaları ve eksik dayanakları öne çıkarır.</p>
@@ -231,7 +263,10 @@ header .material-symbols-outlined {
 <li><strong class="font-medium text-charcoal">Emredici hüküm</strong> ihlalleri ve eksik dayanakların görünür hale getirilmesi.</li>
 <li>Analiz sonuçlarının madde ve karar düzeyinde ilişkilendirilmesi.</li>
 </ul>
-<div class="lg:hidden mt-8 rounded-2xl border border-amber-200 bg-amber-50/50 shadow-sm p-4 text-xs text-charcoal font-light">Ekran: dava dosyası ve risk denetimi</div>
+<div class="lg:hidden mt-8 rounded-2xl border border-amber-200 bg-amber-50/50 shadow-sm overflow-hidden text-sm text-charcoal font-light">
+<img src="assets/Dava dosyaları.png" alt="Dava dosyası ve risk denetimi ekranı" class="w-full h-auto max-h-48 object-contain bg-white" loading="lazy" decoding="async" width="960" height="540"/>
+<p class="p-4">Ekran: dava dosyası ve risk denetimi</p>
+</div>
 </article>
 <!-- 4 Kronoloji & çelişki -->
 <article class="feature-panel min-h-[min(84vh,46rem)] flex flex-col justify-center py-14 lg:py-20 border-l-2 border-transparent lg:pl-8 pl-0" data-feature-panel data-index="4">
@@ -243,7 +278,10 @@ header .material-symbols-outlined {
 <li class="flex gap-2.5"><span class="material-symbols-outlined text-primary text-lg shrink-0 mt-0.5 font-light">difference</span><span>Beyan, delil veya sözleşme içi <strong class="font-medium text-charcoal">çelişki tespiti</strong> için uyarılar üretir.</span></li>
 <li class="flex gap-2.5"><span class="material-symbols-outlined text-primary text-lg shrink-0 mt-0.5 font-light">folder_open</span><span>Yoğun hacimli dosyalarda özet iş akışı ve genel görünümle hızlanır.</span></li>
 </ul>
-<div class="lg:hidden mt-8 rounded-2xl border border-primary/10 bg-white shadow-sm p-4 text-xs text-charcoal/80 font-light tabular-nums">Ekran: ana görünüm ve zaman çizelgesi</div>
+<div class="lg:hidden mt-8 rounded-2xl border border-primary/10 bg-white shadow-sm overflow-hidden text-sm text-charcoal/80 font-light tabular-nums">
+<img src="assets/ana sayfa.png" alt="Ana görünüm ve zaman çizelgesi ekranı" class="w-full h-auto max-h-48 object-contain bg-white" loading="lazy" decoding="async" width="960" height="540"/>
+<p class="p-4">Ekran: ana görünüm ve zaman çizelgesi</p>
+</div>
 </article>
 <!-- 5 Çelişki -->
 <article class="feature-panel min-h-[min(86vh,48rem)] flex flex-col justify-center py-14 lg:py-20 border-l-2 border-transparent lg:pl-8 pl-0 bg-[#FAFBFD] lg:bg-transparent -mx-4 px-4 sm:mx-0 sm:px-0 lg:mx-0 rounded-3xl lg:rounded-none hidden" data-feature-panel data-index="5">
@@ -279,9 +317,9 @@ header .material-symbols-outlined {
 <img src="assets/Chat.png" alt="Yüklü doküman ve soru ekranı" class="w-full h-full object-contain bg-white" loading="lazy" decoding="async" width="1365" height="768"/>
 <div class="absolute bottom-3 right-3 text-[10px] font-medium uppercase tracking-wide text-primary/60 bg-white/90 px-2 py-1 rounded border border-primary/10">Yerel işlem</div>
 </div>
-<!-- Mock 1 — madde + karar -->
-<div class="mock-layer absolute inset-0 rounded-2xl border border-primary/10 bg-slate-50/90 shadow-inner overflow-hidden" data-mock-index="1">
-<img src="assets/mevzuat arama.png" alt="Mevzuat arama ve içtihat entegrasyonu ekranı" class="w-full h-full object-contain bg-white" loading="lazy" decoding="async" width="1365" height="768"/>
+<!-- Mock 1 — mevzuat arama (ürün ekranı) -->
+<div class="mock-layer absolute inset-0 rounded-2xl border border-slate-700/40 bg-slate-950 shadow-inner overflow-hidden" data-mock-index="1">
+<img src="assets/mevzuat arama.png" alt="Dikera AI Mevzuat Arama ekranı — kanun, yönetmelik ve mevzuatta akıllı arama" class="w-full h-full object-contain object-top bg-slate-950" loading="lazy" decoding="async" width="1365" height="768"/>
 </div>
 <!-- Mock 2 — sözleşme / dilekçe -->
 <div class="mock-layer absolute inset-0 rounded-2xl border border-primary/10 bg-white overflow-hidden shadow-sm" data-mock-index="2">
@@ -332,6 +370,10 @@ Demo Talep Et
 </div>
 </section>
 </main>
+
+<div id="mobile-step-chip" class="mobile-step-chip fixed bottom-4 right-4 z-40 lg:hidden hidden rounded-full border border-primary/15 bg-white/95 backdrop-blur px-3 py-1.5 text-[11px] font-medium tracking-[0.08em] text-primary">
+ADIM <span id="mobile-step-current">1</span>/<span id="mobile-step-total">5</span>
+</div>
 <script>
 (function () {
     document.addEventListener('DOMContentLoaded', function () {
@@ -350,7 +392,14 @@ Demo Talep Et
         var panels = document.querySelectorAll('[data-feature-panel]:not(.hidden)');
         var layers = document.querySelectorAll('#feature-mock-stack [data-mock-index]');
         var railFill = document.getElementById('scroll-rail-fill');
+        var flowSection = document.getElementById('ozellik-akış');
+        var mobileStepChip = document.getElementById('mobile-step-chip');
+        var mobileStepCurrent = document.getElementById('mobile-step-current');
+        var mobileStepTotal = document.getElementById('mobile-step-total');
         var count = panels.length;
+        if (mobileStepTotal && count > 0) {
+            mobileStepTotal.textContent = String(count);
+        }
 
         function getActiveIndex() {
             var vh = window.innerHeight;
@@ -373,6 +422,7 @@ Demo Talep Et
         }
 
         function syncMocksAndRail() {
+            var vh = window.innerHeight;
             var idx = getActiveIndex();
             layers.forEach(function (layer) {
                 var i = parseInt(layer.getAttribute('data-mock-index'), 10);
@@ -381,6 +431,14 @@ Demo Talep Et
             if (railFill && count > 0) {
                 var progress = ((idx + 1) / count) * 100;
                 railFill.style.height = Math.min(100, progress) + '%';
+            }
+            if (mobileStepCurrent) {
+                mobileStepCurrent.textContent = String(idx + 1);
+            }
+            if (mobileStepChip && flowSection) {
+                var r = flowSection.getBoundingClientRect();
+                var inFlow = r.bottom > vh * 0.22 && r.top < vh * 0.78;
+                mobileStepChip.classList.toggle('hidden', !inFlow);
             }
         }
 
