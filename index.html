@@ -57,7 +57,8 @@
             font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
         }
         .nav-link {
-            @apply text-charcoal/70 hover:text-primary transition-colors text-sm font-medium;
+            @apply text-charcoal/70 hover:text-primary transition-colors text-lg font-medium;
+            font-family: "EB Garamond", Georgia, "Times New Roman", serif;
         }
         /* Header tasarım: guvenlik.html referans – font, renk, boyut, aralıklar */
         header {
@@ -74,6 +75,12 @@
         }
     </style>
 <style>
+    /* Nav: same serif as hero (Tailwind @apply block can lose font-family ordering on CDN) */
+    header a.nav-link {
+      font-family: "EB Garamond", Georgia, "Times New Roman", serif;
+      font-size: 1.125rem;
+      line-height: 1.75rem;
+    }
     body {
       min-height: max(884px, 100dvh);
     }
@@ -217,21 +224,6 @@
       outline: 2px solid rgba(255, 255, 255, 0.75);
       outline-offset: 2px;
     }
-    #ozellikler .nasil-step-badge {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 2.25rem;
-      padding: 0.2rem 0.5rem;
-      border-radius: 0.375rem;
-      font-size: 0.65rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.85);
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-    }
     @media (prefers-reduced-motion: reduce) {
       #ozellikler .nasil-flow-preview-img {
         transition: none;
@@ -249,7 +241,7 @@
       display: grid;
       grid-template-columns: minmax(0, 3fr) minmax(0, 5fr);
       gap: clamp(3rem, 6vw, 5.5rem);
-      align-items: start;
+      align-items: center;
       max-width: 80rem;
       margin-left: auto;
       margin-right: auto;
@@ -338,7 +330,7 @@
       justify-content: center;
       text-align: center;
       min-width: 0;
-      align-self: start;
+      align-self: center;
     }
     .risk-section .risk-list {
       list-style: none;
@@ -628,8 +620,7 @@
     #karsilastirma .karsilastirma-table td:nth-child(4) .material-symbols-outlined {
       color: #A8A8A8;
     }
-    /* Dikera AI sütunu: ön plana çıkarma – büyütme, çerçeve */
-    #karsilastirma .karsilastirma-table th:nth-child(4),
+    /* Dikera AI sütunu: ön plana çıkarma – gövde hücrelerinde altın çerçeve (başlıkta yok) */
     #karsilastirma .karsilastirma-table td:nth-child(4) {
       border: 1px solid #D4AF37;
       position: relative;
@@ -736,7 +727,7 @@
                 </p>
                                     </div>
                             </div>   
-<div class="min-w-0 w-full rounded-2xl lg:rounded-r-none overflow-hidden border border-primary/10 border-r-0 shadow-2xl relative group flex flex-col gap-11 lg:gap-14 self-stretch">
+<div class="min-w-0 w-full h-fit rounded-2xl lg:rounded-r-none overflow-hidden border border-primary/10 border-r-0 shadow-2xl relative group self-center">
 <div class="absolute inset-0 bg-primary/5 z-10 pointer-events-none group-hover:bg-transparent transition-colors"></div>
 <img src="assets/legalAI_Dikera.png" alt="Hukuk süreçlerinde güvenli yapay zeka görseli" class="block w-full max-w-full h-auto object-contain" loading="lazy" decoding="async">
 </div>
@@ -888,31 +879,26 @@
                                 </div>
 <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-5 gap-6 lg:gap-5 pt-14 lg:pt-16 border-t border-white/10" id="nasil-step-cards">
 <article class="nasil-step-card flex flex-col gap-3 items-center max-w-xs mx-auto w-full is-active outline-none" data-nasil-step="0" tabindex="0" role="button" aria-pressed="true" aria-label="1. Doküman analizi ve bağlam">
-<span class="nasil-step-badge">01</span>
 <span class="material-symbols-outlined text-3xl opacity-80 text-white" aria-hidden="true">description</span>
 <h3 class="text-base lg:text-lg font-medium tracking-[0.02em] leading-snug text-white">Doküman analizi ve bağlam</h3>
 <p class="text-white/65 leading-relaxed font-light text-[clamp(0.75rem,0.8vw+0.32rem,0.9rem)]">Dosyayı okur, parçalar arası bağ kurar, yanıtları belge referansıyla sunar.</p>
 </article>
 <article class="nasil-step-card flex flex-col gap-3 items-center max-w-xs mx-auto w-full outline-none" data-nasil-step="1" tabindex="0" role="button" aria-pressed="false" aria-label="2. Mevzuat ve emsal karar arama">
-<span class="nasil-step-badge">02</span>
 <span class="material-symbols-outlined text-3xl opacity-80 text-white" aria-hidden="true">balance</span>
 <h3 class="text-base lg:text-lg font-medium tracking-[0.02em] leading-snug text-white">Mevzuat ve emsal karar arama</h3>
 <p class="text-white/65 leading-relaxed font-light text-[clamp(0.75rem,0.8vw+0.32rem,0.9rem)]">Kanun maddesi ile içtihat sonuçlarını aynı akışta ilişkilendirir.</p>
 </article>
 <article class="nasil-step-card flex flex-col gap-3 items-center max-w-xs mx-auto w-full outline-none" data-nasil-step="2" tabindex="0" role="button" aria-pressed="false" aria-label="3. Sözleşme ve dilekçe oluşturma">
-<span class="nasil-step-badge">03</span>
 <span class="material-symbols-outlined text-3xl opacity-80 text-white" aria-hidden="true">edit_document</span>
 <h3 class="text-base lg:text-lg font-medium tracking-[0.02em] leading-snug text-white">Sözleşme ve dilekçe oluşturma</h3>
 <p class="text-white/65 leading-relaxed font-light text-[clamp(0.75rem,0.8vw+0.32rem,0.9rem)]">Olaya özel taslaklar; emredici hükümlerle uyumlu doküman üretimi.</p>
 </article>
 <article class="nasil-step-card flex flex-col gap-3 items-center max-w-xs mx-auto w-full outline-none" data-nasil-step="3" tabindex="0" role="button" aria-pressed="false" aria-label="4. Risk denetimi ve dayanak">
-<span class="nasil-step-badge">04</span>
 <span class="material-symbols-outlined text-3xl opacity-80 text-white" aria-hidden="true">policy</span>
 <h3 class="text-base lg:text-lg font-medium tracking-[0.02em] leading-snug text-white">Risk denetimi ve dayanak</h3>
 <p class="text-white/65 leading-relaxed font-light text-[clamp(0.75rem,0.8vw+0.32rem,0.9rem)]">Riskli maddeler, eksik dayanak ve emredici hüküm ihlallerini görünür kılar.</p>
 </article>
 <article class="nasil-step-card flex flex-col gap-3 items-center max-w-xs mx-auto w-full sm:col-span-2 xl:col-span-1 outline-none" data-nasil-step="4" tabindex="0" role="button" aria-pressed="false" aria-label="5. Dava kronolojisi ve çelişki tespiti">
-<span class="nasil-step-badge">05</span>
 <span class="material-symbols-outlined text-3xl opacity-80 text-white" aria-hidden="true">calendar_month</span>
 <h3 class="text-base lg:text-lg font-medium tracking-[0.02em] leading-snug text-white">Dava kronolojisi ve çelişki tespiti</h3>
 <p class="text-white/65 leading-relaxed font-light text-[clamp(0.75rem,0.8vw+0.32rem,0.9rem)]">Olayları sıralar, kaynak verir; tarih ve beyan uyumsuzluklarına dikkat çeker.</p>
@@ -931,7 +917,6 @@
 </section>
 <section class="px-4 sm:px-6 lg:px-8 py-10 lg:py-14 bg-[#F5F7FB]" id="karsilastirma">
 <div class="max-w-7xl mx-auto">
-<div class="rounded-3xl border border-primary/10 bg-white/70 backdrop-blur-sm p-6 lg:p-10 shadow-sm">
 <div class="overflow-x-auto karsilastirma-table-wrap">
 <div class="karsilastirma-table-scaled">
 <div class="w-full max-w-full flex flex-col gap-0">
@@ -994,13 +979,12 @@
                                                     </div>
                                                 </div>
 </div>
-</div>
 <p class="mt-8 text-slate-500 font-light text-center w-full max-w-[65ch] mx-auto text-[clamp(0.72rem,0.8vw+0.32rem,0.88rem)]">%100 Türkiye Lokasyonlu Mimari – Tüm mimari Türkiye yerel altyapısındadır.</p>
 </div>
 </section>
-<section class="px-4 sm:px-6 lg:px-8 py-16 lg:py-24 bg-[#FFFFFF]">
-<div class="max-w-3xl mx-auto bg-primary text-white rounded-3xl px-8 py-12 lg:px-12 lg:py-14 text-center flex flex-col items-center gap-8 shadow-xl border border-white/10">
-<h2 class="font-medium text-center leading-[1.4] tracking-[0.02em] text-[clamp(0.96rem,0.92vw+0.68rem,1.32rem)] max-w-[65ch]">DikEra AI<span class="block mt-3 font-light text-white/85 text-[clamp(0.8rem,0.85vw+0.4rem,0.98rem)]">Seçili kurumlarla yürütülen erken erişim programı kapsamında çalışmaktadır.</span></h2>
+<section class="px-4 sm:px-6 lg:px-8 py-8 lg:py-10 bg-[#FFFFFF]">
+<div class="max-w-3xl mx-auto bg-primary text-white rounded-3xl px-6 py-8 lg:px-10 lg:py-9 text-center flex flex-col items-center gap-4 shadow-xl border border-white/10">
+<h2 class="font-medium text-center leading-[1.4] tracking-[0.02em] text-[clamp(0.96rem,0.92vw+0.68rem,1.32rem)] max-w-[65ch]">DikEra AI<span class="block mt-2 font-light text-white/85 text-[clamp(0.8rem,0.85vw+0.4rem,0.98rem)]">Seçili kurumlarla yürütülen erken erişim programı kapsamında çalışmaktadır.</span></h2>
 <p class="text-white/70 font-light max-w-xl text-[clamp(0.744rem,0.8vw+0.32rem,0.9rem)]">Erken erişime dahil olmak ve bilgi almak için:</p>
 <div class="flex items-center gap-4">
 <button type="button" class="border border-white/25 hover:bg-white/10 px-8 py-3 rounded-xl font-medium tracking-[0.02em] text-sm transition-all" data-demo-open aria-label="Demo talebi formunu aç">
@@ -1184,6 +1168,11 @@
 <span class="material-symbols-outlined text-xl">location_on</span>
 <span class="text-base font-medium font-body">İstanbul, Türkiye</span>
                     </div>
+<a class="flex items-center justify-center text-primary hover:text-primary/75 transition-colors shrink-0" href="#" aria-label="Instagram" title="Instagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5" width="20" height="20" aria-hidden="true">
+<path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 11-2.881 0 1.44 1.44 0 012.881.001z"/>
+</svg>
+</a>
                 </div>
 <p class="text-xs sm:text-sm text-slate-500 font-light">
             © 2025 DikEra AI, bir Verto Next çözümüdür. Tüm hakları saklıdır.
