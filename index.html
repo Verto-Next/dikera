@@ -80,13 +80,273 @@
     .risk-section {
       position: relative;
       background-color: #FAFBFD;
-      color: #fff;
-      padding: 4rem 0 5rem;
+      color: #313a40;
       font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-      min-height: 560px;
+    }
+    .risk-scrolly-track {
+      position: relative;
+      height: calc(6 * 36vh);
+      min-height: calc(6 * 270px);
+    }
+    .risk-scrolly-sticky {
+      position: sticky;
+      top: 5.5rem;
+      z-index: 2;
       display: flex;
-      align-items: flex-start;
+      align-items: center;
+      justify-content: center;
+      min-height: calc(100dvh - 5.5rem - 1.5rem);
+      padding: clamp(1.25rem, 3vw, 2rem) clamp(1rem, 4vw, 2rem) clamp(1.5rem, 3vw, 2.25rem);
+      box-sizing: border-box;
+    }
+    .risk-section .risk-container {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: minmax(0, 0.36fr) minmax(0, 0.64fr);
+      gap: clamp(2rem, 4.5vw, 4rem);
+      align-items: center;
+      max-width: 80rem;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: clamp(1rem, 4vw, 2rem);
+      padding-right: clamp(1rem, 4vw, 2rem);
+      width: 100%;
+      min-height: 0;
+    }
+    .risk-section .risk-list-wrapper {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      min-width: 0;
+      align-self: center;
+    }
+    .risk-section .risk-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      text-align: center;
+      width: 100%;
+      max-width: 22rem;
+    }
+    .risk-section .risk-list li[data-risk-index] {
+      cursor: pointer;
+      transition: background-color 0.28s ease, color 0.28s ease, box-shadow 0.28s ease, transform 0.2s ease;
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+      font-size: clamp(0.95rem, 1.1vw + 0.55rem, 1.08rem);
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      min-height: 48px;
+      padding: 0.75rem 1.1rem;
+      text-align: center;
+      justify-content: center;
+      border-radius: 9999px;
+      border: 1px solid rgba(8, 16, 44, 0.1);
+      display: flex;
+      align-items: center;
+      color: #313a40;
+      background-color: #fff;
+      box-shadow: 3px 4px 0 rgba(15, 23, 42, 0.06), 0 2px 8px rgba(15, 23, 42, 0.05);
+    }
+    .risk-section .risk-list li[data-risk-index]:focus {
+      outline: none;
+    }
+    .risk-section .risk-list li[data-risk-index]:focus-visible {
+      outline: 2px solid #08102c;
+      outline-offset: 2px;
+    }
+    .risk-section .risk-list li[data-risk-index].is-active {
+      background-color: #313a40;
+      color: #fff;
+      border-color: rgba(8, 16, 44, 0.35);
+      box-shadow: 4px 6px 0 rgba(8, 16, 44, 0.18), 0 12px 28px rgba(15, 23, 42, 0.12);
+    }
+    .risk-section .risk-list li[data-risk-index]:not(.is-active):hover {
+      box-shadow: 3px 5px 0 rgba(15, 23, 42, 0.08), 0 6px 18px rgba(15, 23, 42, 0.07);
+    }
+    .risk-section .risk-content-area {
+      position: relative;
+      width: 100%;
+      min-width: 0;
+      height: 26rem;
+      min-height: 26rem;
+      max-height: 26rem;
+      border-radius: 1.875rem;
+      overflow: hidden;
+      background: #313a40;
+      border: 1px solid rgba(8, 16, 44, 0.2);
+      box-shadow: 0 24px 48px -28px rgba(8, 16, 44, 0.35);
+      text-align: center;
+      box-sizing: border-box;
+    }
+    .risk-section .risk-content-inner {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      min-height: 0;
+      max-height: 100%;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(2rem, 4vw, 2.75rem) clamp(1.75rem, 3.5vw, 2.5rem);
+      transition: opacity 0.35s ease;
+      overflow: hidden;
+    }
+    /* Başlık + çizgi + metin tek blok; kutu içinde yatay/dikey ortalı (örnek mockup) */
+    .risk-section .risk-panel-stack {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 0.875rem;
+      width: 100%;
+      max-width: min(40rem, 100%);
+      margin: auto;
+      flex: 0 1 auto;
+      min-height: 0;
+      max-height: 100%;
+      overflow-x: hidden;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      box-sizing: border-box;
+    }
+    .risk-section .risk-panel-header {
+      flex: 0 0 auto;
+      width: 100%;
+      max-width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .risk-section .risk-panel-body-wrap {
+      flex: 0 0 auto;
+      width: 100%;
+      max-width: 100%;
+      margin: 0;
       overflow: visible;
+    }
+    .risk-section .risk-content-inner.is-fading {
+      opacity: 0;
+    }
+    .risk-section .risk-content-inner[data-phase="intro"] .risk-panel-title {
+      font-family: "EB Garamond", Georgia, "Times New Roman", serif;
+      font-size: clamp(1.5rem, 2vw + 1rem, 3.5rem);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.12;
+      color: #fff;
+      margin: 0 0 1em 0;
+      max-width: 38ch;
+    }
+    .risk-section .risk-content-inner[data-phase="risk"] .risk-panel-title {
+      font-family: "EB Garamond", Georgia, "Times New Roman", serif;
+      font-size: clamp(1.25rem, 1.2vw + 0.95rem, 2rem);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      color: #fff;
+      margin: 0 0 1em 0;
+      max-width: 32ch;
+    }
+    .risk-section .risk-panel-body {
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+      font-size: clamp(0.88rem, 0.95vw + 0.35rem, 1.02rem);
+      font-weight: 300;
+      line-height: 1.75;
+      color: rgba(255, 255, 255, 0.88);
+      margin: 0 auto;
+      max-width: 52ch;
+      text-align: center;
+    }
+    .risk-section .risk-content-divider {
+      width: 4rem;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.38);
+      margin: 0 auto 0.35rem;
+      flex-shrink: 0;
+    }
+    .risk-mobile-shot {
+      display: none;
+      margin-top: 1.25rem;
+      width: 100%;
+      max-width: 28rem;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 1rem;
+      border: 3px solid #f59e0b;
+      box-shadow: 0 12px 32px rgba(8, 16, 44, 0.12);
+      overflow: hidden;
+      background: #fff;
+    }
+    .risk-mobile-shot img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+    @media (max-width: 768px) {
+      .risk-scrolly-track {
+        height: calc(6 * 30vh);
+        min-height: calc(6 * 225px);
+      }
+      .risk-scrolly-sticky {
+        align-items: stretch;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 1rem;
+      }
+      .risk-section .risk-container {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: stretch;
+      }
+      .risk-section .risk-list-wrapper {
+        order: 1;
+      }
+      .risk-mobile-shot {
+        display: block;
+        order: 2;
+      }
+      .risk-section .risk-content-area {
+        order: 3;
+        height: 22rem;
+        min-height: 22rem;
+        max-height: 22rem;
+      }
+      .risk-section .risk-list li[data-risk-index] {
+        text-align: center;
+      }
+      .risk-section .risk-list li[data-risk-index].is-active {
+        background-color: #313a40;
+        color: #fff;
+      }
+    }
+    @media (min-width: 769px) {
+      .risk-mobile-shot {
+        display: none !important;
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .risk-scrolly-track {
+        height: auto;
+        min-height: 0;
+      }
+      .risk-scrolly-sticky {
+        position: relative;
+        top: auto;
+        min-height: 0;
+      }
+      .risk-section .risk-content-inner {
+        transition: none;
+      }
     }
     .nasil-calisir-section {
       position: relative;
@@ -109,57 +369,115 @@
       position: relative;
       z-index: 1;
     }
-    #ozellikler .nasil-flow-pills {
+    #ozellikler .nasil-section-title {
+      font-family: "EB Garamond", Georgia, "Times New Roman", serif;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      color: rgba(255, 255, 255, 0.42);
+    }
+    #ozellikler .nasil-calisir-layout {
       display: flex;
-      flex-wrap: nowrap;
-      gap: 0.5rem;
-      justify-content: flex-start;
-      overflow-x: auto;
-      -webkit-overflow-scrolling: touch;
-      padding-bottom: 0.35rem;
-      scrollbar-width: thin;
+      flex-direction: column;
+      gap: 3rem;
+      width: 100%;
     }
     @media (min-width: 1024px) {
-      #ozellikler .nasil-flow-pills {
-        flex-wrap: wrap;
-        overflow-x: visible;
-        justify-content: flex-start;
+      #ozellikler .nasil-calisir-layout {
+        gap: 4.5rem;
       }
     }
-    #ozellikler .nasil-flow-pill {
-      font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-      font-size: clamp(0.68rem, 0.65vw + 0.55rem, 0.8rem);
-      font-weight: 500;
-      letter-spacing: 0.02em;
-      color: rgba(255, 255, 255, 0.72);
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 9999px;
-      padding: 0.45rem 0.75rem;
-      cursor: pointer;
-      transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    @media (min-width: 1280px) {
+      #ozellikler .nasil-calisir-layout {
+        gap: 5rem;
+      }
     }
-    #ozellikler .nasil-flow-pill:hover {
-      color: rgba(255, 255, 255, 0.95);
-      background: rgba(255, 255, 255, 0.1);
-      border-color: rgba(255, 255, 255, 0.22);
+    @media (min-width: 1024px) {
+      #ozellikler .nasil-preview-col {
+        position: sticky;
+        top: 5.5rem;
+        z-index: 2;
+        width: 100%;
+      }
     }
-    #ozellikler .nasil-flow-pill.is-active {
-      color: #fff;
-      background: rgba(255, 255, 255, 0.14);
-      border-color: rgba(255, 255, 255, 0.35);
-      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.15);
+    #ozellikler .nasil-feature-grid {
+      display: grid;
+      width: 100%;
+      max-width: 80rem;
+      margin-left: auto;
+      margin-right: auto;
+      grid-template-columns: 1fr;
+      gap: 1.75rem;
     }
-    #ozellikler .nasil-flow-pill:focus-visible {
+    @media (min-width: 640px) {
+      #ozellikler .nasil-feature-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 2rem;
+      }
+    }
+    @media (min-width: 1024px) {
+      #ozellikler .nasil-feature-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 2.75rem;
+      }
+    }
+    @media (min-width: 1280px) {
+      #ozellikler .nasil-feature-grid {
+        gap: 3rem;
+      }
+    }
+    #ozellikler .nasil-feature-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      text-decoration: none;
+      color: inherit;
+      border-radius: 1.25rem;
+      padding: clamp(1.75rem, 3.5vw, 2.5rem) clamp(1.5rem, 2.8vw, 2rem);
+      border: none;
+      border-left: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.04);
+      box-shadow: none;
+      transition: background-color 0.35s ease, border-left-color 0.35s ease, border-left-width 0.25s ease, box-shadow 0.35s ease;
+    }
+    #ozellikler .nasil-feature-card.is-active {
+      border-left-width: 3px;
+      border-left-color: rgba(255, 255, 255, 0.92);
+      background: rgba(255, 255, 255, 0.07);
+    }
+    @media (hover: hover) {
+      #ozellikler .nasil-feature-card:not(.is-active):hover {
+        background: rgba(255, 255, 255, 0.055);
+        border-left-color: rgba(255, 255, 255, 0.38);
+        box-shadow: 0 20px 48px -28px rgba(0, 0, 0, 0.35);
+      }
+    }
+    #ozellikler .nasil-feature-card:focus-visible {
       outline: 2px solid rgba(255, 255, 255, 0.75);
       outline-offset: 2px;
     }
+    #ozellikler .nasil-feature-card h3 {
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+      width: 100%;
+      max-width: min(100%, 20rem);
+      margin-left: auto;
+      margin-right: auto;
+    }
+    #ozellikler .nasil-feature-card .nasil-card-body {
+      width: 100%;
+      max-width: min(100%, 21.5rem);
+      margin-left: auto;
+      margin-right: auto;
+    }
     #ozellikler .nasil-browser-frame {
-      border-radius: 1rem;
+      border-radius: 1.125rem;
       overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      background: rgba(255, 255, 255, 0.06);
-      box-shadow: 0 24px 48px -24px rgba(0, 0, 0, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.04);
+      box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.04),
+        0 32px 64px -36px rgba(0, 0, 0, 0.5),
+        0 0 100px -48px rgba(255, 255, 255, 0.08);
     }
     #ozellikler .nasil-browser-chrome {
       display: flex;
@@ -175,11 +493,17 @@
       height: 8px;
       border-radius: 9999px;
     }
+    /* Önizleme: 1365×768 oranı; çerçeve max-w ile küçültülür */
     #ozellikler .nasil-flow-preview-wrap {
       position: relative;
       width: 100%;
-      aspect-ratio: 16 / 10;
+      aspect-ratio: 1365 / 768;
       background: #fff;
+    }
+    @media (max-width: 1023px) {
+      #ozellikler .nasil-flow-preview-wrap {
+        max-height: min(220px, 30vh);
+      }
     }
     #ozellikler .nasil-flow-preview-img {
       position: absolute;
@@ -188,275 +512,11 @@
       height: 100%;
       object-fit: contain;
       object-position: top center;
-      transition: opacity 0.35s ease;
-    }
-    #ozellikler .nasil-flow-preview-img.is-fading {
-      opacity: 0.55;
-    }
-    #ozellikler .nasil-step-card {
-      cursor: pointer;
-      text-align: center;
-      border-radius: 1.25rem;
-      padding: 1.35rem 1.1rem;
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      background: rgba(255, 255, 255, 0.04);
-      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease, border-color 0.2s ease, background-color 0.2s ease;
-    }
-    #ozellikler .nasil-step-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 18px 40px -18px rgba(0, 0, 0, 0.5);
-      border-color: rgba(255, 255, 255, 0.2);
-      background: rgba(255, 255, 255, 0.07);
-    }
-    #ozellikler .nasil-step-card.is-active {
-      border-color: rgba(255, 255, 255, 0.32);
-      background: rgba(255, 255, 255, 0.1);
-      box-shadow: 0 12px 32px -16px rgba(0, 0, 0, 0.4);
-    }
-    #ozellikler .nasil-step-card:focus-visible {
-      outline: 2px solid rgba(255, 255, 255, 0.75);
-      outline-offset: 2px;
-    }
-    #ozellikler .nasil-step-badge {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 2.25rem;
-      padding: 0.2rem 0.5rem;
-      border-radius: 0.375rem;
-      font-size: 0.65rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.85);
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.15);
     }
     @media (prefers-reduced-motion: reduce) {
-      #ozellikler .nasil-flow-preview-img {
-        transition: none;
+      #ozellikler .nasil-feature-card {
+        transition: border-left-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
       }
-      #ozellikler .nasil-step-card {
-        transition: border-color 0.2s ease, background-color 0.2s ease;
-      }
-      #ozellikler .nasil-step-card:hover {
-        transform: none;
-      }
-    }
-    .risk-section .risk-container {
-      position: relative;
-      z-index: 1;
-      display: grid;
-      grid-template-columns: minmax(0, 3fr) minmax(0, 5fr);
-      gap: clamp(3rem, 6vw, 5.5rem);
-      align-items: start;
-      max-width: 80rem;
-      margin-left: auto;
-      margin-right: auto;
-      padding-left: clamp(1rem, 4vw, 2rem);
-      padding-right: clamp(1rem, 4vw, 2rem);
-      width: 100%;
-      min-height: 0;
-    }
-    .risk-section .risk-content-area {
-      position: sticky;
-      top: 100px;
-      width: 100%;
-      max-width: 100%;
-      margin-left: auto;
-      margin-right: 0;
-      min-width: 0;
-      min-height: clamp(280px, 40vw, 520px);
-      aspect-ratio: 12 / 5;
-      overflow: hidden;
-      border-radius: 1.5rem;
-      text-align: center;
-    }
-    .risk-section .risk-content-media {
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      z-index: 0;
-    }
-    .risk-section .risk-content-bg-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      display: block;
-    }
-    .risk-section .risk-content-frost {
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      z-index: 1;
-      background: rgba(8, 16, 44, 0.42);
-      backdrop-filter: blur(14px) saturate(1.05);
-      -webkit-backdrop-filter: blur(14px) saturate(1.05);
-    }
-    .risk-section .risk-content-area h2 {
-      font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-      font-size: clamp(1.1rem, 1.1vw + 0.85rem, 1.65rem);
-      font-weight: 500;
-      letter-spacing: 0.02em;
-      line-height: 1.4;
-      margin: 0;
-      color: #fff;
-      white-space: normal;
-      max-width: 36ch;
-      flex-shrink: 0;
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.22);
-    }
-    .risk-section .risk-content-area p {
-      font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-      font-size: clamp(0.88rem, 0.95vw + 0.35rem, 1.02rem);
-      font-weight: 300;
-      line-height: 1.75;
-      color: rgba(255, 255, 255, 0.88);
-      margin: 0;
-      max-width: 52ch;
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.18);
-    }
-    .risk-section .risk-content-inner {
-      position: relative;
-      z-index: 2;
-      min-height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 1rem;
-      flex-wrap: nowrap;
-      padding: clamp(2.25rem, 5vw, 3.5rem) clamp(2rem, 4vw, 3.25rem);
-      transition: opacity 0.3s ease;
-    }
-    .risk-section .risk-content-inner.is-fading {
-      opacity: 0;
-    }
-    .risk-section .risk-list-wrapper {
-      display: flex;
-      justify-content: center;
-      text-align: center;
-      min-width: 0;
-      align-self: start;
-    }
-    .risk-section .risk-list {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 0.9rem;
-      text-align: left;
-      width: 100%;
-      max-width: 28rem;
-    }
-    .risk-section .risk-list li {
-      cursor: pointer;
-      opacity: 0.82;
-      transition: opacity 0.25s ease, border-color 0.25s ease, padding 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
-      font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-      font-size: clamp(0.95rem, 1.1vw + 0.55rem, 1.08rem);
-      font-weight: 400;
-      letter-spacing: 0.02em;
-      min-height: 44px;
-      padding: 0.65rem 1rem;
-      color: #08102c;
-      text-align: left;
-      background-color: rgba(255, 255, 255, 0.92);
-      border-radius: 0.65rem;
-      border: 1px solid rgba(8, 16, 44, 0.08);
-      border-left: 3px solid transparent;
-      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
-      display: flex;
-      align-items: center;
-      scroll-margin-top: 120px;
-    }
-    .risk-section .risk-list li:focus {
-      outline: none;
-    }
-    .risk-section .risk-list li:focus-visible {
-      opacity: 1;
-      border-left-color: #08102c;
-      background-color: #fff;
-      box-shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
-    }
-    .risk-section .risk-list li:hover,
-    .risk-section .risk-list li[aria-selected="true"] {
-      opacity: 1;
-      border-left-color: #08102c;
-      padding-left: 1.15rem;
-      background-color: #fff;
-      box-shadow: 0 8px 22px rgba(15, 23, 42, 0.08);
-    }
-    @media (max-width: 768px) {
-      .risk-section {
-        min-height: 0;
-        display: block;
-        overflow: hidden;
-      }
-      .risk-section .risk-container {
-        display: flex;
-        flex-direction: column;
-        gap: 0.75rem;
-        align-items: stretch;
-      }
-      .risk-section .risk-content-area {
-        order: 0;
-        position: relative;
-        top: auto;
-        min-height: 260px;
-        max-width: 100%;
-        margin-left: 0;
-        margin-right: 0;
-        transform: none;
-        text-align: left;
-        aspect-ratio: 16 / 10;
-      }
-      .risk-section .risk-content-inner {
-        align-items: flex-start;
-        text-align: left;
-        padding: clamp(1.5rem, 4vw, 2rem);
-      }
-      .risk-section .risk-content-area h2 {
-        white-space: normal;
-        word-wrap: break-word;
-      }
-      .risk-section .risk-content-divider {
-        margin-left: 0;
-        margin-right: auto;
-      }
-      .risk-section .risk-list-wrapper {
-        order: 1;
-        align-self: auto;
-      }
-      .risk-section .risk-list li {
-        min-height: 0;
-        display: block;
-      }
-      .risk-mobile-answer {
-        list-style: none;
-        padding: 0.75rem 0 0;
-        margin: 0 0 1rem;
-        border-bottom: 1px solid rgba(8, 16, 44, 0.12);
-        font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-      }
-      .risk-mobile-answer h3 {
-        font-size: 1.125rem;
-        font-weight: 500;
-        color: #08102c;
-        margin: 0 0 0.35rem;
-        white-space: normal;
-      }
-      .risk-mobile-answer p {
-        font-size: 1rem;
-        line-height: 1.6;
-        color: rgba(8, 16, 44, 0.82);
-        margin: 0;
-      }
-    }
-    @media (min-width: 769px) {
-      .risk-mobile-answer { display: none !important; }
     }
     .slider-section {
       --bg-color: #F5F7FB;
@@ -760,30 +820,39 @@
 </div>
 </div>
 </section>
-<section class="risk-section" id="risk-section" aria-labelledby="risk-content-title">
+<section class="risk-section" id="risk-section" aria-labelledby="risk-content-title" data-risk-step-count="6">
+<div class="risk-scrolly-track" id="risk-scrolly-track">
+<div class="risk-scrolly-sticky">
 <div class="risk-container">
 <div class="risk-list-wrapper">
-<ul class="risk-list" id="risk-list" role="list">
-<li role="button" tabindex="0" data-risk-index="0" data-title="KVKK ve Toplu Onay Riskleri" data-description="Veriyi yurtdışına çıkaran uygulamalarda onay almak sadece sizinle bitmez. Dosyadaki müvekkil, karşı taraf, tanık ve hatta bilirkişilerin her birinden ayrı onay almanız gerekir. Bu onayın alınmadığı her işlem, bir şikayetle yüksek KVKK cezalarına ve denetimlere davetiye çıkarır; olası bir denetim hem cezai sorumluluk hem de hukuk kariyeri anlamında büyük risk getirir.">KVKK ve Toplu Onay Riskleri</li>
-<li role="button" tabindex="0" data-risk-index="1" data-title="Dava ve Müvekkil Mahremiyeti" data-description="Sadece kendi verinizi değil, müvekkilinizin ticari sırlarını ve davanın özel detaylarını dijital dünyaya savunmasız bırakıyorsunuz. Verinin &quot;işlenmesi&quot; sırasında gerçekleşen kontrol kaybı, meslek etiği ve avukatlık kanunu açısından telafisi imkansız sonuçlar doğurabilir.">Dava ve Müvekkil Mahremiyeti</li>
+<ul class="risk-list" id="risk-list" role="list" aria-label="Dijital risk başlıkları">
+<li role="button" tabindex="0" data-risk-index="0" data-title="KVKK ve Veri Gizliliği" data-description="Veriyi yurtdışına çıkaran uygulamalarda onay almak sadece sizinle bitmez. Dosyadaki müvekkil, karşı taraf, tanık ve hatta bilirkişilerin her birinden ayrı onay almanız gerekir. Bu onayın alınmadığı her işlem, bir şikayetle yüksek KVKK cezalarına ve denetimlere davetiye çıkarır; olası bir denetim hem cezai sorumluluk hem de hukuk kariyeri anlamında büyük risk getirir.">KVKK ve Veri Gizliliği</li>
+<li role="button" tabindex="0" data-risk-index="1" data-title="Siber Güvenlik ve Veri Egemenliği" data-description="Dava ve sözleşme verileri yalnızca siber saldırılara karşı değil, aynı zamanda yasal yükümlülüklere karşı korunmalıdır. Türkiye'deki düzenlemeler, veri ve log yönetimi ile olay bildirimlerinde doğrudan sorumluluk yükler.&lt;br&gt;&lt;br&gt;Yurtdışı sistemlerde veri üzerindeki kontrol ve denetim sınırlıdır; bu da hassas hukuki veriler için ciddi belirsizlik yaratır. Güvenlik, altyapı kadar kontrol ve uyum meselesidir.">Siber Güvenlik ve Veri Egemenliği</li>
 <li role="button" tabindex="0" data-risk-index="2" data-title="Halka Açık Yapay Zeka Kullanımı" data-description="Halka açık yapay zeka modellerine yüklediğiniz her veri, bu modellerin eğitimi için kullanılır ve anonimliğini yitirir. Sizin yüklediğiniz gizli bir sözleşme maddesi, yarın rakip bir avukatın sorgusunda cevap olarak çıkabilir. Sır saklama yükümlülüğünüzü &quot;açık kaynaklara&quot; kurban etmeyin.">Halka Açık Yapay Zeka Kullanımı</li>
-<li role="button" tabindex="0" data-risk-index="3" data-title="Büyük Dosyalarda Bağlam Kaybı" data-description="Standart yapay zekalar ve bu yapay zekaları kullanan uygulamalar binlerce sayfalık dava dosyalarında &quot;yorulur&quot;. Sayfa 10'daki bir detayla sayfa 500'deki bir çelişkiyi gözden kaçırabilir. Bu durum, sadece yanlış bilgi (halüsinasyon) değil, davanın kaderini değiştirecek kritik bir delilin atlanması anlamına gelir.">Büyük Dosyalarda Bağlam Kaybı</li>
-<li class="risk-mobile-answer" id="risk-mobile-answer" aria-hidden="true" style="display: none;"></li>
-                        </ul>
-                    </div>
-<div class="risk-content-area">
-<div class="risk-content-media" aria-hidden="true">
-<img class="risk-content-bg-img" src="assets/risk-section-bg.png" alt="" width="2400" height="1000" decoding="async"/>
-<div class="risk-content-frost"></div>
+<li role="button" tabindex="0" data-risk-index="3" data-title="Büyük Dosyalarda Anlam Kaybı" data-description="Standart yapay zekalar ve bu yapay zekaları kullanan uygulamalar binlerce sayfalık dava dosyalarında &quot;yorulur&quot;. Sayfa 10'daki bir detayla sayfa 500'deki bir çelişkiyi gözden kaçırabilir. Bu durum, sadece yanlış bilgi (halüsinasyon) değil, davanın kaderini değiştirecek kritik bir delilin atlanması anlamına gelir.">Büyük Dosyalarda Anlam Kaybı</li>
+<li role="button" tabindex="0" data-risk-index="4" data-title="Davaya Özgü Olmayan Şablonlar" data-description="Genel ve tekrarlayan şablonlarla üretilen metinler, dosyanın özel gerçeklerini ve savunma stratejinizi yansıtmayabilir. Yanlış argüman, eksik delil veya bağlam dışı ifadeler ciddi ihlal ve itibar riski taşır; otomatik çıktıları dava bağlamına oturtmadan kullanmak profesyonel sorumluluğu zedeler.">Davaya Özgü Olmayan Şablonlar</li>
+</ul>
 </div>
-<div class="risk-content-inner" id="risk-content-inner">
-<h2 id="risk-content-title">Hukukta Dijital Risk Gerçeği</h2>
-<div class="w-16 h-px bg-white/40 mt-3 mb-4 mx-auto risk-content-divider"></div>
-<p id="risk-content-description">Hukuk süreçleri dijitalleştirerek hız kazanmak mümkün; ancak kontrol kaybı, veri güvenliği ve bağlam hataları yeni risk alanları yaratır. Özellikle büyük dava dosyaları ve yapay zeka kullanımı söz konusu olduğunda, risk yalnızca teknik değil, hukuki ve itibari sonuçlar doğurabilir.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+<div class="risk-content-area" id="risk-content-area" role="region" aria-live="polite" aria-atomic="true">
+<div class="risk-content-inner" id="risk-content-inner" data-phase="intro">
+<div class="risk-panel-stack">
+<div class="risk-panel-header">
+<h2 id="risk-content-title" class="risk-panel-title">Dijital Dönüşüm mü, Hukuki İhlal Riski mi?</h2>
+<div class="risk-content-divider" aria-hidden="true"></div>
+</div>
+<div class="risk-panel-body-wrap">
+<p id="risk-content-description" class="risk-panel-body">Hukuk süreçleri dijitalleştirerek hız kazanmak mümkün; ancak kontrol kaybı, veri güvenliği ve bağlam hataları yeni risk alanları yaratır. Özellikle büyük dava dosyaları ve yapay zeka kullanımı söz konusu olduğunda, risk yalnızca teknik değil, hukuki ve itibari sonuçlar doğurabilir.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="risk-mobile-shot" aria-hidden="true">
+<img src="assets/risk-section-bg.png" alt="" width="1200" height="800" loading="lazy" decoding="async"/>
+</div>
+</div>
+</div>
+</section>
 <section class="px-4 sm:px-6 lg:px-8 pt-16 lg:pt-24 pb-16 lg:pb-20 bg-[#FFFFFF]" id="insan-sinirlari">
 <div class="max-w-7xl mx-auto flex flex-col gap-14 lg:gap-20">
 <div class="max-w-[65ch] mx-auto flex flex-col gap-6 text-center">
@@ -845,84 +914,58 @@
                 </div>
             </div>
         </section>
-<section class="nasil-calisir-section px-4 sm:px-6 lg:px-8 py-20 lg:py-28 text-white" id="ozellikler">
-<div class="max-w-7xl mx-auto flex flex-col gap-24 lg:gap-28">
-<div class="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
-<div class="flex flex-col gap-8">
-<h2 class="font-medium leading-[1.4] tracking-[0.02em] text-[clamp(0.96rem,0.92vw+0.68rem,1.32rem)] text-white">Nasıl Çalışır?</h2>
-<p class="text-white/75 font-light leading-relaxed text-[clamp(0.744rem,0.8vw+0.32rem,0.9rem)] max-w-[65ch]">Dokümanınızı yükleyin; analizden mevzuat ve emsal aramaya, sözleşme ve dilekçe üretiminden risk denetimine ve dava kronolojisine kadar tek yerel akışta ilerleyin. KVKK odaklı, uçtan uca veri hakimiyeti.</p>
-<div class="flex flex-col gap-4 mt-2">
-<div class="flex items-center gap-5 bg-white/[0.06] p-5 rounded-2xl border border-white/10">
-<span class="material-symbols-outlined text-2xl opacity-90 shrink-0">check_circle</span>
-<span class="font-light leading-relaxed text-[clamp(0.85rem,0.9vw+0.4rem,1rem)] text-white/90">Verileriniz Türkiye sınırları içinde işlenir; yurtdışı aktarım riski taşımazsınız.</span>
-                    </div>
-<div class="flex items-center gap-5 bg-white/[0.06] p-5 rounded-2xl border border-white/10">
-<span class="material-symbols-outlined text-2xl opacity-90 shrink-0">check_circle</span>
-<span class="font-light leading-relaxed text-[clamp(0.85rem,0.9vw+0.4rem,1rem)] text-white/90">Yalnızca sizin yüklediğiniz dosyalarda çalışır; genel amaçlı sohbet veya açık veri havuzu yoktur.</span>
-                                        </div>
-<div class="flex items-center gap-5 bg-white/[0.06] p-5 rounded-2xl border border-white/10">
-<span class="material-symbols-outlined text-2xl opacity-90 shrink-0">check_circle</span>
-<span class="font-light leading-relaxed text-[clamp(0.85rem,0.9vw+0.4rem,1rem)] text-white/90">Yanıtlar belge içi konumla ilişkilendirilir; model eğitiminde kullanılmaz, kanıta dayalı çıktı hedeflenir.</span>
-                                </div>
-                                    </div>
-<p class="text-white/45 font-light mt-3 text-[clamp(0.72rem,0.75vw+0.32rem,0.82rem)] tracking-[0.02em]">%100 No-Training Data Policy &amp; Encryption at Rest</p>
-                                </div>
-<div class="flex flex-col gap-4">
-<div class="nasil-flow-pills" role="tablist" aria-label="Ürün akışı adımları">
-<button type="button" role="tab" aria-selected="true" aria-controls="nasil-flow-preview-panel" id="nasil-tab-0" class="nasil-flow-pill is-active" data-nasil-step="0">01 · Doküman</button>
-<button type="button" role="tab" aria-selected="false" aria-controls="nasil-flow-preview-panel" id="nasil-tab-1" class="nasil-flow-pill" data-nasil-step="1">02 · Mevzuat</button>
-<button type="button" role="tab" aria-selected="false" aria-controls="nasil-flow-preview-panel" id="nasil-tab-2" class="nasil-flow-pill" data-nasil-step="2">03 · Üretim</button>
-<button type="button" role="tab" aria-selected="false" aria-controls="nasil-flow-preview-panel" id="nasil-tab-3" class="nasil-flow-pill" data-nasil-step="3">04 · Risk</button>
-<button type="button" role="tab" aria-selected="false" aria-controls="nasil-flow-preview-panel" id="nasil-tab-4" class="nasil-flow-pill" data-nasil-step="4">05 · Zaman</button>
+<section class="nasil-calisir-section px-4 sm:px-6 lg:px-8 py-12 lg:py-16 text-white" id="ozellikler" aria-labelledby="nasil-main-heading">
+<div class="max-w-7xl mx-auto flex flex-col gap-8 lg:gap-10">
+<div class="nasil-calisir-layout">
+<div class="nasil-copy-col flex flex-col gap-6 lg:gap-8 min-w-0 w-full">
+<div class="flex flex-col gap-3 text-center max-w-4xl lg:max-w-5xl mx-auto px-2">
+<p class="nasil-section-title text-[clamp(0.92rem,0.95vw+0.65rem,1.1rem)] leading-snug m-0" id="nasil-eyebrow">Dikera AI Nasıl Çalışır?</p>
+<h2 class="hero-editorial text-white font-normal leading-[1.12] tracking-[-0.02em] text-center mx-auto w-full max-w-[min(100%,24rem)] sm:max-w-[min(100%,32rem)] lg:max-w-[min(100%,38rem)] text-[clamp(1.5rem,1rem+1.5vw,2.75rem)] px-0 m-0" id="nasil-main-heading">Dosyalarınızı güvenle yükleyin, Mevzuata göre analiz edin.</h2>
 </div>
-<div class="nasil-browser-frame" id="nasil-flow-preview-panel" role="tabpanel" aria-labelledby="nasil-tab-0">
-<div class="nasil-browser-chrome">
+<nav class="nasil-feature-grid" id="nasil-feature-cards" aria-label="Nasıl çalışır adımları">
+<a href="ozellikler.html" class="nasil-feature-card is-active gap-5 outline-none">
+<h3 class="text-base sm:text-[1.0625rem] font-semibold tracking-[0.02em] leading-snug text-white">Dokümanlarınızı Güvenle Yükleyin</h3>
+<p class="nasil-card-body text-white/55 font-light text-xs sm:text-[0.8125rem] leading-relaxed m-0">Verileriniz yurt dışına çıkmaz, KVKK ve Türk Hukuk Regülasyonları ile uyumlu mimariyle güvende kalır.</p>
+</a>
+<a href="ozellikler.html" class="nasil-feature-card gap-5 outline-none">
+<h3 class="text-base sm:text-[1.0625rem] font-semibold tracking-[0.02em] leading-snug text-white">Dosyaların Analizi</h3>
+<p class="nasil-card-body text-white/55 font-light text-xs sm:text-[0.8125rem] leading-relaxed m-0">PDF, Word, UDF gibi format bağımsız tüm belgelerinizi OCR ile tarar; kritik tarihleri, özetleri ve dosya içeriğini ve anlamını çıkarır.</p>
+</a>
+<a href="ozellikler.html" class="nasil-feature-card gap-5 outline-none">
+<h3 class="text-base sm:text-[1.0625rem] font-semibold tracking-[0.02em] leading-snug text-white">Mevzuat Araştırması</h3>
+<p class="nasil-card-body text-white/55 font-light text-xs sm:text-[0.8125rem] leading-relaxed m-0">10 milyondan fazla emsal karar ve güncel mevzuat arasında konuşma dilinde arama yapın, ilgili maddelere anında ulaşın.</p>
+</a>
+<a href="ozellikler.html" class="nasil-feature-card gap-5 outline-none">
+<h3 class="text-base sm:text-[1.0625rem] font-semibold tracking-[0.02em] leading-snug text-white">UYAP ile Senkronizasyon</h3>
+<p class="nasil-card-body text-white/55 font-light text-xs sm:text-[0.8125rem] leading-relaxed m-0">Dava süreçlerini ve tebligatları otomatik takip edin; akıllı takvim takibi ile tüm yasal süreleri hatasız yönetin.</p>
+</a>
+<a href="ozellikler.html" class="nasil-feature-card gap-5 outline-none">
+<h3 class="text-base sm:text-[1.0625rem] font-semibold tracking-[0.02em] leading-snug text-white">Sözleşme Oluşturma ve Kıyas</h3>
+<p class="nasil-card-body text-white/55 font-light text-xs sm:text-[0.8125rem] leading-relaxed m-0">Standart dışı metinler üretin, mevcut sözleşmeleri hukuk prensiplerine göre kıyaslayın ve riskleri anında tespit edin.</p>
+</a>
+<a href="ozellikler.html" class="nasil-feature-card gap-5 outline-none">
+<h3 class="text-base sm:text-[1.0625rem] font-semibold tracking-[0.02em] leading-snug text-white">Dilekçe Oluşturma</h3>
+<p class="nasil-card-body text-white/55 font-light text-xs sm:text-[0.8125rem] leading-relaxed m-0">Talebinizi konuşma dilince belirtin; güncel mevzuat ve argümanlarla yapılandırılmış profesyonel taslaklara hızlıca ulaşın.</p>
+</a>
+</nav>
+</div>
+<div class="nasil-preview-col w-full min-w-0">
+<div class="nasil-browser-frame w-full max-w-2xl mx-auto" id="nasil-flow-preview-panel" role="region" aria-live="polite" aria-labelledby="nasil-flow-caption">
+<div class="nasil-browser-chrome py-1">
 <span class="nasil-browser-dots flex gap-1.5 shrink-0" aria-hidden="true"><span class="bg-red-400/90"></span><span class="bg-amber-400/90"></span><span class="bg-emerald-500/80"></span></span>
 </div>
 <div class="nasil-flow-preview-wrap">
-<img id="nasil-flow-preview" src="assets/Chat.png" alt="Dikera AI doküman analizi ve soru-cevap ekranı" class="nasil-flow-preview-img" loading="lazy" decoding="async" width="1365" height="768"/>
+<img id="nasil-flow-preview" src="assets/Chat.png" alt="Dikera AI — güvenli doküman ve yükleme akışı" class="nasil-flow-preview-img" loading="eager" decoding="async" width="1365" height="768"/>
 </div>
-<p id="nasil-flow-caption" class="text-white/60 text-xs sm:text-sm font-light tracking-[0.02em] px-4 py-3 border-t border-white/10 text-left">Adım 1 — Yüklü doküman üzerinden soru-cevap ve analiz</p>
+<p id="nasil-flow-caption" class="text-white/50 text-xs font-light tracking-[0.02em] px-4 py-3 border-t border-white/[0.06] text-center leading-relaxed">Güvenli yükleme ve doküman akışı</p>
 </div>
 </div>
-                                </div>
-<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-5 gap-6 lg:gap-5 pt-14 lg:pt-16 border-t border-white/10" id="nasil-step-cards">
-<article class="nasil-step-card flex flex-col gap-3 items-center max-w-xs mx-auto w-full is-active outline-none" data-nasil-step="0" tabindex="0" role="button" aria-pressed="true" aria-label="1. Doküman analizi ve bağlam">
-<span class="nasil-step-badge">01</span>
-<span class="material-symbols-outlined text-3xl opacity-80 text-white" aria-hidden="true">description</span>
-<h3 class="text-base lg:text-lg font-medium tracking-[0.02em] leading-snug text-white">Doküman analizi ve bağlam</h3>
-<p class="text-white/65 leading-relaxed font-light text-[clamp(0.75rem,0.8vw+0.32rem,0.9rem)]">Dosyayı okur, parçalar arası bağ kurar, yanıtları belge referansıyla sunar.</p>
-</article>
-<article class="nasil-step-card flex flex-col gap-3 items-center max-w-xs mx-auto w-full outline-none" data-nasil-step="1" tabindex="0" role="button" aria-pressed="false" aria-label="2. Mevzuat ve emsal karar arama">
-<span class="nasil-step-badge">02</span>
-<span class="material-symbols-outlined text-3xl opacity-80 text-white" aria-hidden="true">balance</span>
-<h3 class="text-base lg:text-lg font-medium tracking-[0.02em] leading-snug text-white">Mevzuat ve emsal karar arama</h3>
-<p class="text-white/65 leading-relaxed font-light text-[clamp(0.75rem,0.8vw+0.32rem,0.9rem)]">Kanun maddesi ile içtihat sonuçlarını aynı akışta ilişkilendirir.</p>
-</article>
-<article class="nasil-step-card flex flex-col gap-3 items-center max-w-xs mx-auto w-full outline-none" data-nasil-step="2" tabindex="0" role="button" aria-pressed="false" aria-label="3. Sözleşme ve dilekçe oluşturma">
-<span class="nasil-step-badge">03</span>
-<span class="material-symbols-outlined text-3xl opacity-80 text-white" aria-hidden="true">edit_document</span>
-<h3 class="text-base lg:text-lg font-medium tracking-[0.02em] leading-snug text-white">Sözleşme ve dilekçe oluşturma</h3>
-<p class="text-white/65 leading-relaxed font-light text-[clamp(0.75rem,0.8vw+0.32rem,0.9rem)]">Olaya özel taslaklar; emredici hükümlerle uyumlu doküman üretimi.</p>
-</article>
-<article class="nasil-step-card flex flex-col gap-3 items-center max-w-xs mx-auto w-full outline-none" data-nasil-step="3" tabindex="0" role="button" aria-pressed="false" aria-label="4. Risk denetimi ve dayanak">
-<span class="nasil-step-badge">04</span>
-<span class="material-symbols-outlined text-3xl opacity-80 text-white" aria-hidden="true">policy</span>
-<h3 class="text-base lg:text-lg font-medium tracking-[0.02em] leading-snug text-white">Risk denetimi ve dayanak</h3>
-<p class="text-white/65 leading-relaxed font-light text-[clamp(0.75rem,0.8vw+0.32rem,0.9rem)]">Riskli maddeler, eksik dayanak ve emredici hüküm ihlallerini görünür kılar.</p>
-</article>
-<article class="nasil-step-card flex flex-col gap-3 items-center max-w-xs mx-auto w-full sm:col-span-2 xl:col-span-1 outline-none" data-nasil-step="4" tabindex="0" role="button" aria-pressed="false" aria-label="5. Dava kronolojisi ve çelişki tespiti">
-<span class="nasil-step-badge">05</span>
-<span class="material-symbols-outlined text-3xl opacity-80 text-white" aria-hidden="true">calendar_month</span>
-<h3 class="text-base lg:text-lg font-medium tracking-[0.02em] leading-snug text-white">Dava kronolojisi ve çelişki tespiti</h3>
-<p class="text-white/65 leading-relaxed font-light text-[clamp(0.75rem,0.8vw+0.32rem,0.9rem)]">Olayları sıralar, kaynak verir; tarih ve beyan uyumsuzluklarına dikkat çeker.</p>
-</article>
 </div>
-<p class="text-center pt-10 lg:pt-12">
-<a href="ozellikler.html#ozellik-akış" class="inline-flex items-center gap-2 text-sm font-medium tracking-[0.02em] text-white/90 hover:text-white border border-white/25 hover:border-white/45 rounded-xl px-5 py-2.5 transition-colors">Özellikleri Gör<span class="material-symbols-outlined text-lg font-light" aria-hidden="true">arrow_forward</span></a>
+<p class="text-center pt-4 lg:pt-6">
+<a href="ozellikler.html#ozellik-akış" class="inline-flex items-center gap-2 text-sm font-medium tracking-[0.02em] text-white/90 hover:text-white border border-white/25 hover:border-white/45 rounded-lg px-5 py-2.5 transition-colors">Özellikleri Gör<span class="material-symbols-outlined text-lg font-light" aria-hidden="true">arrow_forward</span></a>
 </p>
-            </div> 
-        </section>
+</div>
+</section>
 <section class="px-4 sm:px-6 lg:px-8 pt-16 lg:pt-20 pb-2 bg-[#F5F7FB]">
 <div class="max-w-7xl mx-auto text-center px-2">
 <h2 class="hero-editorial text-slate-700 font-normal leading-[1.12] tracking-[-0.02em] text-center mx-auto w-full max-w-[min(100%,22rem)] sm:max-w-[min(100%,28rem)] lg:max-w-[min(100%,34rem)] text-[clamp(1.5rem,1rem+1.5vw,2.75rem)] px-0 m-0">Dikera AI ve Geleneksel Çözümler</h2>
@@ -1209,159 +1252,231 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    var riskSection = document.getElementById('risk-section');
-    if (!riskSection) return;
-    var riskTitleEl = document.getElementById('risk-content-title');
-    var riskDescEl = document.getElementById('risk-content-description');
-    var riskInnerEl = document.getElementById('risk-content-inner');
-    var riskListEl = document.getElementById('risk-list');
-    if (!riskTitleEl || !riskDescEl || !riskInnerEl || !riskListEl) return;
+    (function riskScrollyInit() {
+        var riskSection = document.getElementById('risk-section');
+        var track = document.getElementById('risk-scrolly-track');
+        var riskTitleEl = document.getElementById('risk-content-title');
+        var riskDescEl = document.getElementById('risk-content-description');
+        var riskInnerEl = document.getElementById('risk-content-inner');
+        var riskListEl = document.getElementById('risk-list');
+        if (!riskSection || !track || !riskTitleEl || !riskDescEl || !riskInnerEl || !riskListEl) return;
 
-    var defaultRiskTitle = riskTitleEl.textContent.trim();
-    var defaultRiskDesc = riskDescEl.textContent.trim();
-    var activeRiskIndex = null;
-    var fadeDuration = 300;
+        var INTRO_TITLE = 'Dijital Dönüşüm mü, Hukuki İhlal Riski mi?';
+        var INTRO_DESC = 'Hukuk süreçleri dijitalleştirerek hız kazanmak mümkün; ancak kontrol kaybı, veri güvenliği ve bağlam hataları yeni risk alanları yaratır. Özellikle büyük dava dosyaları ve yapay zeka kullanımı söz konusu olduğunda, risk yalnızca teknik değil, hukuki ve itibari sonuçlar doğurabilir.';
+        var STEP_COUNT = 6;
+        var fadeDuration = 280;
+        var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        var lastStep = -1;
+        var ticking = false;
+        var firstPanelSync = true;
+        var contentSeq = 0;
 
-    function setRiskContent(title, description) {
-        riskInnerEl.classList.add('is-fading');
-        setTimeout(function () {
-            riskTitleEl.textContent = title;
-            riskDescEl.textContent = description;
-            riskInnerEl.classList.remove('is-fading');
-        }, fadeDuration);
-    }
+        function trackProgress() {
+            var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            var rect = track.getBoundingClientRect();
+            var elTop = scrollTop + rect.top;
+            var range = track.offsetHeight - window.innerHeight;
+            if (range <= 0) return 0;
+            var p = (scrollTop - elTop) / range;
+            return Math.min(1, Math.max(0, p));
+        }
 
-    function setActiveRisk(index) {
-        activeRiskIndex = index;
-        var isDesktop = window.matchMedia('(min-width: 769px)').matches;
+        /** Her adım için kaydırma mesafesi eşit: p ∈ [0,1] → range üzerinde STEP_COUNT eşit bant. */
+        function stepFromProgress(p) {
+            var clamped = Math.min(1, Math.max(0, p));
+            if (clamped >= 1) return STEP_COUNT - 1;
+            return Math.min(STEP_COUNT - 1, Math.floor(clamped * STEP_COUNT));
+        }
+
+        function setRiskContent(title, description, phase) {
+            var seq = ++contentSeq;
+            var doFade = !reduceMotion.matches && !firstPanelSync;
+            firstPanelSync = false;
+            if (doFade) riskInnerEl.classList.add('is-fading');
+            var done = function () {
+                if (seq !== contentSeq) return;
+                riskTitleEl.textContent = title;
+                var desc = description || '';
+                if (/<br\s*\/?>/i.test(desc)) {
+                    riskDescEl.innerHTML = desc;
+                } else {
+                    riskDescEl.textContent = desc;
+                }
+                riskInnerEl.setAttribute('data-phase', phase || 'risk');
+                if (doFade) riskInnerEl.classList.remove('is-fading');
+            };
+            if (doFade) {
+                setTimeout(done, fadeDuration);
+            } else {
+                done();
+            }
+        }
+
+        function applyStep(step) {
+            if (step === lastStep) return;
+            lastStep = step;
+            var items = riskListEl.querySelectorAll('li[data-risk-index]');
+            items.forEach(function (li) {
+                var idx = parseInt(li.getAttribute('data-risk-index'), 10);
+                var active = step >= 1 && step === idx + 1;
+                li.classList.toggle('is-active', active);
+                li.setAttribute('aria-selected', active ? 'true' : 'false');
+            });
+            if (step === 0) {
+                setRiskContent(INTRO_TITLE, INTRO_DESC, 'intro');
+            } else {
+                var li = riskListEl.querySelector('li[data-risk-index="' + (step - 1) + '"]');
+                if (li) {
+                    setRiskContent(li.getAttribute('data-title') || '', li.getAttribute('data-description') || '', 'risk');
+                }
+            }
+        }
+
+        function scrollToStep(step) {
+            var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            var rect = track.getBoundingClientRect();
+            var elTop = scrollTop + rect.top;
+            var range = track.offsetHeight - window.innerHeight;
+            if (range <= 0) {
+                applyStep(Math.min(STEP_COUNT - 1, Math.max(0, step)));
+                return;
+            }
+            /* Bant ortası: her başlık geçişi için eşit piksel aralığı */
+            var t = elTop + (range * (step + 0.5)) / STEP_COUNT;
+            window.scrollTo({ top: Math.max(0, t), behavior: reduceMotion.matches ? 'auto' : 'smooth' });
+        }
+
+        function onScroll() {
+            if (reduceMotion.matches) return;
+            if (!ticking) {
+                window.requestAnimationFrame(function () {
+                    ticking = false;
+                    var p = trackProgress();
+                    applyStep(stepFromProgress(p));
+                });
+                ticking = true;
+            }
+        }
+
         riskListEl.querySelectorAll('li[data-risk-index]').forEach(function (li) {
-            var idx = parseInt(li.getAttribute('data-risk-index'), 10);
-            li.setAttribute('aria-selected', idx === index ? 'true' : 'false');
-        });
-        if (index === null) {
-            if (isDesktop) {
-                setRiskContent(defaultRiskTitle, defaultRiskDesc);
+            var index = parseInt(li.getAttribute('data-risk-index'), 10);
+            if (isNaN(index)) return;
+            function go() {
+                if (reduceMotion.matches) {
+                    applyStep(index + 1);
+                } else {
+                    scrollToStep(index + 1);
+                }
             }
-            updateMobileAnswer(null);
-            return;
-        }
-        var li = riskListEl.querySelector('li[data-risk-index="' + index + '"]');
-        if (li) {
-            if (isDesktop) {
-                setRiskContent(li.getAttribute('data-title') || '', li.getAttribute('data-description') || '');
-            }
-            updateMobileAnswer(li);
-        }
-    }
-
-    function updateMobileAnswer(selectedLi) {
-        var mobileAnswer = document.getElementById('risk-mobile-answer');
-        if (!mobileAnswer) return;
-        if (!selectedLi || window.matchMedia('(min-width: 769px)').matches) {
-            mobileAnswer.style.display = 'none';
-            mobileAnswer.setAttribute('aria-hidden', 'true');
-            mobileAnswer.innerHTML = '';
-            if (selectedLi === null && mobileAnswer.parentNode) {
-                riskListEl.appendChild(mobileAnswer);
-            }
-            return;
-        }
-        var title = selectedLi.getAttribute('data-title') || '';
-        var desc = selectedLi.getAttribute('data-description') || '';
-        mobileAnswer.innerHTML = '<h3>' + title.replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</h3><p>' + desc.replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</p>';
-        mobileAnswer.style.display = 'block';
-        mobileAnswer.setAttribute('aria-hidden', 'false');
-        mobileAnswer.remove();
-        selectedLi.parentNode.insertBefore(mobileAnswer, selectedLi.nextSibling);
-    }
-
-    riskListEl.querySelectorAll('li[data-risk-index]').forEach(function (li) {
-        var index = parseInt(li.getAttribute('data-risk-index'), 10);
-        if (isNaN(index)) return;
-        li.addEventListener('mouseenter', function () {
-            setActiveRisk(index);
-        });
-        li.addEventListener('focus', function () {
-            setActiveRisk(index);
-        });
-        li.addEventListener('click', function () {
-            setActiveRisk(index);
-        });
-        li.addEventListener('keydown', function (e) {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                setActiveRisk(index);
-            }
-        });
-    });
-
-    setActiveRisk(0);
-
-    (function nasilFlowInit() {
-        var STEPS = [
-            { src: 'assets/Chat.png', alt: 'Dikera AI doküman analizi ve soru-cevap ekranı', caption: 'Adım 1 — Yüklü doküman üzerinden soru-cevap ve analiz' },
-            { src: 'assets/mevzuat arama.png', alt: 'Dikera AI mevzuat ve içtihat arama ekranı', caption: 'Adım 2 — Mevzuat ve emsal karar arama' },
-            { src: 'assets/Sözleşme.png', alt: 'Dikera AI sözleşme ve dilekçe oluşturma ekranı', caption: 'Adım 3 — Sözleşme ve dilekçe taslak üretimi' },
-            { src: 'assets/Dava dosyaları.png', alt: 'Dikera AI dava dosyası ve risk denetimi ekranı', caption: 'Adım 4 — Risk denetimi ve dayanak' },
-            { src: 'assets/ana sayfa.png', alt: 'Dikera AI dava kronolojisi ve iş akışı ekranı', caption: 'Adım 5 — Kronoloji ve çelişki tespiti' }
-        ];
-        var preview = document.getElementById('nasil-flow-preview');
-        var caption = document.getElementById('nasil-flow-caption');
-        var panel = document.getElementById('nasil-flow-preview-panel');
-        var pills = document.querySelectorAll('#ozellikler .nasil-flow-pill');
-        var cards = document.querySelectorAll('#nasil-step-cards .nasil-step-card');
-        if (!preview || !caption || !pills.length) return;
-
-        function setNasilStep(i) {
-            if (i < 0 || i >= STEPS.length) return;
-            var d = STEPS[i];
-            preview.classList.add('is-fading');
-            window.setTimeout(function () {
-                preview.src = d.src;
-                preview.alt = d.alt;
-                caption.textContent = d.caption;
-                preview.classList.remove('is-fading');
-            }, 140);
-            if (panel) {
-                panel.setAttribute('aria-labelledby', 'nasil-tab-' + i);
-            }
-            pills.forEach(function (p, idx) {
-                var on = idx === i;
-                p.classList.toggle('is-active', on);
-                p.setAttribute('aria-selected', on ? 'true' : 'false');
-            });
-            cards.forEach(function (c, idx) {
-                var on = idx === i;
-                c.classList.toggle('is-active', on);
-                c.setAttribute('aria-pressed', on ? 'true' : 'false');
-            });
-        }
-
-        pills.forEach(function (p) {
-            p.addEventListener('click', function () {
-                setNasilStep(parseInt(p.getAttribute('data-nasil-step'), 10));
-            });
-        });
-        cards.forEach(function (c) {
-            function activateCard() {
-                setNasilStep(parseInt(c.getAttribute('data-nasil-step'), 10));
-            }
-            c.addEventListener('click', activateCard);
-            c.addEventListener('keydown', function (e) {
+            li.addEventListener('click', go);
+            li.addEventListener('keydown', function (e) {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
-                    activateCard();
+                    go();
                 }
             });
         });
 
-        if (window.matchMedia('(min-width: 1024px)').matches) {
-            cards.forEach(function (c) {
-                c.addEventListener('mouseenter', function () {
-                    setNasilStep(parseInt(c.getAttribute('data-nasil-step'), 10));
-                });
+        if (reduceMotion.matches) {
+            applyStep(0);
+        } else {
+            window.addEventListener('scroll', onScroll, { passive: true });
+            window.addEventListener('resize', function () {
+                lastStep = -1;
+                onScroll();
+            });
+            onScroll();
+        }
+    })();
+
+    (function nasilCarouselInit() {
+        var STEPS = [
+            { src: 'assets/Chat.png', alt: 'Dikera AI — güvenli doküman ve yükleme akışı', caption: '1 / 6 — Güvenle yükleme ve arşiv' },
+            { src: 'assets/Dava dosyaları.png', alt: 'Dikera AI dava dosyası analizi ve özet ekranı', caption: '2 / 6 — Dava dosyası analizi' },
+            { src: 'assets/mevzuat arama.png', alt: 'Dikera AI mevzuat ve içtihat arama ekranı', caption: '3 / 6 — İçtihat ve mevzuat araştırması' },
+            { src: 'assets/ana sayfa.png', alt: 'Dikera AI ana ekran ve UYAP entegrasyonu', caption: '4 / 6 — UYAP entegrasyonu' },
+            { src: 'assets/Sözleşme.png', alt: 'Dikera AI sözleşme oluşturma ve karşılaştırma', caption: '5 / 6 — Sözleşme oluşturma ve karşılaştırma' },
+            { src: 'assets/Chat.png', alt: 'Dikera AI dilekçe oluşturma akışı', caption: '6 / 6 — Dilekçe oluşturma' }
+        ];
+        var section = document.getElementById('ozellikler');
+        var preview = document.getElementById('nasil-flow-preview');
+        var caption = document.getElementById('nasil-flow-caption');
+        var featureCards = document.querySelectorAll('#nasil-feature-cards .nasil-feature-card');
+        if (!section || !preview || !caption) return;
+
+        function syncActiveCard(activeIndex) {
+            featureCards.forEach(function (el, idx) {
+                el.classList.toggle('is-active', idx === activeIndex);
             });
         }
+
+        var index = 0;
+        var intervalMs = 2000;
+        var timerId = null;
+        var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+        function showStep(i) {
+            if (i < 0 || i >= STEPS.length) return;
+            var d = STEPS[i];
+            preview.alt = d.alt;
+            caption.textContent = d.caption;
+            preview.src = d.src;
+            syncActiveCard(i);
+            if (typeof preview.decode === 'function') {
+                preview.decode().catch(function () {});
+            }
+        }
+
+        STEPS.forEach(function (s) {
+            var pre = new Image();
+            pre.src = s.src;
+        });
+
+        function tick() {
+            index = (index + 1) % STEPS.length;
+            showStep(index);
+        }
+
+        function stop() {
+            if (timerId !== null) {
+                clearInterval(timerId);
+                timerId = null;
+            }
+        }
+
+        function start() {
+            stop();
+            if (reduceMotion.matches) return;
+            timerId = window.setInterval(tick, intervalMs);
+        }
+
+        showStep(0);
+
+        if (reduceMotion.matches) return;
+
+        if ('IntersectionObserver' in window) {
+            var obs = new IntersectionObserver(
+                function (entries) {
+                    entries.forEach(function (e) {
+                        if (e.isIntersecting) start();
+                        else stop();
+                    });
+                },
+                { root: null, rootMargin: '0px', threshold: 0.15 }
+            );
+            obs.observe(section);
+        } else {
+            start();
+        }
+
+        document.addEventListener('visibilitychange', function () {
+            if (document.hidden) stop();
+            else if (!reduceMotion.matches) {
+                var rect = section.getBoundingClientRect();
+                var visible = rect.bottom > 0 && rect.top < window.innerHeight;
+                if (visible) start();
+            }
+        });
     })();
 
         });
