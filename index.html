@@ -119,6 +119,37 @@
         radial-gradient(circle at bottom right, rgba(49, 58, 64, 0.06), transparent 30%);
       pointer-events: none;
     }
+    .demo-cta-card {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      background: linear-gradient(
+        145deg,
+        #0a0a0c 0%,
+        #121214 30%,
+        #1c1e22 58%,
+        #2a3038 100%
+      );
+      box-shadow:
+        0 4px 14px -2px rgba(0, 0, 0, 0.32),
+        0 22px 48px -14px rgba(0, 0, 0, 0.42);
+    }
+    .demo-cta-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background:
+        radial-gradient(ellipse 95% 75% at 92% -8%, rgba(255, 255, 255, 0.11), transparent 52%),
+        radial-gradient(ellipse 72% 62% at 6% 100%, rgba(255, 255, 255, 0.045), transparent 54%),
+        radial-gradient(ellipse 50% 45% at 50% 120%, rgba(0, 0, 0, 0.22), transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .demo-cta-card > * {
+      position: relative;
+      z-index: 1;
+    }
     .risk-scrolly-track {
       position: relative;
       height: calc(6 * 38vh);
@@ -708,6 +739,38 @@
       padding: 10px 0;
       font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
     }
+    #kayan-alan {
+      width: 80%;
+      max-width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      --kayan-row: clamp(3.384rem, 2.016vw + 2.16rem, 4.32rem);
+      padding: 8px 0;
+    }
+    #kayan-alan .scroll-wrapper {
+      height: var(--kayan-row);
+      mask-image: linear-gradient(to bottom,
+        transparent 0%,
+        black 22%,
+        black 78%,
+        transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom,
+        transparent 0%,
+        black 22%,
+        black 78%,
+        transparent 100%);
+    }
+    #kayan-alan .scroll-list {
+      animation: harvey-style-scroll-kayan 4s cubic-bezier(0.19, 1, 0.22, 1) infinite;
+    }
+    #kayan-alan .scroll-list li {
+      height: var(--kayan-row);
+      line-height: 1.15;
+    }
+    #kayan-alan .hero-container {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
     .slider-section .hero-container {
       display: grid;
       grid-template-columns: repeat(8, 1fr);
@@ -769,6 +832,13 @@
       /* Bitiş: Son 4 klon görünür; 0%’e dönünce aynı içerik, sıçrama yok */
       100% { transform: translateY(-400px); }
     }
+    @keyframes harvey-style-scroll-kayan {
+      0% { transform: translateY(calc(-1 * var(--kayan-row, 4.1rem))); }
+      25% { transform: translateY(calc(-2 * var(--kayan-row, 4.1rem))); }
+      50% { transform: translateY(calc(-3 * var(--kayan-row, 4.1rem))); }
+      75% { transform: translateY(calc(-4 * var(--kayan-row, 4.1rem))); }
+      100% { transform: translateY(calc(-5 * var(--kayan-row, 4.1rem))); }
+    }
     .slider-section .action-area { display: flex; align-items: center; justify-content: flex-end; }
     .slider-section .side-text {
       margin: 0;
@@ -808,8 +878,11 @@
       background:
         radial-gradient(circle at top right, rgba(34, 197, 94, 0.12), transparent 32%),
         linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(248, 250, 252, 0.96));
-      border: 1px solid rgba(15, 23, 42, 0.08);
-      box-shadow: 0 24px 60px -32px rgba(15, 23, 42, 0.28);
+      box-shadow:
+        0 1px 2px rgba(15, 23, 42, 0.04),
+        0 4px 16px -4px rgba(15, 23, 42, 0.08),
+        0 20px 48px -16px rgba(15, 23, 42, 0.12),
+        0 32px 80px -32px rgba(15, 23, 42, 0.08);
     }
     #karsilastirma .karsilastirma-table-scaled {
       width: 100%;
@@ -1217,7 +1290,7 @@
 </p>
 </div>
 </section>
-<section class="w-4/5 max-w-none min-w-0 mx-auto px-3 sm:px-5 lg:px-6 py-10 lg:py-12 bg-[#F5F7FB] rounded-3xl" id="karsilastirma" aria-labelledby="karsilastirma-baslik">
+<section class="w-4/5 max-w-none min-w-0 mx-auto px-3 sm:px-5 lg:px-6 py-10 lg:py-12 rounded-3xl" id="karsilastirma" aria-labelledby="karsilastirma-baslik">
 <div class="max-w-7xl mx-auto text-center px-2 mb-5 sm:mb-6 lg:mb-8">
 <h2 id="karsilastirma-baslik" class="hero-editorial text-slate-700 font-normal leading-[1.12] tracking-[-0.02em] text-center mx-auto w-full max-w-[min(100%,22rem)] sm:max-w-[min(100%,28rem)] lg:max-w-[min(100%,34rem)] text-[clamp(1.5rem,1rem+1.5vw,2.75rem)] px-0 m-0">Geleneksel Çözümler vs Dikera AI</h2>
 </div>
@@ -1288,12 +1361,12 @@
 </div>
 </div>
 </section>
-<section class="px-4 sm:px-6 lg:px-8 py-16 lg:py-24 bg-[#FFFFFF]">
-<div class="max-w-3xl mx-auto bg-primary text-white rounded-3xl px-8 py-12 lg:px-12 lg:py-14 text-center flex flex-col items-center gap-8 shadow-xl border border-white/10">
-<h2 class="font-medium text-center leading-[1.4] tracking-[0.02em] text-[clamp(0.96rem,0.92vw+0.68rem,1.32rem)] max-w-[65ch]">DikEra AI<span class="block mt-3 font-light text-white/85 text-[clamp(0.8rem,0.85vw+0.4rem,0.98rem)]">Seçili kurumlarla yürütülen erken erişim programı kapsamında çalışmaktadır.</span></h2>
-<p class="text-white/70 font-light max-w-xl text-[clamp(0.744rem,0.8vw+0.32rem,0.9rem)]">Erken erişime dahil olmak ve bilgi almak için:</p>
+<section class="w-4/5 max-w-none min-w-0 mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16 bg-[#FFFFFF]">
+<div class="demo-cta-card max-w-3xl mx-auto text-white rounded-3xl px-8 py-12 lg:px-12 lg:py-14 text-center flex flex-col items-center gap-8 border border-white/15">
+<h2 class="hero-editorial text-white font-normal leading-[1.12] tracking-[-0.02em] text-center mx-auto w-full max-w-[min(100%,22rem)] sm:max-w-[min(100%,28rem)] lg:max-w-[min(100%,34rem)] text-[clamp(1.5rem,1rem+1.5vw,2.75rem)] px-0 m-0">DikEra AI<span class="block mt-3 font-sans font-light text-white/80 leading-relaxed tracking-normal text-[clamp(0.744rem,0.8vw+0.32rem,0.84rem)] max-w-[65ch] mx-auto">Seçili kurumlarla yürütülen erken erişim programı kapsamında çalışmaktadır.</span></h2>
+<p class="font-sans text-white/70 font-light leading-relaxed max-w-xl text-[clamp(0.744rem,0.8vw+0.32rem,0.84rem)]">Erken erişime dahil olmak ve bilgi almak için:</p>
 <div class="flex items-center gap-4">
-<button type="button" class="border border-white/25 hover:bg-white/10 px-8 py-3 rounded-xl font-medium tracking-[0.02em] text-sm transition-all" data-demo-open aria-label="Demo talebi formunu aç">
+<button type="button" class="border border-white/25 hover:bg-white/10 px-6 py-2.5 rounded-xl font-sans font-medium tracking-[0.02em] leading-[1.4] text-[clamp(0.8rem,0.85vw+0.45rem,0.95rem)] transition-all" data-demo-open aria-label="Demo talebi formunu aç">
                     Demo Talep Et
                                                     </button>
                 </div>
