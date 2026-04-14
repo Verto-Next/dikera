@@ -152,13 +152,8 @@
     }
     .risk-scrolly-track {
       position: relative;
-      height: auto;
-      min-height: 0;
     }
     .risk-scrolly-sticky {
-      position: sticky;
-      top: 5.5rem;
-      z-index: 2;
       display: flex;
       align-items: flex-start;
       justify-content: center;
@@ -543,15 +538,6 @@
       }
     }
     @media (prefers-reduced-motion: reduce) {
-      .risk-scrolly-track {
-        height: auto;
-        min-height: 0;
-      }
-      .risk-scrolly-sticky {
-        position: relative;
-        top: auto;
-        min-height: 0;
-      }
       .risk-section .risk-content-inner,
       .risk-section .risk-list li[data-risk-index] {
         transition: none;
@@ -1568,10 +1554,8 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    (function riskScrollyInit() {
+    (function riskTabInit() {
         var riskSection = document.getElementById('risk-section');
-        var track = document.getElementById('risk-scrolly-track');
-        var stickyEl = track ? track.querySelector('.risk-scrolly-sticky') : null;
         var riskTitleEl = document.getElementById('risk-content-title');
         var riskDescEl = document.getElementById('risk-content-description');
         var riskInnerEl = document.getElementById('risk-content-inner');
@@ -1581,7 +1565,7 @@ document.addEventListener('DOMContentLoaded', function () {
         var riskPointsEl = document.getElementById('risk-content-points');
         var riskImageEl = document.getElementById('risk-content-image');
         var riskCaptionEl = document.getElementById('risk-content-caption');
-        if (!riskSection || !track || !stickyEl || !riskTitleEl || !riskDescEl || !riskInnerEl || !riskListEl || !riskKickerEl || !riskTagsEl || !riskPointsEl || !riskImageEl || !riskCaptionEl) return;
+        if (!riskSection || !riskTitleEl || !riskDescEl || !riskInnerEl || !riskListEl || !riskKickerEl || !riskTagsEl || !riskPointsEl || !riskImageEl || !riskCaptionEl) return;
 
         var INTRO_STATE = {
             kicker: 'Dikera AI Modülleri',
@@ -1598,29 +1582,11 @@ document.addEventListener('DOMContentLoaded', function () {
             imageAlt: 'Dikera AI modül önizleme ekranı',
             caption: 'Dikera AI ekranlarında modüller arasında geçiş yaparak dava, araştırma ve doküman üretim süreçlerini tek panelden yönetebilirsiniz.'
         };
-        var STEP_COUNT = parseInt(riskSection.getAttribute('data-risk-step-count'), 10) || (riskListEl.querySelectorAll('li[data-risk-index]').length + 1);
         var fadeDuration = 280;
         var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-        var lastStep = -1;
-        var ticking = false;
+        var activeIndex = -1;
         var firstPanelSync = true;
         var contentSeq = 0;
-
-        function syncTrackHeight() {
-            if (reduceMotion.matches) {
-                track.style.height = 'auto';
-                track.style.minHeight = '0px';
-                return;
-            }
-
-            var viewportHeight = window.innerHeight || document.documentElement.clientHeight || 0;
-            var stickyHeight = stickyEl.offsetHeight;
-            var scrollPerStep = Math.max(viewportHeight * 0.18, 120);
-            var totalHeight = stickyHeight + (STEP_COUNT * scrollPerStep);
-
-            track.style.height = totalHeight + 'px';
-            track.style.minHeight = totalHeight + 'px';
-        }
 
         function parseDatasetList(value) {
             return (value || '')
@@ -1649,23 +1615,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 li.textContent = item;
                 target.appendChild(li);
             });
-        }
-
-        function trackProgress() {
-            var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            var rect = track.getBoundingClientRect();
-            var elTop = scrollTop + rect.top;
-            var range = track.offsetHeight - window.innerHeight;
-            if (range <= 0) return 0;
-            var p = (scrollTop - elTop) / range;
-            return Math.min(1, Math.max(0, p));
-        }
-
-        /** Her adım için kaydırma mesafesi eşit: p ∈ [0,1] → range üzerinde STEP_COUNT eşit bant. */
-        function stepFromProgress(p) {
-            var clamped = Math.min(1, Math.max(0, p));
-            if (clamped >= 1) return STEP_COUNT - 1;
-            return Math.min(STEP_COUNT - 1, Math.floor(clamped * STEP_COUNT));
         }
 
         function setRiskContent(state, phase) {
@@ -1700,84 +1649,35 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
 
-        function applyStep(step) {
-            if (step === lastStep) return;
-            lastStep = step;
+        function selectTab(index) {
+            if (index === activeIndex) return;
+            activeIndex = index;
             var items = riskListEl.querySelectorAll('li[data-risk-index]');
             items.forEach(function (li) {
                 var idx = parseInt(li.getAttribute('data-risk-index'), 10);
-                var active = step >= 1 && step === idx + 1;
+                var active = idx === index;
                 li.classList.toggle('is-active', active);
                 li.setAttribute('aria-selected', active ? 'true' : 'false');
             });
-            if (step === 0) {
-                setRiskContent(INTRO_STATE, 'intro');
-            } else {
-                var li = riskListEl.querySelector('li[data-risk-index="' + (step - 1) + '"]');
-                if (li) {
-                    setRiskContent(buildItemState(li), 'risk');
-                }
-            }
-        }
-
-        function scrollToStep(step) {
-            var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            var rect = track.getBoundingClientRect();
-            var elTop = scrollTop + rect.top;
-            var range = track.offsetHeight - window.innerHeight;
-            if (range <= 0) {
-                applyStep(Math.min(STEP_COUNT - 1, Math.max(0, step)));
-                return;
-            }
-            /* Bant ortası: her başlık geçişi için eşit piksel aralığı */
-            var t = elTop + (range * (step + 0.5)) / STEP_COUNT;
-            window.scrollTo({ top: Math.max(0, t), behavior: reduceMotion.matches ? 'auto' : 'smooth' });
-        }
-
-        function onScroll() {
-            if (reduceMotion.matches) return;
-            if (!ticking) {
-                window.requestAnimationFrame(function () {
-                    ticking = false;
-                    var p = trackProgress();
-                    applyStep(stepFromProgress(p));
-                });
-                ticking = true;
+            var li = riskListEl.querySelector('li[data-risk-index="' + index + '"]');
+            if (li) {
+                setRiskContent(buildItemState(li), 'risk');
             }
         }
 
         riskListEl.querySelectorAll('li[data-risk-index]').forEach(function (li) {
             var index = parseInt(li.getAttribute('data-risk-index'), 10);
             if (isNaN(index)) return;
-            function go() {
-                if (reduceMotion.matches) {
-                    applyStep(index + 1);
-                } else {
-                    scrollToStep(index + 1);
-                }
-            }
-            li.addEventListener('click', go);
+            li.addEventListener('click', function () { selectTab(index); });
             li.addEventListener('keydown', function (e) {
                 if (e.key === 'Enter' || e.key === ' ') {
                     e.preventDefault();
-                    go();
+                    selectTab(index);
                 }
             });
         });
 
-        if (reduceMotion.matches) {
-            applyStep(0);
-        } else {
-            syncTrackHeight();
-            window.addEventListener('scroll', onScroll, { passive: true });
-            window.addEventListener('resize', function () {
-                syncTrackHeight();
-                lastStep = -1;
-                onScroll();
-            });
-            window.addEventListener('load', syncTrackHeight, { once: true });
-            onScroll();
-        }
+        selectTab(0);
     })();
 
     (function heroCarouselInit() {
