@@ -44,32 +44,42 @@ h3, h4, h5, h6 {
 .nav-link {
     @apply text-black hover:text-primary transition-colors text-lg md:text-[1.1875rem] font-medium font-header tracking-[0.02em];
 }
+header {
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+header h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: #08102c;
+}
+header .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+}
 </style>
 </head>
 <body class="bg-background-light text-charcoal font-sans antialiased selection:bg-primary/10">
-<header class="sticky top-0 z-50 w-full bg-[#FFFFFF]/90 backdrop-blur-md border-b border-primary/5">
-<div class="flex items-center justify-between px-8 py-4 max-w-7xl mx-auto">
+<header class="sticky top-0 z-50 w-full bg-white border-b border-primary/10 shadow-[0_4px_24px_-4px_rgba(8,16,44,0.1)]">
+<div class="flex items-center justify-between px-4 sm:px-6 lg:px-8 py-5 max-w-7xl mx-auto">
 <a class="flex items-center gap-2" href="index.html">
 <div class="bg-primary p-1 rounded-sm">
 <span class="material-symbols-outlined text-white text-lg">gavel</span>
 </div>
-<h1 class="text-primary text-2xl font-bold tracking-tight">DikEra AI</h1>
+<h1 class="text-primary text-2xl font-medium tracking-[0.02em]">DikEra AI</h1>
 </a>
-<nav class="hidden md:flex items-center gap-8">
-<a class="nav-link" href="index.html">Anasayfa</a>
+<nav class="hidden md:flex items-center gap-10">
 <a class="nav-link" href="ozellikler.html">Özellikler</a>
 <a class="nav-link" href="guvenlik.html">Güvenlik</a>
 <a class="nav-link" href="hakkimizda.html">Hakkımızda</a>
 <a class="nav-link text-primary" href="kaynaklar.html">Kaynaklar</a>
-<a href="http://212.252.3.6:3025" class="inline-flex items-center justify-center bg-primary text-white text-base px-5 py-2 rounded-sm hover:bg-primary/90 transition-all">Demo Girişi</a>
+<a href="http://212.252.3.6:3025" class="inline-flex items-center justify-center bg-primary text-white text-base font-medium tracking-[0.02em] px-6 py-2.5 rounded-xl hover:bg-primary/85 transition-all">Demo Girişi</a>
 </nav>
 <button aria-expanded="false" aria-label="Menüyü aç" class="md:hidden text-primary" data-mobile-menu-toggle type="button">
 <span class="material-symbols-outlined text-3xl">menu</span>
 </button>
 </div>
-<div class="hidden md:hidden border-t border-primary/5 px-8 py-4" data-mobile-menu>
+<div class="hidden md:hidden border-t border-primary/5 px-4 sm:px-6 py-5" data-mobile-menu>
 <nav class="flex flex-col gap-3">
-<a class="nav-link" href="index.html">Anasayfa</a>
 <a class="nav-link" href="ozellikler.html">Özellikler</a>
 <a class="nav-link" href="guvenlik.html">Güvenlik</a>
 <a class="nav-link" href="hakkimizda.html">Hakkımızda</a>
