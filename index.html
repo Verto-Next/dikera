@@ -152,8 +152,8 @@
     }
     .risk-scrolly-track {
       position: relative;
-      height: calc(6 * 38vh);
-      min-height: calc(6 * 300px);
+      height: auto;
+      min-height: 0;
     }
     .risk-scrolly-sticky {
       position: sticky;
@@ -510,10 +510,6 @@
       }
     }
     @media (max-width: 768px) {
-      .risk-scrolly-track {
-        height: calc(6 * 42vh);
-        min-height: calc(6 * 320px);
-      }
       .risk-scrolly-sticky {
         align-items: stretch;
         flex-direction: column;
@@ -1576,6 +1572,7 @@ document.addEventListener('DOMContentLoaded', function () {
     (function riskScrollyInit() {
         var riskSection = document.getElementById('risk-section');
         var track = document.getElementById('risk-scrolly-track');
+        var stickyEl = track ? track.querySelector('.risk-scrolly-sticky') : null;
         var riskTitleEl = document.getElementById('risk-content-title');
         var riskDescEl = document.getElementById('risk-content-description');
         var riskInnerEl = document.getElementById('risk-content-inner');
@@ -1585,7 +1582,7 @@ document.addEventListener('DOMContentLoaded', function () {
         var riskPointsEl = document.getElementById('risk-content-points');
         var riskImageEl = document.getElementById('risk-content-image');
         var riskCaptionEl = document.getElementById('risk-content-caption');
-        if (!riskSection || !track || !riskTitleEl || !riskDescEl || !riskInnerEl || !riskListEl || !riskKickerEl || !riskTagsEl || !riskPointsEl || !riskImageEl || !riskCaptionEl) return;
+        if (!riskSection || !track || !stickyEl || !riskTitleEl || !riskDescEl || !riskInnerEl || !riskListEl || !riskKickerEl || !riskTagsEl || !riskPointsEl || !riskImageEl || !riskCaptionEl) return;
 
         var INTRO_STATE = {
             kicker: 'Dikera AI Modülleri',
@@ -1609,6 +1606,32 @@ document.addEventListener('DOMContentLoaded', function () {
         var ticking = false;
         var firstPanelSync = true;
         var contentSeq = 0;
+
+        function getStepGapPx() {
+            if (window.innerWidth <= 768) {
+                return 52;
+            }
+            if (window.innerWidth <= 1280) {
+                return 68;
+            }
+            return 84;
+        }
+
+        function syncTrackHeight() {
+            if (reduceMotion.matches) {
+                track.style.height = 'auto';
+                track.style.minHeight = '0px';
+                return;
+            }
+
+            var viewportHeight = window.innerHeight || document.documentElement.clientHeight || 0;
+            var stickyHeight = stickyEl.offsetHeight;
+            var baseHeight = Math.max(viewportHeight, stickyHeight);
+            var totalHeight = baseHeight + (Math.max(STEP_COUNT - 1, 0) * getStepGapPx());
+
+            track.style.height = totalHeight + 'px';
+            track.style.minHeight = totalHeight + 'px';
+        }
 
         function parseDatasetList(value) {
             return (value || '')
@@ -1756,11 +1779,14 @@ document.addEventListener('DOMContentLoaded', function () {
         if (reduceMotion.matches) {
             applyStep(0);
         } else {
+            syncTrackHeight();
             window.addEventListener('scroll', onScroll, { passive: true });
             window.addEventListener('resize', function () {
+                syncTrackHeight();
                 lastStep = -1;
                 onScroll();
             });
+            window.addEventListener('load', syncTrackHeight, { once: true });
             onScroll();
         }
     })();
