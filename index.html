@@ -79,7 +79,7 @@
     }
     .risk-section {
       position: relative;
-      background: linear-gradient(180deg, #f8fbff 0%, #eef3fb 100%);
+      background: linear-gradient(180deg, #fafbfb 0%, #f0f1f3 100%);
       color: #313a40;
       font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
       overflow: hidden;
@@ -88,9 +88,10 @@
       content: "";
       position: absolute;
       inset: 0;
+      border-radius: inherit;
       background:
-        radial-gradient(circle at top left, rgba(51, 94, 181, 0.16), transparent 34%),
-        radial-gradient(circle at bottom right, rgba(8, 16, 44, 0.08), transparent 28%);
+        radial-gradient(circle at top left, rgba(8, 16, 44, 0.06), transparent 36%),
+        radial-gradient(circle at bottom right, rgba(49, 58, 64, 0.06), transparent 30%);
       pointer-events: none;
     }
     .risk-scrolly-track {
@@ -106,7 +107,7 @@
       align-items: center;
       justify-content: center;
       min-height: calc(100dvh - 5.5rem - 1.5rem);
-      padding: clamp(1.25rem, 3vw, 2rem) clamp(1rem, 4vw, 2rem) clamp(1.5rem, 3vw, 2.25rem);
+      padding: clamp(1.25rem, 3vw, 2rem) 0 clamp(1.5rem, 3vw, 2.25rem);
       box-sizing: border-box;
     }
     .risk-section .risk-container {
@@ -119,8 +120,8 @@
       max-width: 80rem;
       margin-left: auto;
       margin-right: auto;
-      padding-left: clamp(1rem, 4vw, 2rem);
-      padding-right: clamp(1rem, 4vw, 2rem);
+      padding-left: 0;
+      padding-right: 0;
       width: 100%;
       min-height: 0;
     }
@@ -167,9 +168,9 @@
     .risk-section .risk-list li[data-risk-index].is-active {
       transform: translateY(-2px);
       color: #fff;
-      border-color: rgba(255, 255, 255, 0.2);
-      background: linear-gradient(135deg, #0b183d 0%, #233d7a 55%, #335eb5 100%);
-      box-shadow: 0 22px 44px -28px rgba(8, 16, 44, 0.48);
+      border-color: rgba(255, 255, 255, 0.18);
+      background: linear-gradient(135deg, #05070a 0%, #1a1f26 48%, #313a40 100%);
+      box-shadow: 0 22px 44px -28px rgba(0, 0, 0, 0.35);
     }
     @media (hover: hover) {
       .risk-section .risk-list li[data-risk-index]:not(.is-active):hover {
@@ -184,8 +185,8 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      background: rgba(8, 16, 44, 0.06);
-      color: #335eb5;
+      background: rgba(8, 16, 44, 0.08);
+      color: #313a40;
       font-size: 1.35rem;
       flex-shrink: 0;
     }
@@ -228,9 +229,9 @@
       max-height: 34rem;
       border-radius: 2rem;
       overflow: hidden;
-      background: linear-gradient(135deg, #08102c 0%, #1e3466 52%, #335eb5 100%);
-      border: 1px solid rgba(8, 16, 44, 0.16);
-      box-shadow: 0 28px 64px -34px rgba(8, 16, 44, 0.42);
+      background: linear-gradient(135deg, #05070a 0%, #12151c 50%, #2a3238 100%);
+      border: 1px solid rgba(8, 16, 44, 0.22);
+      box-shadow: 0 28px 64px -34px rgba(0, 0, 0, 0.4);
       box-sizing: border-box;
     }
     .risk-section .risk-content-inner {
@@ -369,7 +370,7 @@
       content: "check_circle";
       font-family: "Material Symbols Outlined";
       font-size: 1rem;
-      color: #9bd4ff;
+      color: rgba(255, 255, 255, 0.58);
       flex-shrink: 0;
       margin-top: 0.04rem;
     }
@@ -922,13 +923,13 @@
 </button>
                             </div>
         </section>
-<section class="risk-section" id="risk-section" aria-labelledby="risk-content-title" data-risk-step-count="6">
+<section class="risk-section w-4/5 max-w-none min-w-0 mx-auto px-4 sm:px-6 lg:px-8 rounded-3xl" id="risk-section" aria-labelledby="risk-content-title" data-risk-step-count="6">
 <div class="risk-scrolly-track" id="risk-scrolly-track">
 <div class="risk-scrolly-sticky">
 <div class="risk-container">
 <div class="risk-list-wrapper">
 <ul class="risk-list" id="risk-list" role="tablist" aria-label="Dikera AI modülleri">
-<li role="tab" tabindex="0" aria-selected="false" aria-controls="risk-content-area" data-risk-index="0" data-kicker="Dava dosyaları ve strateji" data-title="Ajanlarım Modülü" data-description="Dava dosyalarınızı güvenle yükleyin, aynı dosya üzerinde soru-cevap akışları yürütün, uzun klasörleri özetleyin ve hızlı aksiyon alın." data-tags="Dosya yükleme||Soru-cevap||Akıllı özetler" data-points="Dava klasörlerini tek merkezde toplayın||Dosya bazlı sorularla bağlamı koruyun||Uzun içerikleri hızlıca yönetici özetine dönüştürün" data-image="assets/Dava dosyaları.png" data-image-alt="Dikera AI dava dosyası analizi ekranı" data-caption="Ajanlarım ile dava dosyaları üzerinde çalışın, soru sorun ve özetleri tek ekranda yönetin.">
+<li role="tab" tabindex="0" aria-selected="false" aria-controls="risk-content-area" data-risk-index="0" data-kicker="Dava dosyaları ve strateji" data-title="Ajanlarım Modülü" data-description="Dava dosyalarınızı güvenle yükleyin, aynı dosya üzerinde soru-cevap akışları yürütün, uzun klasörleri özetleyin ve hızlı aksiyon alın." data-tags="Dosya Yükleme||Soru - Cevap||Akıllı Özetler" data-points="Dava klasörlerini tek merkezde toplayın||Dosya bazlı sorularla bağlamı koruyun||Uzun içerikleri hızlıca yönetici özetine dönüştürün" data-image="assets/Dava dosyaları.png" data-image-alt="Dikera AI dava dosyası analizi ekranı" data-caption="Ajanlarım ile dava dosyaları üzerinde çalışın, soru sorun ve özetleri tek ekranda yönetin.">
 <span class="risk-tab-icon material-symbols-outlined" aria-hidden="true">folder_open</span>
 <span class="risk-tab-copy">
 <span class="risk-tab-title">Ajanlarım Modülü</span>
@@ -936,7 +937,7 @@
 </span>
 <span class="risk-tab-arrow material-symbols-outlined" aria-hidden="true">arrow_outward</span>
 </li>
-<li role="tab" tabindex="0" aria-selected="false" aria-controls="risk-content-area" data-risk-index="1" data-kicker="İçtihat araştırması" data-title="Emsal Karar Arama Modülü" data-description="Uyuşmazlık konunuza uygun emsal kararları doğal dilde arayın, benzer dosyalardaki yaklaşımı daha hızlı görün ve araştırma süresini kısaltın." data-tags="Doğal dil arama||İçtihat taraması||Hızlı araştırma" data-points="Konu bazlı ilgili kararları tek ekranda bulun||Araştırma süresini manuel taramaya göre azaltın||Hukuki argümanlarınızı emsal kararlarla destekleyin" data-image="assets/mevzuat arama.png" data-image-alt="Dikera AI emsal karar ve arama ekranı" data-caption="Emsal karar arama akışında ilgili kararları hızlıca tarayarak dosyanızı destekleyen içtihatlara ulaşın.">
+<li role="tab" tabindex="0" aria-selected="false" aria-controls="risk-content-area" data-risk-index="1" data-kicker="İçtihat araştırması" data-title="Emsal Karar Arama Modülü" data-description="Uyuşmazlık konunuza uygun emsal kararları doğal dilde arayın, benzer dosyalardaki yaklaşımı daha hızlı görün ve araştırma süresini kısaltın." data-tags="Doğal Dil Arama||İçtihat Taraması||Hızlı Araştırma" data-points="Konu bazlı ilgili kararları tek ekranda bulun||Araştırma süresini manuel taramaya göre azaltın||Hukuki argümanlarınızı emsal kararlarla destekleyin" data-image="assets/mevzuat arama.png" data-image-alt="Dikera AI emsal karar ve arama ekranı" data-caption="Emsal karar arama akışında ilgili kararları hızlıca tarayarak dosyanızı destekleyen içtihatlara ulaşın.">
 <span class="risk-tab-icon material-symbols-outlined" aria-hidden="true">gavel</span>
 <span class="risk-tab-copy">
 <span class="risk-tab-title">Emsal Karar Arama Modülü</span>
@@ -944,7 +945,7 @@
 </span>
 <span class="risk-tab-arrow material-symbols-outlined" aria-hidden="true">arrow_outward</span>
 </li>
-<li role="tab" tabindex="0" aria-selected="false" aria-controls="risk-content-area" data-risk-index="2" data-kicker="Güncel hukuki dayanaklar" data-title="Mevzuat Arama Modülü" data-description="İstediğiniz konu ile ilgili mevzuatı arayın, madde ilişkilerini görün ve hukuki dayanakları daha kısa sürede tespit edin." data-tags="Güncel mevzuat||Madde ilişkileri||Hızlı erişim" data-points="Konu bazlı mevzuat taraması yapın||İlgili maddeleri hızlıca karşılaştırın||Argümanlarınız için mevzuat dayanaklarını görün" data-image="assets/mevzuat arama.png" data-image-alt="Dikera AI mevzuat arama ekranı" data-caption="Mevzuat arama modülü ile ilgili maddeleri, bağlantılı düzenlemeleri ve hukuki dayanakları tek akışta inceleyin.">
+<li role="tab" tabindex="0" aria-selected="false" aria-controls="risk-content-area" data-risk-index="2" data-kicker="Güncel hukuki dayanaklar" data-title="Mevzuat Arama Modülü" data-description="İstediğiniz konu ile ilgili mevzuatı arayın, madde ilişkilerini görün ve hukuki dayanakları daha kısa sürede tespit edin." data-tags="Güncel Mevzuat||Madde ilişkileri||Hızlı Erişim" data-points="Konu bazlı mevzuat taraması yapın||İlgili maddeleri hızlıca karşılaştırın||Argümanlarınız için mevzuat dayanaklarını görün" data-image="assets/mevzuat arama.png" data-image-alt="Dikera AI mevzuat arama ekranı" data-caption="Mevzuat arama modülü ile ilgili maddeleri, bağlantılı düzenlemeleri ve hukuki dayanakları tek akışta inceleyin.">
 <span class="risk-tab-icon material-symbols-outlined" aria-hidden="true">balance</span>
 <span class="risk-tab-copy">
 <span class="risk-tab-title">Mevzuat Arama Modülü</span>
@@ -952,7 +953,7 @@
 </span>
 <span class="risk-tab-arrow material-symbols-outlined" aria-hidden="true">arrow_outward</span>
 </li>
-<li role="tab" tabindex="0" aria-selected="false" aria-controls="risk-content-area" data-risk-index="3" data-kicker="35+ hazır şablon" data-title="Sözleşme Oluşturma Modülü" data-description="35+ sözleşme şablonunu kullanarak yeni metinler oluşturun, ilgili kanun maddeleriyle ilişkilendirin, sözleşmeleri karşılaştırın ve mevcut metinler üzerinde düzenleme yapın." data-tags="35+ şablon||Karşılaştırma||Analiz ve düzenleme" data-points="Hazır şablonlardan dakikalar içinde üretim yapın||Sözleşmeleri karşılaştırarak farkları görün||Mevcut metinlerde risk ve uyum analizi yapın" data-image="assets/Sözleşme.png" data-image-alt="Dikera AI sözleşme oluşturma ekranı" data-caption="Sözleşme oluşturma modülü ile şablon üretimi, kanun maddesi eşleştirme ve sözleşme karşılaştırmayı aynı panelde yönetin.">
+<li role="tab" tabindex="0" aria-selected="false" aria-controls="risk-content-area" data-risk-index="3" data-kicker="35+ hazır şablon" data-title="Sözleşme Oluşturma Modülü" data-description="35+ sözleşme şablonunu kullanarak yeni metinler oluşturun, ilgili kanun maddeleriyle ilişkilendirin, sözleşmeleri karşılaştırın ve mevcut metinler üzerinde düzenleme yapın." data-tags="35+ Şablon||Karşılaştırma||Analiz ve Düzenleme" data-points="Hazır şablonlardan dakikalar içinde üretim yapın||Sözleşmeleri karşılaştırarak farkları görün||Mevcut metinlerde risk ve uyum analizi yapın" data-image="assets/Sözleşme.png" data-image-alt="Dikera AI sözleşme oluşturma ekranı" data-caption="Sözleşme oluşturma modülü ile şablon üretimi, kanun maddesi eşleştirme ve sözleşme karşılaştırmayı aynı panelde yönetin.">
 <span class="risk-tab-icon material-symbols-outlined" aria-hidden="true">article</span>
 <span class="risk-tab-copy">
 <span class="risk-tab-title">Sözleşme Oluşturma Modülü</span>
@@ -960,7 +961,7 @@
 </span>
 <span class="risk-tab-arrow material-symbols-outlined" aria-hidden="true">arrow_outward</span>
 </li>
-<li role="tab" tabindex="0" aria-selected="false" aria-controls="risk-content-area" data-risk-index="4" data-kicker="Hızlı ve profesyonel taslaklar" data-title="Dilekçe Oluşturma Modülü" data-description="Talebinizi yapılandırılmış hukuki metne dönüştürün; hızlı, düzenli ve profesyonel dilekçe taslakları oluşturmak için bu modülü kullanın." data-tags="Hızlı taslak||Profesyonel çıktı||Düzenlenebilir yapı" data-points="Talebinizi dilekçe taslağına dönüştürün||Kurumsal tona uygun metinler hazırlayın||Mevcut taslaklarda hızlı revizyon yapın" data-image="assets/Chat.png" data-image-alt="Dikera AI dilekçe oluşturma ekranı" data-caption="Dilekçe oluşturma modülü ile talebinizi kısa sürede profesyonel ve düzenlenebilir taslaklara dönüştürün.">
+<li role="tab" tabindex="0" aria-selected="false" aria-controls="risk-content-area" data-risk-index="4" data-kicker="Hızlı ve profesyonel taslaklar" data-title="Dilekçe Oluşturma Modülü" data-description="Talebinizi yapılandırılmış hukuki metne dönüştürün; hızlı, düzenli ve profesyonel dilekçe taslakları oluşturmak için bu modülü kullanın." data-tags="Hızlı Taslak||Profesyonel Çıktı||Düzenlenebilir Yapı" data-points="Talebinizi dilekçe taslağına dönüştürün||Kurumsal tona uygun metinler hazırlayın||Mevcut taslaklarda hızlı revizyon yapın" data-image="assets/Chat.png" data-image-alt="Dikera AI dilekçe oluşturma ekranı" data-caption="Dilekçe oluşturma modülü ile talebinizi kısa sürede profesyonel ve düzenlenebilir taslaklara dönüştürün.">
 <span class="risk-tab-icon material-symbols-outlined" aria-hidden="true">edit_square</span>
 <span class="risk-tab-copy">
 <span class="risk-tab-title">Dilekçe Oluşturma Modülü</span>
