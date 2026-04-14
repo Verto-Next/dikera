@@ -617,12 +617,13 @@
     #karsilastirma .karsilastirma-table-wrap {
       container-type: inline-size;
       container-name: karsilastirma;
+      overflow: hidden;
+      width: 100%;
+      min-width: 0;
     }
-    /* Tablo bütünü %10 küçültülmüş (mevcut hali korunur) */
     #karsilastirma .karsilastirma-table-scaled {
-      transform: scale(0.9);
-      transform-origin: top center;
-      margin-bottom: -2.5rem;
+      width: 100%;
+      min-width: 0;
     }
     #karsilastirma .karsilastirma-table {
       font-size: clamp(0.625rem, 0.5rem + 0.5vw, 0.875rem);
@@ -665,11 +666,6 @@
     #karsilastirma .karsilastirma-table td:nth-child(1) {
       font-size: 1.25em;
     }
-    /* Dikera AI sütunu: font 1.1em */
-    #karsilastirma .karsilastirma-table th:nth-child(4),
-    #karsilastirma .karsilastirma-table td:nth-child(4) {
-      font-size: 1.1em;
-    }
     /* Satırlar: bir ton koyu / bir ton açık (zebra) */
     #karsilastirma .karsilastirma-table tbody tr:nth-child(odd) td {
       background-color: #EFEFEF !important;
@@ -677,7 +673,7 @@
     #karsilastirma .karsilastirma-table tbody tr:nth-child(even) td {
       background-color: #F5F5F5 !important;
     }
-    /* İkonlar: ince çizgili (outline), büyük; sadece Dikera sütununda canlı renk */
+    /* İkonlar: ince çizgili (outline), büyük */
     #karsilastirma .karsilastirma-table .material-symbols-outlined {
       font-size: 1.4625rem;
       font-variation-settings: "FILL" 0, "wght" 400;
@@ -687,41 +683,6 @@
     #karsilastirma .karsilastirma-table td:nth-child(3) .material-symbols-outlined,
     #karsilastirma .karsilastirma-table td:nth-child(4) .material-symbols-outlined {
       color: #A8A8A8;
-    }
-    /* Dikera AI sütunu: ön plana çıkarma – büyütme, çerçeve */
-    #karsilastirma .karsilastirma-table th:nth-child(4),
-    #karsilastirma .karsilastirma-table td:nth-child(4) {
-      border: 1px solid #D4AF37;
-      position: relative;
-      z-index: 2;
-    }
-    /* Dikera AI başlığı: diğer başlıklarla aynı arka plan, altın renkli yazı */
-    #karsilastirma .karsilastirma-table thead th:nth-child(4) {
-      padding-top: 1.25rem;
-      padding-bottom: 1.25rem;
-      min-height: 3.5rem;
-      background-color: #313a40 !important;
-      color: #D4AF37 !important;
-      font-size: 1.15em;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    }
-    /* Dikera sütunu hücreleri: ön planda, büyütülmüş boyut ve gölge */
-    #karsilastirma .karsilastirma-table td:nth-child(4) {
-      transform: scale(1.06);
-      transform-origin: center center;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
-      padding: 0.875rem 0.75rem !important;
-      min-height: 3.25rem;
-    }
-    /* Dikera hücreleri: diğer sütunlardan %30 daha koyu, altın çerçeve */
-    #karsilastirma .karsilastirma-cell-accent {
-      color: #313a40;
-      border: 1px solid #D4AF37 !important;
-      background: #D9D9D9 !important;
-    }
-    /* Tablo hücre ikonu: PNG şeffaf alanları hücre zeminini gösterir */
-    #karsilastirma .karsilastirma-cell-accent .karsilastirma-cell-icon-bg {
-      border-radius: 0.125rem;
     }
     #karsilastirma .karsilastirma-table td:nth-child(5) .material-symbols-outlined {
       color: inherit;
@@ -972,10 +933,10 @@
 <p class="text-slate-500 font-light mt-5 text-[clamp(0.744rem,0.8vw+0.32rem,0.9rem)]">Risk ve Uyumluluk Analizi</p>
 </div>
 </section>
-<section class="px-4 sm:px-6 lg:px-8 py-10 lg:py-14 bg-[#F5F7FB]" id="karsilastirma">
-<div class="max-w-7xl mx-auto">
-<div class="rounded-3xl border border-primary/10 bg-white/70 backdrop-blur-sm p-6 lg:p-10 shadow-sm">
-<div class="overflow-x-auto karsilastirma-table-wrap">
+<section class="px-3 sm:px-5 lg:px-6 py-10 lg:py-14 bg-[#F5F7FB]" id="karsilastirma">
+<div class="max-w-[min(100%,96rem)] mx-auto w-full">
+<div class="rounded-3xl border border-primary/10 bg-white/70 backdrop-blur-sm p-5 sm:p-6 lg:p-8 xl:p-10 shadow-sm overflow-hidden">
+<div class="karsilastirma-table-wrap">
 <div class="karsilastirma-table-scaled">
 <div class="w-full max-w-full flex flex-col gap-0">
 <div class="pt-0">
@@ -991,7 +952,7 @@
 <th class="px-3 py-2.5 text-left font-bold rounded-xl bg-[#313a40] text-white">Kurumsal Kriterler</th>
 <th class="px-3 py-2.5 font-bold rounded-xl bg-[#313a40] text-white">Manuel Süreçler</th>
 <th class="px-3 py-2.5 font-bold rounded-xl bg-[#313a40] text-white whitespace-normal break-words">Standart Hukuk AI</th>
-<th class="px-3 py-2.5 font-bold rounded-xl bg-primary text-white">Dikera AI</th>
+<th class="px-3 py-2.5 font-bold rounded-xl bg-[#313a40] text-white whitespace-normal break-words">Dikera AI</th>
 </tr>
 </thead>
 <tbody class="text-charcoal">
@@ -999,37 +960,37 @@
 <td class="px-3 py-2.5 font-medium bg-[#F7F7F7] rounded-lg text-left">Veri Merkezi</td>
 <td class="px-3 py-2.5 bg-[#F7F7F7] rounded-lg">Yerel Arşiv</td>
 <td class="px-3 py-2.5 bg-[#F7F7F7] rounded-lg">Yurtdışı (Cloud)</td>
-<td class="px-3 py-2.5 rounded-lg font-bold karsilastirma-cell-accent border border-primary/20">Türkiye (KVKK Uyumlu)</td>
+<td class="px-3 py-2.5 bg-[#F7F7F7] rounded-lg">Türkiye (KVKK Uyumlu)</td>
 </tr>
 <tr class="transition-colors hover:bg-[#dceacb]/50">
 <td class="px-3 py-2.5 font-medium bg-[#F7F7F7] rounded-lg text-left">KVKK Aktarım Onayı</td>
 <td class="px-3 py-2.5 bg-[#F7F7F7] rounded-lg">Onay Gerekmez</td>
 <td class="px-3 py-2.5 bg-[#F7F7F7] rounded-lg">3. Şahıslardan Onay Gerekir !</td>
-<td class="px-3 py-2.5 rounded-lg font-bold karsilastirma-cell-accent border border-primary/20">Onay Gerekmez</td>
+<td class="px-3 py-2.5 bg-[#F7F7F7] rounded-lg">Onay Gerekmez</td>
 </tr>
 <tr class="transition-colors hover:bg-[#dceacb]/50">
 <td class="px-3 py-2.5 font-medium bg-[#F7F7F7] rounded-lg text-left whitespace-normal break-words">Model Eğitimi ve Gizlilik</td>
 <td class="px-3 py-2.5 bg-[#F7F7F7] rounded-lg">Uygulanmaz</td>
 <td class="px-3 py-2.5 bg-[#F7F7F7] rounded-lg">Riskli (Eğitim Olasılığı)</td>
-<td class="px-3 py-2.5 rounded-lg font-bold karsilastirma-cell-accent border border-primary/20">Asla Kullanılmaz (%100 Gizli)</td>
+<td class="px-3 py-2.5 bg-[#F7F7F7] rounded-lg">Asla Kullanılmaz (%100 Gizli)</td>
 </tr>
 <tr class="transition-colors hover:bg-[#dceacb]/50">
 <td class="px-3 py-2.5 font-medium bg-[#F7F7F7] rounded-lg text-left">Denetlenebilirlik</td>
 <td class="px-3 py-2.5 bg-[#F7F7F7] rounded-lg">Zor / Manuel</td>
 <td class="px-3 py-2.5 bg-[#F7F7F7] rounded-lg">Sınırlı (Şeffaf Değil)</td>
-<td class="px-3 py-2.5 rounded-lg font-bold karsilastirma-cell-accent border border-primary/20">Tam Şeffaf / Kayıtlı (Audit Trail)</td>
+<td class="px-3 py-2.5 bg-[#F7F7F7] rounded-lg">Tam Şeffaf / Kayıtlı (Audit Trail)</td>
 </tr>
 <tr class="transition-colors hover:bg-[#dceacb]/50">
 <td class="px-3 py-2.5 font-medium bg-[#F7F7F7] rounded-lg text-left">Analiz Kapsamı</td>
 <td class="px-3 py-2.5 bg-[#F7F7F7] rounded-lg">Kişisel / Sınırlı</td>
 <td class="px-3 py-2.5 bg-[#F7F7F7] rounded-lg">Genel / Jenerik</td>
-<td class="px-3 py-2.5 rounded-lg font-bold karsilastirma-cell-accent border border-primary/20">Dosyaya Özel / Deterministik</td>
+<td class="px-3 py-2.5 bg-[#F7F7F7] rounded-lg">Dosyaya Özel / Deterministik</td>
 </tr>
 <tr class="transition-colors hover:bg-[#dceacb]/50">
 <td class="px-3 py-2.5 font-medium bg-[#F7F7F7] rounded-lg text-left">Erişim Yetki Kontrolü</td>
 <td class="px-3 py-2.5 bg-[#F7F7F7] rounded-lg">Dağınık</td>
 <td class="px-3 py-2.5 bg-[#F7F7F7] rounded-lg">Standart Kullanıcı Rolleri</td>
-<td class="px-3 py-2.5 rounded-lg font-bold karsilastirma-cell-accent border border-primary/20">Hiyerarşik / Rol Bazlı (RBAC)</td>
+<td class="px-3 py-2.5 bg-[#F7F7F7] rounded-lg">Hiyerarşik / Rol Bazlı (RBAC)</td>
 </tr>
 </tbody>
 </table>
