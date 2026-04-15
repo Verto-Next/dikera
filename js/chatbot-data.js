@@ -17,7 +17,7 @@ window.DIKERA_CHATBOT_DATA = {
 
     welcome: {
         text: 'Merhaba! 👋 DikEra AI Hukuk Asistanına hoş geldiniz.\nSize nasıl yardımcı olabilirim?',
-        quickReplies: ['Platform Nasıl Çalışır?', 'Modüller Neler?', 'Güvenlik', 'Ücretlendirme', 'Demo Talep Et', 'İletişim']
+        quickReplies: ['Platform Nasıl Çalışır?', 'Modüller Neler?', 'Güvenlik', 'Demo Talep Et', 'İletişim']
     },
 
     responses: {
@@ -29,7 +29,7 @@ window.DIKERA_CHATBOT_DATA = {
 
         'Modüller Neler?': {
             text: 'DikEra AI\'da 5 temel modül bulunur:\n\n📂 **Ajanlarım** — Dava dosyalarını yükleyin, soru sorun, özetleyin\n⚖️ **Emsal Karar Arama** — 10M+ içtihatta doğal dilde arama\n📜 **Mevzuat Arama** — Güncel mevzuata madde bazlı erişim\n📝 **Sözleşme Oluşturma** — 35+ şablonla hızlı üretim ve karşılaştırma\n✍️ **Dilekçe Oluşturma** — Profesyonel dilekçe taslakları\n\nHer modül hakkında detaylı bilgi almak ister misiniz?',
-            quickReplies: ['Platform Nasıl Çalışır?', 'Güvenlik', 'Ücretlendirme']
+            quickReplies: ['Platform Nasıl Çalışır?', 'Güvenlik', 'Demo Talep Et']
         },
 
         'Güvenlik': {
@@ -42,14 +42,9 @@ window.DIKERA_CHATBOT_DATA = {
             quickReplies: ['Güvenlik', 'Demo Talep Et', 'İletişim']
         },
 
-        'Ücretlendirme': {
-            text: 'Abonelik paketlerimiz:\n\n🥉 **Silver Üyelik**: 60.000₺/ay\n• 1 kullanıcı\n• 10 GB depolama\n• Temel destek\n\n🥈 **Gold Üyelik**: 90.000₺/ay\n• 5 kullanıcı\n• 50 GB depolama\n• Öncelikli destek\n\n🥇 **Premium Üyelik**: 120.000₺/ay\n• Sınırsız kullanıcı\n• Özel çözümler\n• 7/24 destek',
-            quickReplies: ['Demo Talep Et', 'Modüller Neler?', 'İletişim']
-        },
-
         'Demo Talep Et': {
             text: 'Demo talebiniz için teşekkürler!\n\nDemo sürecimiz:\n1. ✅ Sayfamızdaki talep formunu doldurun\n2. 📞 Ekibimiz 24 saat içinde sizi arar\n3. 💻 Size özel kişiselleştirilmiş demo sunar\n4. 🚀 Hemen kullanmaya başlarsınız\n\nAşağıdaki "Demo Formunu Aç" butonuna tıklayarak hemen başlayabilirsiniz.',
-            quickReplies: ['Demo Formunu Aç', 'Ücretlendirme', 'İletişim']
+            quickReplies: ['Demo Formunu Aç', 'Modüller Neler?', 'İletişim']
         },
 
         'Demo Formunu Aç': {
@@ -83,10 +78,6 @@ window.DIKERA_CHATBOT_DATA = {
         {
             patterns: ['nasıl çalış', 'nasıl kullan', 'ne işe yarar', 'nedir', 'ne yapar'],
             response: 'Platform Nasıl Çalışır?'
-        },
-        {
-            patterns: ['fiyat', 'ücret', 'kaç para', 'maliyet', 'abonelik', 'paket'],
-            response: 'Ücretlendirme'
         },
         {
             patterns: ['demo', 'deneme', 'dene', 'test', 'göster'],
@@ -136,6 +127,6 @@ window.DIKERA_CHATBOT_DATA = {
 
     defaultResponse: {
         text: 'Bu konuda henüz detaylı bilgi veremiyorum, ancak aşağıdaki konular hakkında size yardımcı olabilirim:',
-        quickReplies: ['Platform Nasıl Çalışır?', 'Modüller Neler?', 'Güvenlik', 'Ücretlendirme', 'Demo Talep Et', 'İletişim']
+        quickReplies: ['Platform Nasıl Çalışır?', 'Modüller Neler?', 'Güvenlik', 'Demo Talep Et', 'İletişim']
     }
 };
