@@ -28,7 +28,7 @@ window.DIKERA_CHATBOT_DATA = {
         },
 
         'Modüller Neler?': {
-            text: 'DikEra AI\'da 5 temel modül bulunur:\n\n📂 **Ajanlarım** — Dava dosyalarını yükleyin, soru sorun, özetleyin\n⚖️ **Emsal Karar Arama** — 10M+ içtihatta doğal dilde arama\n📜 **Mevzuat Arama** — Güncel mevzuata madde bazlı erişim\n📝 **Sözleşme Oluşturma** — 35+ şablonla hızlı üretim ve karşılaştırma\n✍️ **Dilekçe Oluşturma** — Profesyonel dilekçe taslakları\n\nHer modül hakkında detaylı bilgi almak ister misiniz?',
+            text: 'DikEra AI\'da 5 temel modül bulunur:\n\n📂 **Davalarım** — Dava dosyalarını yükleyin, soru sorun, özetleyin\n⚖️ **Emsal Karar Arama** — 10M+ içtihatta doğal dilde arama\n📜 **Mevzuat Arama** — Güncel mevzuata madde bazlı erişim\n📝 **Sözleşme Oluşturma** — 35+ şablonla hızlı üretim ve karşılaştırma\n✍️ **Dilekçe Oluşturma** — Profesyonel dilekçe taslakları\n\nHer modül hakkında detaylı bilgi almak ister misiniz?',
             quickReplies: ['Platform Nasıl Çalışır?', 'Güvenlik', 'Demo Talep Et']
         },
 
