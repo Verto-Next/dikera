@@ -54,7 +54,7 @@ window.DIKERA_CHATBOT_DATA = {
         },
 
         'İletişim': {
-            text: 'İletişim bilgilerimiz:\n\n📧 **E-posta**: info@dikera.com\n🌐 **Web**: www.dikera.com\n📍 **Adres**: İstanbul, Türkiye\n\nDemo talep formunu doldurarak da bizimle iletişime geçebilirsiniz.',
+            text: 'İletişim bilgilerimiz:\n\n📧 **E-posta**: info@legasis.ai\n🌐 **Web**: www.legasis.ai\n📍 **Adres**: İstanbul, Türkiye\n\nDemo talep formunu doldurarak da bizimle iletişime geçebilirsiniz.',
             quickReplies: ['Demo Talep Et', 'Platform Nasıl Çalışır?', 'Modüller Neler?']
         },
 
