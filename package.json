@@ -1,7 +1,7 @@
 {
-  "name": "dikera-website",
+  "name": "legasis-website",
   "version": "1.0.0",
-  "description": "DikEra AI Website",
+  "description": "Legasis Website",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"

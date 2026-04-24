@@ -27,5 +27,5 @@ app.use((req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`DikEra website running on port ${PORT}`);
+  console.log(`Legasis website running on port ${PORT}`);
 });

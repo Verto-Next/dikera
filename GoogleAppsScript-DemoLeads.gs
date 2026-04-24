@@ -1,5 +1,5 @@
 /**
- * Google Apps Script: Demo Talep formu → "Dikera_Website_Demo_Leads" sheet
+ * Google Apps Script: Demo Talep formu → "Legasis_Website_Demo_Leads" sheet
  * Dağıtım: Web uygulaması olarak dağıt, "Herkes" erişim, doPost kullanılır.
  */
 
@@ -33,7 +33,7 @@ function doPost(e) {
     }
 
     var TO_EMAIL = 'mustafa.kucuk@vertonext.com';
-    var SUBJECT = 'Yeni Demo Talebi - DikEra AI';
+    var SUBJECT = 'Yeni Demo Talebi - Legasis';
     var now = new Date();
     var tz = Session.getScriptTimeZone() || 'Europe/Istanbul';
     var timestamp = Utilities.formatDate(now, tz, 'dd.MM.yyyy HH:mm:ss');
@@ -87,7 +87,7 @@ function doPost(e) {
       to: TO_EMAIL,
       subject: SUBJECT,
       htmlBody: htmlMessage,
-      name: 'DikEra AI Demo Sistemi'
+      name: 'Legasis Demo Sistemi'
     });
 
     return jsonResponse({

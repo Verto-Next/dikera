@@ -1,2 +1,2 @@
-# dikera
-Web PAge of DikEra AI
+# Legasis
+Web sitesi — Legasis.
