@@ -6,7 +6,7 @@ header('Access-Control-Allow-Methods: POST');
 header('Access-Control-Allow-Headers: Content-Type');
 
 $mail->Host = 'smtp.hostinger.com';
-$mail->Username = 'info@dikera.com';  // Your actual email
+$mail->Username = 'info@legais.ai';  // Your actual email
 $mail->Password = 'Vn21022025!';  // Your email password
 
 // Security check
@@ -29,7 +29,7 @@ if (!$email) {
 }
 
 // Configuration
-$to_email = 'info@dikera.com';
+$to_email = 'info@legais.ai';
 $subject = 'Yeni Demo Talebi - DikEra AI';
 $timestamp = date('d.m.Y H:i:s');
 $request_id = 'DEM-' . date('Ymd') . '-' . substr(md5($email . time()), 0, 6);
@@ -112,13 +112,13 @@ if (file_exists('phpmailer/PHPMailer.php')) {
         // Hostinger SMTP settings
         $mail->Host = 'smtp.hostinger.com';  // Hostinger SMTP server
         $mail->SMTPAuth = true;
-        $mail->Username = 'info@dikera.com';  // Your Hostinger email
+        $mail->Username = 'info@legais.ai';  // Your Hostinger email
         $mail->Password = 'your-email-password';  // Your email password
         $mail->SMTPSecure = 'tls';  // TLS encryption
         $mail->Port = 587;  // TLS port
 
         // Email settings
-        $mail->setFrom('info@dikera.com', 'DikEra AI Demo Sistemi');
+        $mail->setFrom('info@legais.ai', 'DikEra AI Demo Sistemi');
         $mail->addAddress($to_email, 'DikEra AI Demo Talepleri');
         $mail->addReplyTo($email);
         
@@ -142,9 +142,9 @@ if (!$email_sent) {
     $headers = array();
     $headers[] = 'MIME-Version: 1.0';
     $headers[] = 'Content-Type: text/html; charset=UTF-8';
-    $headers[] = 'From: DikEra AI <info@dikera.com>';
+    $headers[] = 'From: DikEra AI <info@legais.ai>';
     $headers[] = 'Reply-To: ' . $email;
-    $headers[] = 'Return-Path: info@dikera.com';
+    $headers[] = 'Return-Path: info@legais.ai';
     $headers[] = 'X-Mailer: DikEra AI v1.0';
     $headers[] = 'X-Priority: 2';
     
@@ -188,7 +188,7 @@ if ($email_sent) {
         <p>Teşekkürler,<br><strong>DikEra AI Ekibi</strong></p>
     </div>";
     
-    $user_headers = "From: DikEra AI <info@dikera.com>\r\nContent-Type: text/html; charset=UTF-8\r\n";
+    $user_headers = "From: DikEra AI <info@legais.ai>\r\nContent-Type: text/html; charset=UTF-8\r\n";
     @mail($email, $user_subject, $user_message, $user_headers);
     
     echo json_encode([
@@ -199,7 +199,7 @@ if ($email_sent) {
 } else {
     echo json_encode([
         'alert' => 'alert-danger',
-        'message' => 'E-posta gönderilirken hata oluştu. Lütfen doğrudan info@dikera.com adresine yazın.',
+        'message' => 'E-posta gönderilirken hata oluştu. Lütfen doğrudan info@legais.ai adresine yazın.',
         'request_id' => $request_id,
         'error' => $error_message
     ]);
