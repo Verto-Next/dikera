@@ -6,7 +6,7 @@ header('Access-Control-Allow-Methods: POST');
 header('Access-Control-Allow-Headers: Content-Type');
 
 $mail->Host = 'smtp.hostinger.com';
-$mail->Username = 'info@legasis.ai';  // Your actual email
+$mail->Username = 'info@legais.ai';  // Your actual email
 $mail->Password = 'Vn21022025!';  // Your email password
 
 // Security check
@@ -29,8 +29,8 @@ if (!$email) {
 }
 
 // Configuration
-$to_email = 'info@legasis.ai';
-$subject = 'Yeni Demo Talebi - Legasis';
+$to_email = 'info@legais.ai';
+$subject = 'Yeni Demo Talebi - DikEra AI';
 $timestamp = date('d.m.Y H:i:s');
 $request_id = 'DEM-' . date('Ymd') . '-' . substr(md5($email . time()), 0, 6);
 
@@ -50,7 +50,7 @@ $html_message = "
     <div style='max-width: 600px; margin: 0 auto; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1);'>
         <div style='background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px; text-align: center;'>
             <h1 style='color: white; margin: 0; font-size: 24px;'>🚀 Yeni Demo Talebi</h1>
-            <p style='color: rgba(255,255,255,0.9); margin: 10px 0 0 0;'>Legasis Platformu</p>
+            <p style='color: rgba(255,255,255,0.9); margin: 10px 0 0 0;'>DikEra AI Platformu</p>
         </div>
         
         <div style='padding: 30px;'>
@@ -76,11 +76,11 @@ $html_message = "
             
             <div style='background: #fff3cd; border-radius: 5px; padding: 20px; margin: 25px 0;'>
                 <h3 style='color: #856404; margin: 0 0 10px 0;'>⚡ Aksiyon Gerekli</h3>
-                <p style='color: #856404; margin: 0;'>Bu kullanıcı Legasis platformu için demo talebinde bulunmuştur. Lütfen 24 saat içinde kendisiyle iletişime geçin.</p>
+                <p style='color: #856404; margin: 0;'>Bu kullanıcı DikEra AI platformu için demo talebinde bulunmuştur. Lütfen 24 saat içinde kendisiyle iletişime geçin.</p>
             </div>
             
             <div style='text-align: center;'>
-                <a href='mailto:$email?subject=Legasis%20Demo%20Hakkında&body=Merhaba,%0A%0ALegasis%20demo%20talebiniz%20için%20teşekkür%20ederiz.' 
+                <a href='mailto:$email?subject=DikEra%20AI%20Demo%20Hakkında&body=Merhaba,%0A%0ADikEra%20AI%20demo%20talebiniz%20için%20teşekkür%20ederiz.' 
                    style='background: #667eea; color: white; padding: 12px 25px; text-decoration: none; border-radius: 25px; font-weight: bold; display: inline-block;'>
                     📧 Cevap Gönder
                 </a>
@@ -88,7 +88,7 @@ $html_message = "
         </div>
         
         <div style='background: #f8f9fa; padding: 20px; text-align: center; border-top: 1px solid #dee2e6;'>
-            <p style='color: #6c757d; margin: 0; font-size: 14px;'>Bu e-posta Legasis demo sistemi tarafından otomatik gönderildi.</p>
+            <p style='color: #6c757d; margin: 0; font-size: 14px;'>Bu e-posta DikEra AI demo sistemi tarafından otomatik gönderildi.</p>
         </div>
     </div>
 </body>
@@ -112,14 +112,14 @@ if (file_exists('phpmailer/PHPMailer.php')) {
         // Hostinger SMTP settings
         $mail->Host = 'smtp.hostinger.com';  // Hostinger SMTP server
         $mail->SMTPAuth = true;
-        $mail->Username = 'info@legasis.ai';  // Your Hostinger email
+        $mail->Username = 'info@legais.ai';  // Your Hostinger email
         $mail->Password = 'your-email-password';  // Your email password
         $mail->SMTPSecure = 'tls';  // TLS encryption
         $mail->Port = 587;  // TLS port
 
         // Email settings
-        $mail->setFrom('info@legasis.ai', 'Legasis Demo Sistemi');
-        $mail->addAddress($to_email, 'Legasis Demo Talepleri');
+        $mail->setFrom('info@legais.ai', 'DikEra AI Demo Sistemi');
+        $mail->addAddress($to_email, 'DikEra AI Demo Talepleri');
         $mail->addReplyTo($email);
         
         $mail->isHTML(true);
@@ -142,10 +142,10 @@ if (!$email_sent) {
     $headers = array();
     $headers[] = 'MIME-Version: 1.0';
     $headers[] = 'Content-Type: text/html; charset=UTF-8';
-    $headers[] = 'From: Legasis <info@legasis.ai>';
+    $headers[] = 'From: DikEra AI <info@legais.ai>';
     $headers[] = 'Reply-To: ' . $email;
-    $headers[] = 'Return-Path: info@legasis.ai';
-    $headers[] = 'X-Mailer: Legasis v1.0';
+    $headers[] = 'Return-Path: info@legais.ai';
+    $headers[] = 'X-Mailer: DikEra AI v1.0';
     $headers[] = 'X-Priority: 2';
     
     // Use \r\n for Hostinger (important for deliverability)
@@ -175,20 +175,20 @@ $log_data = [
 // Response
 if ($email_sent) {
     // Send confirmation to user
-    $user_subject = "Demo Talebiniz Alındı - Legasis";
+    $user_subject = "Demo Talebiniz Alındı - DikEra AI";
     $user_message = "
     <div style='font-family: Arial, sans-serif; max-width: 500px; margin: 0 auto; padding: 20px; background: white; border-radius: 10px;'>
         <h1 style='color: #667eea; text-align: center;'>✅ Demo Talebiniz Alındı!</h1>
         <p>Merhaba,</p>
-        <p>Legasis platformu için demo talebiniz başarıyla alınmıştır.</p>
+        <p>DikEra AI platformu için demo talebiniz başarıyla alınmıştır.</p>
         <div style='background: #f8f9fa; padding: 15px; border-radius: 5px; margin: 20px 0;'>
             <p style='margin: 0; color: #666;'><strong>Talep ID:</strong> $request_id<br><strong>Tarih:</strong> $timestamp</p>
         </div>
         <p>Ekibimiz en kısa sürede sizinle iletişime geçecektir.</p>
-        <p>Teşekkürler,<br><strong>Legasis Ekibi</strong></p>
+        <p>Teşekkürler,<br><strong>DikEra AI Ekibi</strong></p>
     </div>";
     
-    $user_headers = "From: Legasis <info@legasis.ai>\r\nContent-Type: text/html; charset=UTF-8\r\n";
+    $user_headers = "From: DikEra AI <info@legais.ai>\r\nContent-Type: text/html; charset=UTF-8\r\n";
     @mail($email, $user_subject, $user_message, $user_headers);
     
     echo json_encode([
@@ -199,7 +199,7 @@ if ($email_sent) {
 } else {
     echo json_encode([
         'alert' => 'alert-danger',
-        'message' => 'E-posta gönderilirken hata oluştu. Lütfen doğrudan info@legasis.ai adresine yazın.',
+        'message' => 'E-posta gönderilirken hata oluştu. Lütfen doğrudan info@legais.ai adresine yazın.',
         'request_id' => $request_id,
         'error' => $error_message
     ]);

@@ -1,5 +1,5 @@
 /**
- * Legasis Chatbot - Soru & Cevap Veritabanı
+ * DikEra AI Chatbot - Soru & Cevap Veritabanı
  * 
  * Bu dosyayı düzenleyerek chatbot'un cevaplarını güncelleyebilirsiniz.
  * 
@@ -16,19 +16,19 @@
 window.DIKERA_CHATBOT_DATA = {
 
     welcome: {
-        text: 'Merhaba! 👋 Legasis Hukuk Asistanına hoş geldiniz.\nSize nasıl yardımcı olabilirim?',
+        text: 'Merhaba! 👋 DikEra AI Hukuk Asistanına hoş geldiniz.\nSize nasıl yardımcı olabilirim?',
         quickReplies: ['Platform Nasıl Çalışır?', 'Modüller Neler?', 'Güvenlik', 'Demo Talep Et', 'İletişim']
     },
 
     responses: {
 
         'Platform Nasıl Çalışır?': {
-            text: 'Legasis platformu şu şekilde çalışır:\n\n1. 📁 Dokümanlarınızı güvenle yükleyin\n2. 🔍 Yapay zeka ile analiz edin\n3. ⚖️ Emsal karar ve mevzuat araştırın\n4. 📝 Sözleşme ve dilekçe oluşturun\n\nTüm verileriniz Türkiye\'deki sunucularda, KVKK uyumlu altyapıda saklanır.',
+            text: 'DikEra AI platformu şu şekilde çalışır:\n\n1. 📁 Dokümanlarınızı güvenle yükleyin\n2. 🔍 Yapay zeka ile analiz edin\n3. ⚖️ Emsal karar ve mevzuat araştırın\n4. 📝 Sözleşme ve dilekçe oluşturun\n\nTüm verileriniz Türkiye\'deki sunucularda, KVKK uyumlu altyapıda saklanır.',
             quickReplies: ['Modüller Neler?', 'Güvenlik', 'Demo Talep Et']
         },
 
         'Modüller Neler?': {
-            text: 'Legasis\'te 5 temel modül bulunur:\n\n📂 **Davalarım** — Dava dosyalarını yükleyin, soru sorun, özetleyin\n⚖️ **Emsal Karar Arama** — 10M+ içtihatta doğal dilde arama\n📜 **Mevzuat Arama** — Güncel mevzuata madde bazlı erişim\n📝 **Sözleşme Oluşturma** — 35+ şablonla hızlı üretim ve karşılaştırma\n✍️ **Dilekçe Oluşturma** — Profesyonel dilekçe taslakları\n\nHer modül hakkında detaylı bilgi almak ister misiniz?',
+            text: 'DikEra AI\'da 5 temel modül bulunur:\n\n📂 **Ajanlarım** — Dava dosyalarını yükleyin, soru sorun, özetleyin\n⚖️ **Emsal Karar Arama** — 10M+ içtihatta doğal dilde arama\n📜 **Mevzuat Arama** — Güncel mevzuata madde bazlı erişim\n📝 **Sözleşme Oluşturma** — 35+ şablonla hızlı üretim ve karşılaştırma\n✍️ **Dilekçe Oluşturma** — Profesyonel dilekçe taslakları\n\nHer modül hakkında detaylı bilgi almak ister misiniz?',
             quickReplies: ['Platform Nasıl Çalışır?', 'Güvenlik', 'Demo Talep Et']
         },
 
@@ -54,7 +54,7 @@ window.DIKERA_CHATBOT_DATA = {
         },
 
         'İletişim': {
-            text: 'İletişim bilgilerimiz:\n\n📧 **E-posta**: info@legasis.ai\n🌐 **Web**: www.legasis.ai\n📍 **Adres**: İstanbul, Türkiye\n\nDemo talep formunu doldurarak da bizimle iletişime geçebilirsiniz.',
+            text: 'İletişim bilgilerimiz:\n\n📧 **E-posta**: info@legais.ai\n🌐 **Web**: www.dikera.com\n📍 **Adres**: İstanbul, Türkiye\n\nDemo talep formunu doldurarak da bizimle iletişime geçebilirsiniz.',
             quickReplies: ['Demo Talep Et', 'Platform Nasıl Çalışır?', 'Modüller Neler?']
         },
 
@@ -67,7 +67,7 @@ window.DIKERA_CHATBOT_DATA = {
     keywords: [
         {
             patterns: ['merhaba', 'selam', 'hey', 'meraba', 'selamlar'],
-            text: 'Merhaba! 👋 Legasis\'e hoş geldiniz! Size nasıl yardımcı olabilirim?',
+            text: 'Merhaba! 👋 DikEra AI\'ya hoş geldiniz! Size nasıl yardımcı olabilirim?',
             quickReplies: ['Platform Nasıl Çalışır?', 'Modüller Neler?', 'Demo Talep Et']
         },
         {
