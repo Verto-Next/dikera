@@ -884,7 +884,9 @@
     #karsilastirma .karsilastirma-table-wrap {
       container-type: inline-size;
       container-name: karsilastirma;
-      overflow: hidden;
+      overflow-x: auto;
+      overflow-y: hidden;
+      -webkit-overflow-scrolling: touch;
       width: 100%;
       min-width: 0;
     }
@@ -903,16 +905,17 @@
       min-width: 0;
     }
     #karsilastirma .karsilastirma-table {
-      font-size: clamp(0.625rem, 0.5rem + 0.5vw, 0.875rem);
+      font-size: clamp(0.78rem, 0.62rem + 0.28vw, 0.94rem);
       font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
       border-spacing: 3px 6px;
       background-color: transparent;
+      line-height: 1.35;
     }
     @container karsilastirma (max-width: 500px) {
-      #karsilastirma .karsilastirma-table { font-size: 0.625rem; }
+      #karsilastirma .karsilastirma-table { font-size: 0.76rem; }
     }
     @container karsilastirma (max-width: 400px) {
-      #karsilastirma .karsilastirma-table { font-size: 0.5625rem; }
+      #karsilastirma .karsilastirma-table { font-size: 0.72rem; }
     }
     #karsilastirma .karsilastirma-table th,
     #karsilastirma .karsilastirma-table td {
@@ -1039,6 +1042,27 @@
     #karsilastirma .denetim-box-empty { border: 1px dashed #666; background: transparent; }
     #karsilastirma .denetim-box-filled-red { background: #b91c1c; border: 1px solid #b91c1c; }
     #karsilastirma .denetim-box-filled-green { background: #166534; border: 1px solid #166534; }
+    @media (max-width: 768px) {
+      #karsilastirma .karsilastirma-table-wrap {
+        border-radius: 0.75rem;
+      }
+      #karsilastirma .karsilastirma-table {
+        min-width: 40rem;
+        border-spacing: 4px 8px;
+        font-size: 0.8rem;
+      }
+      #karsilastirma .karsilastirma-table th,
+      #karsilastirma .karsilastirma-table td {
+        padding: 0.66rem 0.56rem;
+      }
+      #karsilastirma .karsilastirma-table th:nth-child(1),
+      #karsilastirma .karsilastirma-table td:nth-child(1) {
+        font-size: 1.12em;
+      }
+      #karsilastirma .karsilastirma-table .material-symbols-outlined {
+        font-size: 1.2rem;
+      }
+    }
   </style>
     </head>
 <body class="bg-background-light text-charcoal font-sans antialiased selection:bg-primary/10">
@@ -1289,7 +1313,7 @@
 </p>
 </div>
 </section>
-<section class="w-4/5 max-w-none min-w-0 mx-auto px-3 sm:px-5 lg:px-6 py-10 lg:py-12 rounded-3xl" id="karsilastirma" aria-labelledby="karsilastirma-baslik">
+<section class="w-[92%] sm:w-4/5 max-w-none min-w-0 mx-auto px-2 sm:px-5 lg:px-6 py-10 lg:py-12 rounded-3xl" id="karsilastirma" aria-labelledby="karsilastirma-baslik">
 <div class="max-w-7xl mx-auto text-center px-2 mb-5 sm:mb-6 lg:mb-8">
 <h2 id="karsilastirma-baslik" class="hero-editorial text-slate-700 font-normal leading-[1.12] tracking-[-0.02em] text-center mx-auto w-full max-w-[min(100%,22rem)] sm:max-w-[min(100%,28rem)] lg:max-w-[min(100%,34rem)] text-[clamp(1.5rem,1rem+1.5vw,2.75rem)] px-0 m-0">Geleneksel Çözümler vs Legasis AI</h2>
 </div>
