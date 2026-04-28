@@ -32,12 +32,17 @@ body {
     font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
     background-color: #FFFFFF;
     color: #313a40;
+    min-height: max(884px, 100dvh);
 }
 h1, h2 {
     font-family: "EB Garamond", Georgia, "Times New Roman", serif;
 }
 h3, h4, h5, h6 {
     font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+h1.hero-headline,
+h2.hero-headline {
+    font-family: "EB Garamond", Georgia, "Times New Roman", serif;
 }
 .material-symbols-outlined {
     font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
@@ -56,6 +61,22 @@ header h1 {
 }
 header .material-symbols-outlined {
     font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+}
+.hakkimizda-card {
+    transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+}
+.hakkimizda-card:hover {
+    box-shadow: 0 14px 40px -18px rgba(8, 16, 44, 0.14);
+    border-color: rgba(8, 16, 44, 0.12);
+    transform: translateY(-2px);
+}
+@media (prefers-reduced-motion: reduce) {
+    .hakkimizda-card {
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .hakkimizda-card:hover {
+        transform: none;
+    }
 }
 </style>
 </head>
@@ -87,49 +108,68 @@ header .material-symbols-outlined {
 </div>
 </header>
 
-<main class="flex flex-col">
-<section class="max-w-7xl mx-auto px-6 py-12 lg:py-16 text-center">
-<div class="text-primary text-7xl lg:text-9xl font-medium italic tracking-tighter">20+ Yıl</div>
-<h2 class="mt-6 text-4xl lg:text-5xl font-medium text-primary">Hibrit Uzmanlık</h2>
-<p class="mt-6 max-w-4xl mx-auto text-xl text-charcoal/80 leading-relaxed font-light">
+<main class="flex flex-col gap-10 lg:gap-16">
+<!-- Hero -->
+<section class="px-4 sm:px-6 lg:px-8 pt-10 pb-2 lg:pt-12">
+<div class="max-w-7xl mx-3 sm:mx-auto px-6 sm:px-10 lg:px-14 py-12 lg:py-16 bg-gradient-to-br from-[#F5F7FB] via-white to-[#EEF3FF] rounded-3xl border border-primary/5 shadow-sm">
+<div class="max-w-3xl mx-auto text-center">
+<span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/5 border border-primary/10 text-primary text-xs font-semibold uppercase tracking-[0.1em]">
+<span class="material-symbols-outlined text-sm" aria-hidden="true">groups</span>
+Hakkımızda
+</span>
+<p class="mt-6 text-primary font-header text-[clamp(2.5rem,6vw,4.5rem)] font-medium italic tracking-tighter leading-none">20+ Yıl</p>
+<h1 class="hero-headline mt-3 text-black font-normal leading-[1.12] tracking-[-0.02em] text-center mx-auto w-full max-w-[min(100%,22rem)] sm:max-w-[min(100%,28rem)] lg:max-w-[min(100%,34rem)] text-[clamp(1.5rem,2vw+1rem,3.5rem)] px-0">Hibrit Uzmanlık</h1>
+<p class="mt-5 text-slate-800/90 font-light leading-relaxed text-[clamp(0.85rem,0.9vw+0.4rem,1.15rem)] max-w-2xl mx-auto">
 Dikera, hukuk, yapay zeka ve kurumsal bulut altyapısı alanlarında 20 yılı aşkın deneyime sahip bir yönetim ekibi tarafından geliştirilmiştir.
 </p>
-<p class="mt-4 max-w-4xl mx-auto text-xl text-charcoal/80 leading-relaxed font-light">
+<p class="mt-4 text-slate-800/90 font-light leading-relaxed text-[clamp(0.85rem,0.9vw+0.4rem,1.15rem)] max-w-2xl mx-auto">
 Legasis AI gerçek hukuk operasyonlarının ihtiyaçları ile ileri veri mimarisini bir araya getirir.
 </p>
+</div>
+</div>
 </section>
 
-<section class="max-w-4xl mx-auto px-6 py-12 lg:py-16 text-center">
-<h3 class="text-4xl lg:text-5xl font-medium text-primary">Neden Dikera?</h3>
-<p class="mt-6 text-charcoal/80 text-xl lg:text-2xl leading-relaxed font-light max-w-3xl mx-auto">
+<!-- Neden Dikera? -->
+<section class="border-t border-primary/10 bg-[#f8f9fa]" aria-labelledby="hakkimizda-neden-baslik">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+<div class="max-w-3xl mx-auto text-center">
+<h2 id="hakkimizda-neden-baslik" class="text-primary text-2xl lg:text-3xl font-medium tracking-tight">Neden Dikera?</h2>
+<p class="mt-5 text-charcoal/80 text-base lg:text-lg font-light leading-relaxed">
 Çünkü bu ürün yalnızca yapay zeka bilgisiyle değil; hukuk operasyon deneyimi ve kurumsal altyapı uzmanlığı ile geliştirilmiştir.
 </p>
-<p class="mt-6 text-charcoal font-medium text-xl">Kurucu ortakların her biri kendi alanında 20 yılı aşkın deneyime sahiptir:</p>
-<ul class="mt-4 space-y-2 text-charcoal/80 text-2xl leading-relaxed font-light list-none mx-auto inline-block text-left">
-<li class="flex items-center justify-center gap-2"><span class="text-primary">•</span> Hukuk operasyonları</li>
-<li class="flex items-center justify-center gap-2"><span class="text-primary">•</span> Yapay zeka ve veri mimarisi</li>
-<li class="flex items-center justify-center gap-2"><span class="text-primary">•</span> Kurumsal bulut ve güvenlik altyapısı</li>
+<p class="mt-6 text-charcoal font-medium text-base lg:text-lg">Kurucu ortakların her biri kendi alanında 20 yılı aşkın deneyime sahiptir:</p>
+<ul class="mt-4 space-y-2 text-charcoal/80 text-base lg:text-lg leading-relaxed font-light list-none mx-auto inline-block text-left">
+<li class="flex items-start gap-2"><span class="text-primary shrink-0" aria-hidden="true">•</span> Hukuk operasyonları</li>
+<li class="flex items-start gap-2"><span class="text-primary shrink-0" aria-hidden="true">•</span> Yapay zeka ve veri mimarisi</li>
+<li class="flex items-start gap-2"><span class="text-primary shrink-0" aria-hidden="true">•</span> Kurumsal bulut ve güvenlik altyapısı</li>
 </ul>
-<p class="mt-6 text-charcoal/80 text-xl lg:text-2xl leading-relaxed font-light max-w-3xl mx-auto">
+<p class="mt-6 text-charcoal/80 text-base lg:text-lg font-light leading-relaxed">
 Bu üç alanın kesişimi, Türkiye'de nadir bulunan bir uzmanlık kombinasyonudur.
 </p>
+</div>
+</div>
 </section>
 
-<section class="px-6 pb-16">
-<div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-6">
-<article class="p-6 border border-primary/10 rounded-lg bg-white/40 text-center">
-<div class="size-16 mx-auto rounded-full bg-primary/5 flex items-center justify-center">
-<span class="material-symbols-outlined text-primary text-5xl">code</span>
+<!-- Uzmanlık kartları -->
+<section class="px-4 sm:px-6 lg:px-8 pb-12 lg:pb-16" aria-label="Uzmanlık alanları">
+<div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-6 lg:gap-8">
+<article class="hakkimizda-card bg-white rounded-2xl border border-primary/10 shadow-sm p-6 lg:p-8 flex flex-col items-center text-center gap-4">
+<div class="inline-flex items-center justify-center w-14 h-14 lg:w-16 lg:h-16 rounded-full bg-primary/5 text-primary">
+<span class="material-symbols-outlined text-3xl lg:text-4xl" aria-hidden="true">code</span>
 </div>
-<h3 class="mt-4 text-3xl text-primary font-medium">Yapay Zeka Uzmanlığı</h3>
-<p class="mt-3 text-charcoal/80 text-lg font-light leading-relaxed">İleri veri analitiği ve yapay zeka yaklaşımlarıyla hukuk süreçlerine özel çözümler üretir.</p>
+<div class="flex flex-col gap-2">
+<h3 class="text-primary text-lg lg:text-xl font-medium tracking-tight">Yapay Zeka Uzmanlığı</h3>
+<p class="text-charcoal/85 text-sm lg:text-base leading-relaxed font-light">İleri veri analitiği ve yapay zeka yaklaşımlarıyla hukuk süreçlerine özel çözümler üretir.</p>
+</div>
 </article>
-<article class="p-6 border border-primary/10 rounded-lg bg-white/40 text-center">
-<div class="size-16 mx-auto rounded-full bg-primary/5 flex items-center justify-center">
-<span class="material-symbols-outlined text-primary text-5xl">balance</span>
+<article class="hakkimizda-card bg-white rounded-2xl border border-primary/10 shadow-sm p-6 lg:p-8 flex flex-col items-center text-center gap-4">
+<div class="inline-flex items-center justify-center w-14 h-14 lg:w-16 lg:h-16 rounded-full bg-primary/5 text-primary">
+<span class="material-symbols-outlined text-3xl lg:text-4xl" aria-hidden="true">balance</span>
 </div>
-<h3 class="mt-4 text-3xl text-primary font-medium">Hukuki Tecrübe</h3>
-<p class="mt-3 text-charcoal/80 text-lg font-light leading-relaxed">Gerçek hukuk operasyonlarından gelen bilgi birikimiyle ihtiyaca uygun, uygulanabilir ürün gelişimi sunar.</p>
+<div class="flex flex-col gap-2">
+<h3 class="text-primary text-lg lg:text-xl font-medium tracking-tight">Hukuki Tecrübe</h3>
+<p class="text-charcoal/85 text-sm lg:text-base leading-relaxed font-light">Gerçek hukuk operasyonlarından gelen bilgi birikimiyle ihtiyaca uygun, uygulanabilir ürün gelişimi sunar.</p>
+</div>
 </article>
 </div>
 </section>
