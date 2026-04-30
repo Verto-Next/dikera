@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="tr"><head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
 <title>.: Legasis AI :. Türkiye'de Geliştirilen İlk Yapay Zeka Destekli Hukuk Asistanı</title>
 <link rel="icon" type="image/png" href="assets/legasis_bg.png"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -772,7 +772,7 @@
       mask-repeat: no-repeat;
     }
     #kayan-alan .scroll-list {
-      animation: harvey-style-scroll-kayan 4s cubic-bezier(0.19, 1, 0.22, 1) infinite;
+      animation: harvey-style-scroll-kayan 10s cubic-bezier(0.19, 1, 0.22, 1) infinite;
     }
     #kayan-alan .scroll-list li {
       height: var(--kayan-row);
@@ -795,10 +795,10 @@
       padding: 0 clamp(1rem, 4vw, 2rem);
     }
     .slider-section .hero-container .side-text {
-      grid-column: 2 / 4; /* 2. ve 3. grid */
+      grid-column: 2 / 6; /* Uzun başlık için 4 kolon */
     }
     .slider-section .hero-container .scroll-wrapper {
-      grid-column: 5 / 8; /* 5, 6, 7. grid */
+      grid-column: 6 / 9; /* 6–8. kolonlar */
     }
     .slider-section .scroll-wrapper {
       height: 200px; /* %50 azaltıldı (önceki 400px) */
@@ -846,12 +846,15 @@
       /* Bitiş: Son 4 klon görünür; 0%’e dönünce aynı içerik, sıçrama yok */
       100% { transform: translateY(-400px); }
     }
+    /* 1 ön klon + 6 madde + 6 son klon; 0% ile ortada ilk madde, 100%’te bir tam tur sonra görüntü 0% ile çakışır */
     @keyframes harvey-style-scroll-kayan {
-      0% { transform: translateY(calc(-1 * var(--kayan-row, 4.1rem))); }
-      25% { transform: translateY(calc(-2 * var(--kayan-row, 4.1rem))); }
+      0% { transform: translateY(0); }
+      16.666% { transform: translateY(calc(-1 * var(--kayan-row, 4.1rem))); }
+      33.333% { transform: translateY(calc(-2 * var(--kayan-row, 4.1rem))); }
       50% { transform: translateY(calc(-3 * var(--kayan-row, 4.1rem))); }
-      75% { transform: translateY(calc(-4 * var(--kayan-row, 4.1rem))); }
-      100% { transform: translateY(calc(-5 * var(--kayan-row, 4.1rem))); }
+      66.666% { transform: translateY(calc(-4 * var(--kayan-row, 4.1rem))); }
+      83.333% { transform: translateY(calc(-5 * var(--kayan-row, 4.1rem))); }
+      100% { transform: translateY(calc(-6 * var(--kayan-row, 4.1rem))); }
     }
     .slider-section .action-area { display: flex; align-items: center; justify-content: flex-end; }
     .slider-section .side-text {
@@ -1093,6 +1096,10 @@
 <a class="nav-link" href="hakkimizda.html">Hakkımızda</a>
 <a class="nav-link" href="kaynaklar.html">Kaynaklar</a>
 </nav>
+<div class="flex flex-col gap-2 pt-4 mt-2 border-t border-primary/10">
+<button type="button" class="inline-flex w-full items-center justify-center bg-primary text-white text-sm font-medium tracking-[0.02em] px-4 py-3 rounded-lg hover:bg-primary/85 transition-all" data-demo-open aria-label="Demo talebi formunu aç">Demo Talep Et</button>
+<a href="http://login.legasis.ai:3025" class="inline-flex w-full items-center justify-center gap-1 bg-primary text-white text-sm font-medium tracking-[0.02em] px-4 py-3 rounded-lg hover:bg-primary/85 transition-all"><span class="material-symbols-outlined text-xs leading-none shrink-0" aria-hidden="true">login</span>Giriş</a>
+</div>
 </div>
 </header>
 <main class="flex flex-col gap-10 lg:gap-16">
@@ -1138,35 +1145,27 @@
         </section>
 <section class="slider-section" id="kayan-alan">
 <div class="hero-container">
-<h2 class="side-text hero-editorial text-slate-700 font-normal leading-[1.12] tracking-[-0.02em] text-center mx-auto w-full max-w-[min(100%,22rem)] sm:max-w-[min(100%,28rem)] lg:max-w-[min(100%,34rem)] text-[clamp(1.5rem,1rem+1.5vw,2.75rem)] px-0 m-0"><span class="side-text-bold">Legasis AI</span></h2>
+<h2 class="side-text hero-editorial text-slate-700 font-normal leading-[1.12] tracking-[-0.02em] text-center mx-auto w-full max-w-none text-[clamp(1.5rem,1rem+1.5vw,2.75rem)] px-0 m-0"><span class="side-text-bold">Legasis AI ile neler yapabilirim?</span></h2>
 <div class="scroll-wrapper">
 <ul class="scroll-list">
-<li class="clone">Doküman Analizi</li>
-<li class="item">Otomatik Doküman Tanıma</li>
+<li class="clone">Dilekçe Oluşturma</li>
 <li class="item">Dava Dosyası Özetleme</li>
-<li class="item">Sistem Loglama</li>
-<li class="item">Emsal Karar Arama</li>
+<li class="item">Dava Analiz</li>
 <li class="item">Mevzuat Arama</li>
+<li class="item">Emsal Karar Arama</li>
 <li class="item">Sözleşme Oluşturma</li>
 <li class="item">Dilekçe Oluşturma</li>
-<li class="item">Dava Kronolojisi</li>
-<li class="item">Çelişki Tespiti</li>
-<li class="item">Doküman Analizi</li>
-<li class="clone">Otomatik Doküman Tanıma</li>
 <li class="clone">Dava Dosyası Özetleme</li>
-<li class="clone">Sistem Loglama</li>
-<li class="clone">Emsal Karar Arama</li>
+<li class="clone">Dava Analiz</li>
 <li class="clone">Mevzuat Arama</li>
+<li class="clone">Emsal Karar Arama</li>
 <li class="clone">Sözleşme Oluşturma</li>
 <li class="clone">Dilekçe Oluşturma</li>
-<li class="clone">Dava Kronolojisi</li>
-<li class="clone">Çelişki Tespiti</li>
-<li class="clone">Doküman Analizi</li>
                                 </ul>
                 </div>
             </div>
         </section>
-<section class="modules-section w-[90%] max-w-none min-w-0 mx-auto px-2 sm:px-3 lg:px-4 rounded-3xl" id="modules-section" aria-labelledby="risk-content-title" data-risk-step-count="6">
+<section class="modules-section w-4/5 max-w-full min-w-0 mx-auto px-4 sm:px-6 lg:px-8 rounded-3xl" id="modules-section" aria-labelledby="risk-content-title" data-risk-step-count="6">
 <div class="risk-scrolly-track" id="risk-scrolly-track">
 <div class="risk-scrolly-sticky">
 <div class="risk-container">
@@ -1549,7 +1548,7 @@
                     </div>
                 </div>
 <p class="text-xs sm:text-sm text-slate-500 font-light">
-            © 2026 Legasis AI, bir Verto Next çözümüdür. Tüm hakları saklıdır.
+            © 2026 Legasis AI, bir <a href="https://www.vertonext.com" target="_blank" rel="noopener noreferrer" class="text-primary underline hover:no-underline">Verto Next</a> çözümüdür. Tüm hakları saklıdır.
                             </p>
                         </div>
         </footer>

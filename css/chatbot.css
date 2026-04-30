@@ -2,8 +2,8 @@
 
 .dikera-chatbot {
     position: fixed;
-    bottom: 30px;
-    right: 30px;
+    bottom: max(30px, calc(env(safe-area-inset-bottom, 0px) + 12px));
+    right: max(30px, calc(env(safe-area-inset-right, 0px) + 8px));
     z-index: 10000;
     font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
 }
@@ -56,8 +56,8 @@
 /* ─── Chat Window ─── */
 .chatbot-window {
     position: fixed;
-    bottom: 100px;
-    right: 30px;
+    bottom: max(100px, calc(env(safe-area-inset-bottom, 0px) + 88px));
+    right: max(30px, calc(env(safe-area-inset-right, 0px) + 8px));
     width: 380px;
     height: 520px;
     background: white;
@@ -322,8 +322,8 @@
 /* ─── Mobile Responsive ─── */
 @media (max-width: 480px) {
     .dikera-chatbot {
-        bottom: 20px;
-        right: 20px;
+        bottom: max(20px, calc(env(safe-area-inset-bottom, 0px) + 10px));
+        right: max(20px, calc(env(safe-area-inset-right, 0px) + 8px));
     }
 
     .chatbot-toggle {
@@ -332,11 +332,11 @@
     }
 
     .chatbot-window {
-        width: calc(100vw - 40px);
-        height: 70vh;
-        bottom: 84px;
-        right: 20px;
-        left: 20px;
+        left: max(20px, calc(env(safe-area-inset-left, 0px) + 8px));
+        right: max(20px, calc(env(safe-area-inset-right, 0px) + 8px));
+        width: auto;
+        height: min(70vh, calc(100dvh - 180px));
+        bottom: max(84px, calc(env(safe-area-inset-bottom, 0px) + 74px));
     }
 
     .chatbot-messages {

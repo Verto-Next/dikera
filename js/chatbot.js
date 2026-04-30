@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
-    var data = window.DIKERA_CHATBOT_DATA;
+    var data = window.LEGASIS_CHATBOT_DATA;
     if (!data) {
-        console.warn('Chatbot: DIKERA_CHATBOT_DATA bulunamadı.');
+        console.warn('Chatbot: LEGASIS_CHATBOT_DATA bulunamadı.');
         return;
     }
 
