@@ -800,6 +800,16 @@
     .slider-section .hero-container .scroll-wrapper {
       grid-column: 6 / 9; /* 6–8. kolonlar */
     }
+    /* Kayan liste: başlığa bir sütun daha yakın */
+    #kayan-alan .hero-container .side-text {
+      grid-column: 2 / 5;
+    }
+    #kayan-alan .hero-container .scroll-wrapper {
+      grid-column: 5 / 9;
+    }
+    #kayan-alan .scroll-list li {
+      justify-content: flex-start;
+    }
     .slider-section .scroll-wrapper {
       height: 200px; /* %50 azaltıldı (önceki 400px) */
       overflow: hidden;
@@ -880,6 +890,13 @@
       .slider-section .hero-container .side-text,
       .slider-section .hero-container .scroll-wrapper {
         grid-column: 1;
+      }
+      #kayan-alan .hero-container .side-text,
+      #kayan-alan .hero-container .scroll-wrapper {
+        grid-column: 1;
+      }
+      #kayan-alan .scroll-list li {
+        justify-content: center;
       }
       .slider-section .scroll-wrapper { width: 100%; }
       .slider-section .action-area { justify-content: center; }
