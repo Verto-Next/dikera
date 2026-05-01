@@ -1063,24 +1063,110 @@
     #karsilastirma .denetim-box-filled-red { background: #b91c1c; border: 1px solid #b91c1c; }
     #karsilastirma .denetim-box-filled-green { background: #166534; border: 1px solid #166534; }
     @media (max-width: 768px) {
+      #karsilastirma .karsilastirma-panel {
+        border-radius: 1.5rem;
+      }
       #karsilastirma .karsilastirma-table-wrap {
-        border-radius: 0.75rem;
+        overflow: visible;
+        border-radius: 1.25rem;
+      }
+      #karsilastirma .karsilastirma-table-scaled,
+      #karsilastirma .karsilastirma-table,
+      #karsilastirma .karsilastirma-table tbody,
+      #karsilastirma .karsilastirma-table tr,
+      #karsilastirma .karsilastirma-table td {
+        display: block;
+        width: 100%;
+        min-width: 0;
       }
       #karsilastirma .karsilastirma-table {
-        min-width: 40rem;
-        border-spacing: 4px 8px;
-        font-size: 0.8rem;
+        border-spacing: 0;
+        font-size: 0.86rem;
+      }
+      #karsilastirma .karsilastirma-table colgroup,
+      #karsilastirma .karsilastirma-table thead {
+        display: none;
+      }
+      #karsilastirma .karsilastirma-table tbody {
+        display: grid;
+        gap: 0.85rem;
+      }
+      #karsilastirma .karsilastirma-table tr {
+        display: block;
+        padding: 0.75rem;
+        border-radius: 1.15rem;
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid rgba(15, 23, 42, 0.08);
+        box-shadow: 0 14px 30px -24px rgba(15, 23, 42, 0.35);
       }
       #karsilastirma .karsilastirma-table th,
       #karsilastirma .karsilastirma-table td {
-        padding: 0.66rem 0.56rem;
+        border: 0;
+        font-size: 1em;
+        text-align: left;
       }
-      #karsilastirma .karsilastirma-table th:nth-child(1),
-      #karsilastirma .karsilastirma-table td:nth-child(1) {
-        font-size: 1.12em;
+      #karsilastirma .karsilastirma-table td:first-child {
+        padding: 0.72rem 0.78rem;
+        margin-bottom: 0.55rem;
+        border: 1px solid rgba(15, 23, 42, 0.08);
+        border-radius: 0.95rem;
+        background: rgba(255, 255, 255, 0.92) !important;
+        color: #08102c;
+        font-size: 1.05em;
+        line-height: 1.35;
+      }
+      #karsilastirma .karsilastirma-table td:not(:first-child) {
+        display: grid;
+        grid-template-columns: minmax(5.5rem, 0.42fr) minmax(0, 1fr);
+        align-items: center;
+        gap: 0.65rem;
+        padding: 0.68rem 0.76rem;
+        margin-top: 0.45rem;
+        border-radius: 0.9rem;
+        background: #f8fafc !important;
+        line-height: 1.3;
+      }
+      #karsilastirma .karsilastirma-table td:not(:first-child)::before {
+        display: inline-flex;
+        align-items: center;
+        width: fit-content;
+        margin: 0;
+        padding: 0.28rem 0.42rem;
+        border: 1px solid rgba(100, 116, 139, 0.16);
+        border-radius: 9999px;
+        background: rgba(255, 255, 255, 0.72);
+        color: #64748b;
+        font-size: 0.66rem;
+        font-weight: 800;
+        letter-spacing: 0.07em;
+        line-height: 1.2;
+        text-transform: uppercase;
+      }
+      #karsilastirma .karsilastirma-table td:nth-child(2)::before {
+        content: "Manuel Süreçler";
+      }
+      #karsilastirma .karsilastirma-table td:nth-child(3)::before {
+        content: "Standart Hukuk AI";
+      }
+      #karsilastirma .karsilastirma-table td:nth-child(4)::before {
+        content: "Legasis AI";
+        color: #166534;
+      }
+      #karsilastirma .karsilastirma-table .karsilastirma-featured-cell {
+        border: 1px solid rgba(22, 101, 52, 0.12);
+        border-radius: 0.95rem;
+        background: linear-gradient(180deg, #f4fff6 0%, #ecfdf3 100%) !important;
+        box-shadow: inset 0 0 0 1px rgba(22, 101, 52, 0.06);
+      }
+      #karsilastirma .karsilastirma-table .cell-icon {
+        justify-content: flex-start;
+        align-items: flex-start;
+        gap: 0.2rem;
+        line-height: 1.35;
       }
       #karsilastirma .karsilastirma-table .material-symbols-outlined {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
+        margin-top: 0.05rem;
       }
     }
   </style>
@@ -1096,7 +1182,6 @@
 <a class="nav-link" href="ozellikler.html">Özellikler</a>
 <a class="nav-link" href="guvenlik.html">Güvenlik</a>
 <a class="nav-link" href="hakkimizda.html">Hakkımızda</a>
-<a class="nav-link" href="kaynaklar.html">Kaynaklar</a>
 <div class="flex items-center gap-2">
 <button type="button" class="inline-flex items-center justify-center bg-primary text-white text-sm font-medium tracking-[0.02em] px-4 py-2 rounded-lg hover:bg-primary/85 transition-all" data-demo-open aria-label="Demo talebi formunu aç">Demo Talep Et</button>
 <a href="http://login.legasis.ai:3026/login" class="inline-flex items-center justify-center gap-1 bg-primary text-white text-sm font-medium tracking-[0.02em] px-4 py-2 rounded-lg hover:bg-primary/85 transition-all"><span class="material-symbols-outlined text-xs leading-none shrink-0" aria-hidden="true">login</span>Giriş</a>
@@ -1111,7 +1196,6 @@
 <a class="nav-link" href="ozellikler.html">Özellikler</a>
 <a class="nav-link" href="guvenlik.html">Güvenlik</a>
 <a class="nav-link" href="hakkimizda.html">Hakkımızda</a>
-<a class="nav-link" href="kaynaklar.html">Kaynaklar</a>
 </nav>
 <div class="flex flex-col gap-2 pt-4 mt-2 border-t border-primary/10">
 <button type="button" class="inline-flex w-full items-center justify-center bg-primary text-white text-sm font-medium tracking-[0.02em] px-4 py-3 rounded-lg hover:bg-primary/85 transition-all" data-demo-open aria-label="Demo talebi formunu aç">Demo Talep Et</button>
@@ -1309,12 +1393,12 @@
 </p>
 </div>
 </section>
-<section class="w-[92%] sm:w-4/5 max-w-none min-w-0 mx-auto px-2 sm:px-5 lg:px-6 py-10 lg:py-12 rounded-3xl" id="karsilastirma" aria-labelledby="karsilastirma-baslik">
+<section class="w-full sm:w-4/5 max-w-none min-w-0 mx-auto px-4 sm:px-5 lg:px-6 py-10 lg:py-12 rounded-3xl" id="karsilastirma" aria-labelledby="karsilastirma-baslik">
 <div class="max-w-7xl mx-auto text-center px-2 mb-5 sm:mb-6 lg:mb-8">
 <h2 id="karsilastirma-baslik" class="hero-editorial text-slate-700 font-normal leading-[1.12] tracking-[-0.02em] text-center mx-auto w-full max-w-[min(100%,22rem)] sm:max-w-[min(100%,28rem)] lg:max-w-[min(100%,34rem)] text-[clamp(1.5rem,1rem+1.5vw,2.75rem)] px-0 m-0">Geleneksel Çözümler ve Legasis AI</h2>
 </div>
 <div class="max-w-[min(100%,96rem)] mx-auto w-full">
-<div class="karsilastirma-panel rounded-3xl p-5 sm:p-6 lg:p-8 xl:p-10 overflow-hidden">
+<div class="karsilastirma-panel rounded-3xl p-3 sm:p-6 lg:p-8 xl:p-10 overflow-hidden">
 <div class="karsilastirma-table-wrap">
 <div class="karsilastirma-table-scaled">
 <div class="w-full max-w-full flex flex-col gap-0">
@@ -1542,6 +1626,7 @@
 <a class="text-charcoal/70 hover:text-primary transition-colors font-body" href="ozellikler.html">Özellikler</a>
 <a class="text-charcoal/70 hover:text-primary transition-colors font-body" href="guvenlik.html">Güvenlik</a>
 <a class="text-charcoal/70 hover:text-primary transition-colors font-body" href="hakkimizda.html">Hakkımızda</a>
+<a class="text-charcoal/70 hover:text-primary transition-colors font-body" href="kaynaklar.html">Kaynaklar</a>
 </nav>
                     </div>
 <div class="flex flex-col gap-5">

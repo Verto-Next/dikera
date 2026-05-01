@@ -15,8 +15,8 @@ tailwind.config = {
     theme: {
         extend: {
             colors: {
-                "primary": "#08102c",
-                "charcoal": "#313a40",
+                "primary": "#111111",
+                "charcoal": "#313131",
                 "background-light": "#FFFFFF"
             },
             fontFamily: {
@@ -32,7 +32,7 @@ tailwind.config = {
 body {
     font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
     background-color: #FFFFFF;
-    color: #313a40;
+    color: #313131;
 }
 h1, h2 {
     font-family: "EB Garamond", Georgia, "Times New Roman", serif;
@@ -89,7 +89,7 @@ h2.hero-headline {
 .nav-link:focus-visible::after {
     opacity: 1;
     transform: scaleX(1);
-    box-shadow: 0 3px 14px -2px rgba(22, 62, 110, 0.32);
+    box-shadow: 0 3px 14px -2px rgba(0, 0, 0, 0.24);
     animation: nav-link-underline-gleam 0.52s ease-out 0.1s 1 forwards;
 }
 @media (prefers-reduced-motion: reduce) {
@@ -116,7 +116,7 @@ header h1 {
     font-size: 1.5rem;
     font-weight: 700;
     letter-spacing: -0.025em;
-    color: #08102c;
+    color: #111111;
 }
 header .material-symbols-outlined {
     font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
@@ -125,8 +125,8 @@ header .material-symbols-outlined {
     transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
 }
 .guvenlik-card:hover {
-    box-shadow: 0 14px 40px -18px rgba(8, 16, 44, 0.14);
-    border-color: rgba(8, 16, 44, 0.12);
+    box-shadow: 0 14px 40px -18px rgba(0, 0, 0, 0.16);
+    border-color: rgba(0, 0, 0, 0.14);
     transform: translateY(-2px);
 }
 @media (prefers-reduced-motion: reduce) {
@@ -138,7 +138,110 @@ header .material-symbols-outlined {
     }
 }
 .guvenlik-scheme-line {
-    background: linear-gradient(180deg, rgba(8, 16, 44, 0.15), rgba(8, 16, 44, 0.35));
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.14), rgba(0, 0, 0, 0.32));
+}
+.security-hero {
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 14% 12%, rgba(255, 255, 255, 0.14), transparent 30%),
+        radial-gradient(circle at 84% 18%, rgba(255, 255, 255, 0.1), transparent 26%),
+        linear-gradient(145deg, #050505 0%, #111111 58%, #27272a 100%);
+}
+.security-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+    background-size: 44px 44px;
+    mask-image: linear-gradient(120deg, #000 0%, transparent 66%);
+    pointer-events: none;
+}
+.security-hero > * {
+    position: relative;
+    z-index: 1;
+}
+.security-glass-card {
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(18px);
+}
+.security-feature-card {
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.security-feature-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(0, 0, 0, 0.22);
+    box-shadow: 0 24px 54px -30px rgba(0, 0, 0, 0.3);
+}
+.security-orbit {
+    position: relative;
+}
+.security-orbit::before,
+.security-orbit::after {
+    content: "";
+    position: absolute;
+    inset: 2.5rem;
+    border: 1px dashed rgba(0, 0, 0, 0.16);
+    border-radius: 9999px;
+}
+.security-orbit::after {
+    inset: 4.75rem;
+    opacity: 0.65;
+}
+.dikera-chatbot .chatbot-toggle,
+.dikera-chatbot .chatbot-header,
+.dikera-chatbot .message.user .message-bubble,
+.dikera-chatbot .send-button {
+    background: linear-gradient(135deg, #050505 0%, #27272a 100%);
+}
+.dikera-chatbot .chatbot-toggle {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.34);
+}
+.dikera-chatbot .chatbot-toggle:hover {
+    box-shadow: 0 6px 28px rgba(0, 0, 0, 0.44);
+}
+.dikera-chatbot .chatbot-window {
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.18);
+}
+.dikera-chatbot .chatbot-messages,
+.dikera-chatbot .message-input {
+    background: #f7f7f7;
+}
+.dikera-chatbot .message.bot .message-bubble {
+    color: #313131;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+.dikera-chatbot .quick-reply {
+    background: #f1f1f1;
+    border-color: #dedede;
+    color: #111111;
+}
+.dikera-chatbot .quick-reply:hover {
+    background: #111111;
+    border-color: #111111;
+    color: #ffffff;
+}
+.dikera-chatbot .message-input {
+    border-color: #dedede;
+    color: #313131;
+}
+.dikera-chatbot .message-input:focus {
+    border-color: #111111;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.08);
+}
+@keyframes chatbotPulse {
+    0% { box-shadow: 0 4px 20px rgba(0, 0, 0, 0.34); }
+    50% { box-shadow: 0 4px 28px rgba(0, 0, 0, 0.52); }
+    100% { box-shadow: 0 4px 20px rgba(0, 0, 0, 0.34); }
+}
+@media (prefers-reduced-motion: reduce) {
+    .security-feature-card,
+    .security-feature-card:hover {
+        transform: none;
+        transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
 }
 </style>
 </head>
@@ -153,7 +256,6 @@ header .material-symbols-outlined {
 <a class="nav-link" href="ozellikler.html">Özellikler</a>
 <a class="nav-link text-primary" href="guvenlik.html">Güvenlik</a>
 <a class="nav-link" href="hakkimizda.html">Hakkımızda</a>
-<a class="nav-link" href="kaynaklar.html">Kaynaklar</a>
 <div class="flex items-center gap-2">
 <a href="index.html#demo" class="inline-flex items-center justify-center bg-primary text-white text-sm font-medium tracking-[0.02em] px-4 py-2 rounded-lg hover:bg-primary/85 transition-all" aria-label="Demo talebi formunu aç">Demo Talep Et</a>
 <a href="http://login.legasis.ai:3026/login" class="inline-flex items-center justify-center gap-1 bg-primary text-white text-sm font-medium tracking-[0.02em] px-4 py-2 rounded-lg hover:bg-primary/85 transition-all"><span class="material-symbols-outlined text-xs leading-none shrink-0" aria-hidden="true">login</span>Giriş</a>
@@ -168,7 +270,6 @@ header .material-symbols-outlined {
 <a class="nav-link" href="ozellikler.html">Özellikler</a>
 <a class="nav-link text-primary" href="guvenlik.html">Güvenlik</a>
 <a class="nav-link" href="hakkimizda.html">Hakkımızda</a>
-<a class="nav-link" href="kaynaklar.html">Kaynaklar</a>
 </nav>
 <div class="flex flex-col gap-2 pt-4 mt-2 border-t border-primary/10">
 <a href="index.html#demo" class="inline-flex w-full items-center justify-center bg-primary text-white text-sm font-medium tracking-[0.02em] px-4 py-3 rounded-lg hover:bg-primary/85 transition-all" aria-label="Demo talebi formunu aç">Demo Talep Et</a>
@@ -177,282 +278,294 @@ header .material-symbols-outlined {
 </div>
 </header>
 
-<main class="flex flex-col gap-10 lg:gap-16">
-<!-- 1. Hero -->
-<section class="px-4 sm:px-6 lg:px-8 pt-10 pb-2 lg:pt-12">
-<div class="max-w-7xl mx-3 sm:mx-auto px-6 sm:px-10 lg:px-14 py-12 lg:py-16 bg-gradient-to-br from-[#F5F7FB] via-white to-[#EEF3FF] rounded-3xl border border-primary/5 shadow-sm">
-<div class="max-w-3xl mx-auto text-center">
-<span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/5 border border-primary/10 text-primary text-xs font-semibold uppercase tracking-[0.1em]">
-<span class="material-symbols-outlined text-sm" aria-hidden="true">shield</span>
-Güvenlik ve Veri Kontrolü
+<main class="flex flex-col">
+<!-- Hero -->
+<section class="px-4 sm:px-6 lg:px-8 pt-8 lg:pt-12">
+<div class="security-hero max-w-7xl mx-auto rounded-[2rem] border border-primary/10 shadow-[0_28px_70px_-46px_rgba(0,0,0,0.55)]">
+<div class="grid lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-16 items-center px-6 sm:px-10 lg:px-14 py-12 lg:py-[4.5rem]">
+<div class="text-white">
+<h1 class="hero-headline max-w-3xl text-[clamp(2.35rem,4.5vw,5.6rem)] font-normal leading-[0.98] tracking-[-0.04em]">
+Hukuki veriniz kurumunuzda, kontrolünüz sizde kalır.
+</h1>
+<p class="mt-6 max-w-2xl text-base lg:text-xl font-light leading-relaxed text-white/[0.82]">
+Legasis AI, hassas dava dosyaları, sözleşmeler ve müvekkil bilgileri için Türkiye lokasyonlu, izole ve denetlenebilir bir güvenlik mimarisiyle çalışır.
+</p>
+<div class="mt-8 flex flex-wrap gap-3">
+<span class="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-primary shadow-sm">
+<span class="material-symbols-outlined text-base" aria-hidden="true">public_off</span>
+Veri yurtdışına çıkmaz
 </span>
-<h1 class="hero-headline mt-6 text-black font-normal leading-[1.12] tracking-[-0.02em] text-center mx-auto w-full max-w-[min(100%,22rem)] sm:max-w-[min(100%,28rem)] lg:max-w-[min(100%,34rem)] text-[clamp(1.5rem,2vw+1rem,3.5rem)] px-0">Kurumsal Düzeyde Güvenlik ve Veri Kontrolü</h1>
-<p class="mt-5 text-slate-800/90 font-light leading-relaxed text-[clamp(0.85rem,0.9vw+0.4rem,1.15rem)] max-w-2xl mx-auto">
-Dikera, hukuk ekiplerinin hassas verilerini izole, denetlenebilir ve mevzuata uygun bir altyapıda işler.
+<span class="inline-flex items-center gap-2 rounded-full bg-white/[0.12] px-4 py-2 text-sm font-semibold text-white ring-1 ring-white/[0.18]">
+<span class="material-symbols-outlined text-base" aria-hidden="true">psychology_alt</span>
+Model eğitimi yok
+</span>
+<span class="inline-flex items-center gap-2 rounded-full bg-white/[0.12] px-4 py-2 text-sm font-semibold text-white ring-1 ring-white/[0.18]">
+<span class="material-symbols-outlined text-base" aria-hidden="true">encrypted</span>
+Güvenli saklama
+</span>
+</div>
+</div>
+
+<div class="security-glass-card rounded-[1.75rem] border border-white/60 p-5 sm:p-6 lg:p-7 shadow-[0_24px_70px_-42px_rgba(0,0,0,0.45)]">
+<div class="rounded-3xl border border-primary/10 bg-white p-5 sm:p-6">
+<div class="flex items-center justify-between gap-4 border-b border-primary/10 pb-5">
+<div>
+<p class="text-[0.65rem] font-bold uppercase tracking-[0.2em] text-primary/55">Güvenlik Özeti</p>
+<h2 class="mt-2 text-primary text-xl font-semibold tracking-tight">Kapalı devre hukuk zekası</h2>
+</div>
+<div class="inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-primary text-white">
+<span class="material-symbols-outlined text-2xl" aria-hidden="true">lock</span>
+</div>
+</div>
+<div class="mt-5 space-y-3">
+<div class="flex items-start gap-3 rounded-2xl bg-primary/5 p-4">
+<span class="material-symbols-outlined mt-0.5 text-primary" aria-hidden="true">check_circle</span>
+<div>
+<h3 class="text-sm font-semibold text-primary">Türkiye sınırları içinde barındırma</h3>
+<p class="mt-1 text-xs leading-relaxed text-charcoal/70">Veri işleme ve saklama süreçleri Türkiye lokasyonlu altyapı seçenekleriyle kurgulanır.</p>
+</div>
+</div>
+<div class="flex items-start gap-3 rounded-2xl bg-primary/5 p-4">
+<span class="material-symbols-outlined mt-0.5 text-primary" aria-hidden="true">check_circle</span>
+<div>
+<h3 class="text-sm font-semibold text-primary">Harici AI aktarımı yok</h3>
+<p class="mt-1 text-xs leading-relaxed text-charcoal/70">Sorgularınız ve belgeleriniz açık bulut yapay zeka servislerine gönderilmez.</p>
+</div>
+</div>
+<div class="flex items-start gap-3 rounded-2xl bg-primary/5 p-4">
+<span class="material-symbols-outlined mt-0.5 text-primary" aria-hidden="true">check_circle</span>
+<div>
+<h3 class="text-sm font-semibold text-primary">No-training ilkesi</h3>
+<p class="mt-1 text-xs leading-relaxed text-charcoal/70">Verileriniz hiçbir koşulda model eğitimi veya çapraz müşteri öğrenimi için kullanılmaz.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Veri egemenliği -->
+<section class="px-4 sm:px-6 lg:px-8 py-16 lg:py-24" aria-labelledby="veri-egemenligi-baslik">
+<div class="max-w-7xl mx-auto">
+<div class="grid lg:grid-cols-[0.88fr_1.12fr] gap-10 lg:gap-14 items-end">
+<div>
+<h2 id="veri-egemenligi-baslik" class="hero-headline text-[clamp(2.1rem,3.2vw,4rem)] font-normal leading-[1.02] tracking-[-0.03em] text-black">
+Verileriniz Türkiye'den Dışarı Çıkmaz
+</h2>
+<p class="mt-5 text-base lg:text-lg font-light leading-relaxed text-charcoal/[0.78]">
+Hukuki verinin nerede saklandığı, hangi altyapıda işlendiği ve kimlerle temas ettiği kritik önemdedir. Bu nedenle Legasis AI güvenlik yaklaşımının merkezinde veri egemenliği yer alır.
+</p>
+</div>
+<div class="rounded-[1.5rem] border border-primary/10 bg-[#F7F7F7] p-5 lg:p-6">
+<p class="text-sm font-semibold uppercase tracking-[0.2em] text-primary/55">Temel garanti</p>
+<p class="mt-3 text-xl lg:text-2xl font-medium leading-snug text-primary">
+Verileriniz güvenli şekilde saklanır, yurtdışına aktarılmaz ve model eğitimi için kullanılmaz.
 </p>
 </div>
 </div>
+
+<div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+<article class="security-feature-card rounded-3xl border border-primary/10 bg-white p-6 lg:p-8 shadow-sm">
+<span class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/5 text-primary">
+<span class="material-symbols-outlined text-2xl" aria-hidden="true">cloud_done</span>
+</span>
+<h3 class="mt-7 text-xl font-semibold tracking-tight text-primary">Türkiye Lokasyonlu Private Cloud</h3>
+<p class="mt-3 text-sm lg:text-base leading-relaxed text-charcoal/[0.78]">
+Verileriniz Türkiye sınırları içerisinde, yedekli ve fiziksel olarak korunan özel bulut altyapısında barındırılır.
+</p>
+<p class="mt-5 rounded-2xl bg-primary/5 px-4 py-3 text-xs font-medium leading-relaxed text-primary/[0.78]">
+KVKK odaklı veri lokalizasyonu ve kurumsal saklama politikalarıyla uyumlu tasarım.
+</p>
+</article>
+
+<article class="security-feature-card rounded-3xl border border-primary/10 bg-white p-6 lg:p-8 shadow-sm">
+<span class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/5 text-primary">
+<span class="material-symbols-outlined text-2xl" aria-hidden="true">lan</span>
+</span>
+<h3 class="mt-7 text-xl font-semibold tracking-tight text-primary">On-Premise &amp; Hibrit Seçenekleri</h3>
+<p class="mt-3 text-sm lg:text-base leading-relaxed text-charcoal/[0.78]">
+Yüksek güvenlik hassasiyeti olan kurumlar için Legasis AI kendi sunucularınızda veya hibrit mimaride konumlandırılabilir.
+</p>
+<p class="mt-5 rounded-2xl bg-primary/5 px-4 py-3 text-xs font-medium leading-relaxed text-primary/[0.78]">
+Kurumsal IT politikalarına, ağ segmentasyonuna ve iç denetim gereksinimlerine uyum sağlar.
+</p>
+</article>
+
+<article class="security-feature-card rounded-3xl border border-primary/10 bg-white p-6 lg:p-8 shadow-sm">
+<span class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/5 text-primary">
+<span class="material-symbols-outlined text-2xl" aria-hidden="true">shield_lock</span>
+</span>
+<h3 class="mt-7 text-xl font-semibold tracking-tight text-primary">İzole Container Mimarisi</h3>
+<p class="mt-3 text-sm lg:text-base leading-relaxed text-charcoal/[0.78]">
+Her hukuk bürosunun verisi, diğer kullanıcılardan mantıksal olarak ayrılmış ve kontrollü erişim katmanlarıyla izole edilmiş yapılarda işlenir.
+</p>
+<p class="mt-5 rounded-2xl bg-primary/5 px-4 py-3 text-xs font-medium leading-relaxed text-primary/[0.78]">
+Müşteri verileri birbirine karışmaz; işlem alanları ve erişim sınırları net biçimde ayrılır.
+</p>
+</article>
+</div>
+</div>
 </section>
 
-<!-- 2. Veri egemenliği -->
-<section class="border-t border-primary/10 bg-[#f8f9fa]" aria-labelledby="guvenlik-veri-konumu-baslik">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
-<div class="flex flex-col gap-6 mb-10 text-center">
-<h2 id="guvenlik-veri-konumu-baslik" class="text-primary text-2xl lg:text-3xl font-medium tracking-tight">Verileriniz Türkiye'den Dışarı Çıkmaz</h2>
-<p class="text-charcoal/80 text-base lg:text-lg font-light max-w-3xl mx-auto leading-relaxed">
-    Verinin nerede ve nasıl işlendiği, hukuki sorumluluğunuzun ayrılmaz bir parçasıdır. Legasis AI, altyapı mimarisini bu sorumluluğa göre kurgular.
+<!-- İzole hukuk zekası -->
+<section class="border-y border-primary/10 bg-[#F7F7F7] px-4 sm:px-6 lg:px-8 py-16 lg:py-24" aria-labelledby="izole-zeka-baslik">
+<div class="max-w-7xl mx-auto grid lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-14 items-stretch">
+<div class="rounded-[2rem] border border-primary/10 bg-white p-6 sm:p-8 lg:p-10 shadow-[0_24px_70px_-48px_rgba(0,0,0,0.45)] h-full min-h-0">
+<h2 id="izole-zeka-baslik" class="text-primary text-3xl lg:text-4xl font-semibold leading-tight tracking-tight">
+Dış Dünyadan İzole Hukuk Zekası
+</h2>
+<p class="mt-4 text-base lg:text-lg font-light leading-relaxed text-charcoal/[0.78]">
+Legasis AI, hukuk verisinin harici servislerle temasını azaltacak şekilde tasarlanır. Analiz ve yanıt üretimi, kurum içi belgeleriniz ve tanımlı güvenli altyapı sınırları içinde kalır.
+</p>
+
+<div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+<div class="rounded-2xl border border-primary/10 bg-primary/5 p-5">
+<span class="material-symbols-outlined text-primary" aria-hidden="true">block</span>
+<h3 class="mt-3 text-sm lg:text-base font-semibold text-primary">Harici AI Servislerine Veri Aktarımı Yok</h3>
+<p class="mt-2 text-xs lg:text-sm leading-relaxed text-charcoal/[0.72]">
+Sorgularınız, dava dosyalarınız veya sözleşmeleriniz OpenAI benzeri açık bulut servislerine gönderilmez.
 </p>
 </div>
-
-<div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-    <!-- Kart A: Veri Egemenliği -->
-    <div class="guvenlik-card bg-white rounded-2xl border border-primary/10 shadow-sm p-6 lg:p-8 flex flex-col gap-4">
-        <span class="text-[0.65rem] font-bold uppercase tracking-[0.14em] text-primary/60 w-max">01</span>
-        <div class="inline-flex items-center justify-center w-12 h-12 lg:w-14 lg:h-14 rounded-full bg-primary/5 text-primary">
-            <span class="material-symbols-outlined text-2xl lg:text-3xl" aria-hidden="true">cloud_done</span>
-        </div>
-        <div class="flex flex-col gap-2">
-            <h3 class="text-primary text-lg lg:text-xl font-medium tracking-tight">Türkiye Lokasyonlu Private Cloud</h3>
-            <p class="text-charcoal/85 text-sm lg:text-base leading-relaxed">
-                Verileriniz Türkiye sınırları içerisinde, Tier-3 standartlarına sahip, yedekli ve fiziksel olarak izole edilmiş özel bulut altyapısında barındırılır.
-            </p>
-            <p class="text-xs text-slate-500 mt-1">
-                %100 KVKK uyumluluğu ve veri lokalizasyonu garantisi.
-            </p>
-        </div>
-    </div>
-
-    <!-- Kart B: Esnek Kurulum -->
-    <div class="guvenlik-card bg-white rounded-2xl border border-primary/10 shadow-sm p-6 lg:p-8 flex flex-col gap-4">
-        <span class="text-[0.65rem] font-bold uppercase tracking-[0.14em] text-primary/60 w-max">02</span>
-        <div class="inline-flex items-center justify-center w-12 h-12 lg:w-14 lg:h-14 rounded-full bg-primary/5 text-primary">
-            <span class="material-symbols-outlined text-2xl lg:text-3xl" aria-hidden="true">lan</span>
-        </div>
-        <div class="flex flex-col gap-2">
-            <h3 class="text-primary text-lg lg:text-xl font-medium tracking-tight">On-Premise &amp; Hibrit Seçenekleri</h3>
-            <p class="text-charcoal/85 text-sm lg:text-base leading-relaxed">
-                Yüksek güvenlik hassasiyeti olan büyük hukuk büroları için yazılımı tamamen kendi sunucularınıza (air-gapped) kurma ve yönetme imkânı sunuyoruz.
-            </p>
-            <p class="text-xs text-slate-500 mt-1">
-                Kurumsal IT politikalarınıza tam entegrasyon desteği.
-            </p>
-        </div>
-    </div>
-
-    <!-- Kart C: İzolasyon -->
-    <div class="guvenlik-card bg-white rounded-2xl border border-primary/10 shadow-sm p-6 lg:p-8 flex flex-col gap-4">
-        <span class="text-[0.65rem] font-bold uppercase tracking-[0.14em] text-primary/60 w-max">03</span>
-        <div class="inline-flex items-center justify-center w-12 h-12 lg:w-14 lg:h-14 rounded-full bg-primary/5 text-primary">
-            <span class="material-symbols-outlined text-2xl lg:text-3xl" aria-hidden="true">shield_lock</span>
-        </div>
-        <div class="flex flex-col gap-2">
-            <h3 class="text-primary text-lg lg:text-xl font-medium tracking-tight">İzole Container Mimarisi</h3>
-            <p class="text-charcoal/85 text-sm lg:text-base leading-relaxed">
-                Her hukuk bürosunun verisi, diğer kullanıcılardan mantıksal ve fiziksel olarak ayrılmış, kendine özel şifrelenmiş konteyner yapılarında işlenir.
-            </p>
-            <p class="text-xs text-slate-500 mt-1">
-                Uçtan uca izolasyon ve çok katmanlı güvenlik katmanı.
-            </p>
-        </div>
-    </div>
+<div class="rounded-2xl border border-primary/10 bg-white p-5">
+<span class="material-symbols-outlined text-primary" aria-hidden="true">description</span>
+<h3 class="mt-3 text-sm lg:text-base font-semibold text-primary">Yanıtlar Yalnızca Belgelere Dayanır</h3>
+<p class="mt-2 text-xs lg:text-sm leading-relaxed text-charcoal/[0.72]">
+Çıktılar, kurumunuzun yüklediği belge seti ve izin verilen bilgi kaynakları üzerinden oluşturulur.
+</p>
+</div>
+<div class="rounded-2xl border border-primary/10 bg-white p-5">
+<span class="material-symbols-outlined text-primary" aria-hidden="true">link_off</span>
+<h3 class="mt-3 text-sm lg:text-base font-semibold text-primary">Dış API Çağrısı Yok</h3>
+<p class="mt-2 text-xs lg:text-sm leading-relaxed text-charcoal/[0.72]">
+Kritik veri akışlarında üçüncü parti API bağımlılığı olmadan kontrollü ve izlenebilir bir çalışma modeli hedeflenir.
+</p>
+</div>
+<div class="rounded-2xl border border-primary/10 bg-primary/5 p-5">
+<span class="material-symbols-outlined text-primary" aria-hidden="true">verified_user</span>
+<h3 class="mt-3 text-sm lg:text-base font-semibold text-primary">Deterministik ve Denetlenebilir Çıktı</h3>
+<p class="mt-2 text-xs lg:text-sm leading-relaxed text-charcoal/[0.72]">
+Aynı doküman seti üzerinden üretilen sonuçlar izlenebilir, raporlanabilir ve denetim süreçlerine konu edilebilir.
+</p>
 </div>
 </div>
-</section>
-
-<!-- 3. Dış dünyadan izole hukuk zekası -->
-<section class="px-4 sm:px-6 lg:px-8 py-12 lg:py-16" aria-labelledby="guvenlik-izolasyon-baslik">
-<div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-10 lg:gap-14 items-start">
-<div class="rounded-2xl border border-primary/12 bg-white shadow-[0_20px_50px_-24px_rgba(8,16,44,0.12)] p-8 lg:p-10">
-    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/5 border border-primary/15 text-primary text-[11px] font-semibold uppercase tracking-[0.18em] mb-4">
-        <span class="material-symbols-outlined text-sm" aria-hidden="true">verified_user</span>
-        <span>Stratejik Güvence</span>
-    </div>
-
-    <h2 id="guvenlik-izolasyon-baslik" class="text-primary text-2xl lg:text-3xl font-semibold leading-tight tracking-tight">
-        Dış Dünyadan İzole Hukuk Zekası
-    </h2>
-    <p class="mt-3 text-charcoal/80 text-base lg:text-lg font-light leading-relaxed">
-        Yanıtlar yalnızca kurum içi belgelerinize dayanır; sorgularınız hiçbir zaman harici yapay zeka servislerine gönderilmez.
-    </p>
-
-    <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
-        <div class="flex items-start gap-3">
-            <div class="inline-flex items-center justify-center w-10 h-10 shrink-0 rounded-full bg-primary/10 text-primary">
-                <span class="material-symbols-outlined text-xl" aria-hidden="true">block</span>
-            </div>
-            <div class="flex-1 min-w-0">
-                <h3 class="text-primary text-sm lg:text-base font-semibold">Harici AI Servislerine Veri Aktarımı Yok</h3>
-                <p class="mt-1 text-charcoal/80 text-xs lg:text-sm leading-relaxed">
-                    Sorgularınız OpenAI veya benzeri bulut servislerine gönderilmez; tüm işleme güvenli yerel altyapıda gerçekleşir.
-                </p>
-            </div>
-        </div>
-
-        <div class="flex items-start gap-3">
-            <div class="inline-flex items-center justify-center w-10 h-10 shrink-0 rounded-full bg-primary/10 text-primary">
-                <span class="material-symbols-outlined text-xl" aria-hidden="true">description</span>
-            </div>
-            <div class="flex-1 min-w-0">
-                <h3 class="text-primary text-sm lg:text-base font-semibold">Yanıtlar Yalnızca Belgelere Dayanır</h3>
-                <p class="mt-1 text-charcoal/80 text-xs lg:text-sm leading-relaxed">
-                    Halüsinasyon riski minimize edilmiş, tamamen dosya gerçeğine sadık analiz üreten bir kapalı bağlam mimarisi kullanılır.
-                </p>
-            </div>
-        </div>
-
-        <div class="flex items-start gap-3">
-            <div class="inline-flex items-center justify-center w-10 h-10 shrink-0 rounded-full bg-primary/10 text-primary">
-                <span class="material-symbols-outlined text-xl" aria-hidden="true">link_off</span>
-            </div>
-            <div class="flex-1 min-w-0">
-                <h3 class="text-primary text-sm lg:text-base font-semibold">Dış API Çağrısı Yok</h3>
-                <p class="mt-1 text-charcoal/80 text-xs lg:text-sm leading-relaxed">
-                    Kritik süreçlerde üçüncü parti API bağımlılığı bulunmaz; performans ve güvenlik tek bir kontrol noktasında tutulur.
-                </p>
-            </div>
-        </div>
-
-        <div class="flex items-start gap-3">
-            <div class="inline-flex items-center justify-center w-10 h-10 shrink-0 rounded-full bg-primary/10 text-primary">
-                <span class="material-symbols-outlined text-xl" aria-hidden="true">shield</span>
-            </div>
-            <div class="flex-1 min-w-0">
-                <h3 class="text-primary text-sm lg:text-base font-semibold">Deterministik ve Denetlenebilir Çıktı</h3>
-                <p class="mt-1 text-charcoal/80 text-xs lg:text-sm leading-relaxed">
-                    Aynı doküman seti ve aynı sorgu için tekrarlanabilir, denetlenebilir ve raporlanabilir sonuçlar üretir.
-                </p>
-            </div>
-        </div>
-    </div>
-
-    <div class="mt-8 bg-primary/5 border border-primary/15 rounded-2xl px-5 py-4 flex flex-col md:flex-row items-start md:items-center gap-3">
-        <div class="inline-flex items-center justify-center w-9 h-9 shrink-0 rounded-full bg-primary text-white">
-            <span class="material-symbols-outlined text-lg" aria-hidden="true">memory</span>
-        </div>
-        <div class="flex-1 min-w-0">
-            <p class="text-primary text-sm font-semibold uppercase tracking-[0.18em]">ALTYAPI GÜVENCESİ - LOCAL INFERENCE ENGINE</p>
-            <p class="mt-1 text-charcoal/80 text-xs lg:text-sm leading-relaxed">
-                Tüm model çıkarım süreçleri (inference), kurum içi altyapınızda veya Türkiye lokasyonlu özel bulut ortamında çalışır; veri asla bu sınırların dışına çıkmaz.
-            </p>
-        </div>
-    </div>
 </div>
 
-<!-- Şema: kapalı devre / yerel çıkarım (sadece görsel) -->
-<div class="rounded-2xl border border-primary/12 bg-gradient-to-b from-[#F5F7FB] to-white p-8 lg:p-10 min-h-[280px] flex flex-col justify-center" aria-hidden="true">
-<p class="text-center text-[0.65rem] font-bold uppercase tracking-[0.2em] text-primary/55 mb-6">Kapalı devre mimari</p>
-<div class="flex flex-col items-center gap-0 max-w-[240px] mx-auto">
-<div class="w-full rounded-xl border-2 border-dashed border-primary/20 bg-white/90 px-3 py-3 text-center text-xs font-medium text-primary/85 leading-snug">Kurum içi belgeler</div>
-<div class="guvenlik-scheme-line w-px h-6 shrink-0"></div>
-<div class="flex items-center justify-center w-12 h-12 rounded-full bg-primary text-white shadow-md">
-<span class="material-symbols-outlined text-2xl font-light">memory</span>
+<div class="security-orbit rounded-[2rem] border border-primary/10 bg-gradient-to-b from-white to-[#F4F4F5] p-7 lg:p-10 h-full min-h-0 flex items-center justify-center overflow-hidden" aria-label="Kapalı devre veri akış şeması">
+<div class="relative z-10 w-full max-w-sm">
+<div class="mx-auto flex h-24 w-24 items-center justify-center rounded-full bg-white p-3 shadow-[0_18px_42px_-20px_rgba(0,0,0,0.65)] ring-1 ring-primary/10">
+<img src="assets/legasis_bg.png" alt="Legasis AI" class="h-14 w-auto max-w-[3.75rem] object-contain object-center" loading="lazy" decoding="async" width="56" height="56" />
 </div>
-<div class="guvenlik-scheme-line w-px h-6 shrink-0"></div>
-<div class="w-full rounded-xl border border-primary/15 bg-white px-3 py-2.5 text-center text-[11px] text-charcoal/75 leading-relaxed">Yanıtlar yalnızca yüklenen dosyaya dayanır</div>
+<div class="mt-8 grid gap-3">
+<div class="rounded-2xl border border-primary/15 bg-white px-5 py-4 shadow-sm text-center">
+<p class="text-xs font-bold uppercase tracking-[0.18em] text-primary/55">Girdi</p>
+<p class="mt-1 text-sm font-semibold text-primary">Kurum içi belgeler</p>
 </div>
-<div class="mt-6 flex items-center justify-center gap-2 text-red-800/90 text-xs font-medium">
-<span class="material-symbols-outlined text-base" aria-hidden="true">block</span>
-<span>Harici bulut AI / açık API yok</span>
+<div class="flex justify-center text-primary/50">
+<span class="material-symbols-outlined" aria-hidden="true">south</span>
+</div>
+<div class="rounded-2xl border-2 border-dashed border-primary/20 bg-white/90 px-5 py-4 text-center shadow-sm">
+<p class="text-xs font-bold uppercase tracking-[0.18em] text-primary/55">İşleme</p>
+<p class="mt-1 text-sm font-semibold text-primary">Yerel / izole çıkarım katmanı</p>
+</div>
+<div class="flex justify-center text-primary/50">
+<span class="material-symbols-outlined" aria-hidden="true">south</span>
+</div>
+<div class="rounded-2xl border border-primary/15 bg-white px-5 py-4 shadow-sm text-center">
+<p class="text-xs font-bold uppercase tracking-[0.18em] text-primary/55">Çıktı</p>
+<p class="mt-1 text-sm font-semibold text-primary">Belgeye dayalı yanıt ve denetim izi</p>
+</div>
+</div>
+<div class="mt-6 flex items-center justify-center gap-2 rounded-full border border-red-900/10 bg-red-50 px-4 py-3 text-sm font-semibold text-red-900">
+<span class="material-symbols-outlined text-base" aria-hidden="true">public_off</span>
+Harici bulut AI veya açık API akışı yok
+</div>
 </div>
 </div>
 </div>
 </section>
 
-<!-- 4. Güvenlik üçlemesi -->
-<section class="border-t border-primary/10 bg-[#f8f9fa]" aria-labelledby="guvenlik-uclu-baslik">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
-    <div class="max-w-3xl mx-auto text-center mb-12">
-        <h2 id="guvenlik-uclu-baslik" class="text-primary text-2xl lg:text-3xl font-semibold tracking-tight">Güvenlik mimarisinin üç sütunu</h2>
-        <div class="flex flex-wrap justify-center gap-2 mt-5">
-            <span class="inline-flex items-center rounded-full border border-primary/15 bg-white px-3 py-1.5 text-sm font-medium text-primary/90 shadow-sm">Veri gizliliği</span>
-            <span class="inline-flex items-center rounded-full border border-primary/15 bg-white px-3 py-1.5 text-sm font-medium text-primary/90 shadow-sm">Kurumsal hiyerarşi</span>
-            <span class="inline-flex items-center rounded-full border border-primary/15 bg-white px-3 py-1.5 text-sm font-medium text-primary/90 shadow-sm">Denetlenebilirlik</span>
-        </div>
-        <p class="mt-5 text-charcoal/80 text-sm lg:text-base font-light leading-relaxed max-w-2xl mx-auto">
-            Veri gizliliği, kurumsal hiyerarşi ve denetlenebilirlik; Legasis AI güvenlik mimarisinin üç temel sütunudur.
-        </p>
-    </div>
+<!-- Güvenli saklama ve no-training -->
+<section class="px-4 sm:px-6 lg:px-8 py-16 lg:py-24" aria-labelledby="guvenli-saklama-baslik">
+<div class="max-w-7xl mx-auto">
+<div class="max-w-3xl">
+<h2 id="guvenli-saklama-baslik" class="hero-headline text-[clamp(2rem,3vw,3.8rem)] font-normal leading-[1.04] tracking-[-0.03em] text-black">
+Veriniz saklanır, korunur; eğitim verisine dönüşmez.
+</h2>
+</div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
-        <!-- Kart 1: Veri Gizliliği Sözü -->
-        <div class="guvenlik-card bg-white rounded-2xl border border-primary/10 shadow-sm p-8 flex flex-col gap-4">
-            <div class="inline-flex items-center justify-center w-11 h-11 rounded-full bg-primary/10 text-primary">
-                    <span class="material-symbols-outlined text-xl" aria-hidden="true">psychology_alt</span>
-            </div>
-            <h3 class="text-primary text-xl font-semibold">%100 No-Training Politikası</h3>
-            <p class="text-slate-600 text-sm leading-relaxed">
-                Verileriniz merkezi modelleri eğitmek için kullanılmaz; hukuki bilgi birikimiz sadece size özel kalır ve hiçbir zaman anonimleştirilmiş dahi olsa eğitim verisi haline getirilmez.
-            </p>
-            <ul class="mt-2 space-y-1.5 text-slate-500 text-sm leading-relaxed">
-                <li class="flex items-start gap-2">
-                    <span class="material-symbols-outlined text-[16px] mt-0.5">block</span>
-                    <span>Müşteri verileri hiçbir koşulda model güncellemelerinde kullanılmaz.</span>
-                </li>
-                <li class="flex items-start gap-2">
-                    <span class="material-symbols-outlined text-[16px] mt-0.5">folder_off</span>
-                    <span>Çapraz müşteri öğrenimi (cross-customer training) kesin olarak engellenir.</span>
-                </li>
-            </ul>
-        </div>
+<div class="mt-10 grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
+<article class="lg:col-span-2 rounded-[2rem] bg-primary p-7 lg:p-9 text-white shadow-[0_28px_70px_-42px_rgba(0,0,0,0.58)]">
+<div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8">
+<div class="max-w-xl">
+<p class="text-[0.72rem] font-bold uppercase tracking-[0.2em] text-white/55">No-training politikası</p>
+<h3 class="mt-4 text-2xl lg:text-3xl font-semibold tracking-tight">%100 müşteri verisi gizliliği</h3>
+<p class="mt-4 text-sm lg:text-base leading-relaxed text-white/[0.76]">
+Belgeleriniz, soru geçmişiniz, üretilen yanıtlarınız ve hukuki bilgi birikiminiz merkezi modelleri eğitmek için kullanılmaz. Verileriniz anonimleştirilmiş olsa dahi model eğitim setlerine dahil edilmez.
+</p>
+</div>
+<span class="inline-flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-white/10 text-white ring-1 ring-white/15">
+<span class="material-symbols-outlined text-3xl" aria-hidden="true">psychology_alt</span>
+</span>
+</div>
+<div class="mt-8 grid sm:grid-cols-2 gap-4">
+<div class="rounded-2xl border border-white/[0.12] bg-white/[0.08] p-5">
+<span class="material-symbols-outlined text-white/90" aria-hidden="true">folder_off</span>
+<h4 class="mt-3 text-sm font-semibold">Çapraz müşteri öğrenimi yok</h4>
+<p class="mt-2 text-xs leading-relaxed text-white/[0.68]">Bir müşterinin verisi başka bir müşterinin deneyimini veya model davranışını eğitmek için kullanılmaz.</p>
+</div>
+<div class="rounded-2xl border border-white/[0.12] bg-white/[0.08] p-5">
+<span class="material-symbols-outlined text-white/90" aria-hidden="true">visibility_off</span>
+<h4 class="mt-3 text-sm font-semibold">Deşifre veri API yanıtına dönmez</h4>
+<p class="mt-2 text-xs leading-relaxed text-white/[0.68]">Hassas içerikler sadece yetkili kullanım senaryolarında, kontrollü arayüz ve erişim kurallarıyla işlenir.</p>
+</div>
+</div>
+</article>
 
-        <!-- Kart 2: Kurumsal Hiyerarşi (RBAC) -->
-        <div class="guvenlik-card bg-white rounded-2xl border border-primary/10 shadow-sm p-8 flex flex-col gap-4">
-            <div class="inline-flex items-center justify-center w-11 h-11 rounded-full bg-primary/10 text-primary">
-                <span class="material-symbols-outlined text-xl" aria-hidden="true">admin_panel_settings</span>
-            </div>
-            <h3 class="text-primary text-xl font-semibold">Gelişmiş Yetkilendirme (RBAC)</h3>
-            <p class="text-slate-600 text-sm leading-relaxed">
-                Dosya ve kullanıcı bazlı yetkilendirme ile “bilmesi gereken prensibini&quot; (need-to-know) dijital ortamda hayata geçirir; ortak, kıdemli ve stajyer rollerini ayrıştırırsınız.
-            </p>
-            <ul class="mt-2 space-y-1.5 text-slate-500 text-sm leading-relaxed">
-                <li class="flex items-start gap-2">
-                    <span class="material-symbols-outlined text-[16px] mt-0.5">key</span>
-                    <span>Rol bazlı erişim; kullanıcıların yalnızca yetkili olduğu dosyaları görmesini sağlar.</span>
-                </li>
-                <li class="flex items-start gap-2">
-                    <span class="material-symbols-outlined text-[16px] mt-0.5">visibility_off</span>
-                    <span>Kritik davalar için kısıtlı görünürlük ve ek onay akışları tanımlanabilir.</span>
-                </li>
-            </ul>
-        </div>
-
-        <!-- Kart 3: Dijital Denetim (Audit Trail) -->
-        <div class="guvenlik-card bg-white rounded-2xl border border-primary/10 shadow-sm p-8 flex flex-col gap-4">
-            <div class="inline-flex items-center justify-center w-11 h-11 rounded-full bg-primary/10 text-primary">
-                <span class="material-symbols-outlined text-xl" aria-hidden="true">search</span>
-            </div>
-            <h3 class="text-primary text-xl font-semibold">Şeffaf Denetim ve Loglama</h3>
-            <p class="text-slate-600 text-sm leading-relaxed">
-                Sistemdeki tüm sorgu ve işlemler loglanır; hem IT hem de uyum ekipleri için geriye dönük incelenebilir tam bir denetim izi sunulur.
-            </p>
-            <ul class="mt-2 space-y-1.5 text-slate-500 text-sm leading-relaxed">
-                <li class="flex items-start gap-2">
-                    <span class="material-symbols-outlined text-[16px] mt-0.5">assignment</span>
-                    <span>Sorgular, üretilen yanıtlar ve kritik aksiyonlar zaman damgası ile kaydedilir.</span>
-                </li>
-                <li class="flex items-start gap-2">
-                    <span class="material-symbols-outlined text-[16px] mt-0.5">rule</span>
-                    <span>Denetim süreçlerinde gerekli raporları hızlıca üretebilmeniz için merkezi loglama katmanı.</span>
-                </li>
-            </ul>
-        </div>
-    </div>
+<aside class="rounded-[2rem] border border-primary/10 bg-[#F7F7F7] p-7 lg:p-8">
+<span class="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-primary text-white">
+<span class="material-symbols-outlined text-2xl" aria-hidden="true">database</span>
+</span>
+<h3 class="mt-6 text-xl font-semibold tracking-tight text-primary">Güvenli saklama yaklaşımı</h3>
+<ul class="mt-5 space-y-4 text-sm leading-relaxed text-charcoal/[0.76]">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined mt-0.5 text-[18px] text-primary" aria-hidden="true">check</span>
+<span>Hassas veriler kontrollü erişim, ayrıştırılmış yetki ve kayıt altına alınan işlem akışlarıyla korunur.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined mt-0.5 text-[18px] text-primary" aria-hidden="true">check</span>
+<span>Rol bazlı yetkilendirme sayesinde kullanıcılar yalnızca yetkili oldukları dosya ve çalışma alanlarına erişir.</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined mt-0.5 text-[18px] text-primary" aria-hidden="true">check</span>
+<span>Denetlenebilir log yapısı, sorgu ve kritik aksiyonların geriye dönük incelenmesini destekler.</span>
+</li>
+</ul>
+</aside>
+</div>
 </div>
 </section>
-
-<!-- 4. Veri – Model Eğitimi, 5. RBAC, 6. Denetim, 7. Altyapı bölümleri kaldırıldı -->
 
 <!-- CTA -->
-<section class="px-4 sm:px-6 lg:px-8 py-16 lg:py-24 bg-[#FFFFFF]">
-<div class="max-w-3xl mx-auto bg-primary text-white rounded-3xl px-8 py-12 lg:px-12 lg:py-14 text-center flex flex-col items-center gap-8 shadow-xl border border-white/10">
-<h2 class="font-medium text-center leading-[1.4] tracking-[0.02em] text-[clamp(0.96rem,0.92vw+0.68rem,1.32rem)] max-w-[65ch]">Erken Erişim için Demo Talep Edin</h2>
-<a class="inline-flex mt-2 border border-white/25 hover:bg-white/10 px-8 py-3 rounded-xl font-medium tracking-[0.02em] text-sm text-white transition-all" href="index.html#demo" aria-label="Demo talebi formunu aç">
+<section class="px-4 sm:px-6 lg:px-8 pb-16 lg:pb-24">
+<div class="max-w-7xl mx-auto rounded-[2rem] bg-gradient-to-br from-[#050505] to-[#27272a] px-6 sm:px-10 lg:px-14 py-12 lg:py-14 text-white">
+<div class="grid lg:grid-cols-[1fr_auto] gap-8 lg:gap-12 items-center">
+<div>
+<p class="text-[0.72rem] font-bold uppercase tracking-[0.2em] text-white/55">Güvenlik değerlendirmesi</p>
+<h2 class="mt-4 text-2xl lg:text-4xl font-semibold tracking-tight">Veri güvenliği yaklaşımımızı kurumunuzla birlikte değerlendirelim.</h2>
+<p class="mt-4 max-w-2xl text-sm lg:text-base leading-relaxed text-white/[0.72]">
+Türkiye lokasyonlu kurulum, on-premise seçenekler ve model eğitimi kullanılmayan kapalı devre mimari hakkında detaylı demo alabilirsiniz.
+</p>
+</div>
+<a class="inline-flex items-center justify-center rounded-xl border border-white/25 px-8 py-3 text-sm font-semibold tracking-[0.02em] text-white transition-all hover:bg-white/10" href="index.html#demo" aria-label="Demo talebi formunu aç">
 Demo Talep Et
 </a>
 </div>
+</div>
 </section>
 </main>
-<footer class="bg-[#FAFBFD] border-t border-primary/5 px-4 sm:px-6 lg:px-8 pt-20 lg:pt-24 pb-14">
+<footer class="bg-[#FAFAFA] border-t border-primary/5 px-4 sm:px-6 lg:px-8 pt-20 lg:pt-24 pb-14">
 <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-14 lg:gap-16 mb-16">
 <div class="flex flex-col gap-8 col-span-1 md:col-span-2">
 <div class="flex items-center gap-2">
@@ -469,6 +582,7 @@ Demo Talep Et
 <a class="text-charcoal/70 hover:text-primary transition-colors font-body" href="ozellikler.html">Özellikler</a>
 <a class="text-charcoal/70 hover:text-primary transition-colors font-body" href="guvenlik.html">Güvenlik</a>
 <a class="text-charcoal/70 hover:text-primary transition-colors font-body" href="hakkimizda.html">Hakkımızda</a>
+<a class="text-charcoal/70 hover:text-primary transition-colors font-body" href="kaynaklar.html">Kaynaklar</a>
 </nav>
                     </div>
 <div class="flex flex-col gap-5">

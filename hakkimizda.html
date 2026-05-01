@@ -122,19 +122,57 @@ header h1 {
 header .material-symbols-outlined {
     font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
 }
-.hakkimizda-card {
+.about-hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+}
+.about-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 12% 12%, rgba(8, 16, 44, 0.12), transparent 34%),
+        radial-gradient(circle at 88% 18%, rgba(22, 62, 110, 0.12), transparent 30%),
+        linear-gradient(135deg, #f7f9fd 0%, #ffffff 48%, #eef3ff 100%);
+    z-index: -2;
+}
+.about-hero::after {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    border-radius: 1.5rem;
+    background-image:
+        linear-gradient(rgba(8, 16, 44, 0.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(8, 16, 44, 0.055) 1px, transparent 1px);
+    background-size: 42px 42px;
+    mask-image: linear-gradient(120deg, rgba(0, 0, 0, 0.85), transparent 62%);
+    z-index: -1;
+}
+.collaboration-card,
+.principle-card,
+.expertise-card {
     transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
 }
-.hakkimizda-card:hover {
-    box-shadow: 0 14px 40px -18px rgba(8, 16, 44, 0.14);
-    border-color: rgba(8, 16, 44, 0.12);
-    transform: translateY(-2px);
+.collaboration-card:hover,
+.principle-card:hover,
+.expertise-card:hover {
+    box-shadow: 0 18px 48px -24px rgba(8, 16, 44, 0.25);
+    border-color: rgba(8, 16, 44, 0.16);
+    transform: translateY(-3px);
+}
+.workflow-line {
+    background: linear-gradient(180deg, rgba(8, 16, 44, 0.18), rgba(8, 16, 44, 0.04));
 }
 @media (prefers-reduced-motion: reduce) {
-    .hakkimizda-card {
+    .collaboration-card,
+    .principle-card,
+    .expertise-card {
         transition: border-color 0.2s ease, box-shadow 0.2s ease;
     }
-    .hakkimizda-card:hover {
+    .collaboration-card:hover,
+    .principle-card:hover,
+    .expertise-card:hover {
         transform: none;
     }
 }
@@ -151,7 +189,6 @@ header .material-symbols-outlined {
 <a class="nav-link" href="ozellikler.html">Özellikler</a>
 <a class="nav-link" href="guvenlik.html">Güvenlik</a>
 <a class="nav-link text-primary" href="hakkimizda.html">Hakkımızda</a>
-<a class="nav-link" href="kaynaklar.html">Kaynaklar</a>
 <div class="flex items-center gap-2">
 <a href="index.html#demo" class="inline-flex items-center justify-center bg-primary text-white text-sm font-medium tracking-[0.02em] px-4 py-2 rounded-lg hover:bg-primary/85 transition-all" aria-label="Demo talebi formunu aç">Demo Talep Et</a>
 <a href="http://login.legasis.ai:3026/login" class="inline-flex items-center justify-center gap-1 bg-primary text-white text-sm font-medium tracking-[0.02em] px-4 py-2 rounded-lg hover:bg-primary/85 transition-all"><span class="material-symbols-outlined text-xs leading-none shrink-0" aria-hidden="true">login</span>Giriş</a>
@@ -166,7 +203,6 @@ header .material-symbols-outlined {
 <a class="nav-link" href="ozellikler.html">Özellikler</a>
 <a class="nav-link" href="guvenlik.html">Güvenlik</a>
 <a class="nav-link text-primary" href="hakkimizda.html">Hakkımızda</a>
-<a class="nav-link" href="kaynaklar.html">Kaynaklar</a>
 </nav>
 <div class="flex flex-col gap-2 pt-4 mt-2 border-t border-primary/10">
 <a href="index.html#demo" class="inline-flex w-full items-center justify-center bg-primary text-white text-sm font-medium tracking-[0.02em] px-4 py-3 rounded-lg hover:bg-primary/85 transition-all" aria-label="Demo talebi formunu aç">Demo Talep Et</a>
@@ -175,69 +211,190 @@ header .material-symbols-outlined {
 </div>
 </header>
 
-<main class="flex flex-col gap-10 lg:gap-16">
+<main class="flex flex-col">
 <!-- Hero -->
-<section class="px-4 sm:px-6 lg:px-8 pt-10 pb-2 lg:pt-12">
-<div class="max-w-7xl mx-3 sm:mx-auto px-6 sm:px-10 lg:px-14 py-12 lg:py-16 bg-gradient-to-br from-[#F5F7FB] via-white to-[#EEF3FF] rounded-3xl border border-primary/5 shadow-sm">
-<div class="max-w-3xl mx-auto text-center">
-<span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/5 border border-primary/10 text-primary text-xs font-semibold uppercase tracking-[0.1em]">
-<span class="material-symbols-outlined text-sm" aria-hidden="true">groups</span>
-Hakkımızda
-</span>
-<p class="mt-6 text-primary font-header text-[clamp(2.5rem,6vw,4.5rem)] font-medium italic tracking-tighter leading-none">20+ Yıl</p>
-<h1 class="hero-headline mt-3 text-black font-normal leading-[1.12] tracking-[-0.02em] text-center mx-auto w-full max-w-[min(100%,22rem)] sm:max-w-[min(100%,28rem)] lg:max-w-[min(100%,34rem)] text-[clamp(1.5rem,2vw+1rem,3.5rem)] px-0">Hibrit Uzmanlık</h1>
-<p class="mt-5 text-slate-800/90 font-light leading-relaxed text-[clamp(0.85rem,0.9vw+0.4rem,1.15rem)] max-w-2xl mx-auto">
-Dikera, hukuk, yapay zeka ve kurumsal bulut altyapısı alanlarında 20 yılı aşkın deneyime sahip bir yönetim ekibi tarafından geliştirilmiştir.
+<section class="px-4 sm:px-6 lg:px-8 pt-10 lg:pt-12">
+<div class="about-hero max-w-7xl mx-auto rounded-3xl border border-primary/10 shadow-sm px-6 sm:px-10 lg:px-14 py-12 lg:py-16">
+<div class="grid lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-14 items-center">
+<div>
+<h1 class="hero-headline mt-0 text-black font-normal leading-[1.02] tracking-[-0.035em] text-[clamp(2.7rem,7vw,5.7rem)]">
+Hukuk aklı, AI ve data disipliniyle aynı masada.
+</h1>
+<p class="mt-6 text-slate-800/90 font-light leading-relaxed text-lg lg:text-xl max-w-2xl">
+Legasis AI, yalnızca teknolojik bir araç değil; hukuk alanında uzman kişiler ile yapay zeka, veri ve ürün ekiplerinin birlikte geliştirdiği bir çalışma platformudur.
 </p>
-<p class="mt-4 text-slate-800/90 font-light leading-relaxed text-[clamp(0.85rem,0.9vw+0.4rem,1.15rem)] max-w-2xl mx-auto">
-Legasis AI gerçek hukuk operasyonlarının ihtiyaçları ile ileri veri mimarisini bir araya getirir.
+</div>
+<div class="bg-white/[0.88] backdrop-blur rounded-3xl border border-primary/10 shadow-[0_24px_70px_-36px_rgba(8,16,44,0.35)] p-5 sm:p-7">
+<div class="flex items-center justify-between gap-4 border-b border-primary/10 pb-5">
+<div>
+<p class="text-xs uppercase tracking-[0.16em] text-charcoal/50 font-semibold">Ürün yaklaşımı</p>
+<h2 class="mt-2 text-primary text-2xl font-semibold tracking-tight">Birlikte tasarlanan hukuk teknolojisi</h2>
+</div>
+<div class="w-12 h-12 rounded-2xl bg-primary text-white flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined" aria-hidden="true">hub</span>
+</div>
+</div>
+<div class="mt-6 grid gap-3">
+<div class="flex items-start gap-3 rounded-2xl bg-[#F7F9FD] border border-primary/5 p-4">
+<span class="material-symbols-outlined text-primary" aria-hidden="true">balance</span>
+<div>
+<h3 class="text-sm font-semibold text-primary">Hukuki ihtiyaç</h3>
+<p class="mt-1 text-sm text-charcoal/70 leading-relaxed">Gerçek dosya, sözleşme ve araştırma iş akışlarından gelen beklentilerle başlar.</p>
+</div>
+</div>
+<div class="flex items-start gap-3 rounded-2xl bg-[#F7F9FD] border border-primary/5 p-4">
+<span class="material-symbols-outlined text-primary" aria-hidden="true">database</span>
+<div>
+<h3 class="text-sm font-semibold text-primary">Veri modeli</h3>
+<p class="mt-1 text-sm text-charcoal/70 leading-relaxed">Hukuki kaynaklar, mevzuat dili ve kurumsal doküman yapıları veri ekibiyle anlamlandırılır.</p>
+</div>
+</div>
+<div class="flex items-start gap-3 rounded-2xl bg-[#F7F9FD] border border-primary/5 p-4">
+<span class="material-symbols-outlined text-primary" aria-hidden="true">psychology</span>
+<div>
+<h3 class="text-sm font-semibold text-primary">AI ürün akışı</h3>
+<p class="mt-1 text-sm text-charcoal/70 leading-relaxed">Model davranışı hukukçularla test edilir, ürün deneyimi güvenli kullanım için sadeleştirilir.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Ana vurgu -->
+<section class="px-4 sm:px-6 lg:px-8 py-14 lg:py-20" aria-labelledby="ortak-urun-baslik">
+<div class="max-w-7xl mx-auto grid lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-16 items-start">
+<div class="lg:sticky lg:top-28">
+<span class="text-primary/60 text-sm font-semibold uppercase tracking-[0.14em]">Ortak ürün kültürü</span>
+<h2 id="ortak-urun-baslik" class="mt-4 text-primary text-3xl lg:text-5xl font-normal leading-tight tracking-[-0.025em]">
+Legasis AI, iki ayrı dünyanın yan yana gelmesiyle değil, birlikte çalışmasıyla doğdu.
+</h2>
+</div>
+<div class="space-y-5 text-charcoal/80 text-base lg:text-lg leading-relaxed font-light">
+<p>
+Hukuk ekipleri ürünün hangi sorulara cevap vermesi, hangi riskleri görünür kılması ve hangi noktalarda insan değerlendirmesini koruması gerektiğini belirler.
+</p>
+<p>
+AI ve data ekipleri bu ihtiyacı güvenilir veri yapıları, kontrollü model davranışı ve kurumsal kullanıma uygun ürün mimarisiyle hayata geçirir.
+</p>
+<p class="text-primary font-medium">
+Bu nedenle Legasis AI'ın merkezinde tek başına otomasyon değil; hukuk bilgisini güçlendiren, denetlenebilir ve uygulanabilir bir yapay zeka deneyimi vardır.
 </p>
 </div>
 </div>
 </section>
 
-<!-- Neden Dikera? -->
-<section class="border-t border-primary/10 bg-[#f8f9fa]" aria-labelledby="hakkimizda-neden-baslik">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
-<div class="max-w-3xl mx-auto text-center">
-<h2 id="hakkimizda-neden-baslik" class="text-primary text-2xl lg:text-3xl font-medium tracking-tight">Neden Dikera?</h2>
-<p class="mt-5 text-charcoal/80 text-base lg:text-lg font-light leading-relaxed">
-Çünkü bu ürün yalnızca yapay zeka bilgisiyle değil; hukuk operasyon deneyimi ve kurumsal altyapı uzmanlığı ile geliştirilmiştir.
-</p>
-<p class="mt-6 text-charcoal font-medium text-base lg:text-lg">Kurucu ortakların her biri kendi alanında 20 yılı aşkın deneyime sahiptir:</p>
-<ul class="mt-4 space-y-2 text-charcoal/80 text-base lg:text-lg leading-relaxed font-light list-none mx-auto inline-block text-left">
-<li class="flex items-start gap-2"><span class="text-primary shrink-0" aria-hidden="true">•</span> Hukuk operasyonları</li>
-<li class="flex items-start gap-2"><span class="text-primary shrink-0" aria-hidden="true">•</span> Yapay zeka ve veri mimarisi</li>
-<li class="flex items-start gap-2"><span class="text-primary shrink-0" aria-hidden="true">•</span> Kurumsal bulut ve güvenlik altyapısı</li>
-</ul>
-<p class="mt-6 text-charcoal/80 text-base lg:text-lg font-light leading-relaxed">
-Bu üç alanın kesişimi, Türkiye'de nadir bulunan bir uzmanlık kombinasyonudur.
-</p>
+<!-- Uzmanlıklar -->
+<section class="bg-[#F8FAFC] border-y border-primary/10 px-4 sm:px-6 lg:px-8 py-14 lg:py-20" aria-labelledby="uzmanlik-baslik">
+<div class="max-w-7xl mx-auto">
+<div class="max-w-3xl">
+<span class="text-primary/60 text-sm font-semibold uppercase tracking-[0.14em]">Ekip yapısı</span>
+<h2 id="uzmanlik-baslik" class="mt-4 text-primary text-3xl lg:text-5xl font-normal leading-tight tracking-[-0.025em]">Hukuk, AI ve data ekipleri tek ürün ritminde çalışır.</h2>
+</div>
+<div class="mt-10 grid md:grid-cols-3 gap-5 lg:gap-6">
+<article class="expertise-card bg-white rounded-3xl border border-primary/10 p-6 lg:p-7 shadow-sm">
+<div class="w-12 h-12 rounded-2xl bg-primary/5 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined" aria-hidden="true">gavel</span>
+</div>
+<h3 class="mt-5 text-primary text-xl font-semibold tracking-tight">Hukuk uzmanları</h3>
+<p class="mt-3 text-charcoal/75 text-sm lg:text-base leading-relaxed font-light">Kullanım senaryolarını, terminolojiyi, doğruluk beklentisini ve karar destek sınırlarını tanımlar.</p>
+</article>
+<article class="expertise-card bg-white rounded-3xl border border-primary/10 p-6 lg:p-7 shadow-sm">
+<div class="w-12 h-12 rounded-2xl bg-primary/5 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined" aria-hidden="true">schema</span>
+</div>
+<h3 class="mt-5 text-primary text-xl font-semibold tracking-tight">AI ve data ekipleri</h3>
+<p class="mt-3 text-charcoal/75 text-sm lg:text-base leading-relaxed font-light">Veri kaynaklarını yapılandırır, model davranışını ölçer ve hukuk diline uygun cevap deneyimini geliştirir.</p>
+</article>
+<article class="expertise-card bg-white rounded-3xl border border-primary/10 p-6 lg:p-7 shadow-sm">
+<div class="w-12 h-12 rounded-2xl bg-primary/5 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined" aria-hidden="true">verified_user</span>
+</div>
+<h3 class="mt-5 text-primary text-xl font-semibold tracking-tight">Ürün ve güvenlik</h3>
+<p class="mt-3 text-charcoal/75 text-sm lg:text-base leading-relaxed font-light">Kurumsal kullanım, veri gizliliği, erişim kontrolü ve izlenebilirlik beklentilerini ürünün temel parçası yapar.</p>
+</article>
 </div>
 </div>
 </section>
 
-<!-- Uzmanlık kartları -->
-<section class="px-4 sm:px-6 lg:px-8 pb-12 lg:pb-16" aria-label="Uzmanlık alanları">
-<div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-6 lg:gap-8">
-<article class="hakkimizda-card bg-white rounded-2xl border border-primary/10 shadow-sm p-6 lg:p-8 flex flex-col items-center text-center gap-4">
-<div class="inline-flex items-center justify-center w-14 h-14 lg:w-16 lg:h-16 rounded-full bg-primary/5 text-primary">
-<span class="material-symbols-outlined text-3xl lg:text-4xl" aria-hidden="true">code</span>
+<!-- Çalışma modeli -->
+<section class="px-4 sm:px-6 lg:px-8 py-14 lg:py-20" aria-labelledby="calisma-modeli-baslik">
+<div class="max-w-7xl mx-auto grid lg:grid-cols-[0.85fr_1.15fr] gap-10 lg:gap-16">
+<div>
+<span class="text-primary/60 text-sm font-semibold uppercase tracking-[0.14em]">Nasıl geliştiriyoruz?</span>
+<h2 id="calisma-modeli-baslik" class="mt-4 text-primary text-3xl lg:text-5xl font-normal leading-tight tracking-[-0.025em]">Her özellik, hukuk ihtiyacından başlayıp veriyle doğrulanır.</h2>
+<p class="mt-6 text-charcoal/75 text-base lg:text-lg leading-relaxed font-light">
+Ürün kararlarımızı yalnızca teknik kapasiteye göre değil, hukuk ekiplerinin günlük iş akışında gerçek değer üretip üretmediğine göre alıyoruz.
+</p>
 </div>
-<div class="flex flex-col gap-2">
-<h3 class="text-primary text-lg lg:text-xl font-medium tracking-tight">Yapay Zeka Uzmanlığı</h3>
-<p class="text-charcoal/85 text-sm lg:text-base leading-relaxed font-light">İleri veri analitiği ve yapay zeka yaklaşımlarıyla hukuk süreçlerine özel çözümler üretir.</p>
-</div>
+<div class="relative pl-8 lg:pl-10">
+<div class="workflow-line absolute left-3 top-2 bottom-2 w-px" aria-hidden="true"></div>
+<div class="space-y-6">
+<article class="collaboration-card relative bg-white rounded-3xl border border-primary/10 p-5 lg:p-6 shadow-sm">
+<span class="absolute -left-[2.05rem] top-6 w-5 h-5 rounded-full bg-primary ring-8 ring-white" aria-hidden="true"></span>
+<h3 class="mt-0 text-primary text-lg font-semibold">Hukuki senaryo tanımı</h3>
+<p class="mt-2 text-charcoal/75 text-sm lg:text-base leading-relaxed font-light">Araştırma, sözleşme, mevzuat takibi veya doküman inceleme gibi gerçek kullanım anları hukuk uzmanlarıyla netleştirilir.</p>
 </article>
-<article class="hakkimizda-card bg-white rounded-2xl border border-primary/10 shadow-sm p-6 lg:p-8 flex flex-col items-center text-center gap-4">
-<div class="inline-flex items-center justify-center w-14 h-14 lg:w-16 lg:h-16 rounded-full bg-primary/5 text-primary">
-<span class="material-symbols-outlined text-3xl lg:text-4xl" aria-hidden="true">balance</span>
-</div>
-<div class="flex flex-col gap-2">
-<h3 class="text-primary text-lg lg:text-xl font-medium tracking-tight">Hukuki Tecrübe</h3>
-<p class="text-charcoal/85 text-sm lg:text-base leading-relaxed font-light">Gerçek hukuk operasyonlarından gelen bilgi birikimiyle ihtiyaca uygun, uygulanabilir ürün gelişimi sunar.</p>
-</div>
+<article class="collaboration-card relative bg-white rounded-3xl border border-primary/10 p-5 lg:p-6 shadow-sm">
+<span class="absolute -left-[2.05rem] top-6 w-5 h-5 rounded-full bg-primary ring-8 ring-white" aria-hidden="true"></span>
+<h3 class="mt-0 text-primary text-lg font-semibold">Veri ve bağlam tasarımı</h3>
+<p class="mt-2 text-charcoal/75 text-sm lg:text-base leading-relaxed font-light">Kaynakların yapısı, güncelliği, erişim sınırları ve kurumlara özel bilgi alanları data ekibi tarafından modellenir.</p>
 </article>
+<article class="collaboration-card relative bg-white rounded-3xl border border-primary/10 p-5 lg:p-6 shadow-sm">
+<span class="absolute -left-[2.05rem] top-6 w-5 h-5 rounded-full bg-primary ring-8 ring-white" aria-hidden="true"></span>
+<h3 class="mt-0 text-primary text-lg font-semibold">AI davranışı ve doğrulama</h3>
+<p class="mt-2 text-charcoal/75 text-sm lg:text-base leading-relaxed font-light">Yanıt kalitesi, kaynak gösterimi, belirsizlik yönetimi ve riskli alanlar hukuk ve AI ekipleri tarafından birlikte test edilir.</p>
+</article>
+<article class="collaboration-card relative bg-white rounded-3xl border border-primary/10 p-5 lg:p-6 shadow-sm">
+<span class="absolute -left-[2.05rem] top-6 w-5 h-5 rounded-full bg-primary ring-8 ring-white" aria-hidden="true"></span>
+<h3 class="mt-0 text-primary text-lg font-semibold">Kurumsal kullanıma hazırlık</h3>
+<p class="mt-2 text-charcoal/75 text-sm lg:text-base leading-relaxed font-light">Güvenlik, yetkilendirme, kayıt altına alma ve kullanıcı deneyimi kurumsal hukuk ekiplerinin beklentilerine göre son halini alır.</p>
+</article>
+</div>
+</div>
+</div>
+</section>
+
+<!-- İlkeler -->
+<section class="bg-[#F8FAFC] border-t border-primary/10 px-4 sm:px-6 lg:px-8 pt-14 lg:pt-16 pb-14 lg:pb-20" aria-labelledby="ilkeler-baslik">
+<div class="max-w-7xl mx-auto rounded-3xl border border-primary/10 bg-white shadow-sm px-6 sm:px-10 lg:px-12 py-12 lg:py-14">
+<div class="grid lg:grid-cols-[0.9fr_1.1fr] gap-10 lg:gap-14 items-start">
+<div>
+<span class="text-primary/60 text-sm font-semibold uppercase tracking-[0.14em]">Ürün prensipleri</span>
+<h2 id="ilkeler-baslik" class="mt-4 text-primary text-3xl lg:text-5xl font-normal leading-tight tracking-[-0.025em]">Hukuk profesyonelleri için güven veren AI deneyimi.</h2>
+</div>
+<div class="grid sm:grid-cols-2 gap-4">
+<article class="principle-card rounded-2xl border border-primary/10 bg-white p-5 shadow-sm">
+<div class="w-12 h-12 rounded-2xl bg-primary/5 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined" aria-hidden="true">fact_check</span>
+</div>
+<h3 class="mt-4 text-primary text-base font-semibold">Denetlenebilirlik</h3>
+<p class="mt-2 text-sm text-charcoal/75 leading-relaxed font-light">Yanıtların bağlamı, kaynakları ve kullanım sınırları görünür olmalıdır.</p>
+</article>
+<article class="principle-card rounded-2xl border border-primary/10 bg-white p-5 shadow-sm">
+<div class="w-12 h-12 rounded-2xl bg-primary/5 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined" aria-hidden="true">lock</span>
+</div>
+<h3 class="mt-4 text-primary text-base font-semibold">Gizlilik</h3>
+<p class="mt-2 text-sm text-charcoal/75 leading-relaxed font-light">Hukuki veriler güvenlik ve erişim prensipleriyle tasarlanan ortamlarda işlenir.</p>
+</article>
+<article class="principle-card rounded-2xl border border-primary/10 bg-white p-5 shadow-sm">
+<div class="w-12 h-12 rounded-2xl bg-primary/5 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined" aria-hidden="true">person_check</span>
+</div>
+<h3 class="mt-4 text-primary text-base font-semibold">İnsan kontrolü</h3>
+<p class="mt-2 text-sm text-charcoal/75 leading-relaxed font-light">AI, hukukçunun değerlendirmesini ikame etmek için değil, güçlendirmek için konumlanır.</p>
+</article>
+<article class="principle-card rounded-2xl border border-primary/10 bg-white p-5 shadow-sm">
+<div class="w-12 h-12 rounded-2xl bg-primary/5 text-primary flex items-center justify-center">
+<span class="material-symbols-outlined" aria-hidden="true">sync_alt</span>
+</div>
+<h3 class="mt-4 text-primary text-base font-semibold">Sürekli iyileştirme</h3>
+<p class="mt-2 text-sm text-charcoal/75 leading-relaxed font-light">Ürün, kullanıcı geri bildirimi ve ölçülen kalite kriterleriyle düzenli olarak geliştirilir.</p>
+</article>
+</div>
+</div>
 </div>
 </section>
 </main>
@@ -258,6 +415,7 @@ Bu üç alanın kesişimi, Türkiye'de nadir bulunan bir uzmanlık kombinasyonud
 <a class="text-charcoal/70 hover:text-primary transition-colors font-body" href="ozellikler.html">Özellikler</a>
 <a class="text-charcoal/70 hover:text-primary transition-colors font-body" href="guvenlik.html">Güvenlik</a>
 <a class="text-charcoal/70 hover:text-primary transition-colors font-body" href="hakkimizda.html">Hakkımızda</a>
+<a class="text-charcoal/70 hover:text-primary transition-colors font-body" href="kaynaklar.html">Kaynaklar</a>
 </nav>
                     </div>
 <div class="flex flex-col gap-5">
