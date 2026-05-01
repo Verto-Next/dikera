@@ -190,6 +190,103 @@ header .material-symbols-outlined {
 .mobile-step-chip {
     box-shadow: 0 10px 24px -12px rgba(8, 16, 44, 0.45);
 }
+.features-hero {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(180deg, #fafbfb 0%, #f0f1f3 100%);
+}
+.features-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background:
+        radial-gradient(circle at top left, rgba(8, 16, 44, 0.06), transparent 36%),
+        radial-gradient(circle at bottom right, rgba(49, 58, 64, 0.06), transparent 30%);
+    pointer-events: none;
+}
+.features-hero > * {
+    position: relative;
+    z-index: 1;
+}
+#ozellik-akış [data-feature-inline-visual] {
+    border: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    overflow: visible !important;
+}
+#ozellik-akış [data-feature-inline-visual] > .flex,
+#ozellik-akış [data-feature-inline-visual] img {
+    background: transparent !important;
+}
+@media (min-width: 1024px) {
+    #ozellik-akış [data-feature-visual] {
+        display: none !important;
+    }
+    #ozellik-akış [data-feature-copy] {
+        grid-column: span 12 / span 12 !important;
+        padding-left: 0 !important;
+    }
+    #ozellik-akış .feature-panel:not(.hidden) {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        column-gap: 2.5rem;
+        align-items: center;
+        min-height: auto !important;
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
+    }
+    #ozellik-akış .feature-panel:not(.hidden) > :not([data-feature-inline-visual]) {
+        grid-column: 1;
+        width: 100%;
+        max-width: 34rem;
+        justify-self: start;
+    }
+    #ozellik-akış .feature-panel:not(.hidden) > [data-feature-inline-visual] {
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        grid-column: 2;
+        grid-row: 1 / span 5;
+        width: 100%;
+        max-width: 42rem;
+        aspect-ratio: 16 / 9;
+        margin-top: 0 !important;
+        justify-self: center;
+    }
+    #ozellik-akış .feature-panel:not(.hidden)[data-index="1"] > :not([data-feature-inline-visual]),
+    #ozellik-akış .feature-panel:not(.hidden)[data-index="3"] > :not([data-feature-inline-visual]),
+    #ozellik-akış .feature-panel:not(.hidden)[data-index="5"] > :not([data-feature-inline-visual]) {
+        grid-column: 2;
+    }
+    #ozellik-akış .feature-panel:not(.hidden)[data-index="1"] > [data-feature-inline-visual],
+    #ozellik-akış .feature-panel:not(.hidden)[data-index="3"] > [data-feature-inline-visual],
+    #ozellik-akış .feature-panel:not(.hidden)[data-index="5"] > [data-feature-inline-visual] {
+        grid-column: 1;
+    }
+    #ozellik-akış .feature-panel:not(.hidden)[data-index="1"] > :not([data-feature-inline-visual]),
+    #ozellik-akış .feature-panel:not(.hidden)[data-index="3"] > :not([data-feature-inline-visual]),
+    #ozellik-akış .feature-panel:not(.hidden)[data-index="5"] > :not([data-feature-inline-visual]) {
+        justify-self: start;
+    }
+    #ozellik-akış [data-feature-inline-visual] img {
+        width: 100%;
+        height: 100%;
+        max-height: none !important;
+        object-fit: contain;
+    }
+    #ozellik-akış [data-feature-inline-visual] > .flex {
+        width: 100%;
+        height: 100%;
+        min-height: 0 !important;
+    }
+}
+@media (min-width: 1280px) {
+    #ozellik-akış .feature-panel:not(.hidden) {
+        column-gap: 3.5rem;
+    }
+}
 @media (max-width: 1023px) {
     #ozellik-akış .feature-panel {
         min-height: 0 !important;
@@ -249,89 +346,88 @@ header .material-symbols-outlined {
 
 <main class="flex flex-col gap-10 lg:gap-16">
 <!-- Hero -->
-<section class="max-w-7xl mx-3 sm:mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-8 lg:pt-14 lg:pb-12 bg-gradient-to-br from-[#F5F7FB] via-white to-[#EEF3FF] rounded-3xl mt-4 sm:mt-6">
+<section class="features-hero w-[calc(100%-1.5rem)] sm:w-[80%] max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-8 lg:pt-14 lg:pb-12 rounded-3xl mt-4 sm:mt-6">
 <div class="w-full flex flex-col items-center text-center">
 <h2 class="hero-headline text-black font-normal leading-[1.12] tracking-[-0.02em] text-center w-full max-w-full text-[clamp(1.5rem,2vw+1rem,3.5rem)] px-0 py-0">
-<span class="block">Hukuki dokümanlarınızı sadece analiz etmez</span>
-<span class="block">Anlar, ilişkilendirir ve riskleri ortaya çıkarır.</span>
+<span class="block">Veriniz sizde kalır, hukuki yapay zeka sizin için çalışır.</span>
+<span class="block">Güvenli analiz, araştırma ve üretim tek platformda.</span>
 </h2>
 <ul class="mt-7 space-y-2 text-slate-900 font-light leading-relaxed w-full max-w-[42rem] text-[clamp(0.744rem,0.8vw+0.32rem,0.84rem)] mx-auto text-center list-none pl-0">
-<li>Veriler yurtdışına çıkmaz. Güvenlik ve kontrol sizde kalır</li>
-<li>Sadece yüklenen doküman üzerinden çalışır.</li>
-<li>Hukuki bağlamda akıl yürütür; parçalar arasında bağ kurar.</li>
+<li>Uygulamaya yüklediğiniz veriler hiçbir şekilde yurtdışına çıkmaz.</li>
+<li>Dokümanlarınız model eğitimi için kullanılmaz; yalnızca sizin işlem akışınızda çalışır.</li>
+<li>Yetkilendirdiğiniz kullanıcılar dışında hiç kimse verilerinizi göremez.</li>
 </ul>
 </div>
 </section>
 
 <!-- Scrollytelling: sol metin blokları (yüksek) + sağ yapışkan görsel yığını -->
-<section class="px-4 sm:px-6 lg:px-8 pb-8 lg:pb-16 bg-[#FFFFFF]" aria-label="Özellik modülleri" id="ozellik-akış">
+<section class="px-4 sm:px-6 lg:px-8 pb-8 lg:pb-16 bg-[#FFFFFF]" aria-label="Özellik modülleri" id="ozellik-akış" data-active-index="0">
 <div class="max-w-7xl mx-auto">
 <div class="lg:grid lg:grid-cols-12 lg:gap-10 xl:gap-14 items-start">
-<!-- Sol: ray + metin panelleri -->
-<div class="lg:col-span-5 relative lg:pl-2">
-<div class="hidden lg:block absolute left-0 top-0 bottom-0 w-px bg-primary/10" aria-hidden="true"></div>
-<div class="hidden lg:block absolute left-0 top-0 z-[1] w-px bg-primary transition-[height] duration-300 ease-out" id="scroll-rail-fill" style="height: 20%;" aria-hidden="true"></div>
+<!-- Metin panelleri -->
+<div class="lg:col-span-5 relative" data-feature-copy>
 
 <div class="space-y-0">
-<!-- 0 Doküman -->
+<!-- 0 Dava Analiz Modülü -->
 <article class="feature-panel min-h-[min(88vh,52rem)] flex flex-col justify-center py-14 lg:py-20 border-l-2 border-transparent lg:pl-8 pl-0" data-feature-panel data-index="0">
-<div class="lg:hidden mb-6 inline-flex rounded-2xl border border-primary/10 bg-[#FAFBFD] shadow-sm px-4 py-3 text-sm font-medium text-primary tracking-[0.02em]"><span class="mr-2 opacity-50">01</span> Doküman</div>
-<h3 class="text-lg sm:text-xl font-[350] text-primary/45 leading-snug tracking-[0.02em]">Doküman</h3>
-<p class="alameti hero-editorial mt-4 text-primary font-normal leading-[1.12] tracking-[-0.02em] text-[clamp(1.35rem,1rem+1.2vw,2.5rem)]">Yüklenen dosyaya kilitlenen, parçaları birbirine bağlayan analiz.</p>
-<p class="mt-4 text-charcoal/90 font-light leading-relaxed text-[clamp(0.744rem,0.8vw+0.32rem,0.9rem)]">Dava dosyası veya sözleşme yüklenir; sistem okur, metinler arasında ilişki kurar, yanıtları belge içi referansla sunar.</p>
+<div class="lg:hidden mb-6 inline-flex rounded-2xl border border-primary/10 bg-[#FAFBFD] shadow-sm px-4 py-3 text-sm font-medium text-primary tracking-[0.02em]"><span class="mr-2 opacity-50">01</span> Dava Analiz Modülü</div>
+<h3 class="text-lg sm:text-xl font-[350] text-primary/45 leading-snug tracking-[0.02em]">Dava Analiz Modülü</h3>
+<p class="alameti hero-editorial mt-4 text-primary font-normal leading-[1.12] tracking-[-0.02em] text-[clamp(1.35rem,1rem+1.2vw,2.5rem)]">Dava dosyalarını yükleyin; yapay zeka tüm evrakı okuyup sorularınıza dosya içi dayanaklarla yanıt versin.</p>
+<p class="mt-4 text-charcoal/90 font-light leading-relaxed text-[clamp(0.744rem,0.8vw+0.32rem,0.9rem)]">Dilekçeler, ekler, tutanaklar ve kararlar tek bir bütün olarak analiz edilir. Sistem, dosya kapsamındaki olay örgüsünü, taraf beyanlarını ve kritik hukuki noktaları ilişkilendirerek davayı daha hızlı kavramanıza yardımcı olur.</p>
 <ul class="mt-5 space-y-3 text-charcoal/90 font-light leading-relaxed text-[clamp(0.744rem,0.8vw+0.32rem,0.9rem)] list-none pl-0">
-<li><strong class="font-medium text-charcoal">Legasis AI</strong> genel amaçlı sohbet botu değildir; yalnızca sizin yüklediğiniz dokümanda çalışır.</li>
-<li>Cevaplar <strong class="font-medium text-charcoal">dosya içi konumla</strong> ilişkilendirilir; dayanak takibi kolaylaşır.</li>
-<li>Verileriniz yurtdışına çıkmadığı için <strong class="font-medium text-charcoal">KVKK</strong> ve <strong class="font-medium text-charcoal">Veri Güvenliği Riskini</strong> ortadan kaldırırsınız. Güvenli ve kontrollü bir uygulama kullanırsınız.</li>
+<li><strong class="font-medium text-charcoal">Soru-cevap analizi</strong> ile dosyaya özel yanıtlar alın; cevaplar ilgili belge ve içerik bağlamıyla desteklenir.</li>
+<li><strong class="font-medium text-charcoal">Dava özeti</strong>, olay kronolojisi, taraf iddiaları ve önemli deliller sistem tarafından düzenli bir analiz akışına dönüştürülür.</li>
+<li><strong class="font-medium text-charcoal">Güvenli çalışma alanı</strong> sayesinde hassas dava evrakları kontrollü şekilde işlenir; amaç, dosyayı daha hızlı anlamak ve stratejik hazırlığı güçlendirmektir.</li>
 </ul>
-<div class="lg:hidden mt-8 rounded-2xl border border-primary/10 bg-white shadow-sm overflow-hidden text-sm text-charcoal/80 font-light">
+<div class="lg:hidden mt-8 rounded-2xl border border-primary/10 bg-white shadow-sm overflow-hidden text-sm text-charcoal/80 font-light" data-feature-inline-visual>
 <img src="assets/Dava dosyaları.png" alt="Dava dosyası analizi ekranı" class="w-full h-auto max-h-48 object-contain object-center bg-white" loading="lazy" decoding="async" width="960" height="540"/>
-<p class="p-4">Ekran: dava dosyası ve analiz</p>
 </div>
 </article>
-<!-- 1 Araştırma -->
+<!-- 1 Emsal Karar ve Mevzuat Arama -->
 <article class="feature-panel min-h-[min(88vh,50rem)] flex flex-col justify-center py-14 lg:py-20 border-l-2 border-transparent lg:pl-8 pl-0 bg-[#FAFBFD] lg:bg-transparent -mx-4 px-4 sm:mx-0 sm:px-0 lg:mx-0 rounded-3xl lg:rounded-none" data-feature-panel data-index="1">
-<div class="lg:hidden mb-6 inline-flex rounded-2xl border border-primary/10 bg-white shadow-sm px-4 py-3 text-sm font-medium text-primary tracking-[0.02em]"><span class="mr-2 opacity-50">02</span> Araştırma</div>
-<h3 class="text-lg sm:text-xl font-[350] text-primary/45 leading-snug tracking-[0.02em]">Araştırma</h3>
-<p class="alameti hero-editorial mt-4 text-slate-700 font-normal leading-[1.12] tracking-[-0.02em] text-[clamp(1.35rem,1rem+1.2vw,2.5rem)]">Kanun maddesi ile içtihat hattını aynı akışta ilişkilendirir.</p>
+<div class="lg:hidden mb-6 inline-flex rounded-2xl border border-primary/10 bg-white shadow-sm px-4 py-3 text-sm font-medium text-primary tracking-[0.02em]"><span class="mr-2 opacity-50">02</span> Emsal ve Mevzuat</div>
+<h3 class="text-lg sm:text-xl font-[350] text-primary/45 leading-snug tracking-[0.02em]">Emsal Karar ve Mevzuat Arama</h3>
+<p class="alameti hero-editorial mt-4 text-slate-700 font-normal leading-[1.12] tracking-[-0.02em] text-[clamp(1.35rem,1rem+1.2vw,2.5rem)]">Konuya, uyuşmazlığa veya dava dosyanıza uygun emsal karar ve mevzuatı tek akışta bulun.</p>
 <ul class="mt-5 space-y-3 text-charcoal/90 font-light leading-relaxed text-[clamp(0.744rem,0.8vw+0.32rem,0.9rem)] list-none pl-0">
-<li><strong class="font-medium text-charcoal">Mevzuat araması</strong> ve <strong class="font-medium text-charcoal">emsal / içtihat</strong> sonuçlarını sorunun hukuki çerçevesine göre analiz eder ve özetleri ile birlikte sıralanmış şekilde karşınıza getirir.</li>
-<li>Davalarınız ve sözleşmeleriniz için mevzuat araması ve emsal karar / içtihat incelemesini akıllı bir şekilde analiz eder. Çelişkileri tespit eder, en uygun sonuçları listeler.</li>
+<li><strong class="font-medium text-charcoal">Emsal karar arama</strong> ile yazdığınız konuya ilişkin kararları tarayabilir, dava dosyanızla bağlantılı içtihatları daha hızlı tespit edebilirsiniz.</li>
+<li><strong class="font-medium text-charcoal">Mevzuat arama</strong> sayesinde uyuşmazlığınızla ilgili kanun maddelerine, düzenlemelere ve hukuki dayanaklara tek ekrandan ulaşabilirsiniz.</li>
+<li>Aramalarınızı <strong class="font-medium text-charcoal">Danıştay</strong>, <strong class="font-medium text-charcoal">Yargıtay</strong>, <strong class="font-medium text-charcoal">Yerel Hukuk Mahkemesi</strong> ve <strong class="font-medium text-charcoal">İstinaf Hukuk Mahkemesi</strong> kararları üzerinden yapabilirsiniz.</li>
+<li>Sistem, sonuçları yalnızca listelemekle kalmaz; dava konunuzla ilişkisini göstererek araştırma sürecinizi daha düzenli ve hedefli hale getirir.</li>
 </ul>
-<div class="lg:hidden mt-8 rounded-2xl border border-primary/10 bg-white shadow-sm overflow-hidden text-sm text-charcoal/80 font-light">
+<div class="lg:hidden mt-8 rounded-2xl border border-primary/10 bg-white shadow-sm overflow-hidden text-sm text-charcoal/80 font-light" data-feature-inline-visual>
 <div class="flex min-h-48 items-center justify-center p-2 bg-white">
 <img src="assets/mevzuat arama.png" alt="Mevzuat arama ekranı" class="w-full h-auto max-h-48 object-contain object-center bg-white" loading="lazy" decoding="async" width="960" height="540"/>
 </div>
-<p class="p-4">Ekran: mevzuat ve emsal karar arama</p>
 </div>
 </article>
-<!-- 2 Üretim — Sözleşme -->
+<!-- 2 Sözleşme Modülü -->
 <article class="feature-panel min-h-[min(86vh,48rem)] flex flex-col justify-center py-14 lg:py-20 border-l-2 border-transparent lg:pl-8 pl-0" data-feature-panel data-index="2">
-<div class="lg:hidden mb-6 inline-flex rounded-2xl border border-primary/10 bg-[#FAFBFD] shadow-sm px-4 py-3 text-sm font-medium text-primary tracking-[0.02em]"><span class="mr-2 opacity-50">03</span> Üretim</div>
-<h3 class="text-lg sm:text-xl font-[350] text-primary/45 leading-snug tracking-[0.02em]">Üretim - Sözleşme</h3>
-<p class="alameti hero-editorial mt-4 text-primary font-normal leading-[1.12] tracking-[-0.02em] text-[clamp(1.35rem,1rem+1.2vw,2.5rem)]">Taslak ve şablonlara bağlı kalmadan, ihtiyacınıza özgü sözleşme üretimi</p>
+<div class="lg:hidden mb-6 inline-flex rounded-2xl border border-primary/10 bg-[#FAFBFD] shadow-sm px-4 py-3 text-sm font-medium text-primary tracking-[0.02em]"><span class="mr-2 opacity-50">03</span> Sözleşme Modülü</div>
+<h3 class="text-lg sm:text-xl font-[350] text-primary/45 leading-snug tracking-[0.02em]">Sözleşme Modülü</h3>
+<p class="alameti hero-editorial mt-4 text-primary font-normal leading-[1.12] tracking-[-0.02em] text-[clamp(1.35rem,1rem+1.2vw,2.5rem)]">20'den fazla sözleşme şablonuyla, ihtiyaç duyduğunuz bilgileri doldurarak hukuki dayanakları görünen sözleşmeler oluşturun.</p>
 <ul class="mt-5 space-y-3 text-charcoal/90 font-light leading-relaxed text-[clamp(0.744rem,0.8vw+0.32rem,0.9rem)] list-none pl-0">
-<li>Sözleşme üretimini ihtiyacınıza özel olarak hazırlar. İlgili yasa maddesi ve emredici hükümlere göre sizin için sözleşmenizi üretir.</li>
-<li>Sözleşme detaylarını tek seferde girebilirsiniz; bu sayede çıktıyı tekrar düzenlemek zorunda kalmazsınız.</li>
+<li><strong class="font-medium text-charcoal">Akıllı sözleşme üretimi</strong> ile seçtiğiniz şablonun istediği bilgileri doldurur, sözleşmenizi daha kontrollü ve hızlı şekilde hazırlarsınız.</li>
+<li>Sözleşme ile ilgili <strong class="font-medium text-charcoal">kanun maddeleri</strong> ve <strong class="font-medium text-charcoal">emredici hükümler</strong> ayrıca listelenir; her madde için mevzuat.gov.tr üzerinden detaylara hızlı erişim sağlanır.</li>
+<li><strong class="font-medium text-charcoal">Sözleşme karşılaştırma</strong> özelliğiyle iki sözleşmeyi seçtiğiniz kriterlere göre yan yana inceleyebilir, farkları ve önemli değişiklikleri daha kolay görebilirsiniz.</li>
+<li><strong class="font-medium text-charcoal">Sözleşme analizi</strong> ile metniniz detaylı şekilde değerlendirilir; riskli alanlar, eksik noktalar ve dikkat edilmesi gereken hükümler daha görünür hale gelir.</li>
 </ul>
-<div class="lg:hidden mt-8 rounded-2xl border border-dashed border-primary/20 bg-white shadow-sm overflow-hidden text-sm text-charcoal/80 font-light">
+<div class="lg:hidden mt-8 rounded-2xl border border-dashed border-primary/20 bg-white shadow-sm overflow-hidden text-sm text-charcoal/80 font-light" data-feature-inline-visual>
 <img src="assets/Akilli_Sozlesme.png" alt="Akıllı sözleşme üretimi ekranı" class="w-full h-auto max-h-48 object-contain bg-white" loading="lazy" decoding="async" width="960" height="540"/>
-<p class="p-4">Ekran: sözleşme üretimi</p>
 </div>
 </article>
-<!-- 3 Üretim — Dilekçe -->
+<!-- 3 Dilekçe Modülü -->
 <article class="feature-panel min-h-[min(86vh,48rem)] flex flex-col justify-center py-14 lg:py-20 border-l-2 border-transparent lg:pl-8 pl-0 bg-[#FAFBFD] lg:bg-transparent -mx-4 px-4 sm:mx-0 sm:px-0 lg:mx-0 rounded-3xl lg:rounded-none" data-feature-panel data-index="3">
-<div class="lg:hidden mb-6 inline-flex rounded-2xl border border-primary/10 bg-white shadow-sm px-4 py-3 text-sm font-medium text-primary tracking-[0.02em]"><span class="mr-2 opacity-50">04</span> Dilekçe</div>
-<h3 class="text-lg sm:text-xl font-[350] text-primary/45 leading-snug tracking-[0.02em]">Üretim - Dilekçe</h3>
-<p class="alameti hero-editorial mt-4 text-slate-700 font-normal leading-[1.12] tracking-[-0.02em] text-[clamp(1.35rem,1rem+1.2vw,2.5rem)]">Dilerseniz sıfırdan dilekçe üretimi, dilerseniz dava ile ilgili dilekçe üretimi</p>
+<div class="lg:hidden mb-6 inline-flex rounded-2xl border border-primary/10 bg-white shadow-sm px-4 py-3 text-sm font-medium text-primary tracking-[0.02em]"><span class="mr-2 opacity-50">04</span> Dilekçe Modülü</div>
+<h3 class="text-lg sm:text-xl font-[350] text-primary/45 leading-snug tracking-[0.02em]">Dilekçe Modülü</h3>
+<p class="alameti hero-editorial mt-4 text-slate-700 font-normal leading-[1.12] tracking-[-0.02em] text-[clamp(1.35rem,1rem+1.2vw,2.5rem)]">Akıllı asistanla sohbet ederek ihtiyacınıza uygun dilekçeyi hızlıca oluşturun, düzenleyin ve güçlendirin.</p>
 <ul class="mt-5 space-y-3 text-charcoal/90 font-light leading-relaxed text-[clamp(0.744rem,0.8vw+0.32rem,0.9rem)] list-none pl-0">
-<li>Akıllı asistan ile sohbet ederek dilekçenizi oluşturun. Akıllı asistan dilekçe sürecinizi analiz etsin.</li>
-<li>Uygulama içinde veya Word formatında dilekçenizi revize edin.</li>
-<li>Asistanınız dilekçenize eklenebilecek emsal karar ve içtihatları otomatik tespit etsin.</li>
+<li><strong class="font-medium text-charcoal">Sohbet ederek dilekçe üretimi</strong> ile olayınızı, taleplerinizi ve dosya bilgilerinizi adım adım anlatır; sistem bu bilgilerden hukuki metin taslağı oluşturur.</li>
+<li>Dilekçenizi <strong class="font-medium text-charcoal">uygulama içinde</strong> düzenleyebilir veya <strong class="font-medium text-charcoal">Word formatında</strong> dışa aktararak çalışmaya devam edebilirsiniz.</li>
+<li>Uygulama, dilekçenize eklenebilecek <strong class="font-medium text-charcoal">emsal karar</strong> ve <strong class="font-medium text-charcoal">içtihatları</strong> otomatik önererek metnin hukuki dayanaklarını güçlendirir.</li>
+<li>Bu modül, dilekçe hazırlama sürecini hızlandırırken metnin tutarlı, düzenli ve dosya içeriğiyle uyumlu kalmasına yardımcı olur.</li>
 </ul>
-<div class="lg:hidden mt-8 rounded-2xl border border-primary/10 bg-white shadow-sm overflow-hidden text-sm text-charcoal/80 font-light">
+<div class="lg:hidden mt-8 rounded-2xl border border-primary/10 bg-white shadow-sm overflow-hidden text-sm text-charcoal/80 font-light" data-feature-inline-visual>
 <img src="assets/dilekce.png" alt="Dilekçe üretimi ekranı" class="w-full h-auto max-h-48 object-contain bg-white" loading="lazy" decoding="async" width="960" height="540"/>
-<p class="p-4">Ekran: dilekçe üretimi</p>
 </div>
 </article>
 <!-- 4 Analiz -->
@@ -344,9 +440,8 @@ header .material-symbols-outlined {
 <li>Davanızın otomatik olarak kronolojisini çıkarır. Dava sürecini tek seferde görmenizi sağlar.</li>
 <li>Çelişki tespiti ile süreç içi çelişkileri ve olası riskleri önden görmenizi sağlar.</li>
 </ul>
-<div class="lg:hidden mt-8 rounded-2xl border border-primary/10 bg-white shadow-sm overflow-hidden text-sm text-charcoal font-light">
+<div class="lg:hidden mt-8 rounded-2xl border border-primary/10 bg-white shadow-sm overflow-hidden text-sm text-charcoal font-light" data-feature-inline-visual>
 <img src="assets/kronoloji.png" alt="Dava kronolojisi ve analiz ekranı" class="w-full h-auto max-h-48 object-contain bg-white" loading="lazy" decoding="async" width="960" height="540"/>
-<p class="p-4">Ekran: kronoloji ve analiz</p>
 </div>
 </article>
 <!-- 5 Risk denetimi ve dayanak -->
@@ -359,9 +454,8 @@ header .material-symbols-outlined {
 <li><strong class="font-medium text-charcoal">Emredici hüküm</strong> ihlalleri ve eksik dayanakların görünür hale getirilmesi.</li>
 <li>Analiz sonuçlarının madde ve karar düzeyinde ilişkilendirilmesi.</li>
 </ul>
-<div class="lg:hidden mt-8 rounded-2xl border border-amber-200 bg-amber-50/50 shadow-sm overflow-hidden text-sm text-charcoal font-light">
+<div class="lg:hidden mt-8 rounded-2xl border border-amber-200 bg-amber-50/50 shadow-sm overflow-hidden text-sm text-charcoal font-light" data-feature-inline-visual>
 <img src="assets/Sözleşme.png" alt="Risk denetimi ve sözleşme ekranı" class="w-full h-auto max-h-48 object-contain bg-white" loading="lazy" decoding="async" width="960" height="540"/>
-<p class="p-4">Ekran: risk denetimi ve dayanak</p>
 </div>
 </article>
 <!-- Gizli — Çelişki (şablon) -->
@@ -390,7 +484,7 @@ header .material-symbols-outlined {
 </div>
 
 <!-- Sağ: yapışkan önizleme yığını (yalnızca masaüstü) -->
-<div class="hidden lg:block lg:col-span-7 lg:sticky lg:top-28 lg:self-start w-full">
+<div class="hidden lg:block lg:col-span-7 lg:sticky lg:top-28 lg:self-start w-full" data-feature-visual>
 <div class="relative min-h-[min(520px,72vh)] w-full">
 <div class="relative h-[min(480px,65vh)] w-full" id="feature-mock-stack">
 <!-- Mock 0 — doküman -->
@@ -444,15 +538,6 @@ Legasis AI yalnızca bilgi listesi sunmaz: riskleri azaltır, zaman kazandırır
 </div>
 </section>
 
-<section class="px-4 sm:px-6 lg:px-8 py-10 lg:py-12 bg-[#F5F7FB]">
-<div class="max-w-4xl mx-auto bg-primary text-white rounded-3xl p-10 sm:p-12 text-center border border-primary/20 shadow-sm">
-<h3 class="text-[clamp(1.35rem,1.5vw+1rem,2.25rem)] font-medium tracking-[0.02em]">Erken erişim için demo talep edin</h3>
-<p class="mt-3 text-white/70 max-w-lg mx-auto font-light leading-relaxed text-[clamp(0.744rem,0.8vw+0.32rem,0.9rem)]">Özellikleri ekibinizin dosya akışında görmek için iletişime geçin.</p>
-<a class="inline-flex mt-8 bg-white text-primary px-8 py-3 rounded-xl font-medium tracking-[0.02em] hover:bg-white/90 transition-all" href="index.html#demo" aria-label="Demo talebi formunu aç">
-Demo Talep Et
-</a>
-</div>
-</section>
 </main>
 <footer class="bg-[#FAFBFD] border-t border-primary/5 px-4 sm:px-6 lg:px-8 pt-20 lg:pt-24 pb-14">
 <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-14 lg:gap-16 mb-16">
@@ -552,6 +637,9 @@ ADIM <span id="mobile-step-current">1</span>/<span id="mobile-step-total">6</spa
         function syncMocksAndRail() {
             var vh = window.innerHeight;
             var idx = getActiveIndex();
+            if (flowSection) {
+                flowSection.setAttribute('data-active-index', String(idx));
+            }
             layers.forEach(function (layer) {
                 var i = parseInt(layer.getAttribute('data-mock-index'), 10);
                 layer.classList.toggle('is-active', i === idx);
